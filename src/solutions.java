@@ -2,7 +2,7 @@ import java.sql.Struct;
 import java.util.*;
 
 public class solutions {
-    ArrayList<Integer> ans = new ArrayList<>();
+    ArrayList<Integer> dummy = new ArrayList<>();
 
 //    public ArrayList<Integer> InorderTreversal(Node root) {
 //        if (root == null) return ans;
@@ -439,6 +439,161 @@ public class solutions {
 
 
     }
+//  recursive
+//    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+//        if (list1 != null && list2 != null) {
+//            if (list1.val < list2.val) {
+//                list1.next = mergeTwoLists(list1.next, list2);
+//                return list1;
+//            } else {
+//                list2.next = mergeTwoLists(list1, list2.next);
+//                return list2;
+//            }
+//        }
+//        if(list1==null){
+//            return list2;
+//        }
+//        return list1;
+//    }
+
+//    iterative
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+
+        ListNode dummy = new ListNode();
+        ListNode tail = dummy;
+        while (list1 != null && list2 != null){
+            if (list1.val <= list2.val){
+                dummy.next = new ListNode(list1.val);
+                list1 = list1.next;
+            }
+            else {
+                dummy.next = new ListNode(list2.val);
+                list2 = list2.next;
+            }
+            dummy = dummy.next;
+        }
+        while(list1 != null){
+            dummy.next = new ListNode(list1.val);
+            list1 = list1.next;
+            dummy = dummy.next;
+        }
+        while(list2 != null){
+            dummy.next = new ListNode(list2.val);
+            list2 = list2.next;
+            dummy = dummy.next;
+        }
+        return tail.next;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public ListNode reverseList(ListNode head) {
+
+        if(head == null){
+            return null;
+        }
+        ListNode newHead = head;
+
+        if (head.next != null){
+            newHead = reverseList(head.next);
+            head.next.next = head;
+        }
+        head.next = null;
+
+
+
+        return newHead;
+    }
+//    1->2->3
+//    ->4->5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public int maxArea(int[] height) {
+        int low = 0;
+        int high = height.length - 1;
+        int max = 0;
+
+        while (low < high){
+            int water = Math.min(height[low], height[high]) * (high - low);
+            max = Math.max(max, water);
+            if (height[low] <= height[high]){
+                low++;
+            }
+            else if (height[low] > height[high]){
+                high--;
+            }
+        }
+
+
+        return max;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
