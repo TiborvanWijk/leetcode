@@ -12,6 +12,8 @@ public class solutions {
 //        return ans;
 //    }
 
+//    checks if there is a duplicate by storing the variables
+//    and the seeing if the next number is already being stored in the hashset
     public boolean containsDuplicate(int[] nums) {
 
         HashSet<Integer> seen = new HashSet<>();
@@ -25,6 +27,7 @@ public class solutions {
     }
 
 
+//    check if a word is spelled the same backwards as forwards
     public boolean isAnagram(String s, String t) {
         char[] sChars = s.toCharArray();
         char[] tChars = t.toCharArray();
@@ -52,7 +55,10 @@ public class solutions {
 //        return nums;
 //    }
 
-
+// checks if diffrent words use the exact same amount of letters
+//    and puts all words of the words that are the same in a list
+//    it groups them together by sorting the word and looking it up in a hashmap
+//    if it contains the sorted word the word gets added to the list with the other word(s).
     public List<List<String>> groupAnagrams(String[] strs) {
 
         Map<String, List<String>> list = new HashMap<>();
@@ -90,6 +96,12 @@ public class solutions {
 //            }
 //        }
 
+
+//    checks the longestConsecutive example: 1,2,3,4,6 = 4;
+//    it does this by looping over the array and checking if
+//    the number is the same as the next number - 1 meaning it incremented by one
+//    every time it is the same the temp variable increases by one and if this
+//    variable is bigger than ans, ans = temp
     public int longestConsecutive(int[] nums) {
 
         Arrays.sort(nums);
@@ -118,6 +130,9 @@ public class solutions {
         return ans;
     }
 
+
+
+//    checks if a string containing 
     public boolean isValid(String s) {
 
         Stack<Character> stack = new Stack<>();
