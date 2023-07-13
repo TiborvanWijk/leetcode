@@ -132,7 +132,8 @@ public class solutions {
 
 
 
-//    checks if a string containing 
+//    checks if a string containing parameters are correctly opened and closed
+//    by using a stack to see if the top is the same type when a parameter is closed
     public boolean isValid(String s) {
 
         Stack<Character> stack = new Stack<>();
@@ -210,6 +211,8 @@ public class solutions {
 //        return ans;
 //    }
 
+//    checks if a word is typed the same forwards as backwards
+//    by implementing a StringBuilderClass
     public boolean isPalindrome(String s) {
         StringBuilder reverse = new StringBuilder();
         s = s.toLowerCase();
@@ -221,6 +224,8 @@ public class solutions {
         return String.valueOf(reverse).equals(String.valueOf(reverse.reverse()));
     }
 
+//    finds two numbers in a sorted array that add up to the given target
+//    by implementing a two pointer
     public int[] twoSum(int[] numbers, int target) {
 
         int[] ans = new int[2];
@@ -260,7 +265,9 @@ public class solutions {
 
 
 
-
+// checks if a number is unique and not seen before
+//    this is without bit-manipulation and uses a
+//    hashmap to check the amount on times a variable is stored
     public int singleNumber(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         int ans = 0;
@@ -284,7 +291,7 @@ public class solutions {
 
 
 
-
+// checks the best time to buy in a stockmarket
     public int maxProfit(int[] prices) {
         int leftPointer = 0;
         int rightPointer = 1;
@@ -304,7 +311,7 @@ public class solutions {
         return max;
     }
 
-
+// checks the longest substring without repeating letters
     public int lengthOfLongestSubstring(String s) {
         ArrayList<Character> stack = new ArrayList<>();
         int ans = 0;
