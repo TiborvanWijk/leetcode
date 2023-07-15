@@ -292,6 +292,7 @@ public class solutions {
 
 
 // checks the best time to buy in a stockmarket
+//    by calculating the biggest number difference from small to big
     public int maxProfit(int[] prices) {
         int leftPointer = 0;
         int rightPointer = 1;
@@ -349,7 +350,8 @@ public class solutions {
 //
 //    }
 
-
+// adds 1 to a array that repesents a normal number
+//    example [1,2,3]= 123
     public int[] plusOne(int[] digits) {
 
         for (int i = digits.length - 1; i >= 0; i--){
@@ -394,7 +396,7 @@ public class solutions {
 
 
 
-
+// finds the maximum number in an array when looking at a certain amount of data
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums.length == 0) return nums;
         int[] ans = new int[nums.length - (k - 1)];
@@ -411,7 +413,9 @@ public class solutions {
 
 
 
-
+// binary search checks if the middle of the sorted array is
+// the same as the target if not it removes half of the array
+//    by comparing the midle number to the target
     public int search(int[] nums, int target) {
 
         int low = 0;
@@ -509,21 +513,6 @@ public class solutions {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public ListNode reverseList(ListNode head) {
 
         if(head == null){
@@ -543,27 +532,6 @@ public class solutions {
     }
 //    1->2->3
 //    ->4->5
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public int maxArea(int[] height) {
         int low = 0;
@@ -603,7 +571,7 @@ public class solutions {
 //    }
 //    1->2->3
 //    ->4->5
-    
+
 
     public int trap(int[] height) {
         if (height == null){
