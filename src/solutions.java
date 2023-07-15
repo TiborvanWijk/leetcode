@@ -699,11 +699,40 @@ public class solutions {
 
 
 
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+
+//        isSameTree(p.left, q);
+//        isSameTree(p.right, q);
+//        isSameTree(q.left, p);
+//        isSameTree(q.right, p);
+//
+//        return false;
+    }
 
 
 
+    public boolean canJump(int[] nums) {
+        if (nums.length == 1 && nums[0] == 1){
+            return true;
+        }
+        else  if (nums.length == 1 && nums[0] == 0){
+            return true;
+        }
+        int jumNr = nums[0];
+        while (jumNr <= nums.length - 1){
+            jumNr += nums[jumNr];
 
+            if (jumNr >= nums.length || nums[jumNr] == nums[nums.length - 1]){
+                return true;
+            }
+            else if (nums[jumNr] == 0){
+                return false;
+            }
 
+        }
+
+        return false;
+    }
 
 
 
