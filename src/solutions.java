@@ -608,7 +608,34 @@ public class solutions {
     }
 
 
+    public boolean searchMatrix(int[][] matrix, int target) {
 
+
+
+
+
+
+        for (int i = 0; i < matrix.length; i++){
+            int high = matrix[i].length - 1;
+            int low = 0;
+            while (low <= high){
+                int middle = low + (high - low) / 2;
+
+                if (matrix[i][middle] == target){
+                    return true;
+                }
+                else if (target > matrix[i][middle]){
+                    low = middle + 1;
+                }
+                else {
+                    high = middle - 1;
+                }
+
+            }
+
+        }
+        return false;
+    }
 
 
 
