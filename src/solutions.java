@@ -584,6 +584,75 @@ public class solutions {
 
         return max;
     }
+//    public ListNode reverseList(ListNode head) {
+//
+//        if(head == null){
+//            return null;
+//        }
+//        ListNode newHead = head;
+//
+//        if (head.next != null){
+//            newHead = reverseList(head.next);
+//            head.next.next = head;
+//        }
+//        head.next = null;
+//
+//
+//
+//        return newHead;
+//    }
+//    1->2->3
+//    ->4->5
+    
+
+    public int trap(int[] height) {
+        if (height == null){
+            return 0;
+        }
+
+        int leftPointer = 0;
+        int rightPointer = height.length - 1;
+
+        int maxLeft = 0;
+        int maxRight = 0;
+
+        int water = 0;
+        int i = 0;
+
+        while (i < height.length){
+            maxLeft = Math.max(maxLeft,height[leftPointer]);
+            maxRight = Math.max(maxRight,height[rightPointer]);
+
+            water += Math.max(Math.min(maxLeft, maxRight) - height[i], 0);
+
+            if (height[leftPointer] > height[rightPointer]){
+                rightPointer--;
+            }
+            else{
+                leftPointer++;
+            }
+
+
+            i++;
+        }
+
+        return water;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
