@@ -415,7 +415,7 @@ public class solutions {
 
 // binary search checks if the middle of the sorted array is
 // the same as the target if not it removes half of the array
-//    by comparing the midle number to the target
+//    by comparing the middle number to the target
     public int search(int[] nums, int target) {
 
         int low = 0;
@@ -457,14 +457,7 @@ public class solutions {
 
 
 
-    public int minEatingSpeed(int[] piles, int h) {
 
-        Arrays.sort(piles);
-
-        return piles[h - (piles.length -1)];
-
-
-    }
 //  recursive
 //    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 //        if (list1 != null && list2 != null) {
@@ -610,11 +603,6 @@ public class solutions {
 
     public boolean searchMatrix(int[][] matrix, int target) {
 
-
-
-
-
-
         for (int i = 0; i < matrix.length; i++){
             int high = matrix[i].length - 1;
             int low = 0;
@@ -632,9 +620,10 @@ public class solutions {
                 }
 
             }
-
         }
+
         return false;
+
     }
 
 
@@ -642,6 +631,39 @@ public class solutions {
 
 
 
+
+
+
+
+
+
+    public int findMin(int[] nums) {
+
+
+
+
+
+
+
+
+        return -1;
+    }
+
+
+
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) return null;
+
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+
+        invertTree(root.left);
+        invertTree(root.right);
+
+
+        return root;
+    }
 
 
 
