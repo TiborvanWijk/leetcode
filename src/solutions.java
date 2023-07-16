@@ -816,11 +816,19 @@ public class solutions {
 
 
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        
+
+    public int myAtoi(String s) {
+
+        s = s.strip();
+
+        for (int i = 0; i < s.length(); i++){
+            
+
+
+
+        }
+
     }
-
-
 
 
 
