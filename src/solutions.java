@@ -1,3 +1,4 @@
+import java.sql.Array;
 import java.sql.Struct;
 import java.util.*;
 
@@ -699,15 +700,7 @@ public class solutions {
 
 
 
-    public boolean isSameTree(TreeNode p, TreeNode q) {
 
-//        isSameTree(p.left, q);
-//        isSameTree(p.right, q);
-//        isSameTree(q.left, p);
-//        isSameTree(q.right, p);
-//
-//        return false;
-    }
 
 
 
@@ -733,6 +726,110 @@ public class solutions {
 
         return false;
     }
+
+
+
+
+
+
+    public ListNode canJump(ListNode head) {
+
+        if (head == null){
+            return null;
+        }
+
+        ListNode newHead = head;
+
+        if (head.next != null){
+            newHead = canJump(head.next);
+            head.next.next = head;
+        }
+        head.next = null;
+
+    return newHead;
+    }
+// 1->2->
+
+
+    public int searchRotated(int[] nums, int target) {
+
+        int leftPointer = 0;
+        int rightPointer = nums.length - 1;
+
+        while (leftPointer <= rightPointer){
+            int middle = (leftPointer + rightPointer) / 2;
+
+            if (nums[middle] == target){
+                return middle;
+            }
+            if (nums[leftPointer] <= nums[middle]){
+                if (target > nums[middle] || target < nums[leftPointer]){
+                    leftPointer = middle + 1;
+                }
+                else {
+                    rightPointer = middle - 1;
+                }
+            }
+            else {
+                if (target < nums[middle] || target > nums[rightPointer]){
+                    rightPointer = middle - 1;
+                }
+                else {
+                    leftPointer = middle + 1;
+                }
+            }
+        }
+
+
+        return -1;
+    }
+
+
+
+
+    public int removeDuplicates(int[] nums) {
+        ArrayList<Integer> list = new ArrayList<>();
+        int[] ans = new int[nums.length - 1];
+        for (int i = 0; i < nums.length; i++){
+
+            if (!list.contains(nums[i])){
+                list.add(nums[i]);
+            }
+        }
+        for (int i = 0; i < list.size(); i++){
+
+            ans[i] = list.get(i);
+
+        }
+
+        return ans.length;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
