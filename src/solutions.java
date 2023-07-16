@@ -750,7 +750,6 @@ public class solutions {
     }
 // 1->2->
 
-
     public int searchRotated(int[] nums, int target) {
 
         int leftPointer = 0;
