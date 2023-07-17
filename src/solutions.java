@@ -831,29 +831,29 @@ public class solutions {
 
 
 
-
-    public ListNode removeElements(ListNode head, int val) {
-
-        ListNode dummy = new ListNode();
-        dummy.next = head;
-        ListNode prev = dummy;
-        ListNode current = head;
-
-        while (current != null){
-            ListNode nxt = current.next;
-
-            if (current.val == val){
-                prev.next = nxt;
-            }
-            else {
-                prev = current;
-            }
-            current = current.next;
-
-        }
-
-       return dummy.next;
-    }
+//iterative
+//    public ListNode removeElements(ListNode head, int val) {
+//
+//        ListNode dummy = new ListNode();
+//        dummy.next = head;
+//        ListNode prev = dummy;
+//        ListNode current = head;
+//
+//        while (current != null){
+//            ListNode nxt = current.next;
+//
+//            if (current.val == val){
+//                prev.next = nxt;
+//            }
+//            else {
+//                prev = current;
+//            }
+//            current = current.next;
+//
+//        }
+//
+//       return dummy.next;
+//    }
 // 1->2->
 
 
@@ -862,7 +862,24 @@ public class solutions {
 
 
 
+    public ListNode removeElements(ListNode head, int val) {
 
+        if (head == null){
+            return null;
+        }
+
+        ListNode next = removeElements(head.next, val);
+
+        if (head.val == val){
+            head = next;
+        }
+        else {
+            head.next = next;
+        }
+
+
+        return head;
+    }
 
 
 
