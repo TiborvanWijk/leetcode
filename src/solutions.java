@@ -816,20 +816,45 @@ public class solutions {
 
 
 
-    public int myAtoi(String s) {
-
-        s = s.strip();
-
-        for (int i = 0; i < s.length(); i++){
-            
 
 
 
-        }
 
+    public boolean isPalindrome(int x) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(x);
+
+        return String.valueOf(stringBuilder).equals(String.valueOf(stringBuilder.reverse()));
     }
 
 
+
+
+
+    public ListNode removeElements(ListNode head, int val) {
+
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        ListNode prev = dummy;
+        ListNode current = head;
+
+        while (current != null){
+            ListNode nxt = current.next;
+
+            if (current.val == val){
+                prev.next = nxt;
+            }
+            else {
+                prev = current;
+            }
+            current = current.next;
+
+        }
+
+       return dummy.next;
+    }
+// 1->2->
 
 
 
