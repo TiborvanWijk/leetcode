@@ -1018,7 +1018,24 @@ public class solutions {
 
 
 
+    public int firstUniqChar(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); i++){
+            int count = map.containsKey(s.charAt(i)) ? map.get(s.charAt(i)) + 1: 1;
 
+            map.put(s.charAt(i), count);
+
+
+        }
+        for (int i = 0; i < s.length(); i++){
+
+            if (map.get(s.charAt(i)) == 1){
+                return s.indexOf(s.charAt(i));
+            }
+
+        }
+        return -1;
+    }
 
 
 
