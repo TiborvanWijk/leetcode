@@ -993,7 +993,23 @@ public class solutions {
 
 
 
+    public int lengthOfLastWord(String s) {
+        s = s.strip();
+        char[] array = s.toCharArray();
+        int ans = 0;
+        for (int i = array.length - 1; i >= 0; i--){
+            if (array[i] == ' '){
+                break;
+            }
+            else {
+                ans++;
+            }
 
+
+        }
+
+        return ans;
+    }
 
 
 
