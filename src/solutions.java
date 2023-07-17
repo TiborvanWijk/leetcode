@@ -862,11 +862,58 @@ public class solutions {
 
 
 
-    public ListNode removeElements(ListNode head, int val) {
+//    public ListNode removeElements(ListNode head, int val) {
+//
+//        if (head == null){
+//            return null;
+//        }
+//
+//        ListNode next = removeElements(head.next, val);
+//
+//        if (head.val == val){
+//            head = next;
+//        }
+//        else {
+//            head.next = next;
+//        }
+//
+//
+//        return head;
+//    }
+//1 -> 2
 
-        if (head == null){
-            return null;
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public ListNode removeElements(ListNode head, int val) {
+        if (head == null) return null;
+
 
         ListNode next = removeElements(head.next, val);
 
@@ -877,15 +924,9 @@ public class solutions {
             head.next = next;
         }
 
-
         return head;
     }
-
-
-
-
-
-
+// 1 -> 2 ->
 
 
 
