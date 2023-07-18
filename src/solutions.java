@@ -833,91 +833,35 @@ public class solutions {
 
 
 
-//iterative
-//    public ListNode removeElements(ListNode head, int val) {
-//
-//        ListNode dummy = new ListNode();
-//        dummy.next = head;
-//        ListNode prev = dummy;
-//        ListNode current = head;
-//
-//        while (current != null){
-//            ListNode nxt = current.next;
-//
-//            if (current.val == val){
-//                prev.next = nxt;
-//            }
-//            else {
-//                prev = current;
-//            }
-//            current = current.next;
-//
-//        }
-//
-//       return dummy.next;
-//    }
+    public ListNode removeElementsIterative(ListNode head, int val) {
+
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        ListNode prev = dummy;
+        ListNode current = head;
+
+        while (current != null){
+            ListNode nxt = current.next;
+
+            if (current.val == val){
+                prev.next = nxt;
+            }
+            else {
+                prev = current;
+            }
+            current = current.next;
+
+        }
+
+       return dummy.next;
+    }
 // 1->2->
 
-
-
-
-
-
-
-//    public ListNode removeElements(ListNode head, int val) {
-//
-//        if (head == null){
-//            return null;
-//        }
-//
-//        ListNode next = removeElements(head.next, val);
-//
-//        if (head.val == val){
-//            head = next;
-//        }
-//        else {
-//            head.next = next;
-//        }
-//
-//
-//        return head;
-//    }
-//1 -> 2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public ListNode removeElements(ListNode head, int val) {
+    public ListNode removeElementsRecursive(ListNode head, int val) {
         if (head == null) return null;
 
 
-        ListNode next = removeElements(head.next, val);
+        ListNode next = removeElementsRecursive(head.next, val);
 
         if (head.val == val){
             head = next;
@@ -967,7 +911,12 @@ public class solutions {
 
 
 
-
+// finds the location of a target and if the target is not
+// in the sorted array then it will return the location of where this element should be.
+// implements binary search if the target is found then it will be returned
+// otherwise it will keep looping until the left pointer is the same or bigger
+// then the right pointer it will return the left pointer otherwise known as
+// the place where the new element should be
     public int searchInsert(int[] nums, int target) {
 
         int left = 0;
@@ -993,7 +942,9 @@ public class solutions {
     }
 
 
-
+// finds the first word in a sentence by striping
+// the sides of tabs or spaces and then looping from
+// each character until there is a space
     public int lengthOfLastWord(String s) {
         s = s.strip();
         char[] array = s.toCharArray();
@@ -1018,7 +969,7 @@ public class solutions {
 
 
 
-
+// stores the count of every character and returns the first one that is counted once
     public int firstUniqChar(String s) {
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < s.length(); i++){
@@ -1040,20 +991,20 @@ public class solutions {
 
 
 
-    public String[] findWords(String[] words) {
-        String top = "qwertyuiop";
-        String mid = "asdfghjkl";
-        String bot = "zxcvbnm";
-
-        String row;
-        for (String word : words){
-
-            for (Character letter : word){
-
-            }
-
-        }
-    }
+//    public String[] findWords(String[] words) {
+//        String top = "qwertyuiop";
+//        String mid = "asdfghjkl";
+//        String bot = "zxcvbnm";
+//
+//        String row;
+//        for (String word : words){
+//
+//            for (Character letter : word){
+//
+//            }
+//
+//        }
+//    }
 
 
 
