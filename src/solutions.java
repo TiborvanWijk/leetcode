@@ -1,4 +1,5 @@
 import java.nio.file.ClosedWatchServiceException;
+import java.nio.file.StandardOpenOption;
 import java.sql.Array;
 import java.sql.Struct;
 import java.util.*;
@@ -1039,7 +1040,20 @@ public class solutions {
 
 
 
+    public String[] findWords(String[] words) {
+        String top = "qwertyuiop";
+        String mid = "asdfghjkl";
+        String bot = "zxcvbnm";
 
+        String row;
+        for (String word : words){
+
+            for (Character letter : word){
+
+            }
+
+        }
+    }
 
 
 
