@@ -785,9 +785,6 @@ public class solutions {
         return -1;
     }
 
-
-
-
     public int removeDuplicates(int[] nums) {
         ArrayList<Integer> list = new ArrayList<>();
         int[] ans = new int[nums.length - 1];
