@@ -1088,7 +1088,33 @@ public class solutions {
     }
 
 
+    public double trimMean(int[] arr) {
 
+        Arrays.sort(arr);
+
+        int delete = arr.length / 20;
+
+        for (int i = 0; i < delete; i++){
+            arr[i] = 0;
+            arr[(arr.length-1) - i] = 0;
+        }
+
+        int min = arr[0];
+        int max = arr[0];
+        double ans = 0;
+
+        for (int i = 0; i < arr.length; i++){
+            ans += arr[i];
+            min = Math.min(min, arr[i]);
+            max = Math.max(max, arr[i]);
+
+
+        }
+        ans = ans / (arr.length - delete * 2);
+
+        return ans;
+
+    }
 
 
 
