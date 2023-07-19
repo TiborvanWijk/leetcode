@@ -1107,8 +1107,6 @@ public class solutions {
             ans += arr[i];
             min = Math.min(min, arr[i]);
             max = Math.max(max, arr[i]);
-
-
         }
         ans = ans / (arr.length - delete * 2);
 
@@ -1124,7 +1122,21 @@ public class solutions {
 
 
 
+    public int[][] construct2DArray(int[] original, int m, int n) {
 
+        if (m * n != original.length) return new int[0][0];
+        int[][] ans = new int[m][n];
+        int x = 0;
+        for (int i = 0; i < ans.length; i++){
+
+            for (int j = 0; j < n; j++){
+               ans[i][j] = original[x];
+                x++;
+            }
+        }
+
+        return ans;
+    }
 
 
 
