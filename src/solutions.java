@@ -1025,7 +1025,8 @@ public class solutions {
 
 
 
-
+// adds three numbers to each other to a total of 0
+// without duplicate uses.
     public List<List<Integer>> threeSum(int[] nums) {
 
         Arrays.sort(nums);
@@ -1060,7 +1061,7 @@ public class solutions {
 
 
 
-
+// checks if the two trees are the same.
     public boolean isSameTree(TreeNode p, TreeNode q) {
 
         if (p == null && q == null) return true;
@@ -1070,7 +1071,7 @@ public class solutions {
         return isSameTree(p.right, q.right) && isSameTree(p.left, q.left);
 
     }
-
+// checks if the tree is symmetrical.
     public boolean isSymmetric(TreeNode root) {
 
         if (root == null) return true;
@@ -1121,7 +1122,7 @@ public class solutions {
 
 
 
-
+// makes a 2d matrix out of a normal array with the given amount of rows and columns
     public int[][] construct2DArray(int[] original, int m, int n) {
 
         if (m * n != original.length) return new int[0][0];
@@ -1139,7 +1140,7 @@ public class solutions {
     }
 
 
-
+// checks if all the values in a tree are the same if they are then it returns true.
     public boolean isUnivalTree(TreeNode root) {
         if (root.left == null && root.right == null) return true;
 
@@ -1152,7 +1153,7 @@ public class solutions {
         return root.val == val && helper(root.left,val) && helper(root.right, val);
     }
 
-
+// Convert Sorted Array to Binary Search Tree
     public TreeNode sortedArrayToBST(int[] nums) {
 
         return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
