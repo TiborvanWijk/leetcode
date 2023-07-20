@@ -4,6 +4,11 @@ import java.sql.Array;
 import java.sql.Struct;
 import java.util.*;
 
+/**
+ * Every function is a different leetCode problem
+ *
+ *
+ */
 public class solutions {
     ArrayList<Integer> dummy = new ArrayList<>();
 
