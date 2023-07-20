@@ -1140,6 +1140,28 @@ public class solutions {
 
 
 
+    public boolean isUnivalTree(TreeNode root) {
+        if (root.left == null && root.right == null) return true;
+
+        return helper(root.right, root.val) && helper(root.left, root.val);
+    }
+
+    public boolean helper(TreeNode root, int val) {
+        if (root == null) return true;
+
+        return root.val == val && helper(root.left,val) && helper(root.right, val);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
