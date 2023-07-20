@@ -1153,8 +1153,25 @@ public class solutions {
     }
 
 
+    public TreeNode sortedArrayToBST(int[] nums) {
+
+        return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
+    }
+    public TreeNode sortedArrayToBSTHelper(int[] nums, int left, int right) {
+        if (left > right) return null;
+
+        int middle = (left + right) / 2;
+
+        TreeNode root = new TreeNode();
+        root.val = nums[middle];
+
+        root.left = sortedArrayToBSTHelper(nums, left, middle - 1);
+        root.right = sortedArrayToBSTHelper(nums, middle + 1, right);
 
 
+
+        return root;
+    }
 
 
 
