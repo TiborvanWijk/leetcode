@@ -533,7 +533,7 @@ public class solutions {
     }
 //    1->2->3
 //    ->4->5
-
+// calculates the most amount of water
     public int maxArea(int[] height) {
         int low = 0;
         int high = height.length - 1;
@@ -658,7 +658,7 @@ public class solutions {
     }
 
 
-
+//
     public TreeNode invertTree(TreeNode root) {
         if (root == null) return null;
 
