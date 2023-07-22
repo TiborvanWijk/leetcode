@@ -1190,4 +1190,39 @@ public class solutions {
 
 
 
+
+
+
+
+
+
+
+    public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
+        if (root2 == null) return root1;
+        if (root1 == null) return root2;
+
+        TreeNode ans = new TreeNode(root1.val + root2.val);
+        ans.left = mergeTrees(root1.left, root2.left);
+        ans.right = mergeTrees(root1.right, root2.right);
+        return ans;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
