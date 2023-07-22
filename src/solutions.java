@@ -790,23 +790,7 @@ public class solutions {
         return -1;
     }
 
-    public int removeDuplicates(int[] nums) {
-        ArrayList<Integer> list = new ArrayList<>();
-        int[] ans = new int[nums.length - 1];
-        for (int i = 0; i < nums.length; i++){
 
-            if (!list.contains(nums[i])){
-                list.add(nums[i]);
-            }
-        }
-        for (int i = 0; i < list.size(); i++){
-
-            ans[i] = list.get(i);
-
-        }
-
-        return ans.length;
-    }
 
 
 
@@ -1234,6 +1218,28 @@ public class solutions {
         return index;
     }
 
+
+
+
+
+
+
+
+
+//[0,0,1,1,1,2,2,3,3,4]
+//    112
+    public int removeDuplicates(int[] nums) {
+
+        int left = 1;
+        for (int i = 1; i < nums.length; i++){
+            if (nums[i] != nums[i - 1]){
+                nums[left] = nums[i];
+                left++;
+            }
+        }
+
+        return left;
+    }
 
 
 
