@@ -1271,6 +1271,41 @@ public class solutions {
 
 
 
+    public int strStr(String haystack, String needle) {
+
+        for (int i = 0; i < haystack.length() - (needle.length() -1); i++){
+            boolean contains = true;
+
+            for (int j = 0; j < needle.length(); j++){
+                if (haystack.charAt(i + j) != needle.charAt(j)){
+                    contains = false;
+                    break;
+                }
+            }
+            if (contains){
+                return i;
+            }
+
+        }
+        return -1;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
