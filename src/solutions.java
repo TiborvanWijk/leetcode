@@ -1241,6 +1241,34 @@ public class solutions {
         return left;
     }
 
+    public int majorityElement(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++){
+
+            Integer count = map.containsKey(nums[i]) ? map.get(nums[i]) +1 : 1;
+
+            map.put(nums[i], count);
+        }
+        int majority = 0;
+
+        for (Integer key : map.keySet()){
+            if (map.get(key) > ((nums.length / 2))){
+                majority = key;
+            }
+        }
+
+        return majority;
+    }
+
+
+
+
+
+
+
+
+
 
 
 
