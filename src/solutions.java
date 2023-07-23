@@ -1290,7 +1290,7 @@ public class solutions {
         return -1;
     }
 
-
+// checks if it's a substring in order
     public boolean isSubsequence(String s, String t) {
         if (s.length() == 0) return true;
         int index = 0;
@@ -1308,7 +1308,7 @@ public class solutions {
     }
 
 
-
+// checks if a note can be made with the letter/symbols in the magazine
     public boolean canConstruct(String ransomNote, String magazine) {
         Map<Character, Integer> magazineMap = new HashMap<>();
         for (int i = 0; i < magazine.length(); i++){
@@ -1356,7 +1356,7 @@ public class solutions {
 
 
 
-
+// finds the carrot of a number without using the sqrt function
     public int mySqrt(int x) {
         if (x == 0 || x == 1) return x;
 
