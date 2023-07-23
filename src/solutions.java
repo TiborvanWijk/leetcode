@@ -1309,6 +1309,37 @@ public class solutions {
 
 
 
+    public boolean canConstruct(String ransomNote, String magazine) {
+        Map<Character, Integer> magazineMap = new HashMap<>();
+        for (int i = 0; i < magazine.length(); i++){
+            int count = magazineMap.containsKey(magazine.charAt(i)) ? magazineMap.get(magazine.charAt(i)) + 1 : 1;
+
+            magazineMap.put(magazine.charAt(i), count);
+        }
+        for (int i = 0; i < ransomNote.length(); i++){
+
+            if (magazineMap.containsKey(ransomNote.charAt(i)) && magazineMap.get(ransomNote.charAt(i)) > 0){
+                magazineMap.put(ransomNote.charAt(i), magazineMap.get(ransomNote.charAt(i)) -1);
+            }
+            else return false;
+
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
