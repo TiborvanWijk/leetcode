@@ -1147,6 +1147,7 @@ public class solutions {
 
         return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
     }
+//    makes a binary search tree out of a sorted array
     public TreeNode sortedArrayToBSTHelper(int[] nums, int left, int right) {
         if (left > right) return null;
 
@@ -1180,7 +1181,7 @@ public class solutions {
 
 
 
-
+// merges two trees if the same node exists then the value is added to one another
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
         if (root2 == null) return root1;
         if (root1 == null) return root2;
@@ -1192,7 +1193,7 @@ public class solutions {
     }
 
 
-
+//merges two integer arrays
     public void merge(int[] nums1, int m, int[] nums2, int n) {
 
         for (int j = 0, i = m; j < n; j++){
@@ -1206,7 +1207,7 @@ public class solutions {
 
 
 
-
+//removes duplicates in an array
     public int removeElement(int[] nums, int val) {
         int index = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -1240,7 +1241,7 @@ public class solutions {
 
         return left;
     }
-
+// check if a certain number is the majority of the array in this case its more than half of all the elements
     public int majorityElement(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
 
