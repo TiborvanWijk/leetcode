@@ -818,6 +818,7 @@ public class solutions {
 
 
 
+// removes elements in a list by using iteration
 
     public ListNode removeElementsIterative(ListNode head, int val) {
 
@@ -842,7 +843,7 @@ public class solutions {
        return dummy.next;
     }
 // 1->2->
-
+// removes elements in a list by using recursion
     public ListNode removeElementsRecursive(ListNode head, int val) {
         if (head == null) return null;
 
