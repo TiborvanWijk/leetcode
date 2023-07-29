@@ -301,7 +301,7 @@ public class solutions {
 
 // checks the best time to buy in a stockmarket
 //    by calculating the biggest number difference from small to big
-    public int maxProfit(int[] prices) {
+    public int maxProfit1(int[] prices) {
         int leftPointer = 0;
         int rightPointer = 1;
         int max = 0;
@@ -1451,6 +1451,68 @@ public class solutions {
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public int maxProfit2(int[] prices) {
+
+        int low = 0;
+        int high = 1;
+        int count = 0;
+        while (high < prices.length){
+
+            if (prices[low] >= prices[high]){
+                low++;
+                high++;
+            }
+            else if (high + 1 == prices.length && (prices[low] < prices[high]) || prices[low] < prices[high] && prices[high] > prices[high + 1]){
+                count += (prices[high] - prices[low]);
+                low = high;
+                high++;
+            }
+            else {
+                high++;
+            }
+
+        }
+
+
+        return count;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
