@@ -446,22 +446,21 @@ public class solutions {
         return -1;
     }
 
-    public int minDepth(TreeNode root) {
-        if (root == null){
-            return 0;
-        }
-
-
-        int left = minDepth(root.left);
-        int right = minDepth(root.right);
-
-        if (root.left != null && root.right != null){
-            return Math.min(left, right) + 1;
-        }
-        return Math.max(left, right) + 1;
-
-
-    }
+//    public int minDepth(TreeNode root) {
+//        if (root == null){
+//            return 0;
+//        }
+//
+//
+//        int left = minDepth(root.left);
+//        int right = minDepth(root.right);
+//
+//        if (root.left != null && root.right != null){
+//            return Math.min(left, right) + 1;
+//        }
+//        return Math.max(left, right) + 1;
+//
+//    }
 
 
 
@@ -484,53 +483,53 @@ public class solutions {
 //    }
 
 //    iterative
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-
-        ListNode dummy = new ListNode();
-        ListNode tail = dummy;
-        while (list1 != null && list2 != null){
-            if (list1.val <= list2.val){
-                dummy.next = new ListNode(list1.val);
-                list1 = list1.next;
-            }
-            else {
-                dummy.next = new ListNode(list2.val);
-                list2 = list2.next;
-            }
-            dummy = dummy.next;
-        }
-        while(list1 != null){
-            dummy.next = new ListNode(list1.val);
-            list1 = list1.next;
-            dummy = dummy.next;
-        }
-        while(list2 != null){
-            dummy.next = new ListNode(list2.val);
-            list2 = list2.next;
-            dummy = dummy.next;
-        }
-        return tail.next;
-    }
-
-
-
-    public ListNode reverseList(ListNode head) {
-
-        if(head == null){
-            return null;
-        }
-        ListNode newHead = head;
-
-        if (head.next != null){
-            newHead = reverseList(head.next);
-            head.next.next = head;
-        }
-        head.next = null;
+//    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+//
+//        ListNode dummy = new ListNode();
+//        ListNode tail = dummy;
+//        while (list1 != null && list2 != null){
+//            if (list1.val <= list2.val){
+//                dummy.next = new ListNode(list1.val);
+//                list1 = list1.next;
+//            }
+//            else {
+//                dummy.next = new ListNode(list2.val);
+//                list2 = list2.next;
+//            }
+//            dummy = dummy.next;
+//        }
+//        while(list1 != null){
+//            dummy.next = new ListNode(list1.val);
+//            list1 = list1.next;
+//            dummy = dummy.next;
+//        }
+//        while(list2 != null){
+//            dummy.next = new ListNode(list2.val);
+//            list2 = list2.next;
+//            dummy = dummy.next;
+//        }
+//        return tail.next;
+//    }
 
 
 
-        return newHead;
-    }
+//    public ListNode reverseList(ListNode head) {
+//
+//        if(head == null){
+//            return null;
+//        }
+//        ListNode newHead = head;
+//
+//        if (head.next != null){
+//            newHead = reverseList(head.next);
+//            head.next.next = head;
+//        }
+//        head.next = null;
+//
+//
+//
+//        return newHead;
+//    }
 //    1->2->3
 //    ->4->5
 // calculates the most amount of water
@@ -659,21 +658,19 @@ public class solutions {
 
 
 //
-    public TreeNode invertTree(TreeNode root) {
-        if (root == null) return null;
-
-        TreeNode temp = root.left;
-        root.left = root.right;
-        root.right = temp;
-
-        invertTree(root.left);
-        invertTree(root.right);
-
-
-        return root;
-    }
-
-
+//    public TreeNode invertTree(TreeNode root) {
+//        if (root == null) return null;
+//
+//        TreeNode temp = root.left;
+//        root.left = root.right;
+//        root.right = temp;
+//
+//        invertTree(root.left);
+//        invertTree(root.right);
+//
+//
+//        return root;
+//    }
 
 
 
@@ -699,11 +696,13 @@ public class solutions {
 
 
 
-    public int maxDepth(TreeNode root) {
-        if (root == null) return 0;
 
-        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
-    }
+
+//    public int maxDepth(TreeNode root) {
+//        if (root == null) return 0;
+//
+//        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+//    }
 
 
 
@@ -739,22 +738,22 @@ public class solutions {
 
 
 
-    public ListNode canJump(ListNode head) {
-
-        if (head == null){
-            return null;
-        }
-
-        ListNode newHead = head;
-
-        if (head.next != null){
-            newHead = canJump(head.next);
-            head.next.next = head;
-        }
-        head.next = null;
-
-    return newHead;
-    }
+//    public ListNode canJump(ListNode head) {
+//
+//        if (head == null){
+//            return null;
+//        }
+//
+//        ListNode newHead = head;
+//
+//        if (head.next != null){
+//            newHead = canJump(head.next);
+//            head.next.next = head;
+//        }
+//        head.next = null;
+//
+//    return newHead;
+//    }
 // 1->2->
 
     public int searchRotated(int[] nums, int target) {
@@ -820,45 +819,45 @@ public class solutions {
 
 // removes elements in a list by using iteration
 
-    public ListNode removeElementsIterative(ListNode head, int val) {
-
-        ListNode dummy = new ListNode();
-        dummy.next = head;
-        ListNode prev = dummy;
-        ListNode current = head;
-
-        while (current != null){
-            ListNode nxt = current.next;
-
-            if (current.val == val){
-                prev.next = nxt;
-            }
-            else {
-                prev = current;
-            }
-            current = current.next;
-
-        }
-
-       return dummy.next;
-    }
+//    public ListNode removeElementsIterative(ListNode head, int val) {
+//
+//        ListNode dummy = new ListNode();
+//        dummy.next = head;
+//        ListNode prev = dummy;
+//        ListNode current = head;
+//
+//        while (current != null){
+//            ListNode nxt = current.next;
+//
+//            if (current.val == val){
+//                prev.next = nxt;
+//            }
+//            else {
+//                prev = current;
+//            }
+//            current = current.next;
+//
+//        }
+//
+//       return dummy.next;
+//    }
 // 1->2->
 // removes elements in a list by using recursion
-    public ListNode removeElementsRecursive(ListNode head, int val) {
-        if (head == null) return null;
-
-
-        ListNode next = removeElementsRecursive(head.next, val);
-
-        if (head.val == val){
-            head = next;
-        }
-        else {
-            head.next = next;
-        }
-
-        return head;
-    }
+//    public ListNode removeElementsRecursive(ListNode head, int val) {
+//        if (head == null) return null;
+//
+//
+//        ListNode next = removeElementsRecursive(head.next, val);
+//
+//        if (head.val == val){
+//            head = next;
+//        }
+//        else {
+//            head.next = next;
+//        }
+//
+//        return head;
+//    }
 // 1 -> 2 ->
 
 
@@ -1052,31 +1051,31 @@ public class solutions {
 
 
 // checks if the two trees are the same.
-    public boolean isSameTree(TreeNode p, TreeNode q) {
-
-        if (p == null && q == null) return true;
-
-        if (p == null || q == null || p.val != q.val) return false;
-
-        return isSameTree(p.right, q.right) && isSameTree(p.left, q.left);
-
-    }
-// checks if the tree is symmetrical.
-    public boolean isSymmetric(TreeNode root) {
-
-        if (root == null) return true;
-
-        return isSymmetricHelper(root.left, root.right);
-    }
-    public boolean isSymmetricHelper(TreeNode left, TreeNode right) {
-
-        if (left == null && right == null) return true;
-
-        if (left == null || right == null) return false;
-
-        return left.val == right.val && isSymmetricHelper(left.left, right.right) && isSymmetricHelper(left.right, right.left);
-
-    }
+//    public boolean isSameTree(TreeNode p, TreeNode q) {
+//
+//        if (p == null && q == null) return true;
+//
+//        if (p == null || q == null || p.val != q.val) return false;
+//
+//        return isSameTree(p.right, q.right) && isSameTree(p.left, q.left);
+//
+//    }
+//// checks if the tree is symmetrical.
+//    public boolean isSymmetric(TreeNode root) {
+//
+//        if (root == null) return true;
+//
+//        return isSymmetricHelper(root.left, root.right);
+//    }
+//    public boolean isSymmetricHelper(TreeNode left, TreeNode right) {
+//
+//        if (left == null && right == null) return true;
+//
+//        if (left == null || right == null) return false;
+//
+//        return left.val == right.val && isSymmetricHelper(left.left, right.right) && isSymmetricHelper(left.right, right.left);
+//
+//    }
 
 
     public double trimMean(int[] arr) {
@@ -1130,40 +1129,40 @@ public class solutions {
     }
 
 
-// checks if all the values in a tree are the same if they are then it returns true.
-    public boolean isUnivalTree(TreeNode root) {
-        if (root.left == null && root.right == null) return true;
-
-        return helper(root.right, root.val) && helper(root.left, root.val);
-    }
-
-    public boolean helper(TreeNode root, int val) {
-        if (root == null) return true;
-
-        return root.val == val && helper(root.left,val) && helper(root.right, val);
-    }
-
-// Convert Sorted Array to Binary Search Tree
-    public TreeNode sortedArrayToBST(int[] nums) {
-
-        return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
-    }
-//    makes a binary search tree out of a sorted array
-    public TreeNode sortedArrayToBSTHelper(int[] nums, int left, int right) {
-        if (left > right) return null;
-
-        int middle = (left + right) / 2;
-
-        TreeNode root = new TreeNode();
-        root.val = nums[middle];
-
-        root.left = sortedArrayToBSTHelper(nums, left, middle - 1);
-        root.right = sortedArrayToBSTHelper(nums, middle + 1, right);
-
-
-
-        return root;
-    }
+//// checks if all the values in a tree are the same if they are then it returns true.
+//    public boolean isUnivalTree(TreeNode root) {
+//        if (root.left == null && root.right == null) return true;
+//
+//        return helper(root.right, root.val) && helper(root.left, root.val);
+//    }
+//
+//    public boolean helper(TreeNode root, int val) {
+//        if (root == null) return true;
+//
+//        return root.val == val && helper(root.left,val) && helper(root.right, val);
+//    }
+//
+//// Convert Sorted Array to Binary Search Tree
+//    public TreeNode sortedArrayToBST(int[] nums) {
+//
+//        return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
+//    }
+////    makes a binary search tree out of a sorted array
+//    public TreeNode sortedArrayToBSTHelper(int[] nums, int left, int right) {
+//        if (left > right) return null;
+//
+//        int middle = (left + right) / 2;
+//
+//        TreeNode root = new TreeNode();
+//        root.val = nums[middle];
+//
+//        root.left = sortedArrayToBSTHelper(nums, left, middle - 1);
+//        root.right = sortedArrayToBSTHelper(nums, middle + 1, right);
+//
+//
+//
+//        return root;
+//    }
 
 
 
@@ -1183,15 +1182,15 @@ public class solutions {
 
 
 // merges two trees if the same node exists then the value is added to one another
-    public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
-        if (root2 == null) return root1;
-        if (root1 == null) return root2;
-
-        TreeNode ans = new TreeNode(root1.val + root2.val);
-        ans.left = mergeTrees(root1.left, root2.left);
-        ans.right = mergeTrees(root1.right, root2.right);
-        return ans;
-    }
+//    public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
+//        if (root2 == null) return root1;
+//        if (root1 == null) return root2;
+//
+//        TreeNode ans = new TreeNode(root1.val + root2.val);
+//        ans.left = mergeTrees(root1.left, root2.left);
+//        ans.right = mergeTrees(root1.right, root2.right);
+//        return ans;
+//    }
 
 
 //merges two integer arrays
@@ -1425,7 +1424,33 @@ public class solutions {
 
 
 
+    public void rotate(int[] nums, int k) {
+        int[] nums2 = new int[nums.length];
 
+        for (int i = 0; i < nums.length; i++){
+
+            if (i + k < nums.length){
+                nums2[i+k] = nums[i];
+            }
+            else {
+                int index = (i+k) - nums.length;
+                nums2[index] = nums[i];
+            }
+
+        }
+        nums = nums2;
+        for (int i = 0; i < nums.length; i++){
+            System.out.print(nums2[i]);
+        }
+        System.out.println();
+        for (int i = 0; i < nums.length; i++){
+            System.out.print(nums[i]);
+        }
+
+
+
+
+    }
 
 
 
