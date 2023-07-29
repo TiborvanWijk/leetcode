@@ -1397,4 +1397,48 @@ public class solutions {
 
 
 
+
+
+
+
+
+    public int removeDuplicates2(int[] nums) {
+        int left = 0;
+        int right = 0;
+
+        while (right < nums.length){
+            int count = 1;
+            while (right + 1 < nums.length && nums[right] == nums[right + 1]){
+                count++;
+                right++;
+            }
+
+            for (int i = 0; i < Math.min(2, count); i++){
+                nums[left] = nums[right];
+                left++;
+            }
+            right++;
+        }
+        return left;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
