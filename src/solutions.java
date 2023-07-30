@@ -1695,6 +1695,19 @@ public class solutions {
 
 
 
+    public boolean isValidBST(TreeNode root) {
+        return isValidBST(root, null, null);
+    }
+
+    private boolean isValidBST(TreeNode root, Integer lowerBound, Integer upperBound) {
+        if (root == null) return true;
+
+        if (lowerBound != null && lowerBound >= root.val || upperBound != null && upperBound <= root.val){
+            return false;
+        }
+        return isValidBST(root.left, lowerBound, root.val) && isValidBST(root.right, root.val, upperBound);
+
+    }
 
 
 }
