@@ -1632,7 +1632,28 @@ public class solutions {
 
 
 
-
+// Not done
+//
+//
+//
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null || head.next == null) return head;
+        for (int i = 0; i < k; i++){
+            ListNode newhead = rotateRightHelper(head);
+            newhead.next = head;
+            head = newhead;
+        }
+        return head;
+    }
+    public ListNode rotateRightHelper(ListNode head) {
+        if (head == null) return head;
+        if (head.next.next == null){
+            ListNode dummy = head.next;
+            head.next = null;
+            return dummy;
+        }
+        return rotateRightHelper(head.next);
+    }
 
 
 
