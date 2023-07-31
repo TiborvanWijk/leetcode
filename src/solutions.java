@@ -1853,8 +1853,30 @@ public class solutions {
         }
         return ans;
     }
-
-
-
+//    HashSet<ListNode> map = new HashSet<>();
+//
+// recursive
+//    public boolean hasCycle(ListNode head) {
+//        if (map.contains(head)) return true;
+//        if (head == null) return false;
+//        map.add(head);
+//        return hasCycle(head.next);
+//    }
+//    iterative
+//    public boolean hasCycle2(ListNode head) {
+//        ListNode fast = head;
+//        ListNode slow = head;
+//
+//        while (fast != null && fast.next != null) {
+//            fast = fast.next.next;
+//            slow = slow.next;
+//
+//            if (fast == slow) {
+//                return true;
+//            }
+//        }
+//
+//        return false;
+//    }
 
 }
