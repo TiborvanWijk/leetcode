@@ -1785,4 +1785,43 @@ public class solutions {
 
 
 
+
+
+
+
+
+
+
+//
+//    pattern = "abba"
+//    s = "dog dog dog dog"
+
+    public boolean wordPattern(String pattern, String s) {
+        Map<String, Character> map = new HashMap<>();
+        String[] x = s.split(" ");
+        if (pattern.length() != x.length) return false;
+        for (int i = 0; i < pattern.length(); i++){
+
+            if (!map.containsKey(x[i])){
+                if (map.containsValue(pattern.charAt(i))){
+                    return false;
+                }
+                map.put(x[i], pattern.charAt(i));
+            }
+            if (map.get(x[i]) != pattern.charAt(i)){
+                return false;
+            }
+
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+
+
 }
