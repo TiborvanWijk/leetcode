@@ -1950,15 +1950,45 @@ public class solutions {
 
 
 
+//    ArrayList<Integer> list1 = new ArrayList<>();
+//    ArrayList<Integer> list2 = new ArrayList<>();
+//    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+//
+//        addTwoNumbersHelper(l1, 1);
+//        addTwoNumbersHelper(l2, 2);
+//
+//
+//
+//    }
+//
+//    public void addTwoNumbersHelper(ListNode node, int list) {
+//        if (node != null){
+//            if (list == 1){
+//                list1.add(node.val);
+//                addTwoNumbersHelper(node.next, 1);
+//            }
+//            else if (list == 2){
+//                list2.add(node.val);
+//                addTwoNumbersHelper(node.next, 2);
+//            }
+//        }
+//
+//    }
 
 
 
 
+    public ListNode swapPairs(ListNode head) {
+        if (head == null || head.next == null) return head;
 
+        ListNode nextHead = head.next;
 
+        head.next = swapPairs(nextHead.next);
 
+        nextHead.next = head;
 
-
+        return nextHead;
+    }
 
 
 
