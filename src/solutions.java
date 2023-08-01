@@ -2080,6 +2080,73 @@ public class solutions {
 
 
 
+//    public ListNode deleteDuplicates(ListNode head) {
+//        if(head == null) return null;
+//
+//        ListNode ans = new ListNode();
+//
+//        ListNode prev = new ListNode();
+//        prev.next = head;
+//        ans.next = prev.next;
+//        while (head.next != null){
+//
+//            while (head.val == head.next.val){
+//                head = head.next;
+//                if (head.next != null && head.next.next != null){
+//                    if (head.val != head.next.val && head.next.val == head.next.next.val){
+//                        head = head.next;
+//                    }
+//                }
+//            }
+//            prev.next = head.next;
+//            prev = prev.next;
+//
+//
+//            head = head.next;
+//        }
+//
+//        return ans.next;
+//    }
+
+
+
+
+    public ListNode deleteDuplicates(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+
+        ListNode prev = dummy;
+        ListNode curr = head;
+
+        while (curr != null) {
+            boolean isDuplicate = false;
+
+            while (curr.next != null && curr.val == curr.next.val) {
+                isDuplicate = true;
+                curr = curr.next;
+            }
+
+            if (isDuplicate) {
+                prev.next = curr.next;
+            } else {
+                prev = curr;
+            }
+
+            curr = curr.next;
+        }
+
+        return dummy.next;
+    }
+
+
+
+
+
+
 
 
 
