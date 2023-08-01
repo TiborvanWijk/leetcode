@@ -1902,6 +1902,67 @@ public class solutions {
 
 
 
+//    public ListNode mergeKLists(ListNode[] lists) {
+//        boolean running = true;
+//        while (running){
+//            int min = Integer.MAX_VALUE;
+//            for (ListNode node : lists){
+//                min = Math.min(node.val, min);
+//            }
+//
+//        }
+//
+//    }
+
+
+
+
+
+
+
+
+
+
+
+    public String intToRoman(int num) {
+        Object[][] storeIntRoman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"}, {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
+
+        StringBuilder ans = new StringBuilder();
+        while (num != 0){
+
+            for (int i = 0; i < storeIntRoman.length; i++){
+
+                int amount = num / (int)storeIntRoman[i][0];
+                for (int j = 0; j < amount; j++){
+                    ans.append(storeIntRoman[i][1]);
+                }
+                num = num % (int)storeIntRoman[i][0];
+            }
+
+        }
+
+
+        return String.valueOf(ans);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
