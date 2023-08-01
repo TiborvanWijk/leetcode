@@ -1991,9 +1991,32 @@ public class solutions {
     }
 
 
+    public ListNode reverseBetween(ListNode head, int left, int right) {
+        int dept = 0;
+        ListNode dummy = head;
+        while (dept < left){
+            head = head.next;
+            dept++;
+        }
+        reverseBetween(head, left, right, dept);
+        return dummy;
+    }
+// 1->2->
+    public ListNode reverseBetween(ListNode head, int left, int right, int dept) {
+        if (head == null) return null;
+        if (dept < left || dept > right) return head.next;
+
+        ListNode newHead = head;
+
+        if (newHead.next != null){
+            newHead = reverseBetween(newHead.next, left, right, dept + 1);
+            head.next.next = head;
+            head.next = null;
+        }
 
 
-
+        return newHead;
+    }
 
 
 
