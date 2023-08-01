@@ -1990,33 +1990,100 @@ public class solutions {
         return nextHead;
     }
 
+//          ---NOT WORKING---
+//    public ListNode reverseBetween(ListNode head, int left, int right) {
+//        int dept = 0;
+//        ListNode dummy = head;
+//        while (dept < left){
+//            head = head.next;
+//            dept++;
+//        }
+//        reverseBetween(head, left, right, dept);
+//        return dummy;
+//    }
+//// 1->2->
+//    public ListNode reverseBetween(ListNode head, int left, int right, int dept) {
+//        if (head == null) return null;
+//        if (dept < left || dept > right) return head.next;
+//
+//        ListNode newHead = head;
+//
+//        if (newHead.next != null){
+//            newHead = reverseBetween(newHead.next, left, right, dept + 1);
+//            head.next.next = head;
+//            head.next = null;
+//        }
+//
+//
+//        return newHead;
+//    }
 
-    public ListNode reverseBetween(ListNode head, int left, int right) {
-        int dept = 0;
-        ListNode dummy = head;
-        while (dept < left){
-            head = head.next;
-            dept++;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode();
+        if (head.next == null) return null;
+        int size = removeNthFromEndHelper(head) + 1;
+        dummy.next = head;
+        ListNode prev = new ListNode();
+        prev.next = head;
+        ListNode current = head;
+        ListNode nxt = head.next;
+
+        int number = 1;
+        while (number != size - n){
+            prev = prev.next;
+            current = current.next;
+            nxt = nxt.next;
+            number++;
         }
-        reverseBetween(head, left, right, dept);
-        return dummy;
-    }
-// 1->2->
-    public ListNode reverseBetween(ListNode head, int left, int right, int dept) {
-        if (head == null) return null;
-        if (dept < left || dept > right) return head.next;
-
-        ListNode newHead = head;
-
-        if (newHead.next != null){
-            newHead = reverseBetween(newHead.next, left, right, dept + 1);
-            head.next.next = head;
-            head.next = null;
+        if (prev.next == head){
+            return nxt;
         }
+        prev.next = nxt;
 
 
-        return newHead;
+        return dummy.next;
     }
+
+    public int removeNthFromEndHelper(ListNode head) {
+        if (head == null) return 0;
+
+        return 1 + removeNthFromEndHelper(head.next);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
