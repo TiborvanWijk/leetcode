@@ -2174,11 +2174,9 @@ public class solutions {
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
         if (root == null) return ans;
-        ans.add(root.val);
-        if (root.right == null) return ans;
 
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root.right);
+        queue.add(root);
 
         while (!queue.isEmpty()){
 
@@ -2187,10 +2185,12 @@ public class solutions {
             for (int i = 0; i < size; i++){
 
                 TreeNode current = queue.poll();
-                ans.add(current.val);
+                if (i == 0){
+                    ans.add(current.val);
+                }
 
-                if (current.left != null) queue.offer(current.left);
                 if (current.right != null) queue.offer(current.right);
+                if (current.left != null) queue.offer(current.left);
 
             }
 
