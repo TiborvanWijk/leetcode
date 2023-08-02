@@ -1950,30 +1950,30 @@ public class solutions {
 
 
 
-    ArrayList<Integer> list1 = new ArrayList<>();
-    ArrayList<Integer> list2 = new ArrayList<>();
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-
-        addTwoNumbersHelper(l1, 1);
-        addTwoNumbersHelper(l2, 2);
-
-        
-
-    }
-
-    public void addTwoNumbersHelper(ListNode node, int list) {
-        if (node != null){
-            if (list == 1){
-                list1.add(node.val);
-                addTwoNumbersHelper(node.next, 1);
-            }
-            else if (list == 2){
-                list2.add(node.val);
-                addTwoNumbersHelper(node.next, 2);
-            }
-        }
-
-    }
+//    ArrayList<Integer> list1 = new ArrayList<>();
+//    ArrayList<Integer> list2 = new ArrayList<>();
+//    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+//
+//        addTwoNumbersHelper(l1, 1);
+//        addTwoNumbersHelper(l2, 2);
+//
+//
+//
+//    }
+//
+//    public void addTwoNumbersHelper(ListNode node, int list) {
+//        if (node != null){
+//            if (list == 1){
+//                list1.add(node.val);
+//                addTwoNumbersHelper(node.next, 1);
+//            }
+//            else if (list == 2){
+//                list2.add(node.val);
+//                addTwoNumbersHelper(node.next, 2);
+//            }
+//        }
+//
+//    }
 
 
 
@@ -2171,8 +2171,64 @@ public class solutions {
         return ans;
     }
 
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
+        if (root == null) return ans;
+        ans.add(root.val);
+        if (root.right == null) return ans;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root.right);
+
+        while (!queue.isEmpty()){
+
+            int size = queue.size();
+
+            for (int i = 0; i < size; i++){
+
+                TreeNode current = queue.poll();
+                ans.add(current.val);
+
+                if (current.left != null) queue.offer(current.left);
+                if (current.right != null) queue.offer(current.right);
+
+            }
 
 
+        }
+
+
+
+        return ans;
+    }
+    public List<List<Integer>> levelOrder(TreeNode root) {
+
+        List<List<Integer>> ans = new ArrayList<>();
+        if (root == null) return ans;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()){
+            List<Integer> allNodes = new ArrayList<>();
+
+            int size = queue.size();
+            for (int i = 0; i < size; i++){
+
+                TreeNode current = queue.poll();
+                allNodes.add(current.val);
+
+                if (current.left != null) queue.offer(current.left);
+                if (current.right != null) queue.offer(current.right);
+            }
+            ans.add(allNodes);
+
+
+
+        }
+
+        return ans;
+    }
 
 
 
