@@ -2264,6 +2264,29 @@ public class solutions {
 
         return ans;
     }
+    private List<Integer> list = new ArrayList<>();
+    public int kthSmallest(TreeNode root, int k) {
+
+        kthSmallestHelper(root);
+        Collections.sort(list);
+        return list.get(k -1);
+    }
+    public void kthSmallestHelper(TreeNode root) {
+        if (root != null){
+            list.add(root.val);
+            kthSmallestHelper(root.left);
+            kthSmallestHelper(root.right);
+        }
+    }
+
+
+
+
+
+
+
+
+
 
 
 
