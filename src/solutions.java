@@ -1950,30 +1950,30 @@ public class solutions {
 
 
 
-//    ArrayList<Integer> list1 = new ArrayList<>();
-//    ArrayList<Integer> list2 = new ArrayList<>();
-//    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-//
-//        addTwoNumbersHelper(l1, 1);
-//        addTwoNumbersHelper(l2, 2);
-//
-//
-//
-//    }
-//
-//    public void addTwoNumbersHelper(ListNode node, int list) {
-//        if (node != null){
-//            if (list == 1){
-//                list1.add(node.val);
-//                addTwoNumbersHelper(node.next, 1);
-//            }
-//            else if (list == 2){
-//                list2.add(node.val);
-//                addTwoNumbersHelper(node.next, 2);
-//            }
-//        }
-//
-//    }
+    ArrayList<Integer> list1 = new ArrayList<>();
+    ArrayList<Integer> list2 = new ArrayList<>();
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+
+        addTwoNumbersHelper(l1, 1);
+        addTwoNumbersHelper(l2, 2);
+
+        
+
+    }
+
+    public void addTwoNumbersHelper(ListNode node, int list) {
+        if (node != null){
+            if (list == 1){
+                list1.add(node.val);
+                addTwoNumbersHelper(node.next, 1);
+            }
+            else if (list == 2){
+                list2.add(node.val);
+                addTwoNumbersHelper(node.next, 2);
+            }
+        }
+
+    }
 
 
 
@@ -2143,10 +2143,33 @@ public class solutions {
     }
 
 
+    public List<Double> averageOfLevels(TreeNode root) {
+        if (root == null) return null;
 
+        List<Double> ans = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
 
+        double levelSum = 0;
 
+        while (!queue.isEmpty()){
+            levelSum = 0;
 
+            int size = queue.size();
+            for (int i = 0; i < size; i++){
+
+                TreeNode current = queue.poll();
+                levelSum += current.val;
+                if (current.left != null) queue.offer(current.left);
+                if (current.right != null) queue.offer(current.right);
+
+            }
+            double result = levelSum / size;
+            ans.add(result);
+
+        }
+        return ans;
+    }
 
 
 
