@@ -2039,7 +2039,7 @@ public class solutions {
 
 
 
-
+//  
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode();
         if (head.next == null) return null;
@@ -2110,7 +2110,7 @@ public class solutions {
 
 
 
-
+//  finds duplicates in a LinkedList and removes that value entirely.
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null) {
             return head;
@@ -2142,7 +2142,7 @@ public class solutions {
         return dummy.next;
     }
 
-
+//  returns the average value of every layer in a tree.
     public List<Double> averageOfLevels(TreeNode root) {
         if (root == null) return null;
 
@@ -2170,7 +2170,8 @@ public class solutions {
         }
         return ans;
     }
-
+//  Imagine you stand on the right of the tree. this will display all of the values in your sight.
+//  Shows the most right value of every layer.
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
         if (root == null) return ans;
@@ -2201,6 +2202,8 @@ public class solutions {
 
         return ans;
     }
+//  shows all values in a tree layer by layer.
+//  by implementing breadth first search.
     public List<List<Integer>> levelOrder(TreeNode root) {
 
         List<List<Integer>> ans = new ArrayList<>();
@@ -2231,7 +2234,8 @@ public class solutions {
     }
 
 
-
+//  breath first search displays all values in a tree in a zigzag formation
+//  left to right then right to left.
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> ans = new ArrayList<>();
         if (root == null) return ans;
@@ -2264,6 +2268,10 @@ public class solutions {
 
         return ans;
     }
+
+
+//    Itterates thru the whole list to get the lenght and all values of the linkedlist after storing
+//    we get the list.lenght -  (k -1) value.
     private List<Integer> list = new ArrayList<>();
     public int kthSmallest(TreeNode root, int k) {
 
