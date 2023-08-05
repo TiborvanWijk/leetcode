@@ -1893,7 +1893,7 @@ public class solutions {
 
 
 
-
+// counts the nodes in a tree.
     public int countNodes(TreeNode root) {
         if (root == null) return 0;
 
@@ -1923,7 +1923,8 @@ public class solutions {
 
 
 
-
+//    transfers integer to Roman numerals.
+//    using a simple hashmap that can be iterated over in order.
     public String intToRoman(int num) {
         Object[][] storeIntRoman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"}, {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
 
@@ -1977,7 +1978,8 @@ public class solutions {
 
 
 
-
+// swaps pairs in a linked list example 1->2->3->4->null
+//    after swap it looks like this: 2->1->4->3->null
     public ListNode swapPairs(ListNode head) {
         if (head == null || head.next == null) return head;
 
@@ -2039,7 +2041,7 @@ public class solutions {
 
 
 
-//  
+// removes the n number of note from the end for example List lenght = 5 and n = 2 then i remove the 4 because 5 is 1 4 is 2.
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode();
         if (head.next == null) return null;
@@ -2270,28 +2272,33 @@ public class solutions {
     }
 
 
-//    Itterates thru the whole list to get the lenght and all values of the linkedlist after storing
-//    we get the list.lenght -  (k -1) value.
-    private List<Integer> list = new ArrayList<>();
-    public int kthSmallest(TreeNode root, int k) {
+//    Iterates through the whole list to get the length and all values of the linked list after storing
+//    we get the list.length -  (k -1) value.
+//    private List<Integer> list = new ArrayList<>();
+//    public int kthSmallest(TreeNode root, int k) {
+//
+//        kthSmallestHelper(root);
+//        Collections.sort(list);
+//        return list.get(k -1);
+//    }
+//    public void kthSmallestHelper(TreeNode root) {
+//        if (root != null){
+//            list.add(root.val);
+//            kthSmallestHelper(root.left);
+//            kthSmallestHelper(root.right);
+//        }
+//    }
 
-        kthSmallestHelper(root);
-        Collections.sort(list);
-        return list.get(k -1);
+
+
+
+
+    public ListNode sortList(ListNode head) {
+
+
+
+        return head;
     }
-    public void kthSmallestHelper(TreeNode root) {
-        if (root != null){
-            list.add(root.val);
-            kthSmallestHelper(root.left);
-            kthSmallestHelper(root.right);
-        }
-    }
-
-
-
-
-
-
 
 
 
