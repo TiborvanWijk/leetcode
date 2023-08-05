@@ -2293,11 +2293,21 @@ public class solutions {
 
 
 
-    public ListNode sortList(ListNode head) {
+    public char repeatedCharacter(String s) {
 
+        Map<Character, Integer> map = new HashMap<>();
 
+        for (char letter : s.toCharArray()){
 
-        return head;
+            int count = map.containsKey(letter) ? map.get(letter) + 1 : 1;
+            if (count > 1){
+                return letter;
+            }
+            map.put(letter, count);
+
+        }
+
+        return 'n';
     }
 
 
