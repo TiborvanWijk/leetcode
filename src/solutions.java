@@ -2309,9 +2309,31 @@ public class solutions {
 
         return 'n';
     }
+//    public TreeNode increasingBST(TreeNode root) {
+//        if(root == null) return null;
+//
+//        increasingBST(root.left);
+//
+//
+//
+//
+//
+//    }
 
+    public TreeNode searchBST(TreeNode root, int target) {
+        if (root == null) return null;
 
+        if (root.val == target){
+            return root;
+        }
+        else if (root.val < target){
+            return searchBST(root.right, target);
+        }
+        else{
+            return searchBST(root.left, target);
+        }
 
+    }
 
 
 
