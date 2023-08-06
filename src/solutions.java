@@ -2292,7 +2292,7 @@ public class solutions {
 
 
 
-
+//return the first letter that is shown twice in a string.
     public char repeatedCharacter(String s) {
 
         Map<Character, Integer> map = new HashMap<>();
@@ -2319,7 +2319,7 @@ public class solutions {
 //
 //
 //    }
-
+//binary search tree returns subtree
     public TreeNode searchBST(TreeNode root, int target) {
         if (root == null) return null;
 
