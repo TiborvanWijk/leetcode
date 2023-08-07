@@ -2392,7 +2392,26 @@ public class solutions {
     }
 
 
+    public int reverse(int x) {
+        String value = String.valueOf(x);
+        boolean isNegative = false;
+        if (value.charAt(0) == '-'){
+            value = value.substring(1);
+            System.out.println(value);
+            isNegative = true;
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(value);
 
+        long integerchecker = Long.parseLong(String.valueOf(stringBuilder.reverse()));
+        if (integerchecker > Integer.MAX_VALUE){
+            return 0;
+        }
+        if (isNegative){
+            return -Integer.parseInt(String.valueOf(stringBuilder));
+        }
+        return Integer.parseInt(String.valueOf(stringBuilder));
+    }
 
 
 
