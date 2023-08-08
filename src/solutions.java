@@ -2354,7 +2354,9 @@ public class solutions {
 
 
 
-
+// finds the median in the two sorted arrays put together.
+//    median is the number in the middle if the total amount of numbers is even.
+//    then it will take the 2 middle numbers and return the average.
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         if (nums1.length > nums2.length) {
             return findMedianSortedArrays(nums2, nums1); // Ensure nums1 is the smaller array
@@ -2391,7 +2393,7 @@ public class solutions {
         throw new IllegalArgumentException("Input arrays are not sorted.");
     }
 
-
+// reverses a integer number. and returns zero if the inverted number is bigger then the 32bit integer limit.
     public int reverse(int x) {
         String value = String.valueOf(x);
         boolean isNegative = false;
