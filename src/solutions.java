@@ -2488,10 +2488,35 @@ public class solutions {
 
 
 
+    public String reverseWords(String s) {
+        s = s.strip();
+        String[] array = s.split(" ");
+        StringBuilder ans = new StringBuilder();
+        for (int i = array.length -1; i >= 0; i--){
+            String word = array[i];
+
+            word = word.strip();
+            if (!word.contains(" ")){
+                ans.append(word);
+                ans.append(" ");
+
+            }
+        }
+
+        return String.valueOf(ans).strip();
+    }
 
 
+    public boolean isPowerOfThree(int n) {
 
+        while (n >= 3){
+            if(n%3!=0) return false;
+            n = n / 3;
+            if (n == 3) return true;
+        }
 
+        return n == 1;
+    }
 
 
 
