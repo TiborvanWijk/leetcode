@@ -2439,17 +2439,51 @@ public class solutions {
 
 
 
-    List<Integer> list = new ArrayList<>();
+//    List<Integer> list = new ArrayList<>();
+//
+//    public List<Integer> preorderTraversal(TreeNode root) {
+//        if (root != null){
+//            preorderTraversal(root.right);
+//            preorderTraversal(root.left);
+//            list.add(root.val);
+//        }
+//
+//        return list;
+//    }
 
-    public List<Integer> preorderTraversal(TreeNode root) {
-        if (root != null){
-            preorderTraversal(root.right);
-            preorderTraversal(root.left);
-            list.add(root.val);
-        }
 
-        return list;
-    }
+
+//    List<ListNode> list = new ArrayList<>();
+//    public ListNode detectCycle(ListNode head) {
+//        if (head != null){
+//
+//        while (head.next != null){
+//            if (list.contains(head)){
+//                return head;
+//            }
+//            list.add(head);
+//
+//
+//            head = head.next;
+//            }
+//        }
+//
+//
+//        return null;
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
