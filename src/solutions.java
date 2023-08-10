@@ -2439,9 +2439,17 @@ public class solutions {
 
 
 
+    List<Integer> list = new ArrayList<>();
 
+    public List<Integer> preorderTraversal(TreeNode root) {
+        if (root != null){
+            preorderTraversal(root.right);
+            preorderTraversal(root.left);
+            list.add(root.val);
+        }
 
-
+        return list;
+    }
 
 
 
