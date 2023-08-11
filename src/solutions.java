@@ -2359,7 +2359,7 @@ public class solutions {
 //    then it will take the 2 middle numbers and return the average.
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         if (nums1.length > nums2.length) {
-            return findMedianSortedArrays(nums2, nums1); // Ensure nums1 is the smaller array
+            return findMedianSortedArrays(nums2, nums1);
         }
 
         int x = nums1.length;
@@ -2381,7 +2381,7 @@ public class solutions {
                 if ((x + y) % 2 == 0) {
                     return (double) (Math.max(maxX, maxY) + Math.min(minX, minY)) / 2;
                 } else {
-                    return (double) Math.max(maxX, maxY);
+                    return Math.max(maxX, maxY);
                 }
             } else if (maxX > minY) {
                 high = partitionX - 1;
@@ -2487,7 +2487,8 @@ public class solutions {
 
 
 
-
+// reverses the words in a sentence
+// example "hello world" : "world hello"
     public String reverseWords(String s) {
         s = s.strip();
         String[] array = s.split(" ");
