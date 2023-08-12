@@ -1142,27 +1142,27 @@ public class solutions {
 //        return root.val == val && helper(root.left,val) && helper(root.right, val);
 //    }
 //
-//// Convert Sorted Array to Binary Search Tree
-//    public TreeNode sortedArrayToBST(int[] nums) {
-//
-//        return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
-//    }
-////    makes a binary search tree out of a sorted array
-//    public TreeNode sortedArrayToBSTHelper(int[] nums, int left, int right) {
-//        if (left > right) return null;
-//
-//        int middle = (left + right) / 2;
-//
-//        TreeNode root = new TreeNode();
-//        root.val = nums[middle];
-//
-//        root.left = sortedArrayToBSTHelper(nums, left, middle - 1);
-//        root.right = sortedArrayToBSTHelper(nums, middle + 1, right);
-//
-//
-//
-//        return root;
-//    }
+// Convert Sorted Array to Binary Search Tree
+    public TreeNode sortedArrayToBST(int[] nums) {
+
+        return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
+    }
+//    makes a binary search tree out of a sorted array
+    public TreeNode sortedArrayToBSTHelper(int[] nums, int left, int right) {
+        if (left > right) return null;
+
+        int middle = (left + right) / 2;
+
+        TreeNode root = new TreeNode();
+        root.val = nums[middle];
+
+        root.left = sortedArrayToBSTHelper(nums, left, middle - 1);
+        root.right = sortedArrayToBSTHelper(nums, middle + 1, right);
+
+
+
+        return root;
+    }
 
 
 
@@ -2518,6 +2518,43 @@ public class solutions {
 
         return n == 1;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public void deleteNode(ListNode node) {
+            if (node != null){
+                if (node.next != null){
+                    node.val = node.next.val;
+                    if(node.next.next == null){
+                        node.next = null;
+                    }
+                    node = node.next;
+                    deleteNode(node);
+
+                }
+
+
+            }
+        }
+
+
+
+
+
+
+
+
+
 
 
 
