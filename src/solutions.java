@@ -2549,7 +2549,25 @@ public class solutions {
 
 
 
+    float middle;
+    public ListNode middleNode(ListNode head) {
+        middleNodeHelper(head);
+        middle = (float) Math.floor(middle/2);
+        for (int i = 0; i < middle; i++){
+            head = head.next;
+        }
 
+        return head;
+    }
+
+    public void middleNodeHelper(ListNode head) {
+
+        middle++;
+        if (head.next != null){
+            middleNodeHelper(head.next);
+        }
+
+    }
 
 
 
