@@ -2113,36 +2113,36 @@ public class solutions {
 
 
 //  finds duplicates in a LinkedList and removes that value entirely.
-    public ListNode deleteDuplicates(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-
-        ListNode dummy = new ListNode();
-        dummy.next = head;
-
-        ListNode prev = dummy;
-        ListNode curr = head;
-
-        while (curr != null) {
-            boolean isDuplicate = false;
-
-            while (curr.next != null && curr.val == curr.next.val) {
-                isDuplicate = true;
-                curr = curr.next;
-            }
-
-            if (isDuplicate) {
-                prev.next = curr.next;
-            } else {
-                prev = curr;
-            }
-
-            curr = curr.next;
-        }
-
-        return dummy.next;
-    }
+//    public ListNode deleteDuplicates(ListNode head) {
+//        if (head == null || head.next == null) {
+//            return head;
+//        }
+//
+//        ListNode dummy = new ListNode();
+//        dummy.next = head;
+//
+//        ListNode prev = dummy;
+//        ListNode curr = head;
+//
+//        while (curr != null) {
+//            boolean isDuplicate = false;
+//
+//            while (curr.next != null && curr.val == curr.next.val) {
+//                isDuplicate = true;
+//                curr = curr.next;
+//            }
+//
+//            if (isDuplicate) {
+//                prev.next = curr.next;
+//            } else {
+//                prev = curr;
+//            }
+//
+//            curr = curr.next;
+//        }
+//
+//        return dummy.next;
+//    }
 
 //  returns the average value of every layer in a tree.
     public List<Double> averageOfLevels(TreeNode root) {
@@ -2570,6 +2570,20 @@ public class solutions {
     }
 
 
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode temp = head;
+        if (head == null) return head;
+
+
+        while (temp.next !=null) {
+
+            if (temp.val != temp.next.val) {
+                temp = temp.next;
+            }
+            else temp.next = temp.next.next;
+        }
+        return head;
+    }
 
 
 
