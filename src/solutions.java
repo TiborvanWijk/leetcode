@@ -2507,7 +2507,7 @@ public class solutions {
         return String.valueOf(ans).strip();
     }
 
-
+// checks if the number given is a power of three
     public boolean isPowerOfThree(int n) {
 
         while (n >= 3){
@@ -2530,7 +2530,9 @@ public class solutions {
 
 
 
-
+// deletes node in a singly linked list
+//    but instead of getting the head of the linked list you get the node that you want to be deleted
+//    does not mean its wiped from memory, but it is removed from the given list
         public void deleteNode(ListNode node) {
             if (node != null){
                 if (node.next != null){
@@ -2548,28 +2550,28 @@ public class solutions {
         }
 
 
+//removes the middle node in a singly linked list
+//    float middle;
+//    public ListNode middleNode(ListNode head) {
+//        middleNodeHelper(head);
+//        middle = (float) Math.floor(middle/2);
+//        for (int i = 0; i < middle; i++){
+//            head = head.next;
+//        }
+//
+//        return head;
+//    }
+//
+//    public void middleNodeHelper(ListNode head) {
+//
+//        middle++;
+//        if (head.next != null){
+//            middleNodeHelper(head.next);
+//        }
+//
+//    }
 
-    float middle;
-    public ListNode middleNode(ListNode head) {
-        middleNodeHelper(head);
-        middle = (float) Math.floor(middle/2);
-        for (int i = 0; i < middle; i++){
-            head = head.next;
-        }
-
-        return head;
-    }
-
-    public void middleNodeHelper(ListNode head) {
-
-        middle++;
-        if (head.next != null){
-            middleNodeHelper(head.next);
-        }
-
-    }
-
-
+//    deletes duplicates from a singly linked list
     public ListNode deleteDuplicates(ListNode head) {
         ListNode temp = head;
         if (head == null) return head;
