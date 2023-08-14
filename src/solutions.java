@@ -2590,7 +2590,7 @@ public class solutions {
 
 
 
-
+// finds the first peak in an array of integers
     public int findPeakElement(int[] nums) {
         if (nums.length == 1 || nums.length == 0) return 0;
         for (int i = 0; i < nums.length -1; i++){
@@ -2620,10 +2620,16 @@ public class solutions {
 
 
 
+// check if its power of four leetcode 342.
+    public boolean isPowerOfFour(int n) {
+        while (n >= 4) {
+            if (n % 4 != 0) return false;
+            n = n / 4;
+            if (n == 4) return true;
+        }
 
-
-
-
+        return n == 1;
+    }
 
 
 
