@@ -2731,6 +2731,72 @@ public class solutions {
 
 
 
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> list = new ArrayList<>();
+
+        if (root == null) return list;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()){
+
+            int length = queue.size();
+            List<Integer> levelOfTree = new ArrayList<>();
+            for (int i = 0; i < length; i++){
+
+                TreeNode node = queue.poll();
+                levelOfTree.add(node.val);
+
+                if (node.left != null) queue.offer(node.left);
+                if (node.right != null) queue.offer(node.right);
+            }
+            list.add(levelOfTree);
+
+
+
+
+
+        }
+        Collections.reverse(list);
+        return list;
+    }
+
+    List<TreeNode> list = new ArrayList<>();
+
+    public void flatten(TreeNode root) {
+        preorderTraversal(root);
+
+        for (int i = 1; i < list.size(); i++){
+            root.right = list.get(i);
+            root.left = null;
+
+            root = root.right;
+
+
+        }
+    }
+
+    public void preorderTraversal(TreeNode root) {
+        if (root != null){
+            list.add(root);
+            preorderTraversal(root.left);
+            preorderTraversal(root.right);
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
