@@ -2490,21 +2490,17 @@ public class solutions {
 // reverses the words in a sentence
 // example "hello world" : "world hello"
     public String reverseWords(String s) {
-        s = s.strip();
-        String[] array = s.split(" ");
-        StringBuilder ans = new StringBuilder();
-        for (int i = array.length -1; i >= 0; i--){
-            String word = array[i];
 
-            word = word.strip();
-            if (!word.contains(" ")){
-                ans.append(word);
-                ans.append(" ");
+        String[] str = s.trim().split("\\s+");
 
-            }
+        String word = "";
+
+        for (int i = str.length - 1; i>0; i--){
+            word += str[i] + " ";
+
         }
 
-        return String.valueOf(ans).strip();
+        return word + str[0];
     }
 
 // checks if the number given is a power of three
