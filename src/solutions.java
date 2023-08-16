@@ -644,17 +644,7 @@ public class solutions {
 
 
 
-    public int findMin(int[] nums) {
 
-
-
-
-
-
-
-
-        return -1;
-    }
 
 
 //
@@ -2781,6 +2771,66 @@ public class solutions {
 //        }
 //
 //    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// leetcode 153
+    public int findMin(int[] nums) throws InterruptedException {
+
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left < right){
+            int middle = (left + right) /2;
+            if (nums[left] <= nums[middle]){
+                if (nums[left] >= nums[right]){
+                    left = middle + 1;
+                }
+                else{
+
+                    right = middle - 1;
+                }
+            }
+            else{
+                if (nums[middle] <= nums[right]){
+                    right = middle;
+                }
+                else {
+                    left = middle + 1;
+                }
+            }
+
+        }
+        return nums[left];
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
