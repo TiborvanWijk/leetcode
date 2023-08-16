@@ -2868,4 +2868,60 @@ public class solutions {
 
 
 
+
+
+
+    public int arrangeCoins(int n) {
+
+        int stairs = 0;
+        int stair = 1;
+        while (true){
+
+            if (n - stair >= 0){
+                stairs++;
+                n -= stair;
+                stair++;
+            }
+            else {
+                return stairs;
+            }
+
+
+
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
