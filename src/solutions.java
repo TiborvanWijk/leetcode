@@ -2996,4 +2996,76 @@ public class solutions {
 
 
 
+
+
+
+
+
+
+
+
+    public int[] searchRange(int[] nums, int target) throws InterruptedException {
+        int start = -1;
+        int end = -1;
+
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right){
+
+            int middle = (left + right) / 2;
+            int index = middle;
+
+            if (nums[index] == target){
+
+                while (index >= 0 && nums[index] == target){
+
+                    index--;
+                }
+                start = index + 1;
+                index = start;
+                while (index < nums.length && nums[index] == target){
+                    index++;
+                }
+                if ((index) != middle){
+                    end = index - 1;
+                }
+                return new int[]{start, end};
+            }
+            else if (nums[middle] > target){
+                right = middle - 1;
+            }
+            else {
+                left = middle + 1;
+            }
+
+        }
+
+        return new int[]{start, end};
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
