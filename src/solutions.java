@@ -1,3 +1,4 @@
+import javax.swing.plaf.TableHeaderUI;
 import java.nio.file.ClosedWatchServiceException;
 import java.nio.file.StandardOpenOption;
 import java.sql.Array;
@@ -2943,6 +2944,41 @@ public class solutions {
         return (s.substring(0, goal.length() - j).equals(goal.substring(j)));
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public char nextGreatestLetter(char[] letters, char target) throws InterruptedException {
+
+        int left = 0;
+        int right = letters.length - 1;
+
+        while (left <= right) {
+            int middle = left + (right - left) / 2;
+            if (target >= letters[middle]) {
+                left = middle + 1;
+            } else {
+                right = middle - 1;
+            }
+        }
+
+        return letters[left % letters.length];
+    }
 
 
 
