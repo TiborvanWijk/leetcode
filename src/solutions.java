@@ -2831,7 +2831,23 @@ public class solutions {
 
 
 
+    public String removeDuplicateLetters(String s) {
 
+
+        String ans = "";
+
+        for (int i = 0; i < s.length(); i++){
+
+            if (!ans.contains(String.valueOf(s.charAt(i)))){
+                ans += s.charAt(i);
+            }
+
+
+
+        }
+
+        return ans;
+    }
 
 
 
