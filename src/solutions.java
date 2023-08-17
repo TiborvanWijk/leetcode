@@ -1656,31 +1656,31 @@ public class solutions {
 
 
 
-    private int minDiff;
-    private TreeNode prev;
-
-    public int getMinimumDifference(TreeNode root) {
-        minDiff = Integer.MAX_VALUE;
-        prev = null;
-        inOrderTraversal(root);
-        return minDiff;
-    }
-
-    private void inOrderTraversal(TreeNode node) {
-        if (node == null) {
-            return;
-        }
-
-        inOrderTraversal(node.left);
-
-        if (prev != null) {
-            minDiff = Math.min(minDiff, node.val - prev.val);
-        }
-
-        prev = node;
-
-        inOrderTraversal(node.right);
-    }
+//    private int minDiff;
+//    private TreeNode prev;
+//
+//    public int getMinimumDifference(TreeNode root) {
+//        minDiff = Integer.MAX_VALUE;
+//        prev = null;
+//        inOrderTraversal(root);
+//        return minDiff;
+//    }
+//
+//    private void inOrderTraversal(TreeNode node) {
+//        if (node == null) {
+//            return;
+//        }
+//
+//        inOrderTraversal(node.left);
+//
+//        if (prev != null) {
+//            minDiff = Math.min(minDiff, node.val - prev.val);
+//        }
+//
+//        prev = node;
+//
+//        inOrderTraversal(node.right);
+//    }
 
 
 
@@ -3171,7 +3171,7 @@ public class solutions {
 
     public int countDigitOne(int n) {
         int ones = 0;
-        
+
         while (n >0){
             String number = String.valueOf(n);
             for (int i = 0; i < number.length(); i++){
@@ -3194,7 +3194,24 @@ public class solutions {
 
 
 
+    public List<Integer> countSmaller(int[] nums) {
 
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++){
+            int amount = 0;
+
+            for (int j = i + 1; j < nums.length; j++){
+
+                if (nums[i] > nums[j]){
+                    amount++;
+                }
+            }
+            list.add(amount);
+
+        }
+
+        return list;
+    }
 
 
 
