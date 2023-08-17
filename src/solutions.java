@@ -3060,6 +3060,42 @@ public class solutions {
 
 
 
+    public int findMinWithDuplicates(int[] nums) {
+
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left < right) {
+            int middle = (left + right) / 2;
+
+            if (nums[right] < nums[middle]) {
+                left = middle + 1;
+            } else if (nums[right] > nums[middle]) {
+                right = middle;
+            } else {
+                right--;
+            }
+
+        }
+        return nums[left];
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
