@@ -3169,6 +3169,39 @@ public class solutions {
 
 
 
+    public int countDigitOne(int n) {
+        int ones = 0;
+        
+        while (n >0){
+            String number = String.valueOf(n);
+            for (int i = 0; i < number.length(); i++){
+                if (number.charAt(i) == '1'){
+                    ones++;
+                }
+            }
+
+            n--;
+        }
+
+        return ones;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
