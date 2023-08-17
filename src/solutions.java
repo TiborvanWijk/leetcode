@@ -3088,6 +3088,24 @@ public class solutions {
 
 
 
+    public boolean isPerfectSquare(int num) {
+
+        double sqrt = Math.sqrt(num);
+
+        return sqrt == Math.floor(sqrt);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
