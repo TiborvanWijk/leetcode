@@ -3003,7 +3003,7 @@ public class solutions {
 
 
 
-
+// finds the first and last index of the target in the array nums
     public int[] searchRange(int[] nums, int target) throws InterruptedException {
         int start = -1;
         int end = -1;
@@ -3059,7 +3059,7 @@ public class solutions {
 
 
 
-
+// find the minimal number in an array that contains duplicates in o(log n)
     public int findMinWithDuplicates(int[] nums) {
 
         int left = 0;
@@ -3087,7 +3087,7 @@ public class solutions {
 
 
 
-
+// returns true if num is a perfect square.
     public boolean isPerfectSquare(int num) {
 
         double sqrt = Math.sqrt(num);
@@ -3101,7 +3101,7 @@ public class solutions {
 
 
 
-
+// returns the amount of trailing 0 in n!
     public int trailingZeroes(int n) {
         int count = 0;
         while(n > 0) {
@@ -3110,6 +3110,33 @@ public class solutions {
         }
         return count;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
