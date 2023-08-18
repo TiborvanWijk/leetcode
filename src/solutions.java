@@ -3284,7 +3284,24 @@ public class solutions {
 
 
 
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
 
+        List<Boolean> list = new ArrayList<>();
+
+        int mostCandie = 0;
+
+        for (int candy : candies) {
+            if (candy > mostCandie) mostCandie = candy;
+        }
+
+        for (int candy : candies) {
+            if ((candy + extraCandies) >= mostCandie) {
+                list.add(true);
+            } else list.add(false);
+        }
+
+        return list;
+    }
 
 
 
