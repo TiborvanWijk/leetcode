@@ -3194,24 +3194,68 @@ public class solutions {
 
 
 
-    public List<Integer> countSmaller(int[] nums) {
+//    public List<Integer> countSmaller(int[] nums) {
+//
+//        List<Integer> list = new ArrayList<>();
+//        for (int i = 0; i < nums.length; i++){
+//            int amount = 0;
+//
+//            for (int j = i + 1; j < nums.length; j++){
+//
+//                if (nums[i] > nums[j]){
+//                    amount++;
+//                }
+//            }
+//            list.add(amount);
+//
+//        }
+//
+//        return list;
+//    }
 
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++){
-            int amount = 0;
 
-            for (int j = i + 1; j < nums.length; j++){
 
-                if (nums[i] > nums[j]){
-                    amount++;
-                }
-            }
-            list.add(amount);
 
+
+    public Node2 connect(Node2 root) {
+        if (root == null) {
+            return null;
         }
 
-        return list;
+        Queue<Node2> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            Node2 prev = null;
+
+            for (int i = 0; i < size; i++) {
+                Node2 current = queue.poll();
+
+                if (prev != null) {
+                    prev.next = current;
+                }
+                prev = current;
+
+                if (current.left != null) {
+                    queue.offer(current.left);
+                }
+                if (current.right != null) {
+                    queue.offer(current.right);
+                }
+            }
+        }
+
+        return root;
     }
+
+
+
+
+
+
+
+
 
 
 
