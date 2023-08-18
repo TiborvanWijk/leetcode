@@ -3315,4 +3315,72 @@ public class solutions {
 
 
 
+
+
+
+
+
+
+
+
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+
+        if (flowerbed.length == 1 && flowerbed[0] == 0 && n == 1) return true;
+        if (flowerbed.length >= 2 && flowerbed[0] == 0 && flowerbed[1] == 0){
+            flowerbed[0] = 1;
+            n--;
+        }
+
+        for (int i = 1; i < flowerbed.length - 1; i++){
+            System.out.println(Arrays.toString(flowerbed));
+            int prev = i - 1;
+            int next = i + 1;
+
+
+
+
+            if ((flowerbed[prev] == 0 && flowerbed[next] == 0 && flowerbed[i] == 0)){
+                flowerbed[i] = 1;
+                n--;
+            }
+
+
+
+            System.out.println(i);
+            System.out.println(n);
+
+
+
+        }
+        if (flowerbed.length >=2 && flowerbed[flowerbed.length-1] == 0 && flowerbed[flowerbed.length-2] == 0){
+            n--;
+        }
+        return n <= 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
