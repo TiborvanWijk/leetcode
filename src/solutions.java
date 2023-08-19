@@ -3322,7 +3322,8 @@ public class solutions {
 
 
 
-
+// checks if it can place a 1 in array.
+//    it can place when there are no adjacent 1's in the array example: 0, 0 ,0 you can place two 1,0,1
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
 
         if (flowerbed.length == 1 && flowerbed[0] == 0 && n == 1) return true;
@@ -3378,7 +3379,7 @@ public class solutions {
 
 
 
-
+// reverses the vowels in a word
     public String reverseVowels(String s) {
         char[] word = s.toCharArray();
         int start = 0;
@@ -3406,7 +3407,7 @@ public class solutions {
     }
 
 
-//0,1,0,3,12
+// moves all the zeros to the right of the array while maintaining order in the array
     public void moveZeroes(int[] nums) {
 
         int j = 0;
