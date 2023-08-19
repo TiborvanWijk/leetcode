@@ -3216,7 +3216,7 @@ public class solutions {
 
 
 
-
+// connects all levels in the tree with their next
     public Node2 connect(Node2 root) {
         if (root == null) {
             return null;
@@ -3262,7 +3262,7 @@ public class solutions {
 
 
 
-
+// merges alternately example word1 = hlo word2 = el returns hello
     public String mergeAlternately(String word1, String word2) {
         StringBuilder ans = new StringBuilder();
         int i = 0;
@@ -3283,7 +3283,7 @@ public class solutions {
 
 
 
-
+// checks if a kid with i th candies can have the most candies if given the extraCandies
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
 
         List<Boolean> list = new ArrayList<>();
@@ -3440,7 +3440,7 @@ public class solutions {
 
 
 
-
+// finds biggest average in a range of k in array nums
     public double findMaxAverage(int[] nums, int k) {
         int n = nums.length;
         int[] sum = new int[n+1];
@@ -3467,7 +3467,8 @@ public class solutions {
 
 
 
-//[1,3,2]
+// An array nums is monotone increasing if for all i <= j, nums[i] <= nums[j].
+// An array nums is monotone decreasing if for all i <= j, nums[i] >= nums[j].
     public boolean isMonotonic(int[] nums) {
 
         boolean decreasing = nums[0] > nums[nums.length - 1];
