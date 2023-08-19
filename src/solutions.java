@@ -3441,6 +3441,36 @@ public class solutions {
 
 
 
+    public double findMaxAverage(int[] nums, int k) {
+        int n = nums.length;
+        int[] sum = new int[n+1];
+        sum[0] = 0;
+
+        if(k> n)
+            return 0;
+
+        for(int i =1; i<=n; i++)
+            sum[i] = sum[i-1] +  nums[i-1];
+
+
+        System.out.println(n);
+        double max = -10001;
+        int  j = 0;
+        for(int i = k; i<=n; i++){
+            max = Math.max(max, (double) (sum[i]- sum[j++] )/k );
+        }
+        return max;
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
