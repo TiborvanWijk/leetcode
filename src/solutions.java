@@ -3123,7 +3123,7 @@ public class solutions {
 
 
 
-
+// turns a given number into words example 100 = one hundred
     private final String[] belowTen = new String[] {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
     private final String[] belowTwenty = new String[] {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
     private final String[] belowHundred = new String[] {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
@@ -3168,7 +3168,8 @@ public class solutions {
 
 
 
-
+// counts the amount of ones is seen when subtracting 1 from n until its 0;
+//    example 11, 10, 9, 8, 7, 6, 5, 4, 4, 3, 2, 1, 0. n 11
     public int countDigitOne(int n) {
         int ones = 0;
 
