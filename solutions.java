@@ -3559,7 +3559,7 @@ public class solutions {
     }
 
 
-    
+
     public int jump(int[] nums) {
         int ans = 0;
         int end = 0;
