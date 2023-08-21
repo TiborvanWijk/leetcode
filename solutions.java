@@ -21,7 +21,7 @@ public class solutions {
 //        return ans;
 //    }
 
-//    checks if there is a duplicate by storing the variables
+    //    checks if there is a duplicate by storing the variables
 //    and the seeing if the next number is already being stored in the hashset
     public boolean containsDuplicate(int[] nums) {
 
@@ -36,7 +36,7 @@ public class solutions {
     }
 
 
-//    check if a word is spelled the same backwards as forwards
+    //    check if a word is spelled the same backwards as forwards
     public boolean isAnagram(String s, String t) {
         char[] sChars = s.toCharArray();
         char[] tChars = t.toCharArray();
@@ -64,7 +64,7 @@ public class solutions {
 //        return nums;
 //    }
 
-// checks if diffrent words use the exact same amount of letters
+    // checks if diffrent words use the exact same amount of letters
 //    and puts all words of the words that are the same in a list
 //    it groups them together by sorting the word and looking it up in a hashmap
 //    if it contains the sorted word the word gets added to the list with the other word(s).
@@ -106,7 +106,7 @@ public class solutions {
 //        }
 
 
-//    checks the longestConsecutive example: 1,2,3,4,6 = 4;
+    //    checks the longestConsecutive example: 1,2,3,4,6 = 4;
 //    it does this by looping over the array and checking if
 //    the number is the same as the next number - 1 meaning it incremented by one
 //    every time it is the same the temp variable increases by one and if this
@@ -141,7 +141,7 @@ public class solutions {
 
 
 
-//    checks if a string containing parameters are correctly opened and closed
+    //    checks if a string containing parameters are correctly opened and closed
 //    by using a stack to see if the top is the same type when a parameter is closed
     public boolean isValid(String s) {
 
@@ -220,7 +220,7 @@ public class solutions {
 //        return ans;
 //    }
 
-//    checks if a word is typed the same forwards as backwards
+    //    checks if a word is typed the same forwards as backwards
 //    by implementing a StringBuilderClass
     public boolean isPalindrome(String s) {
         StringBuilder reverse = new StringBuilder();
@@ -233,7 +233,7 @@ public class solutions {
         return String.valueOf(reverse).equals(String.valueOf(reverse.reverse()));
     }
 
-//    finds two numbers in a sorted array that add up to the given target
+    //    finds two numbers in a sorted array that add up to the given target
 //    by implementing a two pointer
     public int[] twoSum(int[] numbers, int target) {
 
@@ -274,7 +274,7 @@ public class solutions {
 
 
 
-// checks if a number is unique and not seen before
+    // checks if a number is unique and not seen before
 //    this is without bit-manipulation and uses a
 //    hashmap to check the amount on times a variable is stored
     public int singleNumber(int[] nums) {
@@ -300,7 +300,7 @@ public class solutions {
 
 
 
-// checks the best time to buy in a stockmarket
+    // checks the best time to buy in a stockmarket
 //    by calculating the biggest number difference from small to big
     public int maxProfit1(int[] prices) {
         int leftPointer = 0;
@@ -321,7 +321,7 @@ public class solutions {
         return max;
     }
 
-// checks the longest substring without repeating letters
+    // checks the longest substring without repeating letters
     public int lengthOfLongestSubstring(String s) {
         ArrayList<Character> stack = new ArrayList<>();
         int ans = 0;
@@ -359,7 +359,7 @@ public class solutions {
 //
 //    }
 
-// adds 1 to a array that repesents a normal number
+    // adds 1 to a array that repesents a normal number
 //    example [1,2,3]= 123
     public int[] plusOne(int[] digits) {
 
@@ -405,7 +405,7 @@ public class solutions {
 
 
 
-// finds the maximum number in an array when looking at a certain amount of data
+    // finds the maximum number in an array when looking at a certain amount of data
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums.length == 0) return nums;
         int[] ans = new int[nums.length - (k - 1)];
@@ -422,7 +422,7 @@ public class solutions {
 
 
 
-// binary search checks if the middle of the sorted array is
+    // binary search checks if the middle of the sorted array is
 // the same as the target if not it removes half of the array
 //    by comparing the middle number to the target
     public int search(int[] nums, int target) {
@@ -514,7 +514,7 @@ public class solutions {
 
 
 
-//    public ListNode reverseList(ListNode head) {
+    //    public ListNode reverseList(ListNode head) {
 //
 //        if(head == null){
 //            return null;
@@ -888,7 +888,7 @@ public class solutions {
 
 
 
-// finds the location of a target and if the target is not
+    // finds the location of a target and if the target is not
 // in the sorted array then it will return the location of where this element should be.
 // implements binary search if the target is found then it will be returned
 // otherwise it will keep looping until the left pointer is the same or bigger
@@ -919,7 +919,7 @@ public class solutions {
     }
 
 
-// finds the first word in a sentence by striping
+    // finds the first word in a sentence by striping
 // the sides of tabs or spaces and then looping from
 // each character until there is a space
     public int lengthOfLastWord(String s) {
@@ -946,7 +946,7 @@ public class solutions {
 
 
 
-// stores the count of every character and returns the first one that is counted once
+    // stores the count of every character and returns the first one that is counted once
     public int firstUniqChar(String s) {
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < s.length(); i++){
@@ -1005,7 +1005,7 @@ public class solutions {
 
 
 
-// adds three numbers to each other to a total of 0
+    // adds three numbers to each other to a total of 0
 // without duplicate uses.
     public List<List<Integer>> threeSum(int[] nums) {
 
@@ -1102,7 +1102,7 @@ public class solutions {
 
 
 
-// makes a 2d matrix out of a normal array with the given amount of rows and columns
+    // makes a 2d matrix out of a normal array with the given amount of rows and columns
     public int[][] construct2DArray(int[] original, int m, int n) {
 
         if (m * n != original.length) return new int[0][0];
@@ -1111,7 +1111,7 @@ public class solutions {
         for (int i = 0; i < ans.length; i++){
 
             for (int j = 0; j < n; j++){
-               ans[i][j] = original[x];
+                ans[i][j] = original[x];
                 x++;
             }
         }
@@ -1120,7 +1120,7 @@ public class solutions {
     }
 
 
-//// checks if all the values in a tree are the same if they are then it returns true.
+    //// checks if all the values in a tree are the same if they are then it returns true.
 //    public boolean isUnivalTree(TreeNode root) {
 //        if (root.left == null && root.right == null) return true;
 //
@@ -1138,7 +1138,7 @@ public class solutions {
 
         return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
     }
-//    makes a binary search tree out of a sorted array
+    //    makes a binary search tree out of a sorted array
     public TreeNode sortedArrayToBSTHelper(int[] nums, int left, int right) {
         if (left > right) return null;
 
@@ -1184,7 +1184,7 @@ public class solutions {
 //    }
 
 
-//merges two integer arrays
+    //merges two integer arrays
     public void merge(int[] nums1, int m, int[] nums2, int n) {
 
         for (int j = 0, i = m; j < n; j++){
@@ -1198,7 +1198,7 @@ public class solutions {
 
 
 
-//removes duplicates in an array
+    //removes duplicates in an array
     public int removeElement(int[] nums, int val) {
         int index = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -1218,7 +1218,7 @@ public class solutions {
 
 
 
-//[0,0,1,1,1,2,2,3,3,4]
+    //[0,0,1,1,1,2,2,3,3,4]
 //    112
     public int removeDuplicates(int[] nums) {
 
@@ -1232,7 +1232,7 @@ public class solutions {
 
         return left;
     }
-// check if a certain number is the majority of the array in this case its more than half of all the elements
+    // check if a certain number is the majority of the array in this case its more than half of all the elements
     public int majorityElement(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
 
@@ -1282,7 +1282,7 @@ public class solutions {
         return -1;
     }
 
-// checks if it's a substring in order
+    // checks if it's a substring in order
     public boolean isSubsequence(String s, String t) {
         if (s.length() == 0) return true;
         int index = 0;
@@ -1300,7 +1300,7 @@ public class solutions {
     }
 
 
-// checks if a note can be made with the letter/symbols in the magazine
+    // checks if a note can be made with the letter/symbols in the magazine
     public boolean canConstruct(String ransomNote, String magazine) {
         Map<Character, Integer> magazineMap = new HashMap<>();
         for (int i = 0; i < magazine.length(); i++){
@@ -1348,7 +1348,7 @@ public class solutions {
 
 
 
-// finds the carrot of a number without using the sqrt function
+    // finds the carrot of a number without using the sqrt function
     public int mySqrt(int x) {
         if (x == 0 || x == 1) return x;
 
@@ -1623,7 +1623,7 @@ public class solutions {
 
 
 
-// Not done
+    // Not done
 //
 //
 //
@@ -1884,7 +1884,7 @@ public class solutions {
 
 
 
-// counts the nodes in a tree.
+    // counts the nodes in a tree.
     public int countNodes(TreeNode root) {
         if (root == null) return 0;
 
@@ -1914,7 +1914,7 @@ public class solutions {
 
 
 
-//    transfers integer to Roman numerals.
+    //    transfers integer to Roman numerals.
 //    using a simple hashmap that can be iterated over in order.
     public String intToRoman(int num) {
         Object[][] storeIntRoman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"}, {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
@@ -1969,7 +1969,7 @@ public class solutions {
 
 
 
-// swaps pairs in a linked list example 1->2->3->4->null
+    // swaps pairs in a linked list example 1->2->3->4->null
 //    after swap it looks like this: 2->1->4->3->null
     public ListNode swapPairs(ListNode head) {
         if (head == null || head.next == null) return head;
@@ -2032,7 +2032,7 @@ public class solutions {
 
 
 
-// removes the n number of note from the end for example List lenght = 5 and n = 2 then i remove the 4 because 5 is 1 4 is 2.
+    // removes the n number of note from the end for example List lenght = 5 and n = 2 then i remove the 4 because 5 is 1 4 is 2.
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode();
         if (head.next == null) return null;
@@ -2135,7 +2135,7 @@ public class solutions {
 //        return dummy.next;
 //    }
 
-//  returns the average value of every layer in a tree.
+    //  returns the average value of every layer in a tree.
     public List<Double> averageOfLevels(TreeNode root) {
         if (root == null) return null;
 
@@ -2163,7 +2163,7 @@ public class solutions {
         }
         return ans;
     }
-//  Imagine you stand on the right of the tree. this will display all of the values in your sight.
+    //  Imagine you stand on the right of the tree. this will display all of the values in your sight.
 //  Shows the most right value of every layer.
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
@@ -2195,7 +2195,7 @@ public class solutions {
 
         return ans;
     }
-//  shows all values in a tree layer by layer.
+    //  shows all values in a tree layer by layer.
 //  by implementing breadth first search.
     public List<List<Integer>> levelOrder(TreeNode root) {
 
@@ -2227,7 +2227,7 @@ public class solutions {
     }
 
 
-//  breath first search displays all values in a tree in a zigzag formation
+    //  breath first search displays all values in a tree in a zigzag formation
 //  left to right then right to left.
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> ans = new ArrayList<>();
@@ -2283,7 +2283,7 @@ public class solutions {
 
 
 
-//return the first letter that is shown twice in a string.
+    //return the first letter that is shown twice in a string.
     public char repeatedCharacter(String s) {
 
         Map<Character, Integer> map = new HashMap<>();
@@ -2300,7 +2300,7 @@ public class solutions {
 
         return 'n';
     }
-//    public TreeNode increasingBST(TreeNode root) {
+    //    public TreeNode increasingBST(TreeNode root) {
 //        if(root == null) return null;
 //
 //        increasingBST(root.left);
@@ -2345,7 +2345,7 @@ public class solutions {
 
 
 
-// finds the median in the two sorted arrays put together.
+    // finds the median in the two sorted arrays put together.
 //    median is the number in the middle if the total amount of numbers is even.
 //    then it will take the 2 middle numbers and return the average.
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
@@ -2384,7 +2384,7 @@ public class solutions {
         throw new IllegalArgumentException("Input arrays are not sorted.");
     }
 
-// reverses a integer number. and returns zero if the inverted number is bigger then the 32bit integer limit.
+    // reverses a integer number. and returns zero if the inverted number is bigger then the 32bit integer limit.
     public int reverse(int x) {
         String value = String.valueOf(x);
         boolean isNegative = false;
@@ -2478,7 +2478,7 @@ public class solutions {
 
 
 
-// reverses the words in a sentence
+    // reverses the words in a sentence
 // example "hello world" : "world hello"
     public String reverseWords(String s) {
 
@@ -2494,7 +2494,7 @@ public class solutions {
         return word + str[0];
     }
 
-// checks if the number given is a power of three
+    // checks if the number given is a power of three
     public boolean isPowerOfThree(int n) {
 
         while (n >= 3){
@@ -2517,24 +2517,24 @@ public class solutions {
 
 
 
-// deletes node in a singly linked list
+    // deletes node in a singly linked list
 //    but instead of getting the head of the linked list you get the node that you want to be deleted
 //    does not mean its wiped from memory, but it is removed from the given list
-        public void deleteNode(ListNode node) {
-            if (node != null){
-                if (node.next != null){
-                    node.val = node.next.val;
-                    if(node.next.next == null){
-                        node.next = null;
-                    }
-                    node = node.next;
-                    deleteNode(node);
-
+    public void deleteNode(ListNode node) {
+        if (node != null){
+            if (node.next != null){
+                node.val = node.next.val;
+                if(node.next.next == null){
+                    node.next = null;
                 }
-
+                node = node.next;
+                deleteNode(node);
 
             }
+
+
         }
+    }
 
 
 //removes the middle node in a singly linked list
@@ -2558,7 +2558,7 @@ public class solutions {
 //
 //    }
 
-//    deletes duplicates from a singly linked list
+    //    deletes duplicates from a singly linked list
     public ListNode deleteDuplicates(ListNode head) {
         ListNode temp = head;
         if (head == null) return head;
@@ -2577,7 +2577,7 @@ public class solutions {
 
 
 
-// finds the first peak in an array of integers
+    // finds the first peak in an array of integers
     public int findPeakElement(int[] nums) {
         if (nums.length == 1 || nums.length == 0) return 0;
         for (int i = 0; i < nums.length -1; i++){
@@ -2607,7 +2607,7 @@ public class solutions {
 
 
 
-// check if its power of four leetcode 342.
+    // check if its power of four leetcode 342.
     public boolean isPowerOfFour(int n) {
         while (n >= 4) {
             if (n % 4 != 0) return false;
@@ -2636,7 +2636,7 @@ public class solutions {
 
 
 
-// finds the third max number in an integer array if there isn't a third max number it returns the max number
+    // finds the third max number in an integer array if there isn't a third max number it returns the max number
 //    leetcode 414
     public int thirdMax(int[] nums) {
         Integer max1 = null;
@@ -2659,7 +2659,7 @@ public class solutions {
     }
 
 
-// solves a game of sudoku
+    // solves a game of sudoku
     public void solveSudoku(char[][] board) {
         solve(board, 0, 0);
     }
@@ -2717,7 +2717,7 @@ public class solutions {
 
 
 
-// returns a list of all the values on each level of a tree data structer from the bottom to the top
+    // returns a list of all the values on each level of a tree data structer from the bottom to the top
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         List<List<Integer>> list = new ArrayList<>();
 
@@ -2786,7 +2786,7 @@ public class solutions {
 
 
 
-// leetcode 153
+    // leetcode 153
     public int findMin(int[] nums) throws InterruptedException {
 
         int left = 0;
@@ -3003,7 +3003,7 @@ public class solutions {
 
 
 
-// finds the first and last index of the target in the array nums
+    // finds the first and last index of the target in the array nums
     public int[] searchRange(int[] nums, int target) throws InterruptedException {
         int start = -1;
         int end = -1;
@@ -3059,7 +3059,7 @@ public class solutions {
 
 
 
-// find the minimal number in an array that contains duplicates in o(log n)
+    // find the minimal number in an array that contains duplicates in o(log n)
     public int findMinWithDuplicates(int[] nums) {
 
         int left = 0;
@@ -3087,7 +3087,7 @@ public class solutions {
 
 
 
-// returns true if num is a perfect square.
+    // returns true if num is a perfect square.
     public boolean isPerfectSquare(int num) {
 
         double sqrt = Math.sqrt(num);
@@ -3101,7 +3101,7 @@ public class solutions {
 
 
 
-// returns the amount of trailing 0 in n!
+    // returns the amount of trailing 0 in n!
     public int trailingZeroes(int n) {
         int count = 0;
         while(n > 0) {
@@ -3123,7 +3123,7 @@ public class solutions {
 
 
 
-// turns a given number into words example 100 = one hundred
+    // turns a given number into words example 100 = one hundred
     private final String[] belowTen = new String[] {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
     private final String[] belowTwenty = new String[] {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
     private final String[] belowHundred = new String[] {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
@@ -3168,7 +3168,7 @@ public class solutions {
 
 
 
-// counts the amount of ones is seen when subtracting 1 from n until its 0;
+    // counts the amount of ones is seen when subtracting 1 from n until its 0;
 //    example 11, 10, 9, 8, 7, 6, 5, 4, 4, 3, 2, 1, 0. n 11
     public int countDigitOne(int n) {
         int ones = 0;
@@ -3217,7 +3217,7 @@ public class solutions {
 
 
 
-// connects all levels in the tree with their next
+    // connects all levels in the tree with their next
     public Node2 connect(Node2 root) {
         if (root == null) {
             return null;
@@ -3263,7 +3263,7 @@ public class solutions {
 
 
 
-// merges alternately example word1 = hlo word2 = el returns hello
+    // merges alternately example word1 = hlo word2 = el returns hello
     public String mergeAlternately(String word1, String word2) {
         StringBuilder ans = new StringBuilder();
         int i = 0;
@@ -3284,7 +3284,7 @@ public class solutions {
 
 
 
-// checks if a kid with i th candies can have the most candies if given the extraCandies
+    // checks if a kid with i th candies can have the most candies if given the extraCandies
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
 
         List<Boolean> list = new ArrayList<>();
@@ -3323,7 +3323,7 @@ public class solutions {
 
 
 
-// checks if it can place a 1 in array.
+    // checks if it can place a 1 in array.
 //    it can place when there are no adjacent 1's in the array example: 0, 0 ,0 you can place two 1,0,1
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
 
@@ -3380,7 +3380,7 @@ public class solutions {
 
 
 
-// reverses the vowels in a word
+    // reverses the vowels in a word
     public String reverseVowels(String s) {
         char[] word = s.toCharArray();
         int start = 0;
@@ -3408,7 +3408,7 @@ public class solutions {
     }
 
 
-// moves all the zeros to the right of the array while maintaining order in the array
+    // moves all the zeros to the right of the array while maintaining order in the array
     public void moveZeroes(int[] nums) {
 
         int j = 0;
@@ -3441,7 +3441,7 @@ public class solutions {
 
 
 
-// finds biggest average in a range of k in array nums
+    // finds biggest average in a range of k in array nums
     public double findMaxAverage(int[] nums, int k) {
         int n = nums.length;
         int[] sum = new int[n+1];
@@ -3468,7 +3468,7 @@ public class solutions {
 
 
 
-// An array nums is monotone increasing if for all i <= j, nums[i] <= nums[j].
+    // An array nums is monotone increasing if for all i <= j, nums[i] <= nums[j].
 // An array nums is monotone decreasing if for all i <= j, nums[i] >= nums[j].
     public boolean isMonotonic(int[] nums) {
 
@@ -3542,7 +3542,7 @@ public class solutions {
 
 
 
-// 2,3,1,1,4
+    // 2,3,1,1,4
     public boolean canJump(int[] nums) {
 
         int goal = nums.length - 1;
@@ -3558,6 +3558,28 @@ public class solutions {
         return goal == 0;
     }
 
+
+    
+    public int jump(int[] nums) {
+        int ans = 0;
+        int end = 0;
+        int farthest = 0;
+
+        for (int i = 0; i < nums.length - 1; i++) {
+
+            if (i + nums[i] > farthest) farthest = i + nums[i];
+            if (farthest >= nums.length - 1) {
+                ++ans;
+                break;
+            }
+            if (i == end) {
+                ans++;
+                end = farthest;
+            }
+        }
+
+        return ans;
+    }
 
 
 
