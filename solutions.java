@@ -3583,6 +3583,71 @@ public class solutions {
 
 
 
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int ans[] = new int[n];
+        Arrays.fill(ans, 1);
+        int curr = 1;
+        for(int i = 0; i < n; i++) {
+            ans[i] *= curr;
+            curr *= nums[i];
+        }
+        curr = 1;
+        for(int i = n - 1; i >= 0; i--) {
+            ans[i] *= curr;
+            curr *= nums[i];
+        }
+        return ans;
+    }
+
+
+
+
+
+
+
+
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+
+        int gas2 = 0;
+        int cost2 = 0;
+
+        for (int i = 0; i < gas.length; i++){
+            cost2 += cost[i];
+            gas2 += gas[i];
+        }
+
+        if (cost2 > gas2) return - 1;
+
+        int total = 0;
+        int res = 0;
+        int start = 0;
+        for (int i = 0; i < gas.length; i++){
+
+            total += (gas[i] - cost[i]);
+
+            if (total < 0){
+                total = 0;
+                start = i + 1;
+            }
+
+
+        }
+
+
+        return start;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
