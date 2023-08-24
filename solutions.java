@@ -3646,6 +3646,29 @@ public class solutions {
 
 
 
+    public String simplifyPath(String path) {
+        Stack<String> stack = new Stack<>();
+        String[] segments = path.split("/");
+
+        for (String segment : segments) {
+            if (segment.equals("..")) {
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                }
+            } else if (!segment.equals(".") && !segment.isEmpty()) {
+                stack.push(segment);
+            }
+        }
+
+        StringBuilder simplifiedPath = new StringBuilder();
+        for (String segment : stack) {
+            simplifiedPath.append("/").append(segment);
+        }
+
+        return simplifiedPath.length() > 0 ? simplifiedPath.toString() : "/";
+    }
+
+
 
 
 
