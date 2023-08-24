@@ -2,7 +2,7 @@ import java.util.*;
 
 class MinStack  {
 
-
+// every functions works in o(1) time
     private Stack<Integer> stack;
     private Stack<Integer> minStack;
 

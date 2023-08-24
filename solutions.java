@@ -3606,7 +3606,7 @@ public class solutions {
 
 
 
-
+// checks if the car with the given gas can make a complete circle and returns the index
     public int canCompleteCircuit(int[] gas, int[] cost) {
 
         int gas2 = 0;
@@ -3645,7 +3645,7 @@ public class solutions {
 
 
 
-
+// simplifies the path by splitting it up in sections and removing the necessary parts
     public String simplifyPath(String path) {
         Stack<String> stack = new Stack<>();
         String[] segments = path.split("/");
