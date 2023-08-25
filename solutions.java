@@ -1,8 +1,3 @@
-import javax.swing.plaf.TableHeaderUI;
-import java.nio.file.ClosedWatchServiceException;
-import java.nio.file.StandardOpenOption;
-import java.sql.Array;
-import java.sql.Struct;
 import java.util.*;
 
 /**
@@ -3810,6 +3805,40 @@ public class solutions {
 
         return list;
     }
+
+
+
+
+    public void rotate(int[][] matrix) {
+
+
+
+
+    }
+
+
+
+
+
+    public int addDigits(int num) {
+
+        if(num==0){
+            return 0;
+        }
+        else if(num%9==0){
+            return 9;
+        }
+        return num%9;
+    }
+
+
+
+    }
+
+
+
+
+
 
 
 
