@@ -3746,13 +3746,30 @@ public class solutions {
 
 
 
+//    public List<String> letterCombinations(String digits) {
+//        String [] strMap = {"0","1","abc", "def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+//        List<String> list = new ArrayList<>();
+//        String ans = "";
+//
+//        for (int i = 0; i < digits.length(); i++){
+//
+//            for (int j = )
+//
+//
+//
+//        }
+//
+//
+//
+//    }
+//
+//
+//
+//
 
+    public List<Integer> spiralOrder(int[][] matrix) {
 
-
-
-
-
-
+    }
 
 
 
