@@ -3885,5 +3885,90 @@ public class solutions {
 
 
 
+
+
+
+//    public int[] dailyTemperatures(int[] temp) {
+//        Stack<Integer> stack = new Stack<>();
+//        int[] ans = new int[temp.length];
+//
+//
+//        for (int i = 0; i < temp.length; i++){
+//            int days = 1;
+//
+//
+//                while (temp[i] > stack.peek()){
+//
+//                }
+//
+//
+//            }
+//
+//
+//
+//        }
+//
+//
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// recognises two values that have been switched in a binary search tree if they are connected
+    public void recoverTree(TreeNode root) {
+        if (root != null){
+
+            if (root.left != null){
+                if (root.left.val > root.val){
+                    int temp = root.val;
+                    root.val = root.left.val;
+                    root.left.val = temp;
+                }
+                recoverTree(root.left);
+            }
+            if (root.right != null){
+                if (root.right.val < root.val){
+                    int temp = root.val;
+                    root.val = root.right.val;
+                    root.right.val = temp;
+                }
+                recoverTree(root.right);
+            }
+
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
