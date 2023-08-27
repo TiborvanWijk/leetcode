@@ -4098,10 +4098,35 @@ public class solutions {
 
 
 
-
-
-
-
+    int min=-1;
+    int secondMin=Integer.MAX_VALUE;
+    boolean changed=false;
+    public int findSecondMinimumValue(TreeNode root) {
+        
+        if(root == null)return secondMin;
+        
+        min = root.val;
+        
+        help(root);
+        
+        if(!changed){
+            return -1;
+        }
+        
+        return secondMin;
+    }
+    public void help(TreeNode root){
+        if(root == null)return;
+        
+        if(min < root.val && root.val <= secondMin){
+            secondMin = root.val;
+            changed = true;
+        }
+        
+        help(root.left);
+        help(root.right);
+    }
+    }
 
 
 
