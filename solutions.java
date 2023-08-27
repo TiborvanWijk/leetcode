@@ -3985,5 +3985,78 @@ public class solutions {
 
 
 
+
+
+
+
+
+
+
+//    public List<List<Integer>> generate(int numRows) {
+//
+//        List<List<Integer>> list = new ArrayList<>();
+//
+//        List<Integer> row = new ArrayList<>();
+//        row.add(1);
+//        list.add(row);
+//        row = new ArrayList<>();
+//
+//        for (int i = 0; i < numRows - 1; i++){
+//
+//            for (int j = 0; j < list.get(i).size() + 1; j++){
+//
+//            }
+//
+//
+//
+//
+//        }
+//
+//
+//
+//    }
+
+
+
+
+
+
+
+
+
+
+    List<String> list = new ArrayList<>();
+    public List<String> binaryTreePaths(TreeNode root) {
+        String path = "";
+        binaryTreePathsHelper(root, path);
+
+        return list;
+    }
+
+    public void binaryTreePathsHelper(TreeNode root, String path) {
+        if (root != null){
+            path += root.val + "->";
+            binaryTreePathsHelper(root.left, path);
+
+            if (root.left == null && root.right == null){
+                list.add(path.substring(0, path.length() -2));
+            }
+            binaryTreePathsHelper(root.right, path);
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
