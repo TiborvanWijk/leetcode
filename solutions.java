@@ -4126,6 +4126,44 @@ public class solutions {
         help(root.left);
         help(root.right);
     }
+
+
+
+
+
+    public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+
+        leafSimilarHelper(root1, list1);
+        leafSimilarHelper(root2, list2);
+        int i = 0;
+        if (list2.size() != list1.size()) return false;
+        while (i < list1.size()){
+
+            if (list1.get(i) != list2.get(i)){
+                return false;
+            }
+
+
+            i++;
+        }
+        return true;
+    }
+
+    public void leafSimilarHelper(TreeNode root, List<Integer> list) {
+
+        if (root != null){
+
+            leafSimilarHelper(root.left, list);
+            if (root.left == null && root.right == null){
+                list.add(root.val);
+            }
+            leafSimilarHelper(root.right, list);
+
+
+        }
+
     }
 
 
@@ -4135,5 +4173,35 @@ public class solutions {
 
 
 
-}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
