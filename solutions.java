@@ -4025,26 +4025,78 @@ public class solutions {
 
 
 
-    List<String> list = new ArrayList<>();
-    public List<String> binaryTreePaths(TreeNode root) {
-        String path = "";
-        binaryTreePathsHelper(root, path);
+//    List<String> list = new ArrayList<>();
+//    public List<String> binaryTreePaths(TreeNode root) {
+//        String path = "";
+//        binaryTreePathsHelper(root, path);
+//
+//        return list;
+//    }
+//
+//    public void binaryTreePathsHelper(TreeNode root, String path) {
+//        if (root != null){
+//            path += root.val + "->";
+//            binaryTreePathsHelper(root.left, path);
+//
+//            if (root.left == null && root.right == null){
+//                list.add(path.substring(0, path.length() -2));
+//            }
+//            binaryTreePathsHelper(root.right, path);
+//
+//        }
+//    }
 
-        return list;
-    }
 
-    public void binaryTreePathsHelper(TreeNode root, String path) {
-        if (root != null){
-            path += root.val + "->";
-            binaryTreePathsHelper(root.left, path);
 
-            if (root.left == null && root.right == null){
-                list.add(path.substring(0, path.length() -2));
+
+
+
+
+
+
+
+
+
+    public boolean isEvenOddTree(TreeNode root) {
+
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        int layer = 0;
+        while (!queue.isEmpty()){
+            int size = queue.size();
+            int prev = (layer % 2 == 0) ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+
+            for (int i = 0; i < size; i++){
+                TreeNode curr = queue.poll();
+
+                if (layer % 2 == 0){
+                    if (curr.val % 2 == 0 || curr.val <= prev){
+                        return false;
+                    }
+                }
+                else {
+                    if (curr.val % 2 == 1 || curr.val >= prev){
+                        return false;
+                    }
+                }
+
+                if (curr.left != null) queue.offer(curr.left);
+                if (curr.right != null) queue.offer(curr.right);
+
+                prev = curr.val;
             }
-            binaryTreePathsHelper(root.right, path);
-
+            layer++;
         }
+
+        return true;
     }
+
+
+
+
+
 
 
 
