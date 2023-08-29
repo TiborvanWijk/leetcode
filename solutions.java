@@ -3554,7 +3554,7 @@ public class solutions {
     }
 
 
-
+// uses the values in an array to reach to end of the array if it is possible then it return the amount on jumps.
     public int jump(int[] nums) {
         int ans = 0;
         int end = 0;
