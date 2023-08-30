@@ -4324,7 +4324,28 @@ public class solutions {
 
 
 
+    public ListNode sortList(ListNode head) {
 
+        List<Integer> list = new ArrayList<>();
+
+        while (head != null){
+
+            list.add(head.val);
+
+            head = head.next;
+        }
+        Collections.sort(list);
+
+        ListNode dummy = new ListNode();
+        ListNode current = dummy;
+
+        for (int i = 0; i < list.size(); i++){
+
+            current.next = new ListNode(list.get(i));
+            current = current.next;
+        }
+        return dummy.next;
+    }
 
 
 
