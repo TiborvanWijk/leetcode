@@ -4282,4 +4282,57 @@ public class solutions {
 
 
 
+    public int sumNumbers(TreeNode root) {
+        String sum = new String();
+        List<String> list = new ArrayList<>();
+        int ans = 0;
+        sumNumbersHelper(root, list, sum);
+
+        for (int i = 0; i < list.size(); i++){
+            ans += Integer.parseInt(list.get(i));
+        }
+        return ans;
+    }
+
+
+    public void sumNumbersHelper(TreeNode root, List<String> list, String sum) {
+        if (root != null){
+
+            sum += root.val;
+
+            if (root.left == null && root.right == null){
+                list.add(sum);
+            }
+
+            sumNumbersHelper(root.left, list, sum);
+            sumNumbersHelper(root.right, list, sum);
+
+
+
+
+
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
