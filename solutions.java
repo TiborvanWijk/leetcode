@@ -1129,26 +1129,26 @@ public class solutions {
 //    }
 //
 // Convert Sorted Array to Binary Search Tree
-    public TreeNode sortedArrayToBST(int[] nums) {
-
-        return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
-    }
-    //    makes a binary search tree out of a sorted array
-    public TreeNode sortedArrayToBSTHelper(int[] nums, int left, int right) {
-        if (left > right) return null;
-
-        int middle = (left + right) / 2;
-
-        TreeNode root = new TreeNode();
-        root.val = nums[middle];
-
-        root.left = sortedArrayToBSTHelper(nums, left, middle - 1);
-        root.right = sortedArrayToBSTHelper(nums, middle + 1, right);
-
-
-
-        return root;
-    }
+//    public TreeNode sortedArrayToBST(int[] nums) {
+//
+//        return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
+//    }
+//    //    makes a binary search tree out of a sorted array
+//    public TreeNode sortedArrayToBSTHelper(int[] nums, int left, int right) {
+//        if (left > right) return null;
+//
+//        int middle = (left + right) / 2;
+//
+//        TreeNode root = new TreeNode();
+//        root.val = nums[middle];
+//
+//        root.left = sortedArrayToBSTHelper(nums, left, middle - 1);
+//        root.right = sortedArrayToBSTHelper(nums, middle + 1, right);
+//
+//
+//
+//        return root;
+//    }
 
 
 
@@ -3842,7 +3842,7 @@ public class solutions {
 
 
 
- 
+
 
 
 // rotates a matrix 90 degrees clockwise
@@ -4102,27 +4102,27 @@ public class solutions {
     int secondMin=Integer.MAX_VALUE;
     boolean changed=false;
     public int findSecondMinimumValue(TreeNode root) {
-        
+
         if(root == null)return secondMin;
-        
+
         min = root.val;
-        
+
         help(root);
-        
+
         if(!changed){
             return -1;
         }
-        
+
         return secondMin;
     }
     public void help(TreeNode root){
         if(root == null)return;
-        
+
         if(min < root.val && root.val <= secondMin){
             secondMin = root.val;
             changed = true;
         }
-        
+
         help(root.left);
         help(root.right);
     }
@@ -4346,6 +4346,86 @@ public class solutions {
         }
         return dummy.next;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public int findKthLargest(int[] nums, int k) {
+
+        for (int i = nums.length/2; i >= 0; i--){
+            findKthLargestHelper(nums, nums.length, i);
+        }
+
+        int kthLargest = -1;
+
+        for (int i = 0; i < k; i++) {
+            kthLargest = nums[0];
+            nums[0] = nums[nums.length - i - 1];
+            findKthLargestHelper(nums, nums.length - i - 1, 0);
+        }
+
+
+        return nums[0];
+    }
+
+
+    public void findKthLargestHelper(int[] nums, int size, int i) {
+
+        int left = (i * 2) + 1;
+        int right = (i * 2) + 2;
+
+        int largest = i;
+
+        if (left < size && nums[left] > nums[i]){
+            largest = left;
+        }
+
+        if (right < size && nums[right] > nums[i]){
+            largest = right;
+        }
+
+        if (largest != i){
+            int temp = nums[i];
+            nums[i] = nums[largest];
+            nums[largest] = temp;
+            findKthLargestHelper(nums, size, largest);
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
