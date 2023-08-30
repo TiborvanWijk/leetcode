@@ -1825,10 +1825,7 @@ public class solutions {
             slow=find(slow);
             fast=find(find(fast));
         }while(slow!=fast);
-        if(slow==1){
-            return true;
-        }
-        return false;
+        return slow == 1;
     }
     private int find(int num){
         int ans=0;
@@ -3581,7 +3578,7 @@ public class solutions {
 // is equal to the product of all the elements of nums except nums[i].
     public int[] productExceptSelf(int[] nums) {
         int n = nums.length;
-        int ans[] = new int[n];
+        int[] ans = new int[n];
         Arrays.fill(ans, 1);
         int curr = 1;
         for(int i = 0; i < n; i++) {
@@ -4283,7 +4280,7 @@ public class solutions {
 
 
     public int sumNumbers(TreeNode root) {
-        String sum = new String();
+        String sum = "";
         List<String> list = new ArrayList<>();
         int ans = 0;
         sumNumbersHelper(root, list, sum);
@@ -4413,6 +4410,37 @@ public class solutions {
 
 
 
+
+    public boolean isInterleave(String s1, String s2, String s3) {
+
+        if (s1.length() + s2.length() != s3.length()) return false;
+
+        int index = 0;
+        int leftIndex = 0;
+        int rightIndex = 0;
+
+        String word = "";
+
+        while (leftIndex < s1.length() || leftIndex < s2.length()){
+
+            if (s1.length() != 0 && leftIndex < s1.length() && s1.charAt(leftIndex) == s3.charAt(index)){
+                word += s1.charAt(leftIndex);
+                leftIndex++;
+            }
+            else if (s2.length() != 0 && rightIndex < s2.length() && s2.charAt(rightIndex) == s3.charAt(index)){
+                word += s2.charAt(rightIndex);
+                rightIndex++;
+            }
+            else if (word.length() == s3.length()) return true;
+            else return false;
+
+            index++;
+        }
+
+
+
+        return true;
+    }
 
 
 
