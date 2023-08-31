@@ -4469,31 +4469,226 @@ public class solutions {
     }
 
 
+// first try
+//    public ListNode mergeKLists(ListNode[] lists) {
+//
+//        if (lists.length == 0) return null;
+//
+//        ListNode dummy = new ListNode();
+//        ListNode current = dummy;
+//
+//        while (current != null){
+//            int index = -1;
+//            ListNode min = new ListNode(Integer.MAX_VALUE);
+//            for (int i = 0; i < lists.length; i++){
+//                if (lists[i] != null && lists[i].val < min.val){
+//                    min = lists[i];
+//                    index = i;
+//                }
+//            }
+//            if (index == -1) break;
+//            current.next = min;
+//            current = current.next;
+//            lists[index] = lists[index].next;
+//        }
+//
+//        return dummy.next;
+//    }
 
-    public ListNode mergeKLists(ListNode[] lists) {
+//    Second try. runtime performance from 149ms to 10ms
+//    public ListNode mergeKLists(ListNode[] lists) {
+//
+//        ArrayList<Integer> list = new ArrayList<>();
+//
+//        for (int i = 0; i < lists.length; i++){
+//            while (lists[i] != null){
+//                list.add(lists[i].val);
+//                lists[i] = lists[i].next;
+//            }
+//        }
+//
+//        Collections.sort(list);
+//
+//        ListNode dummy = new ListNode();
+//        ListNode current = dummy;
+//
+//        for (int i = 0; i < list.size(); i++){
+//
+//            current.next = new ListNode(list.get(i));
+//            current = current.next;
+//
+//        }
+//
+//
+//        return dummy.next;
+//    }
 
-        if (lists.length == 0) return null;
 
-        ListNode dummy = new ListNode();
-        ListNode current = dummy;
 
-        while (current != null){
-            int index = -1;
-            ListNode min = new ListNode(Integer.MAX_VALUE);
-            for (int i = 0; i < lists.length; i++){
-                if (lists[i] != null && lists[i].val < min.val){
-                    min = lists[i];
-                    index = i;
-                }
-            }
-            if (index == -1) break;
-            current.next = min;
-            current = current.next;
-            lists[index] = lists[index].next;
-        }
 
-        return dummy.next;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
