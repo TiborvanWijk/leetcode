@@ -4564,7 +4564,34 @@ public class solutions {
 
 
 
+    public int furthestDistanceFromOrigin(String moves) {
 
+        int length = 0;
+        int choices = 0;
+
+        for (int i = 0; i < moves.length(); i++){
+
+            if (moves.charAt(i) == 'L'){
+                length--;
+            }
+            else if (moves.charAt(i) == 'R'){
+                length++;
+            }
+            else {
+                choices++;
+            }
+        }
+
+        if (length >= 0){
+            length += choices;
+        }
+        else {
+            length -= choices;
+            length = Integer.parseInt(String.valueOf(length).substring(1));
+        }
+
+        return length;
+    }
 
 
 
