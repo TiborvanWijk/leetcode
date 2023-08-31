@@ -4436,9 +4436,9 @@ public class solutions {
 // left = 0
 // right = 0
 
-    public boolean wordBreak(String s, List<String> wordDict) {
-
-    }
+//    public boolean wordBreak(String s, List<String> wordDict) {
+//
+//    }
 
     public int lengthOfLIS(int[] nums) {
         Arrays.sort(nums);
@@ -4468,6 +4468,32 @@ public class solutions {
         return nums.length - middle;
     }
 
+
+
+    public ListNode mergeKLists(ListNode[] lists) {
+
+        if (lists.length == 0) return null;
+
+        ListNode dummy = new ListNode();
+        ListNode current = dummy;
+
+        while (current != null){
+            int index = -1;
+            ListNode min = new ListNode(Integer.MAX_VALUE);
+            for (int i = 0; i < lists.length; i++){
+                if (lists[i] != null && lists[i].val < min.val){
+                    min = lists[i];
+                    index = i;
+                }
+            }
+            if (index == -1) break;
+            current.next = min;
+            current = current.next;
+            lists[index] = lists[index].next;
+        }
+
+        return dummy.next;
+    }
 
 
 
