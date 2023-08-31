@@ -4351,61 +4351,31 @@ public class solutions {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     public int findKthLargest(int[] nums, int k) {
-
-        for (int i = nums.length/2; i >= 0; i--){
-            findKthLargestHelper(nums, nums.length, i);
-        }
-
-        int kthLargest = -1;
-
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         for (int i = 0; i < k; i++) {
-            kthLargest = nums[0];
-            nums[0] = nums[nums.length - i - 1];
-            findKthLargestHelper(nums, nums.length - i - 1, 0);
+            minHeap.offer(nums[i]);
         }
 
+        for (int i = k; i < nums.length; i++) {
+            if (nums[i] > minHeap.peek()) {
+                minHeap.poll();
+                minHeap.offer(nums[i]);
+            }
+        }
 
-        return nums[0];
+        return minHeap.peek();
     }
 
 
-    public void findKthLargestHelper(int[] nums, int size, int i) {
-
-        int left = (i * 2) + 1;
-        int right = (i * 2) + 2;
-
-        int largest = i;
-
-        if (left < size && nums[left] > nums[i]){
-            largest = left;
-        }
-
-        if (right < size && nums[right] > nums[i]){
-            largest = right;
-        }
-
-        if (largest != i){
-            int temp = nums[i];
-            nums[i] = nums[largest];
-            nums[largest] = temp;
-            findKthLargestHelper(nums, size, largest);
-        }
 
 
 
-    }
+
+
+
+
+
 
 
 
@@ -4447,12 +4417,28 @@ public class solutions {
 
 
 
+    public int rob(int[] nums) {
 
+        int left = 0;
+        int right = 0;
 
+        for (int i = 0; i < nums.length; i++){
 
+            int temp = Math.max(left + nums[i], right);
 
+            left = right;
+            right = temp;
+        }
+        return right;
+    }
+//[10,2,3,10,20]
+// temp = 0
+// left = 0
+// right = 0
 
+    public boolean wordBreak(String s, List<String> wordDict) {
 
+    }
 
 
 
