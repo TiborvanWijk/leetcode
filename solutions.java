@@ -4528,21 +4528,27 @@ public class solutions {
 
 
     public int accountBalanceAfterPurchase(int purchaseAmount) {
-
-        if (purchaseAmount % 10 >= 5){
-            purchaseAmount += 10 - (purchaseAmount % 10);
-        }
-        else {
-            purchaseAmount -= purchaseAmount % 10;
-        }
-
-        return 100 - purchaseAmount;
+                return purchaseAmount % 10 >= 5 ? 100 - (purchaseAmount + (10 - (purchaseAmount % 10))) : 100 - (purchaseAmount - (purchaseAmount % 10));
     }
 
 
 
 
+    public String finalString(String s) {
 
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < s.length(); i++){
+
+            if (s.charAt(i) == 'i'){
+                ans.reverse();
+            }
+            else {
+                ans.append(s.charAt(i));
+            }
+
+        }
+        return new String(ans);
+    }
 
 
 
