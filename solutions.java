@@ -4440,7 +4440,33 @@ public class solutions {
 
     }
 
+    public int lengthOfLIS(int[] nums) {
+        Arrays.sort(nums);
+        int left = 0;
+        int right = nums.length -1;
 
+        if (nums[right] < 0) return -1;
+
+        int middle = 0;
+        while (left < right){
+            middle = (left + right) / 2;
+
+            if (nums[middle] > 0){
+                right = middle - 1;
+            }
+            else if (nums[middle] < 0){
+                left = middle + 1;
+            }
+            else if (nums[middle] == 0){
+                return nums.length - middle;
+            }
+
+
+        }
+
+
+        return nums.length - middle;
+    }
 
 
 
