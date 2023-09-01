@@ -4657,8 +4657,26 @@ public class solutions {
 
 
 
+//    575. Distribute Candies
+    public int distributeCandies(int[] candyType) {
+
+        int ans = 0;
+
+        HashSet<Integer> hashSet = new HashSet<>();
+
+        for (int i = 0; i < candyType.length; i++){
+            if (!hashSet.contains(candyType[i])){
+                hashSet.add(candyType[i]);
+                ans++;
+                if (ans > candyType.length /2){
+                    return (candyType.length / 2);
+                }
+            }
+        }
 
 
+        return ans;
+    }
 
 
 
