@@ -4683,16 +4683,49 @@ public class solutions {
 
 
 
+    public int countPrimes(int n) {
+
+        int primes = 0;
+
+        for (int num = 2; num <= n; num++) {
+            boolean isPrime = true;
+
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime) {
+                primes++;
+            }
+        }
+
+        return primes;
+    }
 
 
 
 
 
 
+    public int maximizeSum(int[] nums, int k) {
+
+        int ans = 0;
+
+        Arrays.sort(nums);
+
+        for (int i = 0; i < k; i++){
+
+            ans += nums[nums.length - 1];
+            nums[nums.length - 1]++;
 
 
+        }
 
-
+        return ans;
+    }
 
 
 
