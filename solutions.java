@@ -4595,38 +4595,45 @@ public class solutions {
 
 
 
+//Example 1:
+//
+//Input: moves = "UD"
+//Explanation: The robot moves up once, and then down once. All moves have the same magnitude, so it ended up at the origin where it started. Therefore, we return true.
+public boolean judgeCircle(String moves) {
 
+    int vertical = 0;
+    int horizontal = 0;
 
-    public boolean judgeCircle(String moves) {
+    for (int i = 0; i < moves.length(); i++){
 
-        int vertical = 0;
-        int horizontal = 0;
-
-        for (int i = 0; i < moves.length(); i++){
-
-            switch (moves.charAt(i)){
-                case 'U':
-                    vertical++;
-                    break;
-                case 'D':
-                    vertical--;
-                    break;
-                case 'R':
-                    horizontal++;
-                    break;
-                case 'L':
-                    horizontal--;
-                    break;
-            }
+        switch (moves.charAt(i)){
+            case 'U':
+                vertical++;
+                break;
+            case 'D':
+                vertical--;
+                break;
+            case 'R':
+                horizontal++;
+                break;
+            case 'L':
+                horizontal--;
+                break;
         }
-
-
-        return vertical == 0 && horizontal == 0;
     }
 
 
+    return vertical == 0 && horizontal == 0;
+}
+
+//Output: true
 
 
+
+//    The student is eligible for an attendance award if they meet both of the following criteria:
+//
+//    The student was absent ('A') for strictly fewer than 2 days total.
+//    The student was never late ('L') for 3 or more consecutive days.
     public boolean checkRecord(String s) {
 
         int absent = 0;
@@ -4679,37 +4686,7 @@ public class solutions {
     }
 
 
-
-
-
-
-    public int countPrimes(int n) {
-
-        int primes = 0;
-
-        for (int num = 2; num <= n; num++) {
-            boolean isPrime = true;
-
-            for (int i = 2; i <= Math.sqrt(num); i++) {
-                if (num % i == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-
-            if (isPrime) {
-                primes++;
-            }
-        }
-
-        return primes;
-    }
-
-
-
-
-
-
+//2656. Maximum Sum With Exactly K Elements
     public int maximizeSum(int[] nums, int k) {
 
         int ans = 0;
