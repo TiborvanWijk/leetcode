@@ -6,7 +6,7 @@ import java.util.*;
  *
  */
 public class solutions {
-    ArrayList<Integer> dummy = new ArrayList<>();
+//    ArrayList<Integer> dummy = new ArrayList<>();
 
 //    public ArrayList<Integer> InorderTreversal(Node root) {
 //        if (root == null) return ans;
@@ -4828,11 +4828,6 @@ public boolean judgeCircle(String moves) {
             else {
                 left++;
             }
-
-
-
-
-
         }
 
 
@@ -4844,10 +4839,28 @@ public boolean judgeCircle(String moves) {
 
 
 
+    TreeNode tree = new TreeNode();
+    TreeNode dummy = tree;
+    public TreeNode increasingBST(TreeNode root) {
+
+        increasingBSTHelper(root);
+
+        return dummy.right;
+    }
+
+
+    public void increasingBSTHelper(TreeNode root) {
+        if (root != null){
+
+            increasingBSTHelper(root.left);
+            tree.right = new TreeNode(root.val);
+            tree = tree.right;
+            increasingBSTHelper(root.right);
 
 
 
-
+        }
+    }
 
 
 
