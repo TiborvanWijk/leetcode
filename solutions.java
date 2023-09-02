@@ -4767,6 +4767,40 @@ public boolean judgeCircle(String moves) {
 
 
 
+    List<Integer> list = new ArrayList<>();
+
+    public int minDiffInBST(TreeNode root) {
+
+        minDiffInBSTHelper(root);
+        int min = Integer.MAX_VALUE;
+
+        for (int i = 1; i < list.size(); i++){
+
+            if (list.get(i) - list.get(i - 1) < min){
+                min = list.get(i) - list.get(i - 1);
+            }
+
+        }
+
+        return min;
+    }
+
+
+
+    private void minDiffInBSTHelper(TreeNode root) {
+
+        if (root != null){
+
+            minDiffInBSTHelper(root.left);
+            list.add(root.val);
+            minDiffInBSTHelper(root.right);
+
+
+
+        }
+    }
+
+
 
 
 
