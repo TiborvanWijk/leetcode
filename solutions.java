@@ -4805,6 +4805,43 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public boolean search2(int[] nums, int target) {
+
+        if (nums.length == 1 && nums[0] == target) return true;
+
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left < right){
+//          [1,0,1,1,1]
+            int middle = (left + right) / 2;
+
+            if (nums[middle] == target || nums[left] == target || nums[right] == target){
+                return true;
+            }
+            else if (nums[middle] > target && nums[left] < target){
+                right = middle - 1;
+            }
+            else if (nums[middle] < target && nums[right] > target){
+                left = middle + 1;
+            }
+            else {
+                left++;
+            }
+
+
+
+
+
+        }
+
+
+
+        return false;
+    }
+
+
+
 
 
 
