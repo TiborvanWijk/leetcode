@@ -4741,6 +4741,28 @@ public boolean judgeCircle(String moves) {
 
 
 
+//    ListNode head;
+//    int size = 1;
+//    public Solution(ListNode head) {
+//        this.head = head;
+//        ListNode temp = head;
+//
+//        while (temp.next != null){
+//            temp = temp.next;
+//            size++;
+//        }
+//
+//    }
+//
+//    public int getRandom() {
+//        int random = (int) Math.floor(Math.random() * size);
+//        ListNode ans = head;
+//        for (int i = 0; i < random; i++){
+//            ans = ans.next;
+//        }
+//
+//        return ans.val;
+//    }
 
 
 
