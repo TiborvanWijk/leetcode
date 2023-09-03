@@ -4739,7 +4739,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// gets random index of a linkedList
 
 //    ListNode head;
 //    int size = 1;
@@ -4766,7 +4766,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// finds the minimal diffrence in a bst
     List<Integer> list = new ArrayList<>();
 
     public int minDiffInBST(TreeNode root) {
@@ -4804,7 +4804,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// looks if a target is in a 1D array.
     public boolean search2(int[] nums, int target) {
 
         if (nums.length == 1 && nums[0] == target) return true;
@@ -4838,7 +4838,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// turns a tree into a linkedList
     TreeNode tree = new TreeNode();
     TreeNode dummy = tree;
     public TreeNode increasingBST(TreeNode root) {
