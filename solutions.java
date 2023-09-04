@@ -4866,7 +4866,10 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// makes a spiral matrix in order
+//    [1,2,3]
+//    [8,9,4]
+//    [7,6,5]
     public int[][] generateMatrix(int n) {
 
         int[][] matrix = new int[n][n];
@@ -4914,12 +4917,17 @@ public boolean judgeCircle(String moves) {
 
 
 
+//    Returns the maximum number of integers you can choose following the mentioned rules.
+//    The chosen integers have to be in the range [1, n].
+//    Each integer can be chosen at most once.
+//    The chosen integers should not be in the array banned.
+//    The sum of the chosen integers should not exceed maxSum.
     public int maxCount(int[] banned, int n, int maxSum) {
         int sum = 0;
         int ans = 0;
 
 
-        HashSet<Integer> hashSet = new HashSet<>();
+        Set<Integer> hashSet = new HashSet<>();
 
         for (int i = 0; i < banned.length; i++){
             hashSet.add(banned[i]);
@@ -4934,11 +4942,7 @@ public boolean judgeCircle(String moves) {
                 ans++;
             }
 
-
-
         }
-
-
 
         if (ans > 1){
             return ans;
@@ -4985,7 +4989,9 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+//  12
+//    +(1) - (2)
+//    alternates between plus and minus
     public int alternateDigitSum(int n) {
 
         int sum = 0;
