@@ -4986,8 +4986,27 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int alternateDigitSum(int n) {
+
+        int sum = 0;
+
+        String number = String.valueOf(n);
+        for (int i = 0; i < number.length(); i++){
+            int addNumber = Integer.parseInt(String.valueOf(number.charAt(i)));
+            if (i % 2 == 0){
+                sum += addNumber;
+            }
+            else {
+                sum -= addNumber;
+            }
 
 
+
+        }
+
+
+        return sum;
+    }
 
 
 
