@@ -4914,11 +4914,37 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int maxCount(int[] banned, int n, int maxSum) {
+        int sum = 0;
+        int ans = 0;
+
+
+        HashSet<Integer> hashSet = new HashSet<>();
+
+        for (int i = 0; i < banned.length; i++){
+            hashSet.add(banned[i]);
+        }
+
+
+        for (int i = 1; i <= n; i++){
+
+
+            if (!hashSet.contains(i) && (sum + i) <= maxSum){
+                sum += i;
+                ans++;
+            }
 
 
 
+        }
 
 
+
+        if (ans > 1){
+            return ans;
+        }
+        return 0;
+    }
 
 
 
