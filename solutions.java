@@ -4862,11 +4862,7 @@ public boolean judgeCircle(String moves) {
         }
     }
 
-
-
-
-
-// makes a spiral matrix in order
+    // makes a spiral matrix in order
 //    [1,2,3]
 //    [8,9,4]
 //    [7,6,5]
@@ -4917,7 +4913,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-//    Returns the maximum number of integers you can choose following the mentioned rules.
+    //    Returns the maximum number of integers you can choose following the mentioned rules.
 //    The chosen integers have to be in the range [1, n].
 //    Each integer can be chosen at most once.
 //    The chosen integers should not be in the array banned.
@@ -4982,9 +4978,8 @@ public boolean judgeCircle(String moves) {
 
 
 
-       return -1;
+        return -1;
     }
-
 
 
 
@@ -5013,6 +5008,41 @@ public boolean judgeCircle(String moves) {
 
         return sum;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
