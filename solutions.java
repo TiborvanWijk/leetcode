@@ -3928,29 +3928,29 @@ public class solutions {
 
 
 // recognises two values that have been switched in a binary search tree if they are connected
-    public void recoverTree(TreeNode root) {
-        if (root != null){
-
-            if (root.left != null){
-                if (root.left.val > root.val){
-                    int temp = root.val;
-                    root.val = root.left.val;
-                    root.left.val = temp;
-                }
-                recoverTree(root.left);
-            }
-            if (root.right != null){
-                if (root.right.val < root.val){
-                    int temp = root.val;
-                    root.val = root.right.val;
-                    root.right.val = temp;
-                }
-                recoverTree(root.right);
-            }
-
-
-        }
-    }
+//    public void recoverTree(TreeNode root) {
+//        if (root != null){
+//
+//            if (root.left != null){
+//                if (root.left.val > root.val){
+//                    int temp = root.val;
+//                    root.val = root.left.val;
+//                    root.left.val = temp;
+//                }
+//                recoverTree(root.left);
+//            }
+//            if (root.right != null){
+//                if (root.right.val < root.val){
+//                    int temp = root.val;
+//                    root.val = root.right.val;
+//                    root.right.val = temp;
+//                }
+//                recoverTree(root.right);
+//            }
+//
+//
+//        }
+//    }
 
 
 
@@ -5036,8 +5036,63 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public void recoverTree(TreeNode root) {
+
+        recoverTreeHelper(root, root.val);
 
 
+    }
+    public void recoverTreeHelper(TreeNode root, int rootval) {
+        if (root != null){
+
+            if (root.left != null){
+                if (root.left.val > root.val){
+                    int temp = root.val;
+                    root.val = root.left.val;
+                    root.left.val = temp;
+                }
+                recoverTreeHelper(root.left, rootval);
+            }
+            if (root.right != null){
+                if (root.right.val < root.val){
+                    int temp = root.val;
+                    root.val = root.right.val;
+                    root.right.val = temp;
+                }
+                else if (root.val < rootval)
+                recoverTreeHelper(root.right, rootval);
+            }
+
+
+        }
+    }
+
+
+    public TreeNode sortedListToBST(ListNode head) {
+        List<Integer> list = new ArrayList<>();
+
+        while (head != null){
+            list.add(head.val);
+            head = head.next;
+        }
+
+        return sortedListToBSTHelper(list, 0, list.size() - 1);
+    }
+    public TreeNode sortedListToBSTHelper(List<Integer> list, int left, int right) {
+
+        if (left > right) return null;
+
+        int middle = (left + right) / 2;
+
+        TreeNode node = new TreeNode();
+
+        node.val = list.get(middle);
+
+        node.left = sortedListToBSTHelper(list, left, middle - 1);
+        node.right = sortedListToBSTHelper(list, middle + 1, right);
+
+        return node;
+    }
 
 
 
