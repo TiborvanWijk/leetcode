@@ -5097,6 +5097,34 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public boolean isPalindrome(ListNode head) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        while (head != null){
+            stringBuilder.append(head.val);
+            head = head.next;
+        }
+
+        int left = 0;
+        int right = stringBuilder.length() - 1;
+
+        while (left <= right){
+
+            if (stringBuilder.charAt(left) == stringBuilder.charAt(right)){
+                left++;
+                right--;
+            }
+            else {
+                return false;
+            }
+
+        }
+
+
+        return true;
+    }
+
 
 
 
