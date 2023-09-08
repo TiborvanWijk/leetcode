@@ -5127,8 +5127,29 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
+//    int[] nums;
+//
+//    public Solutions(int[] nums) {
+//        this.nums = nums;
+//    }
+//
+//    public int[] reset() {
+//        Arrays.sort(nums);
+//        return nums;
+//    }
+//
+//    public int[] shuffle() {
+//        int[] array = nums;
+//        for (int i = 0; i < array.length; i++){
+//            int temp = array[i];
+//            int random = (int) Math.floor(Math.random() * array.length);
+//            array[i] = array[random];
+//            array[random] = temp;
+//
+//        }
+//
+//        return array;
+//    }
 
 
 
