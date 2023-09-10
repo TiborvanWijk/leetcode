@@ -5127,8 +5127,29 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
+//    Map<Integer, List<Integer>> map = new HashMap<>();
+//    public Solution(int[] nums) {
+//
+//        for (int i = 0; i < nums.length; i++){
+//            if (map.containsKey(nums[i])){
+//                map.get(nums[i]).add(i);
+//            }
+//            else {
+//                List<Integer> list1 = new ArrayList<>();
+//                list1.add(i);
+//                map.put(nums[i], list1);
+//            }
+//        }
+//
+//
+//    }
+//
+//    public int pick(int target) {
+//        Random random = new Random();
+//        List<Integer> indexes = map.get(target);
+//
+//        return indexes.get(random.nextInt(indexes.size()));
+//    }
 
 
 
