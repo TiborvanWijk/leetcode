@@ -5096,7 +5096,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// removes duplicate letters and returns the string in alphabetical order
     public String removeDuplicateLetters(String s) {
 
         List<Character> list = new ArrayList<>();
@@ -5125,8 +5125,9 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
+// gets a random index of a target example :
+//    nums = {1,1,2,3,3} if target == 1 it can either return 0 or 1
+//    if target == 3 it will either return 3 or 4
 //    Map<Integer, List<Integer>> map = new HashMap<>();
 //    public Solution(int[] nums) {
 //
@@ -5158,7 +5159,12 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+//    public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
+//
+//
+//
+//
+//    }
 
 
 
