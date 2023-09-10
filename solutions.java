@@ -2809,61 +2809,6 @@ public class solutions {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public String removeDuplicateLetters(String s) {
-
-
-        String ans = "";
-
-        for (int i = 0; i < s.length(); i++){
-
-            if (!ans.contains(String.valueOf(s.charAt(i)))){
-                ans += s.charAt(i);
-            }
-
-
-
-        }
-
-        return ans;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public int arrangeCoins(int n) {
 
         int stairs = 0;
@@ -5151,6 +5096,30 @@ public boolean judgeCircle(String moves) {
 
 
 
+
+    public String removeDuplicateLetters(String s) {
+
+        List<Character> list = new ArrayList<>();
+
+
+        for (int i = 0; i < s.length(); i++){
+
+            if (!list.contains(s.charAt(i))){
+                list.add(s.charAt(i));
+            }
+
+        }
+        Collections.sort(list);
+
+        StringBuilder ans = new StringBuilder();
+
+        for (Character character : list){
+            ans.append(character);
+        }
+
+
+        return String.valueOf(ans);
+    }
 
 
 
