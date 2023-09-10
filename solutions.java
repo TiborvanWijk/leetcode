@@ -5167,7 +5167,28 @@ public boolean judgeCircle(String moves) {
 //    }
 
 
+    public List<String> fizzBuzz(int n) {
 
+        List<String> list1 = new ArrayList<>();
+
+
+        for (int i = 1; i <= n; i++){
+            StringBuilder stringBuilder = new StringBuilder();
+
+            if (i % 3 == 0){
+                stringBuilder.append("Fizz");
+            }
+            if (i % 5 == 0){
+                stringBuilder.append("Buzz");
+            }
+            if (stringBuilder.length() == 0){
+                stringBuilder.append(i);
+            }
+            list1.add(String.valueOf(stringBuilder));
+        }
+
+        return list1;
+    }
 
 
 
