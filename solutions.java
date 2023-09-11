@@ -5196,7 +5196,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// finds the lowest common ancestor in a bst
     TreeNode ans;
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         lowestCommonAncestorHelper(root, p, q);
@@ -5222,7 +5222,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// finds the most K frequent numbers in nums
     public int[] topKFrequent(int[] nums, int k) {
 
         Map<Integer, Integer> counts = new HashMap<>();
@@ -5279,7 +5279,7 @@ public boolean judgeCircle(String moves) {
     }
 
 
-
+// finds the missing number in the range of n
     public int missingNumber(int[] nums) {
 
         int lenght = nums.length;
@@ -5291,27 +5291,7 @@ public boolean judgeCircle(String moves) {
         return sum;
     }
 
-    public int findDuplicate(int[] nums) {
-
-        for (int i = 0; i < nums.length; i++){
-
-            for (int j = 0; j < nums.length; j++){
-                if (nums[i] == nums[j]){
-                    return nums[i];
-                }
-            }
-        }
-        return -1;
-    }
-
-
-
-
-
-
-
-
-
+//    finds all the duplicates by using the nums[i] as a index
     public List<Integer> findDuplicates(int[] nums) {
 
         List<Integer> ans = new ArrayList<>();
