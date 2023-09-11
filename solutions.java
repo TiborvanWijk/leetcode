@@ -5197,7 +5197,27 @@ public boolean judgeCircle(String moves) {
 
 
 
+    TreeNode ans;
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        lowestCommonAncestorHelper(root, p, q);
 
+        return ans;
+    }
+    public void lowestCommonAncestorHelper(TreeNode root, TreeNode p, TreeNode q) {
+        if (root != null){
+            if (root.val > p.val && root.val > q.val){
+                ans = root;
+                lowestCommonAncestorHelper(root.left, p, q);
+            }
+            else if (root.val < p.val && root.val < q.val){
+                ans = root;
+                lowestCommonAncestorHelper(root.right, p, q);
+            }
+            else {
+                ans = root;
+            }
+        }
+    }
 
 
 
