@@ -5197,27 +5197,27 @@ public boolean judgeCircle(String moves) {
 
 
 // finds the lowest common ancestor in a bst
-    TreeNode ans;
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        lowestCommonAncestorHelper(root, p, q);
-
-        return ans;
-    }
-    public void lowestCommonAncestorHelper(TreeNode root, TreeNode p, TreeNode q) {
-        if (root != null){
-            if (root.val > p.val && root.val > q.val){
-                ans = root;
-                lowestCommonAncestorHelper(root.left, p, q);
-            }
-            else if (root.val < p.val && root.val < q.val){
-                ans = root;
-                lowestCommonAncestorHelper(root.right, p, q);
-            }
-            else {
-                ans = root;
-            }
-        }
-    }
+//    TreeNode ans;
+//    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+//        lowestCommonAncestorHelper(root, p, q);
+//
+//        return ans;
+//    }
+//    public void lowestCommonAncestorHelper(TreeNode root, TreeNode p, TreeNode q) {
+//        if (root != null){
+//            if (root.val > p.val && root.val > q.val){
+//                ans = root;
+//                lowestCommonAncestorHelper(root.left, p, q);
+//            }
+//            else if (root.val < p.val && root.val < q.val){
+//                ans = root;
+//                lowestCommonAncestorHelper(root.right, p, q);
+//            }
+//            else {
+//                ans = root;
+//            }
+//        }
+//    }
 
 
 
@@ -5322,7 +5322,24 @@ public boolean judgeCircle(String moves) {
 
 
 
+    int ans = 0;
+    public int sumOfLeftLeaves(TreeNode root) {
+        sumOfLeftLeavesHelper(root);
 
+        return ans;
+    }
+    private void sumOfLeftLeavesHelper(TreeNode root) {
+        if (root != null){
+
+            sumOfLeftLeavesHelper(root.left);
+
+            if (root.left != null && root.left.left == null && root.left.right == null){
+                ans += root.left.val;
+            }
+
+            sumOfLeftLeavesHelper(root.right);
+        }
+    }
 
 
 
