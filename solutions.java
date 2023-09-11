@@ -5228,7 +5228,6 @@ public boolean judgeCircle(String moves) {
         Map<Integer, Integer> counts = new HashMap<>();
         Map<Integer, List<Integer>> frequency = new HashMap<>();
 
-
         int[] ans = new int[k];
 
         for (int i = 0; i < nums.length; i++){
@@ -5236,7 +5235,6 @@ public boolean judgeCircle(String moves) {
             int count = counts.containsKey(nums[i]) ? counts.get(nums[i]) + 1 : 1;
 
             counts.put(nums[i], count);
-
         }
 
         for (Integer number : counts.keySet()){
@@ -5253,10 +5251,10 @@ public boolean judgeCircle(String moves) {
 
         List<Integer> frequencies = new ArrayList<>(frequency.keySet());
         Collections.sort(frequencies);
+
         int index = 0;
         int index2 = 0;
         while (index < k){
-
 
             List<Integer> a = frequency.get(frequencies.get((frequencies.size()-1) - index2));
 
@@ -5271,9 +5269,7 @@ public boolean judgeCircle(String moves) {
                 index++;
             }
 
-
             index2++;
-            // index++;
         }
 
 
@@ -5284,7 +5280,16 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int missingNumber(int[] nums) {
 
+        int lenght = nums.length;
+        int sum = lenght * (lenght+1) / 2;
+
+        for (int i = 0; i < lenght; i++){
+            sum -= nums[i];
+        }
+        return sum;
+    }
 
 
 
