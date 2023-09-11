@@ -1877,11 +1877,11 @@ public class solutions {
 
 
     // counts the nodes in a tree.
-    public int countNodes(TreeNode root) {
-        if (root == null) return 0;
-
-        return 1 + countNodes(root.left) + countNodes(root.right);
-    }
+//    public int countNodes(TreeNode root) {
+//        if (root == null) return 0;
+//
+//        return 1 + countNodes(root.left) + countNodes(root.right);
+//    }
 
 
 
@@ -2303,20 +2303,20 @@ public class solutions {
 //
 //    }
 //binary search tree returns subtree
-    public TreeNode searchBST(TreeNode root, int target) {
-        if (root == null) return null;
-
-        if (root.val == target){
-            return root;
-        }
-        else if (root.val < target){
-            return searchBST(root.right, target);
-        }
-        else{
-            return searchBST(root.left, target);
-        }
-
-    }
+//    public TreeNode searchBST(TreeNode root, int target) {
+//        if (root == null) return null;
+//
+//        if (root.val == target){
+//            return root;
+//        }
+//        else if (root.val < target){
+//            return searchBST(root.right, target);
+//        }
+//        else{
+//            return searchBST(root.left, target);
+//        }
+//
+//    }
 
 
 
@@ -5291,10 +5291,44 @@ public boolean judgeCircle(String moves) {
         return sum;
     }
 
+    public int findDuplicate(int[] nums) {
+
+        for (int i = 0; i < nums.length; i++){
+
+            for (int j = 0; j < nums.length; j++){
+                if (nums[i] == nums[j]){
+                    return nums[i];
+                }
+            }
+        }
+        return -1;
+    }
 
 
 
 
+
+
+
+
+
+    public List<Integer> findDuplicates(int[] nums) {
+
+        List<Integer> ans = new ArrayList<>();
+
+        for (int i = 0; i < nums.length; i++){
+
+            int index = Math.abs(nums[i]) - 1;
+
+            if (nums[index] < 0){
+                ans.add(index + 1);
+            }
+            nums[index] = -nums[index];
+
+        }
+
+        return ans;
+    }
 
 
 
