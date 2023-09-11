@@ -5223,7 +5223,64 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int[] topKFrequent(int[] nums, int k) {
 
+        Map<Integer, Integer> counts = new HashMap<>();
+        Map<Integer, List<Integer>> frequency = new HashMap<>();
+
+
+        int[] ans = new int[k];
+
+        for (int i = 0; i < nums.length; i++){
+
+            int count = counts.containsKey(nums[i]) ? counts.get(nums[i]) + 1 : 1;
+
+            counts.put(nums[i], count);
+
+        }
+
+        for (Integer number : counts.keySet()){
+            List<Integer> list1 = new ArrayList<>();
+
+            if (frequency.containsKey(counts.get(number))){
+                frequency.get(counts.get(number)).add(number);
+            }
+            else {
+                frequency.put(counts.get(number), list1);
+                frequency.get(counts.get(number)).add(number);
+            }
+        }
+
+        List<Integer> frequencies = new ArrayList<>(frequency.keySet());
+        Collections.sort(frequencies);
+        int index = 0;
+        int index2 = 0;
+        while (index < k){
+
+
+            List<Integer> a = frequency.get(frequencies.get((frequencies.size()-1) - index2));
+
+            for (int i = 0; i < a.size(); i++){
+
+                if (index > k){
+                    break;
+                }
+
+                ans[index] = a.get(i);
+
+                index++;
+            }
+
+
+            index2++;
+            // index++;
+        }
+
+
+
+
+        return ans;
+    }
 
 
 
