@@ -5443,7 +5443,43 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
 
+        ListNode dummy = new ListNode();
+        dummy.next = list1;
+
+        ListNode current = dummy.next;
+
+        ListNode first;
+        ListNode second;
+        ListNode last2;
+
+        int index = 1;
+        while (index < a){
+            current = current.next;
+            index++;
+        }
+        first = current;
+
+        while (index <= b + 1){
+            current = current.next;
+            index++;
+        }
+        second = current;
+
+        current = list2;
+        while (current.next != null){
+            current = current.next;
+        }
+        last2 = current;
+
+        first.next = list2;
+        last2.next = second;
+
+
+
+        return dummy.next;
+    }
 
 
 
