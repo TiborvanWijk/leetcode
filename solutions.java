@@ -1,5 +1,3 @@
-import com.sun.source.tree.Tree;
-
 import java.util.*;
 
 /**
@@ -5409,8 +5407,38 @@ public boolean judgeCircle(String moves) {
     }
 
 
+    public int deepestLeavesSum(TreeNode root) {
 
+        List<List<Integer>> list1 = new ArrayList<>();
 
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()){
+            List<Integer> allValsLvl = new ArrayList<>();
+            int size = queue.size();
+
+            for (int i = 0; i < size; i++){
+
+                TreeNode current = queue.poll();
+                allValsLvl.add(current.val);
+
+                if (current.left != null) queue.offer(current.left);
+                if (current.right != null) queue.offer(current.right);
+
+            }
+            list1.add(allValsLvl);
+
+        }
+
+        List<Integer> lastLvl = list1.get(list1.size() -1);
+        int sum = 0;
+        for (int i = 0; i < lastLvl.size(); i++){
+            sum += lastLvl.get(i);
+        }
+
+        return sum;
+    }
 
 
 
