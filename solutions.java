@@ -1,3 +1,4 @@
+import java.nio.file.NotDirectoryException;
 import java.util.*;
 
 /**
@@ -5556,8 +5557,33 @@ public boolean judgeCircle(String moves) {
     }
 
 
+    Map<Node, Node> oldtonew = new HashMap<>();
+    public Node cloneGraph(Node node) {
+
+        if (node == null){
+            return null;
+        }
+
+        dps(node);
 
 
+        return dps(node);
+    }
+    private Node dps(Node node) {
+        if (oldtonew.containsKey(node)){
+            return oldtonew.get(node);
+        }
+
+        Node copy = new Node(node.val);
+
+        oldtonew.put(node, copy);
+
+        for (Node neighbour : node.neighbors){
+            copy.neighbors.add(dps(neighbour));
+        }
+
+        return copy;
+    }
 
 
 
