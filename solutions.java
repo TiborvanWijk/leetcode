@@ -5671,13 +5671,22 @@ public boolean judgeCircle(String moves) {
                 number.append(s.charAt(i));
             }
             else if (number.length() > 0){
-
+                int current = Integer.parseInt(String.valueOf(number));
+                if (prev >= current){
+                    return false;
+                }
+                prev = current;
+                number = new StringBuilder();
             }
-
-
+        }
+        if (number.length() > 0) {
+            int current = Integer.parseInt(String.valueOf(number));
+            if (prev > current) {
+                return false;
+            }
         }
 
-
+        return true;
     }
 
 
