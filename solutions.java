@@ -5661,7 +5661,24 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public boolean areNumbersAscending(String s) {
 
+        StringBuilder number = new StringBuilder();
+        int prev = Integer.MIN_VALUE;
+        for (int i = 0; i < s.length(); i++){
+
+            if (Character.isDigit(s.charAt(i))){
+                number.append(s.charAt(i));
+            }
+            else if (number.length() > 0){
+
+            }
+
+
+        }
+
+
+    }
 
 
 
