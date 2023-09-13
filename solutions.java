@@ -5588,6 +5588,43 @@ public boolean judgeCircle(String moves) {
 
 
 
+//    int sumOfTree = 0;
+//    HashMap<Integer, Integer> map = new HashMap<>();
+//    public TreeNode convertBST(TreeNode root) {
+//
+//        convertBSTHelper(root);
+//        convertBSTHelper2(root);
+//
+//
+//        return root;
+//    }
+//    private void convertBSTHelper2(TreeNode root) {
+//        if (root != null){
+//
+//            convertBSTHelper2(root.left);
+//
+//            root.val = sumOfTree - map.get(root.val);
+//
+//            convertBSTHelper2(root.right);
+//
+//
+//
+//
+//        }
+//    }
+//
+//    private void convertBSTHelper(TreeNode root) {
+//        if (root != null){
+//
+//            convertBSTHelper(root.left);
+//
+//            map.put(root.val, sumOfTree);
+//            sumOfTree += root.val;
+//
+//            convertBSTHelper(root.right);
+//
+//        }
+//    }
 
 
 
