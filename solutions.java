@@ -5323,24 +5323,24 @@ public boolean judgeCircle(String moves) {
 
 
 
-    int ans = 0;
-    public int sumOfLeftLeaves(TreeNode root) {
-        sumOfLeftLeavesHelper(root);
-
-        return ans;
-    }
-    private void sumOfLeftLeavesHelper(TreeNode root) {
-        if (root != null){
-
-            sumOfLeftLeavesHelper(root.left);
-
-            if (root.left != null && root.left.left == null && root.left.right == null){
-                ans += root.left.val;
-            }
-
-            sumOfLeftLeavesHelper(root.right);
-        }
-    }
+//    int ans = 0;
+//    public int sumOfLeftLeaves(TreeNode root) {
+//        sumOfLeftLeavesHelper(root);
+//
+//        return ans;
+//    }
+//    private void sumOfLeftLeavesHelper(TreeNode root) {
+//        if (root != null){
+//
+//            sumOfLeftLeavesHelper(root.left);
+//
+//            if (root.left != null && root.left.left == null && root.left.right == null){
+//                ans += root.left.val;
+//            }
+//
+//            sumOfLeftLeavesHelper(root.right);
+//        }
+//    }
 
 
 
@@ -5716,9 +5716,28 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
-
+//    int ans = 0;
+//    public int rangeSumBST(TreeNode root, int low, int high) {
+//
+//        rangeSumBSTHelper(root, low, high);
+//
+//        return ans;
+//    }
+//    public void rangeSumBSTHelper(TreeNode root, int low, int high) {
+//        if (root != null){
+//
+//            rangeSumBSTHelper(root.left, low, high);
+//
+//            if (root.val >= low && root.val <= high){
+//                ans += root.val;
+//            }
+//
+//
+//            rangeSumBSTHelper(root.right, low, high);
+//
+//
+//        }
+//    }
 
 
 
