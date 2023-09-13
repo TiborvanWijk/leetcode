@@ -5632,6 +5632,26 @@ public boolean judgeCircle(String moves) {
 
 
 
+// faster way to convert uses time complexity of O(N)
+    int sum = 0;
+    public TreeNode convertBST(TreeNode root) {
+
+        convertBSTHelper(root);
+
+        return root;
+    }
+    private void convertBSTHelper(TreeNode root) {
+        if (root != null){
+
+            convertBSTHelper(root.right);
+
+            sum += root.val;
+
+            root.val = sum;
+
+            convertBSTHelper(root.left);
+        }
+    }
 
 
 
