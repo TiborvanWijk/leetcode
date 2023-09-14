@@ -5864,57 +5864,57 @@ public boolean judgeCircle(String moves) {
 
 
 
-// Surrounded Regions
-    public void solve(char[][] board) {
+    // Surrounded Regions
+    public void solve(char[][] grid) {
 
-        char[][] copy = board.clone();
+        char[][]clone = grid.clone();
 
-        for (int i = 0; i < copy.length; i++){
+        for (int i = 0; i < grid.length; i++){
 
-            for (int j = 0; j < copy[0].length; j++){
-
-                if (copy[i][j] == 'O'){
-                    if (solveBfs(copy, i, j)){
-                        fill(board, i, j);
+            for (int j = 0; j < grid[0].length; j++){
+                if (clone[i][j] == 'O'){
+                    if (dfs(clone, i, j)){
+                        fill(grid, i, j);
                     }
                 }
             }
         }
+
     }
-    public boolean solveBfs(char[][] board, int i, int j) {
-
-
-        if (i < 0 || j < 0 || i >= board.length || j >= board[0].length){
-            return false;
-        }
-        if (board[i][j] == 'X'){
+    private boolean dfs(char[][] grid, int i, int j) {
+        if (grid[i][j] == 'X'){
             return true;
         }
 
+        if (i == 0 || j == 0 || i == grid.length-1 || j == grid[0].length-1){
+            return false;
+        }
 
-        board[i][j] = 'X';
+        grid[i][j] = 'X';
 
-        boolean left = solveBfs(board, i, j - 1);
-        boolean right = solveBfs(board, i, j + 1);
-        boolean up = solveBfs(board, i - 1, j);
-        boolean down = solveBfs(board, i + 1, j);
+
+        boolean left = dfs(grid, i, j - 1);
+        boolean right = dfs(grid, i, j + 1);
+        boolean up = dfs(grid, i - 1, j);
+        boolean down = dfs(grid, i + 1, j);
 
         return  left && right && up && down;
-
-
     }
     public void fill(char[][] board, int i, int j) {
 
         if (i < 0 || j < 0 || i >= board.length || j >= board[0].length || board[i][j] == 'X'){
             return;
         }
-        board[i][j] = 'X';
+        else {
+            board[i][j] = 'X';
 
 
-        fill(board, i, j - 1);
-        fill(board, i, j + 1);
-        fill(board, i - 1, j);
-        fill(board, i + 1, j);
+            fill(board, i, j - 1);
+            fill(board, i, j + 1);
+            fill(board, i - 1, j);
+            fill(board, i + 1, j);
+
+        }
 
     }
 
