@@ -4041,34 +4041,34 @@ public class solutions {
 
 
 
-    int min=-1;
-    int secondMin=Integer.MAX_VALUE;
-    boolean changed=false;
-    public int findSecondMinimumValue(TreeNode root) {
-
-        if(root == null)return secondMin;
-
-        min = root.val;
-
-        help(root);
-
-        if(!changed){
-            return -1;
-        }
-
-        return secondMin;
-    }
-    public void help(TreeNode root){
-        if(root == null)return;
-
-        if(min < root.val && root.val <= secondMin){
-            secondMin = root.val;
-            changed = true;
-        }
-
-        help(root.left);
-        help(root.right);
-    }
+//    int min=-1;
+//    int secondMin=Integer.MAX_VALUE;
+//    boolean changed=false;
+//    public int findSecondMinimumValue(TreeNode root) {
+//
+//        if(root == null)return secondMin;
+//
+//        min = root.val;
+//
+//        help(root);
+//
+//        if(!changed){
+//            return -1;
+//        }
+//
+//        return secondMin;
+//    }
+//    public void help(TreeNode root){
+//        if(root == null)return;
+//
+//        if(min < root.val && root.val <= secondMin){
+//            secondMin = root.val;
+//            changed = true;
+//        }
+//
+//        help(root.left);
+//        help(root.right);
+//    }
 
 
 
@@ -5838,7 +5838,7 @@ public boolean judgeCircle(String moves) {
             for (int j = 0; j < grid[0].length; j++){
 
                 if (grid[i][j] == 1){
-                    int currentIsland = dfs(grid, i, j);
+                    int currentIsland = solveBfs(grid, i, j);
 
                     if (max < currentIsland){
                         max = currentIsland;
@@ -5850,7 +5850,7 @@ public boolean judgeCircle(String moves) {
         return max;
     }
 
-    public int dfs(int[][] grid, int i, int j) {
+    private int solveBfs(int[][] grid, int i, int j) {
 
         if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == 0){
             return 0;
@@ -5858,14 +5858,65 @@ public boolean judgeCircle(String moves) {
 
         grid[i][j] = 0;
 
-        return 1 + dfs(grid, i + 1, j) + dfs(grid, i - 1, j) + dfs(grid, i, j + 1) + dfs(grid, i, j - 1);
+        return 1 + solveBfs(grid, i + 1, j) + solveBfs(grid, i - 1, j) + solveBfs(grid, i, j + 1) + solveBfs(grid, i, j - 1);
     }
 
 
 
 
+// Surrounded Regions
+    public void solve(char[][] board) {
+
+        char[][] copy = board.clone();
+
+        for (int i = 0; i < copy.length; i++){
+
+            for (int j = 0; j < copy[0].length; j++){
+
+                if (copy[i][j] == 'O'){
+                    if (solveBfs(copy, i, j)){
+                        fill(board, i, j);
+                    }
+                }
+            }
+        }
+    }
+    public boolean solveBfs(char[][] board, int i, int j) {
 
 
+        if (i < 0 || j < 0 || i >= board.length || j >= board[0].length){
+            return false;
+        }
+        if (board[i][j] == 'X'){
+            return true;
+        }
+
+
+        board[i][j] = 'X';
+
+        boolean left = solveBfs(board, i, j - 1);
+        boolean right = solveBfs(board, i, j + 1);
+        boolean up = solveBfs(board, i - 1, j);
+        boolean down = solveBfs(board, i + 1, j);
+
+        return  left && right && up && down;
+
+
+    }
+    public void fill(char[][] board, int i, int j) {
+
+        if (i < 0 || j < 0 || i >= board.length || j >= board[0].length || board[i][j] == 'X'){
+            return;
+        }
+        board[i][j] = 'X';
+
+
+        fill(board, i, j - 1);
+        fill(board, i, j + 1);
+        fill(board, i - 1, j);
+        fill(board, i + 1, j);
+
+    }
 
 
 
