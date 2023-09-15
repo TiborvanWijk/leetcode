@@ -5975,7 +5975,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// finds all the battleships in a matrix
     public int countBattleships(char[][] board) {
 
         int ans = 0;
@@ -6010,7 +6010,11 @@ public boolean judgeCircle(String moves) {
     }
 
 
+//Return the maximum number of matchings between players and trainers that satisfy these conditions:
 
+//    The ith player can match with the jth trainer if the player's ability is less than or equal to
+//    the trainer's training capacity. Additionally, the ith player can be matched with at most one trainer,
+//    and the jth trainer can be matched with at most one player.
     public int matchPlayersAndTrainers(int[] players, int[] trainers) {
 
         Arrays.sort(players);
@@ -6037,7 +6041,12 @@ public boolean judgeCircle(String moves) {
     }
 
 
+// checks if all numbers diaganally are the same
+// example: [1,2,3,4]
+//          [5,1,2,3] is true
 
+//          [1,2,3,4]
+//          [5,1,2,7] is false
     public boolean isToeplitzMatrix(int[][] matrix) {
 
 
