@@ -6036,7 +6036,36 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public boolean isToeplitzMatrix(int[][] matrix) {
 
+
+        for (int i = 0; i < matrix.length; i++){
+            int index = i;
+            int j = 0;
+            int number = matrix[i][j];
+            while (index < matrix.length && j < matrix[0].length){
+                if (matrix[index][j] != number){
+                    return false;
+                }
+                index++;
+                j++;
+            }
+        }
+        for (int j = 1; j < matrix[0].length; j++){
+            int index = j;
+            int i = 0;
+            int number = matrix[i][j];
+            while (index < matrix[0].length && i < matrix.length){
+                if (matrix[i][index] != number){
+                    return false;
+                }
+                index++;
+                i++;
+            }
+        }
+
+        return true;
+    }
 
 
 
