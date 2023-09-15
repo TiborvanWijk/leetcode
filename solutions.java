@@ -1,4 +1,6 @@
 import java.nio.file.NotDirectoryException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -6071,7 +6073,45 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+//    public boolean halvesAreAlike(String s) {
+//
+//        HashSet<Character> hashSet = new HashSet<>(List.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I','O', 'U'));
+//
+//        String half1 = s.substring(0, s.length()/2);
+//        String half2 = s.substring(s.length()/2, s.length()-1);
+//
+//        String vowels1 = "";
+//        String vowels2 = "";
+//
+//        for (int i = 0; i < half1.length(); i++){
+//
+//            if (hashSet.contains(half1.charAt(i))){
+//                vowels1 += half1.charAt(i);
+//            }
+//
+//        }
+//        for (int i = 0; i < half2.length(); i++){
+//
+//            if (hashSet.contains(half2.charAt(i))){
+//                vowels2 += half2.charAt(i);
+//
+//            }
+//
+//        }
+//        if (vowels1.length() != vowels2.length()) return false;
+//
+//
+//        int index = 0;
+//        while (index < vowels1.length()){
+//
+//            if (vowels1.charAt(index) != vowels2.charAt(index)){
+//                return false;
+//            }
+//
+//        }
+//
+//        return true;
+//    }
 
 
 
