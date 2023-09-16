@@ -5869,56 +5869,53 @@ public boolean judgeCircle(String moves) {
     // Surrounded Regions
     public void solve(char[][] grid) {
 
-        char[][]clone = grid.clone();
+        for (int i = 0; i < grid[0].length; i++){
+            if (grid[0][i] == 'O'){
+                dfs(grid,0,i);
+            }
+            if (grid[grid.length-1][i] == 'O'){
+                dfs(grid,grid.length-1,i);
+            }
+        }
 
         for (int i = 0; i < grid.length; i++){
+            if (grid[i][0] == 'O'){
+                dfs(grid,i,0);
+            }
+            if (grid[i][grid[0].length-1] == 'O'){
+                dfs(grid,i,grid[0].length-1);
+            }
+        }
 
+        for (int i = 0; i < grid.length; i++){
             for (int j = 0; j < grid[0].length; j++){
-                if (clone[i][j] == 'O'){
-                    if (dfs(clone, i, j)){
-                        fill(grid, i, j);
-                    }
+                if (grid[i][j] == 'T'){
+                    grid[i][j] = 'O';
+                }
+                else if (grid[i][j] == 'O'){
+                    grid[i][j] = 'X';
                 }
             }
         }
 
+
+
     }
-    private boolean dfs(char[][] grid, int i, int j) {
-        if (grid[i][j] == 'X'){
-            return true;
-        }
+    private void dfs(char[][] grid, int i, int j) {
 
-        if (i == 0 || j == 0 || i == grid.length-1 || j == grid[0].length-1){
-            return false;
-        }
-
-        grid[i][j] = 'X';
-
-
-        boolean left = dfs(grid, i, j - 1);
-        boolean right = dfs(grid, i, j + 1);
-        boolean up = dfs(grid, i - 1, j);
-        boolean down = dfs(grid, i + 1, j);
-
-        return  left && right && up && down;
-    }
-    public void fill(char[][] board, int i, int j) {
-
-        if (i < 0 || j < 0 || i >= board.length || j >= board[0].length || board[i][j] == 'X'){
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] != 'O'){
             return;
         }
-        else {
-            board[i][j] = 'X';
+
+        grid[i][j] = 'T';
 
 
-            fill(board, i, j - 1);
-            fill(board, i, j + 1);
-            fill(board, i - 1, j);
-            fill(board, i + 1, j);
-
-        }
-
+        dfs(grid, i, j - 1);
+        dfs(grid, i, j + 1);
+        dfs(grid, i - 1, j);
+        dfs(grid, i + 1, j);
     }
+
 
     public int maxAscendingSum(int[] nums) {
 
@@ -5946,29 +5943,6 @@ public boolean judgeCircle(String moves) {
 
         return max;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
