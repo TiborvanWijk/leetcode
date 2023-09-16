@@ -6125,7 +6125,31 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int maxProfitAssignment(int[] difficulty, int[] profit, int[] worker) {
+        Map<Integer, Integer> difficultyToProfit = new HashMap<>();
+        int ans = 0;
 
+        for (int i = 0; i < profit.length; i++) {
+            difficultyToProfit.put(difficulty[i], Math.max(difficultyToProfit.getOrDefault(difficulty[i], 0), profit[i]));
+        }
+
+        Arrays.sort(worker);
+        Arrays.sort(difficulty);
+
+        int maxProfit = 0;
+        int i = 0;
+
+
+        for (int w : worker) {
+            while (i < difficulty.length && difficulty[i] <= w) {
+                maxProfit = Math.max(maxProfit, difficultyToProfit.getOrDefault(difficulty[i], 0));
+                i++;
+            }
+            ans += maxProfit;
+        }
+
+        return ans;
+    }
 
 
 
