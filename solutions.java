@@ -6256,12 +6256,41 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int[][] sortTheStudents(int[][] score, int k) {
+
+        Map<Integer, List<Integer>> map = new HashMap<>();
 
 
 
 
+        int[] scores = new int[score.length];
+
+        for (int i = 0; i < score.length; i++){
+            List<Integer> list1 = new ArrayList<>();
+
+            for (int j = 0; j < score[0].length; j++){
+                list1.add(score[i][j]);
+            }
+            scores[i] = score[i][k];
+            map.put(scores[i], list1);
+        }
+
+        Arrays.sort(scores);
 
 
+        for (int i = 0; i < scores.length; i++){
+            List<Integer> info = map.get(scores[(scores.length-1) - i]);
+
+            for (int j = 0; j < score[0].length; j++){
+                score[i][j] = info.get(j);
+            }
+
+        }
+
+
+
+        return score;
+    }
 
 
 
