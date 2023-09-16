@@ -6163,7 +6163,6 @@ public boolean judgeCircle(String moves) {
 
 
 
-//2679
     public int matrixSum(int[][] nums) {
         for (int[] array : nums){
             Arrays.sort(array);
@@ -6270,7 +6269,23 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public ListNode doubleIt(ListNode head) {
 
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        ListNode current = head;
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        while (current != null){
+            stringBuilder.append(current.val);
+            current = current.next;
+        }
+
+        String numbers = String.valueOf (Integer.parseInt(String.valueOf(stringBuilder)) * 2);
+
+
+    }
 
 
 
