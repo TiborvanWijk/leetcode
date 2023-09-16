@@ -6189,9 +6189,8 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+//2679
     public int matrixSum(int[][] nums) {
-
         for (int[] array : nums){
             Arrays.sort(array);
         }
@@ -6221,8 +6220,32 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public String addSpaces(String s, int[] spaces) {
+
+        StringBuilder ans = new StringBuilder();
+
+        int index1 = 0;
+        int index2 = 0;
+
+        while (index1 < s.length() && index2 < spaces.length){
+
+            if (index1 == spaces[index2]){
+                ans.append(" ");
+                index2++;
+            }
+            else{
+                ans.append(s.charAt(index1));
+                index1++;
+            }
+        }
+
+        ans.append(s.substring(index1));
 
 
+
+        return String.valueOf(ans);
+
+    }
 
 
 
