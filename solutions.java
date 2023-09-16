@@ -6190,7 +6190,26 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int matrixSum(int[][] nums) {
 
+        for (int[] array : nums){
+            Arrays.sort(array);
+        }
+
+        int ans = 0;
+
+        for (int i = 0; i < nums[0].length; i++){
+            int max = 0;
+            for (int j = 0; j < nums.length; j++){
+                if (nums[i][j] > max){
+                    max = nums[i][j];
+                }
+
+            }
+            ans += max;
+        }
+        return ans;
+    }
 
 
 
