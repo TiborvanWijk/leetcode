@@ -6427,6 +6427,7 @@ public boolean judgeCircle(String moves) {
         for (int i = 0; i < nums.length; i++){
 
             localmax = Math.max(nums[i], nums[i] + localmax);
+
             if (localmax > max) max = localmax;
 
         }
@@ -6440,7 +6441,28 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int[] canSeePersonsCount(int[] heights) {
 
+        int[] ans = new int[heights.length];
+
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = heights.length - 1; i >= 0 ; i--){
+            int seePeopleAmount = 0;
+            while (!stack.isEmpty() && heights[i] > stack.peek()){
+                seePeopleAmount++;
+                stack.pop();
+            }
+            if (!stack.isEmpty()){
+                seePeopleAmount++;
+            }
+            stack.add(heights[i]);
+            ans[i] = seePeopleAmount;
+
+        }
+
+        return ans;
+    }
 
 
 
