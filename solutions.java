@@ -4715,23 +4715,23 @@ public boolean judgeCircle(String moves) {
 
 
 // finds the minimal diffrence in a bst
-    List<Integer> list = new ArrayList<>();
-
-    public int minDiffInBST(TreeNode root) {
-
-        minDiffInBSTHelper(root);
-        int min = Integer.MAX_VALUE;
-
-        for (int i = 1; i < list.size(); i++){
-
-            if (list.get(i) - list.get(i - 1) < min){
-                min = list.get(i) - list.get(i - 1);
-            }
-
-        }
-
-        return min;
-    }
+//    List<Integer> list = new ArrayList<>();
+//
+//    public int minDiffInBST(TreeNode root) {
+//
+//        minDiffInBSTHelper(root);
+//        int min = Integer.MAX_VALUE;
+//
+//        for (int i = 1; i < list.size(); i++){
+//
+//            if (list.get(i) - list.get(i - 1) < min){
+//                min = list.get(i) - list.get(i - 1);
+//            }
+//
+//        }
+//
+//        return min;
+//    }
 
 
 
@@ -6282,19 +6282,30 @@ public boolean judgeCircle(String moves) {
             current = current.next;
         }
 
-        String numbers = String.valueOf (Integer.parseInt(String.valueOf(stringBuilder)) * 2);
+        char[] numbers = String.valueOf (Integer.parseInt(String.valueOf(stringBuilder)) * 2).toCharArray();
 
 
+        for (int i = 0; i < numbers.length; i++){
+
+            head.val = Integer.parseInt(String.valueOf(numbers[i]));
+
+            if (head.next != null){
+                head = head.next;
+            }
+            else {
+                if(i != numbers.length-1){
+                    head.next = new ListNode();
+                    head = head.next;
+
+                }
+            }
+
+
+        }
+
+        return dummy.next;
     }
-
-
-
-
-
-
-
-
-
+    
 
 
 
