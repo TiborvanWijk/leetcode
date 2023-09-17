@@ -6364,7 +6364,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// checks wich indexes are not sorted/
     public int heightChecker(int[] heights) {
 
         int ans = 0;
@@ -6389,10 +6389,26 @@ public boolean judgeCircle(String moves) {
 
 
 
+//    Returns the number of students doing their homework at time queryTime.
+//    More formally, returns the number of students where queryTime lays in the
+//    interval [startTime[i], endTime[i]] inclusive.
+    public int busyStudent(int[] startTime, int[] endTime, int queryTime) {
+
+
+        int total = 0;
+
+        for (int i = 0; i < startTime.length; i++){
+
+            if (startTime[i] <= queryTime && endTime[i] >= queryTime){
+                total++;
+            }
 
 
 
+        }
 
+        return total;
+    }
 
 
 
