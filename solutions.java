@@ -6420,7 +6420,18 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int maxSubArray(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        int localmax = 0;
 
+        for (int i = 0; i < nums.length; i++){
+
+            localmax = Math.max(nums[i], nums[i] + localmax);
+            if (localmax > max) max = localmax;
+
+        }
+        return max;
+    }
 
 
 
