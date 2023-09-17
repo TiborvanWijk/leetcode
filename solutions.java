@@ -6305,7 +6305,6 @@ public boolean judgeCircle(String moves) {
 
         return dummy.next;
     }
-    
 
 
 
@@ -6314,11 +6313,51 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int isWinner(int[] player1, int[] player2) {
+
+        int totalP1 = 0;
+        int totalP2 = 0;
 
 
+        int strikeP1 = 0;
+        int strikeP2 = 0;
+
+        for (int i = 0; i < player1.length; i++){
+
+            if (strikeP1 > 0){
+                strikeP1--;
+                totalP1 += player1[i] *2;
+            }
+            else {
+                totalP1 += player1[i];
+            }
+            if (player1[i] == 10){
+                strikeP1 = 2;
+            }
+
+            if (strikeP2 > 0){
+                strikeP2--;
+                totalP2 += player2[i] *2;
+            }
+            else {
+                totalP2 += player2[i];
+            }
+            if (player2[i] == 10){
+                strikeP2 = 2;
+            }
 
 
+        }
 
+        if (totalP1 > totalP2){
+            return 1;
+        }
+        else if (totalP1 < totalP2){
+            return 2;
+        }
+
+        return 0;
+    }
 
 
 
