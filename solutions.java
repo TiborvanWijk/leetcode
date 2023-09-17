@@ -220,16 +220,16 @@ public class solutions {
 
     //    checks if a word is typed the same forwards as backwards
 //    by implementing a StringBuilderClass
-    public boolean isPalindrome(String s) {
-        StringBuilder reverse = new StringBuilder();
-        s = s.toLowerCase();
-        for (int i = 0; i < s.length(); i++) {
-            if (Character.isLetterOrDigit(s.charAt(i))) {
-                reverse.append(s.charAt(i));
-            }
-        }
-        return String.valueOf(reverse).equals(String.valueOf(reverse.reverse()));
-    }
+//    public boolean isPalindrome(String s) {
+//        StringBuilder reverse = new StringBuilder();
+//        s = s.toLowerCase();
+//        for (int i = 0; i < s.length(); i++) {
+//            if (Character.isLetterOrDigit(s.charAt(i))) {
+//                reverse.append(s.charAt(i));
+//            }
+//        }
+//        return String.valueOf(reverse).equals(String.valueOf(reverse.reverse()));
+//    }
 
     //    finds two numbers in a sorted array that add up to the given target
 //    by implementing a two pointer
@@ -796,13 +796,13 @@ public class solutions {
 
 
 
-    public boolean isPalindrome(int x) {
-
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(x);
-
-        return String.valueOf(stringBuilder).equals(String.valueOf(stringBuilder.reverse()));
-    }
+//    public boolean isPalindrome(int x) {
+//
+//        StringBuilder stringBuilder = new StringBuilder();
+//        stringBuilder.append(x);
+//
+//        return String.valueOf(stringBuilder).equals(String.valueOf(stringBuilder.reverse()));
+//    }
 
 
 
@@ -6440,7 +6440,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+//1944
     public int[] canSeePersonsCount(int[] heights) {
 
         int[] ans = new int[heights.length];
@@ -6470,16 +6470,41 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
-
-
-
-
-
-
-
-
+//    public int primePalindrome(int n) {
+//        while (true) {
+//            if (n == reverse(n) && isPrime(n)) {
+//                return n;
+//            }
+//            n++;
+//            if (10_000_000 <= n && n < 100_000_000) {
+//                n = 100_000_000; // Skip to the next 8-digit number
+//            }
+//        }
+//    }
+//
+//    public int reverse(int num) {
+//        int reversed = 0;
+//        while (num > 0) {
+//            reversed = reversed * 10 + num % 10;
+//            num /= 10;
+//        }
+//        return reversed;
+//    }
+//
+//    public boolean isPrime(int num) {
+//        if (num < 2) return false;
+//        if (num == 2 || num == 3) return true;
+//        if (num % 2 == 0) return false;
+//
+//        int sqrt = (int) Math.sqrt(num);
+//        for (int i = 3; i <= sqrt; i += 2) {
+//            if (num % i == 0) {
+//                return false;
+//            }
+//        }
+//
+//        return true;
+//    }
 
 
 
