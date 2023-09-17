@@ -6098,7 +6098,14 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+//you have n jobs and m workers. You are given three arrays: difficulty, profit, and worker where:
+//
+//difficulty[i] and profit[i] are the difficulty and the profit of the ith job, and
+//worker[j] is the ability of jth worker (i.e., the jth worker can only complete a job with difficulty at most worker[j]).
+//Every worker can be assigned at most one job, but one job can be completed multiple times.
+//
+//For example, if three workers attempt the same job that pays $1, then the total profit will be $3. If a worker cannot complete any job, their profit is $0.
+//Returns the maximum profit we can achieve after assigning the workers to the jobs.
     public int maxProfitAssignment(int[] difficulty, int[] profit, int[] worker) {
         Map<Integer, Integer> difficultyToProfit = new HashMap<>();
         int ans = 0;
@@ -6130,7 +6137,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// checks if tile coordinates of a chess board is white
     public boolean squareIsWhite(String coordinates) {
         Map<Character, Integer> map = new HashMap<>();
 
@@ -6192,7 +6199,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// adds spaces in s with the given places in spaces
     public String addSpaces(String s, int[] spaces) {
 
         StringBuilder ans = new StringBuilder();
@@ -6233,9 +6240,6 @@ public boolean judgeCircle(String moves) {
 
         Map<Integer, List<Integer>> map = new HashMap<>();
 
-
-
-
         int[] scores = new int[score.length];
 
         for (int i = 0; i < score.length; i++){
@@ -6260,15 +6264,16 @@ public boolean judgeCircle(String moves) {
 
         }
 
-
-
         return score;
     }
 
 
 
 
-
+// gets all numbers from linked list and doubles them:
+//    (5) -> (2) -> (3) ->
+//    turns into:
+//    (1) -> (0) -> (4) -> (6) ->
     public ListNode doubleIt(ListNode head) {
 
         ListNode dummy = new ListNode();
