@@ -6511,23 +6511,6 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-    public FreqStack() {
-
-    }
-
-    public void push(int val) {
-
-    }
-
-    public int pop() {
-
-    }
-
-
-
-
-
     public int CountDigits(int num) {
         int count =0;
 
@@ -6557,7 +6540,27 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
 
+        StringBuilder one = new StringBuilder();
+        StringBuilder two = new StringBuilder();
+
+        int index = 0;
+
+        while (index < word1.length || index < word2.length){
+
+
+            if (index < word1.length){
+                one.append(word1[index]);
+            }
+            if (index < word2.length){
+                two.append(word2[index]);
+            }
+            index++;
+        }
+
+        return one.toString().equals(two.toString());
+    }
 
 
 
