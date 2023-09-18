@@ -6419,7 +6419,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// keeps checking if adding the next number is benifical otherwise it wil start counting for the next subarray.
     public int maxSubArray(int[] nums) {
         int max = Integer.MIN_VALUE;
         int localmax = 0;
@@ -6538,8 +6538,8 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
+// it adds all the elements in the two arrays to a single string then compares them to see if the elements together form the same string
+//1662
     public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
 
         StringBuilder one = new StringBuilder();
