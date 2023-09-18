@@ -6512,13 +6512,36 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public FreqStack() {
+
+    }
+
+    public void push(int val) {
+
+    }
+
+    public int pop() {
+
+    }
 
 
 
 
 
+    public int CountDigits(int num) {
+        int count =0;
+
+        int x=num;
+
+        while(x!=0){
+            int t= x%10;
+            if(t!=0 && num%t==0) count++;
+            x/=10;
+        }
 
 
+        return count;
+    }
 
 
 
