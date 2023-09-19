@@ -4735,18 +4735,18 @@ public boolean judgeCircle(String moves) {
 
 
 
-    private void minDiffInBSTHelper(TreeNode root) {
-
-        if (root != null){
-
-            minDiffInBSTHelper(root.left);
-            list.add(root.val);
-            minDiffInBSTHelper(root.right);
-
-
-
-        }
-    }
+//    private void minDiffInBSTHelper(TreeNode root) {
+//
+//        if (root != null){
+//
+//            minDiffInBSTHelper(root.left);
+//            list.add(root.val);
+//            minDiffInBSTHelper(root.right);
+//
+//
+//
+//        }
+//    }
 
 
 
@@ -6568,8 +6568,43 @@ public boolean judgeCircle(String moves) {
 
 
 
+// 84
+    public int largestRectangleArea(int[] heights) {
+        Stack<Integer> indexes = new Stack<>();
+        Stack<Integer> height = new Stack<>();
 
+        int max = 0;
+        int index = 0;
+        while (index < heights.length){
 
+            int startingIndex = index;
+            while (!height.isEmpty() && height.peek() > heights[index]){
+
+                int currentHeight = height.pop();
+                int currentIndex = indexes.pop();
+                startingIndex = currentIndex;
+
+                if (max < (index - currentIndex) * currentHeight){
+                    max = (index - currentIndex) * currentHeight;
+                }
+            }
+            indexes.add(startingIndex);
+            height.add(heights[index]);
+
+            index++;
+        }
+
+        while (!height.isEmpty()){
+            int currentHeight = height.pop();
+            int currentIndex = indexes.pop();
+
+            if (max < (index - currentIndex) * currentHeight){
+                max = (index - currentIndex) * currentHeight;
+            }
+        }
+
+        return max;
+    }
 
 
 
