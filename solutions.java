@@ -6610,7 +6610,30 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int[] dailyTemperatures(int[] temperatures) {
 
+        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> indexes = new Stack<>();
+        int[] ans = new int[temperatures.length];
+
+        int index = 0;
+        while (index < temperatures.length){
+
+            while (!stack.isEmpty() && stack.peek() < temperatures[index]){
+                int currentIndex = indexes.pop();
+                stack.pop();
+                ans[currentIndex] = index-currentIndex;
+            }
+
+            stack.add(temperatures[index]);
+            indexes.add(index);
+
+            index++;
+        }
+
+
+        return ans;
+    }
 
 
 
