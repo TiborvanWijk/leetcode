@@ -6705,12 +6705,29 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
 
 
+        dfs(0, ans, list, nums);
 
+        return ans;
+    }
 
+    public void dfs(int index, List<List<Integer>> ans, List<Integer> list, int[] nums) {
 
+        if (index >= nums.length){
+            ans.add(new ArrayList<>(list));
+        }
+        else {
+            list.add(nums[index]);
+            dfs(index + 1, ans, list, nums);
 
+            list.remove(list.size()-1);
+            dfs(index + 1, ans, list, nums);
+        }
+    }
 
 
 
@@ -7839,4 +7856,9 @@ public boolean judgeCircle(String moves) {
 
 
 
-}
+
+
+
+
+
+    }
