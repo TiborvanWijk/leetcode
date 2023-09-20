@@ -6705,36 +6705,58 @@ public boolean judgeCircle(String moves) {
 
 
 
-    public List<List<Integer>> subsets(int[] nums) {
+//    public List<List<Integer>> subsets(int[] nums) {
+//        List<List<Integer>> ans = new ArrayList<>();
+//        List<Integer> list = new ArrayList<>();
+//
+//
+//        dfs(0, ans, list, nums);
+//
+//        return ans;
+//    }
+//
+//    public void dfs(int index, List<List<Integer>> ans, List<Integer> list, int[] nums) {
+//
+//        if (index >= nums.length){
+//            ans.add(new ArrayList<>(list));
+//        }
+//        else {
+//            list.add(nums[index]);
+//            dfs(index + 1, ans, list, nums);
+//
+//            list.remove(list.size()-1);
+//            dfs(index + 1, ans, list, nums);
+//        }
+//    }
+
+
+
+
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
 
-
-        dfs(0, ans, list, nums);
+        dfs(0, ans, list, candidates, target, 0);
 
         return ans;
     }
 
-    public void dfs(int index, List<List<Integer>> ans, List<Integer> list, int[] nums) {
-
-        if (index >= nums.length){
+    public void dfs(int index, List<List<Integer>> ans, List<Integer> list, int[] candidates, int target, int total) {
+        if (total == target){
             ans.add(new ArrayList<>(list));
+            return;
         }
-        else {
-            list.add(nums[index]);
-            dfs(index + 1, ans, list, nums);
+        if (index >= candidates.length || total > target){
+            return;
+        }
 
-            list.remove(list.size()-1);
-            dfs(index + 1, ans, list, nums);
-        }
+        list.add(candidates[index]);
+        dfs(index, ans, list, candidates, target, total + candidates[index]);
+
+        list.remove(list.size()-1);
+        dfs(index+1, ans, list, candidates, target, total);
     }
-
-
-
-
-
-
-
 
 
 
