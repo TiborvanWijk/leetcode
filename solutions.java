@@ -6641,7 +6641,27 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int numOfSubarrays(int[] arr, int k, int threshold) {
 
+            if (arr.length < k) return 0;
+            int ans = 0;
+            int currSum = 0;
+
+            for (int i = 0; i < k-1; i++){
+                currSum += arr[i];
+            }
+
+            for (int i = 0; i < arr.length - k + 1; i++){
+                currSum += arr[i + k -1];
+                if (currSum / k >= threshold){
+                    ans++;
+                }
+                currSum -= arr[i];
+            }
+
+            return ans;
+
+    }
 
 
 
