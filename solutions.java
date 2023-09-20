@@ -6664,8 +6664,9 @@ public boolean judgeCircle(String moves) {
 
     }
 
-
-
+//    show jasper
+//--------------------------------------------------------\\
+//    239
     public int[] maxSlidingWindow(int[] nums, int k) {
 
         int[] ans = new int[nums.length-k+1];
@@ -6684,12 +6685,15 @@ public boolean judgeCircle(String moves) {
 
         for (int i = 0; i < nums.length - k + 1; i++){
 
-            while (!queue.isEmpty() && queue.peek() < nums[i]) {
+            while (!queue.isEmpty() && queue.peekLast() < nums[i + k - 1]) {
                 queue.pollLast();
             }
-            queue.addLast(nums[i]);
+            queue.addLast(nums[i + k -1]);
             ans[i] = queue.getFirst();
-            queue.remove(nums[i]);
+
+            if (queue.peekFirst() == nums[i]){
+                queue.pollFirst();
+            }
 
         }
 
