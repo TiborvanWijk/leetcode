@@ -6733,7 +6733,35 @@ public boolean judgeCircle(String moves) {
 
 
 
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+//    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+//        List<List<Integer>> ans = new ArrayList<>();
+//        List<Integer> list = new ArrayList<>();
+//
+//        dfs(0, ans, list, candidates, target, 0);
+//
+//        return ans;
+//    }
+//
+//    public void dfs(int index, List<List<Integer>> ans, List<Integer> list, int[] candidates, int target, int total) {
+//        if (total == target){
+//            ans.add(new ArrayList<>(list));
+//            return;
+//        }
+//        if (index >= candidates.length || total > target){
+//            return;
+//        }
+//
+//        list.add(candidates[index]);
+//        dfs(index, ans, list, candidates, target, total + candidates[index]);
+//
+//        list.remove(list.size()-1);
+//        dfs(index+1, ans, list, candidates, target, total);
+//    }
+
+
+
+
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
 
@@ -6752,7 +6780,7 @@ public boolean judgeCircle(String moves) {
         }
 
         list.add(candidates[index]);
-        dfs(index, ans, list, candidates, target, total + candidates[index]);
+        dfs(index + 1, ans, list, candidates, target, total + candidates[index]);
 
         list.remove(list.size()-1);
         dfs(index+1, ans, list, candidates, target, total);
@@ -6769,35 +6797,23 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int[] findDiagonalOrder(int[][] mat) {
 
+        int[][] ans = new int[mat.length][mat[0].length];
 
+        for (int i = mat.length-1; i >= 0; i--){
 
+            int index = i;
+            for (int j = 0; j < mat[0].length && index >= 0; j++){
 
+                an
 
+                index--;
+            }
 
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 
