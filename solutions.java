@@ -404,19 +404,20 @@ public class solutions {
 
 
     // finds the maximum number in an array when looking at a certain amount of data
-    public int[] maxSlidingWindow(int[] nums, int k) {
-        if (nums.length == 0) return nums;
-        int[] ans = new int[nums.length - (k - 1)];
-
-        for (int i = 0; i <= nums.length - k; i++){
-            int max = nums[i];
-            for (int j = 1; j < k; j++){
-                max = Math.max(max, nums[i + j]);
-            }
-            ans[i] = max;
-        }
-        return ans;
-    }
+//    brute force
+//    public int[] maxSlidingWindow(int[] nums, int k) {
+//        if (nums.length == 0) return nums;
+//        int[] ans = new int[nums.length - (k - 1)];
+//
+//        for (int i = 0; i <= nums.length - k; i++){
+//            int max = nums[i];
+//            for (int j = 1; j < k; j++){
+//                max = Math.max(max, nums[i + j]);
+//            }
+//            ans[i] = max;
+//        }
+//        return ans;
+//    }
 
 
 
@@ -6665,7 +6666,35 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int[] maxSlidingWindow(int[] nums, int k) {
 
+        int[] ans = new int[nums.length-k+1];
+
+        Deque<Integer> queue = new ArrayDeque<>();
+
+        for (int i = 0; i < k-1; i++){
+
+            while (!queue.isEmpty() && queue.getLast() < nums[i]) {
+                queue.pollLast();
+            }
+            queue.addLast(nums[i]);
+        }
+
+
+
+        for (int i = 0; i < nums.length - k + 1; i++){
+
+            while (!queue.isEmpty() && queue.peek() < nums[i]) {
+                queue.pollLast();
+            }
+            queue.addLast(nums[i]);
+            ans[i] = queue.getFirst();
+            queue.remove(nums[i]);
+
+        }
+
+        return ans;
+    }
 
 
 
