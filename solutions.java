@@ -6850,7 +6850,46 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int[] findDiagonalOrder(int[][] mat) {
 
+        int[] ans = new int[mat.length * mat[0].length];
+
+        int index = 0;
+        int row = 0, col = 0;
+
+
+        while (index < ans.length){
+
+            while (row >= 0&& col < mat[0].length){
+                ans[index] = mat[row][col];
+                index++;
+                row--;
+                col++;
+            }
+            row++;
+
+            if (col >= mat[0].length){
+                col--;
+                row++;
+            }
+
+            while (row < mat.length && col >= 0){
+                ans[index] = mat[row][col];
+                index++;
+                row++;
+                col--;
+            }
+            col++;
+
+            if (row >= mat.length){
+                row--;
+                col++;
+            }
+        }
+
+
+        return ans;
+    }
 
 
 
