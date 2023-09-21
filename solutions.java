@@ -6704,7 +6704,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// finds all subsets in the array nums
 //    public List<List<Integer>> subsets(int[] nums) {
 //        List<List<Integer>> ans = new ArrayList<>();
 //        List<Integer> list = new ArrayList<>();
@@ -6732,7 +6732,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// finds all combinations int the array candidates that sum up to target
 //    public List<List<Integer>> combinationSum(int[] candidates, int target) {
 //        List<List<Integer>> ans = new ArrayList<>();
 //        List<Integer> list = new ArrayList<>();
@@ -6760,43 +6760,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
-
-        dfs(0, ans, list, candidates, target, 0);
-
-        return ans;
-    }
-
-    public void dfs(int index, List<List<Integer>> ans, List<Integer> list, int[] candidates, int target, int total) {
-        if (total == target){
-            ans.add(new ArrayList<>(list));
-            return;
-        }
-        if (index >= candidates.length || total > target){
-            return;
-        }
-
-        list.add(candidates[index]);
-        dfs(index + 1, ans, list, candidates, target, total + candidates[index]);
-
-        list.remove(list.size()-1);
-        dfs(index+1, ans, list, candidates, target, total);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
+// O(N^2)
     public int[] treeQueries(TreeNode root, int[] queries) {
 
         int[] ans = new int[queries.length];
