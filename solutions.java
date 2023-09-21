@@ -6797,25 +6797,55 @@ public boolean judgeCircle(String moves) {
 
 
 
-    public int[] findDiagonalOrder(int[][] mat) {
+    public int[] treeQueries(TreeNode root, int[] queries) {
 
-        int[][] ans = new int[mat.length][mat[0].length];
+        int[] ans = new int[queries.length];
 
-        for (int i = mat.length-1; i >= 0; i--){
+        for (int i = 0; i < queries.length; i++){
 
-            int index = i;
-            for (int j = 0; j < mat[0].length && index >= 0; j++){
+            remove(root,root, queries[i], ans, i);
+        }
+        return ans;
+    }
+    private void remove(TreeNode node,TreeNode root, int val, int[] ans, int index) {
+        if (node != null){
+            remove(node.left,root, val, ans, index);
 
-                an
-
-                index--;
+            if (node.left != null && node.left.val == val){
+                TreeNode left = node.left;
+                node.left = null;
+                ans[index] = treeHeight(root)-1;
+                node.left = left;
+            }
+            else if (node.right != null && node.right.val == val){
+                TreeNode right = node.right;
+                node.right = null;
+                ans[index] = treeHeight(root)-1;
+                node.right = right;
+            }
+            else {
+                remove(node.right,root, val, ans, index);
             }
 
         }
-
     }
 
 
+    public int treeHeight(TreeNode root) {
+
+        if (root != null){
+
+            int a=treeHeight(root.left), b= treeHeight(root.right);
+            if (a > b){
+                return 1+ a;
+            }
+            else {
+                return 1 + b;
+            }
+        }
+
+        return 0;
+    }
 
 
 
