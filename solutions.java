@@ -6820,7 +6820,27 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public void sortColors(int[] nums) {
 
+        while (true){
+            boolean isSorted = true;
+            for (int i = 0; i < nums.length; i++){
+                int index = i;
+                while (index-1 >= 0 && nums[index] < nums[index-1]){
+                    int temp = nums[index-1];
+                    isSorted = false;
+                    nums[index-1] = nums[index];
+                    nums[index] = temp;
+                }
+
+            }
+            if (isSorted){
+                break;
+            }
+        }
+
+
+    }
 
 
 
