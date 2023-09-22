@@ -5636,25 +5636,25 @@ public boolean judgeCircle(String moves) {
 
 
 // faster way to convert uses time complexity of O(N)
-    int sum = 0;
-    public TreeNode convertBST(TreeNode root) {
-
-        convertBSTHelper(root);
-
-        return root;
-    }
-    private void convertBSTHelper(TreeNode root) {
-        if (root != null){
-
-            convertBSTHelper(root.right);
-
-            sum += root.val;
-
-            root.val = sum;
-
-            convertBSTHelper(root.left);
-        }
-    }
+//    int sum = 0;
+//    public TreeNode convertBST(TreeNode root) {
+//
+//        convertBSTHelper(root);
+//
+//        return root;
+//    }
+//    private void convertBSTHelper(TreeNode root) {
+//        if (root != null){
+//
+//            convertBSTHelper(root.right);
+//
+//            sum += root.val;
+//
+//            root.val = sum;
+//
+//            convertBSTHelper(root.left);
+//        }
+//    }
 
 
 
@@ -6899,11 +6899,21 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public boolean isCircularSentence(String sentence) {
+
+        if (sentence.charAt(0) != sentence.charAt(sentence.length()-1)) return false;
+
+        String[] words = sentence.split(" ");
+
+        for (int i = 1; i < words.length; i++){
+            if (words[i].charAt(0) != words[i-1].charAt(words[i-1].length()-1)){
+                return false;
+            }
+        }
 
 
-
-
-
+        return true;
+    }
 
 
 
