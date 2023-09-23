@@ -6911,7 +6911,6 @@ public boolean judgeCircle(String moves) {
             }
         }
 
-
         return true;
     }
 
@@ -6922,7 +6921,25 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int maxPower(String s) {
 
+        char prev = '1';
+        int max = 0;
+        int current = 0;
+        for (int i = 0; i < s.length(); i++){
+            if (s.charAt(i) != prev){
+                if (max < current){
+                    max = current;
+                }
+                current = 1;
+            }
+            else {
+                current++;
+            }
+            prev = s.charAt(i);
+        }
+        return max;
+    }
 
 
 
