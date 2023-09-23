@@ -4958,7 +4958,7 @@ public boolean judgeCircle(String moves) {
         return sum;
     }
 
-    
+
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
 
         if(root==null && subRoot ==null|| root!=null && subRoot==null) return true;
@@ -6949,7 +6949,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+//    does bfs for inserting.
 //    TreeNode root;
 //    public CBTInserter(TreeNode root) {
 //        this.root = root;
@@ -6992,79 +6992,6 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     int ans = Integer.MAX_VALUE;
     public int integerReplacement(int n) {
         if (n == 2147483647) return 32;
@@ -7094,15 +7021,6 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
-
-
-
-
-
-
-
     public int smallestRepunitDivByK(int k) {
         if(k % 2 == 0 || k % 5 == 0) return -1;
 
@@ -7116,8 +7034,57 @@ public boolean judgeCircle(String moves) {
         return -1;
     }
 
-
-
+//    uses bfs to make a queue of nodes to add to for insert
+//    by doing it this way we only have to look through the tree ones
+//    and inserting becomes o(1)
+//    TreeNode root;
+//    Queue<TreeNode> queue = new LinkedList<>();
+//    public CBTInserter(TreeNode root) {
+//        this.root = root;
+//
+//        Queue<TreeNode> bfs = new LinkedList<>();
+//        bfs.offer(root);
+//        while (!bfs.isEmpty()){
+//
+//            int size = bfs.size();
+//
+//            for (int i = 0; i < size; i++){
+//
+//                TreeNode curr = bfs.poll();
+//
+//                if (curr.left == null || curr.right == null){
+//                    queue.offer(curr);
+//                }
+//                if (curr.left != null) bfs.offer(curr.left);
+//                if (curr.right != null) bfs.offer(curr.right);
+//            }
+//        }
+//    }
+//
+//    public int insert(int val) {
+//
+//        TreeNode curr = queue.peek();
+//
+//        if (curr.left == null){
+//            curr.left = new TreeNode(val);
+//            queue.offer(curr.left);
+//            if (curr.right != null){
+//                queue.poll();
+//            }
+//        }
+//        else if (curr.right == null){
+//            curr.right = new TreeNode(val);
+//            queue.offer(curr.right);
+//            if (curr.left != null){
+//                queue.poll();
+//            }
+//        }
+//        return curr.val;
+//    }
+//
+//    public TreeNode get_root() {
+//        return root;
+//    }
 
 
 
