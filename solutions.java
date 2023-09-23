@@ -6950,124 +6950,146 @@ public boolean judgeCircle(String moves) {
 
 
 
-    TreeNode root;
-    public CBTInserter(TreeNode root) {
-        this.root = root;
+//    TreeNode root;
+//    public CBTInserter(TreeNode root) {
+//        this.root = root;
+//    }
+//
+//    public int insert(int val) {
+//
+//        TreeNode node = root;
+//        Queue<TreeNode> queue = new LinkedList<>();
+//        queue.offer(node);
+//
+//
+//        while (!queue.isEmpty()){
+//
+//            int size = queue.size();
+//
+//            for (int i = 0; i < size; i++){
+//
+//                TreeNode curr = queue.poll();
+//
+//                if (curr.left == null){
+//                    curr.left = new TreeNode(val);
+//                    return curr.val;
+//                }
+//                if (curr.right == null){
+//                    curr.right = new TreeNode(val);
+//                    return curr.val;
+//                }
+//
+//                queue.offer(curr.left);
+//                queue.offer(curr.right);
+//            }
+//        }
+//        return -1;
+//    }
+//
+//    public TreeNode get_root() {
+//        return root;
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    int ans = Integer.MAX_VALUE;
+    public int integerReplacement(int n) {
+        if (n == 2147483647) return 32;
+
+        dfs(n, 0);
+
+        return ans;
     }
 
-    public int insert(int val) {
+    public void dfs(int n, int steps) {
 
-        TreeNode node = root;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(node);
-
-
-        while (!queue.isEmpty()){
-
-            int size = queue.size();
-
-            for (int i = 0; i < size; i++){
-
-                TreeNode curr = queue.poll();
-
-                if (curr.left == null){
-                    curr.left = new TreeNode(val);
-                    return curr.val;
-                }
-                if (curr.right == null){
-                    curr.right = new TreeNode(val);
-                    return curr.val;
-                }
-
-                queue.offer(curr.left);
-                queue.offer(curr.right);
-            }
+        if (steps > ans) return;
+        if (n == 1) {
+            ans = steps;
+            return;
         }
-        return -1;
+        if (n % 2 == 0 && n != 0){
+            dfs(n/2, steps+1);
+        }
+        else {
+            dfs(n+1, steps+1);
+            dfs(n-1, steps+1);
+
+        }
     }
-
-    public TreeNode get_root() {
-        return root;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
