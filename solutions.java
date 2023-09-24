@@ -6992,31 +6992,31 @@ public boolean judgeCircle(String moves) {
 
 
 
-    int ans = Integer.MAX_VALUE;
-    public int integerReplacement(int n) {
-        if (n == 2147483647) return 32;
-
-        dfs(n, 0);
-
-        return ans;
-    }
-
-    public void dfs(int n, int steps) {
-
-        if (steps > ans) return;
-        if (n == 1) {
-            ans = steps;
-            return;
-        }
-        if (n % 2 == 0 && n != 0){
-            dfs(n/2, steps+1);
-        }
-        else {
-            dfs(n+1, steps+1);
-            dfs(n-1, steps+1);
-
-        }
-    }
+//    int ans = Integer.MAX_VALUE;
+//    public int integerReplacement(int n) {
+//        if (n == 2147483647) return 32;
+//
+//        dfs(n, 0);
+//
+//        return ans;
+//    }
+//
+//    public void dfs(int n, int steps) {
+//
+//        if (steps > ans) return;
+//        if (n == 1) {
+//            ans = steps;
+//            return;
+//        }
+//        if (n % 2 == 0 && n != 0){
+//            dfs(n/2, steps+1);
+//        }
+//        else {
+//            dfs(n+1, steps+1);
+//            dfs(n-1, steps+1);
+//
+//        }
+//    }
 
 
 
@@ -7103,8 +7103,42 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
+//    long[] balance;
+//    public Bank(long[] balance) {
+//
+//        this.balance = balance;
+//
+//
+//    }
+//
+//    public boolean transfer(int account1, int account2, long money) {
+//        if (accountValidation(account1) && accountValidation(account2) && balance[account1-1] >= money){
+//            balance[account1-1] = balance[account1-1] - money;
+//            balance[account2-1] = balance[account2-1] + money;
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public boolean deposit(int account, long money) {
+//        if (accountValidation(account)){
+//            balance[account-1] = balance[account-1] + money;
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public boolean withdraw(int account, long money) {
+//        if (accountValidation(account) && balance[account-1] >= money){
+//            balance[account-1] = balance[account-1] - money;
+//            return true;
+//        }
+//        return false;
+//    }
+//    public boolean accountValidation(int account){
+//
+//        return account-1 < balance.length && account >= 0;
+//    }
 
 
 
