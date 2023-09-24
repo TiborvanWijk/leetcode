@@ -7259,7 +7259,24 @@ public boolean judgeCircle(String moves) {
 
 
 
+    int goodNodes = 0;
+    public int goodNodes(TreeNode root) {
 
+        goodNodesHelper(root, root.val);
+
+        return goodNodes;
+    }
+    public void goodNodesHelper(TreeNode root, int maxInPath) {
+        if (root != null){
+            if (root.val >= maxInPath){
+                maxInPath = root.val;
+                goodNodes++;
+            }
+            goodNodesHelper(root.left, maxInPath);
+            goodNodesHelper(root.right, maxInPath);
+
+        }
+    }
 
 
 
