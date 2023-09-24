@@ -5832,90 +5832,90 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-    public int maxAreaOfIsland(int[][] grid) {
-
-        int max = 0;
-        for (int i = 0; i < grid.length; i++){
-
-            for (int j = 0; j < grid[0].length; j++){
-
-                if (grid[i][j] == 1){
-                    int currentIsland = solveBfs(grid, i, j);
-
-                    if (max < currentIsland){
-                        max = currentIsland;
-                    }
-                }
-            }
-        }
-
-        return max;
-    }
-
-    private int solveBfs(int[][] grid, int i, int j) {
-
-        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == 0){
-            return 0;
-        }
-
-        grid[i][j] = 0;
-
-        return 1 + solveBfs(grid, i + 1, j) + solveBfs(grid, i - 1, j) + solveBfs(grid, i, j + 1) + solveBfs(grid, i, j - 1);
-    }
+//
+//    public int maxAreaOfIsland(int[][] grid) {
+//
+//        int max = 0;
+//        for (int i = 0; i < grid.length; i++){
+//
+//            for (int j = 0; j < grid[0].length; j++){
+//
+//                if (grid[i][j] == 1){
+//                    int currentIsland = solveBfs(grid, i, j);
+//
+//                    if (max < currentIsland){
+//                        max = currentIsland;
+//                    }
+//                }
+//            }
+//        }
+//
+//        return max;
+//    }
+//
+//    private int solveBfs(int[][] grid, int i, int j) {
+//
+//        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == 0){
+//            return 0;
+//        }
+//
+//        grid[i][j] = 0;
+//
+//        return 1 + solveBfs(grid, i + 1, j) + solveBfs(grid, i - 1, j) + solveBfs(grid, i, j + 1) + solveBfs(grid, i, j - 1);
+//    }
 
 
 
 
     // Surrounded Regions
-    public void solve(char[][] grid) {
-
-        for (int i = 0; i < grid[0].length; i++){
-            if (grid[0][i] == 'O'){
-                dfs(grid,0,i);
-            }
-            if (grid[grid.length-1][i] == 'O'){
-                dfs(grid,grid.length-1,i);
-            }
-        }
-
-        for (int i = 0; i < grid.length; i++){
-            if (grid[i][0] == 'O'){
-                dfs(grid,i,0);
-            }
-            if (grid[i][grid[0].length-1] == 'O'){
-                dfs(grid,i,grid[0].length-1);
-            }
-        }
-
-        for (int i = 0; i < grid.length; i++){
-            for (int j = 0; j < grid[0].length; j++){
-                if (grid[i][j] == 'T'){
-                    grid[i][j] = 'O';
-                }
-                else if (grid[i][j] == 'O'){
-                    grid[i][j] = 'X';
-                }
-            }
-        }
-
-
-
-    }
-    private void dfs(char[][] grid, int i, int j) {
-
-        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] != 'O'){
-            return;
-        }
-
-        grid[i][j] = 'T';
-
-
-        dfs(grid, i, j - 1);
-        dfs(grid, i, j + 1);
-        dfs(grid, i - 1, j);
-        dfs(grid, i + 1, j);
-    }
+//    public void solve(char[][] grid) {
+//
+//        for (int i = 0; i < grid[0].length; i++){
+//            if (grid[0][i] == 'O'){
+//                dfs(grid,0,i);
+//            }
+//            if (grid[grid.length-1][i] == 'O'){
+//                dfs(grid,grid.length-1,i);
+//            }
+//        }
+//
+//        for (int i = 0; i < grid.length; i++){
+//            if (grid[i][0] == 'O'){
+//                dfs(grid,i,0);
+//            }
+//            if (grid[i][grid[0].length-1] == 'O'){
+//                dfs(grid,i,grid[0].length-1);
+//            }
+//        }
+//
+//        for (int i = 0; i < grid.length; i++){
+//            for (int j = 0; j < grid[0].length; j++){
+//                if (grid[i][j] == 'T'){
+//                    grid[i][j] = 'O';
+//                }
+//                else if (grid[i][j] == 'O'){
+//                    grid[i][j] = 'X';
+//                }
+//            }
+//        }
+//
+//
+//
+//    }
+//    private void dfs(char[][] grid, int i, int j) {
+//
+//        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] != 'O'){
+//            return;
+//        }
+//
+//        grid[i][j] = 'T';
+//
+//
+//        dfs(grid, i, j - 1);
+//        dfs(grid, i, j + 1);
+//        dfs(grid, i - 1, j);
+//        dfs(grid, i + 1, j);
+//    }
 
 
     public int maxAscendingSum(int[] nums) {
@@ -7145,6 +7145,52 @@ public boolean judgeCircle(String moves) {
 
 
 
+    class Solution {
+
+        public List<List<Integer>> pacificAtlantic(int[][] heights) {
+            List<List<Integer>> ans = new ArrayList<>();
+
+            boolean[][] pacific = new boolean[heights.length][heights[0].length];
+            boolean[][] atlantic = new boolean[heights.length][heights[0].length];
+
+            for (int i = 0; i < heights[0].length; i++){
+
+                dfs(heights, 0, i, Integer.MIN_VALUE, pacific);
+
+                dfs(heights, heights.length -1, i, Integer.MIN_VALUE, atlantic);
+            }
+
+            for (int i = 0; i < heights.length; i++){
+
+                dfs(heights, i, 0, Integer.MIN_VALUE, pacific);
+
+                dfs(heights, i, heights[0].length-1, Integer.MIN_VALUE, atlantic);
+            }
+
+            for (int i = 0; i < heights.length; i++){
+                for (int j = 0; j < heights[0].length; j++){
+
+                    if (pacific[i][j] && atlantic[i][j]){
+                        ans.add(Arrays.asList(i,j));
+                    }
+
+                }
+            }
+
+
+            return ans;
+        }
+
+        private void dfs(int[][] heights, int i, int j, int prev, boolean[][] ocean) {
+            if (i < 0 || j < 0 || i >= heights.length || j >= heights[0].length || ocean[i][j] || heights[i][j] < prev) return;
+
+            ocean[i][j] = true;
+
+            dfs(heights, i-1, j, heights[i][j], ocean);
+            dfs(heights, i+1, j, heights[i][j], ocean);
+            dfs(heights, i, j-1, heights[i][j], ocean);
+            dfs(heights, i, j+1, heights[i][j], ocean);
+        }
 
 
 
