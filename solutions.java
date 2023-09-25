@@ -6991,7 +6991,9 @@ public boolean judgeCircle(String moves) {
 //    }
 
 
-
+// finds the minimum amount of steps to make n 1
+//    by deviding if n % 2 == 0 and if it's an odd number you can choose to either doe plus one or minus one,
+//    so we use bfs to add and remove one
 //    int ans = Integer.MAX_VALUE;
 //    public int integerReplacement(int n) {
 //        if (n == 2147483647) return 32;
@@ -7102,7 +7104,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// makes a simple banking system
 //    long[] balance;
 //    public Bank(long[] balance) {
 //
@@ -7145,7 +7147,8 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+//      returns a list of coordinates of the values that can flow water from it's place to the top/left border and bottom/right
+//    water can only flow to values lower then itself you can see it as the heights
 //    public List<List<Integer>> pacificAtlantic(int[][] heights) {
 //        List<List<Integer>> ans = new ArrayList<>();
 //
