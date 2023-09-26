@@ -7246,24 +7246,24 @@ public boolean judgeCircle(String moves) {
         dfs(grid, i, j-1, steps + 1, visited);
     }
 
-    int goodNodes = 0;
-    public int goodNodes(TreeNode root) {
-
-        goodNodesHelper(root, root.val);
-
-        return goodNodes;
-    }
-    public void goodNodesHelper(TreeNode root, int maxInPath) {
-        if (root != null){
-            if (root.val >= maxInPath){
-                maxInPath = root.val;
-                goodNodes++;
-            }
-            goodNodesHelper(root.left, maxInPath);
-            goodNodesHelper(root.right, maxInPath);
-
-        }
-    }
+//    int goodNodes = 0;
+//    public int goodNodes(TreeNode root) {
+//
+//        goodNodesHelper(root, root.val);
+//
+//        return goodNodes;
+//    }
+//    public void goodNodesHelper(TreeNode root, int maxInPath) {
+//        if (root != null){
+//            if (root.val >= maxInPath){
+//                maxInPath = root.val;
+//                goodNodes++;
+//            }
+//            goodNodesHelper(root.left, maxInPath);
+//            goodNodesHelper(root.right, maxInPath);
+//
+//        }
+//    }
 
 
 
@@ -7355,7 +7355,24 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int uniquePaths(int m, int n) {
 
+        int[][] grid = new int[m][n];
+        for (int[] a : grid){
+            Arrays.fill(a, 1);
+        }
+
+        for (int i = m -2; i >= 0; i--){
+            for (int j = n -2; j >= 0; j--){
+
+                grid[i][j] = grid[i + 1][j] + grid[i][j+1];
+
+
+            }
+        }
+
+        return grid[0][0];
+    }
 
 
 
