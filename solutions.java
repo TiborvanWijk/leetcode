@@ -7376,12 +7376,31 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public List<String> generateParenthesis(int n) {
+        List<String> ans = new ArrayList<>();
 
+        generateParenthesis(ans, n, 0,new StringBuilder());
 
+        return ans;
+    }
+    public void generateParenthesis(List<String> list, int open, int close, StringBuilder parenthesis) {
+        if (open == 0 && close == 0){
+            list.add(parenthesis.toString());
+            return;
+        }
 
+        if (open > 0){
+            parenthesis.append("(");
+            generateParenthesis(list, open-1, close+1, parenthesis);
+            parenthesis.setLength(parenthesis.length()-1);
+        }
 
-
-
+        if (close > 0){
+            parenthesis.append(")");
+            generateParenthesis(list, open, close-1, parenthesis);
+            parenthesis.setLength(parenthesis.length()-1);
+        }
+    }
 
 
 
