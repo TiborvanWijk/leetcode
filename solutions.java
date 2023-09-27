@@ -7487,7 +7487,37 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public String longestPalindrome(String s) {
 
+        StringBuilder ans = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++){
+
+            int left = i;
+            int right = i;
+            while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)){
+                if (ans.length() < (right - left) + 1){
+                    ans.setLength(0);
+                    ans.append(s, left, right+1);
+                }
+                left--;
+                right++;
+            }
+            left = i;
+            right = i+1;
+            while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)){
+                if (ans.length() < (right - left) + 1){
+                    ans.setLength(0);
+                    ans.append(s, left, right+1);
+                }
+                left--;
+                right++;
+            }
+
+
+        }
+        return ans.toString();
+    }
 
 
 
