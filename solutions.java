@@ -7406,7 +7406,41 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+//    public List<String> findWords(char[][] board, String[] words) {
+//        List<String> ans = new ArrayList<>();
+//        HashSet<String> hashSet = new HashSet<>(Arrays.asList(words));
+//
+//
+//        for (int i = 0; i < board.length; i++){
+//            for (int j = 0; j < board[0].length; j++) {
+//                findWords(board, i, j, new StringBuilder(), hashSet, 10, ans);
+//            }
+//        }
+//
+//        return ans;
+//    }
+//    public void findWords(char[][] board, int i, int j,StringBuilder word, HashSet<String> hashSet, int max, List<String> ans) {
+//        if (hashSet.contains(word.toString()) && !ans.contains(word.toString())){
+//            ans.add(word.toString());
+//        }
+//        if (i < 0 || j < 0 || i >= board.length || j >= board[0].length || word.length() > max || board[i][j] == ' '){
+//            return;
+//        }
+//
+//        char temp = board[i][j];
+//        board[i][j] = ' ';
+//        word.append(temp);
+//
+//
+//        findWords(board, i+1, j, word, hashSet, max, ans);
+//        findWords(board, i-1, j, word, hashSet, max, ans);
+//        findWords(board, i, j+1, word, hashSet, max, ans);
+//        findWords(board, i, j-1, word, hashSet, max, ans);
+//
+//        board[i][j] = temp;
+//        word.setLength(word.length()-1);
+//
+//    }
 
 
 
