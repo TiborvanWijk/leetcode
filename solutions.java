@@ -7582,8 +7582,45 @@ public boolean judgeCircle(String moves) {
 
 
 
+//980. Unique Paths III
+    public int uniquePathsIII(int[][] grid) {
+        int nrOfEmptySquares = 0;
+        int xStart = 0;
+        int yStart = 0;
+        for (int i = 0; i < grid.length; i++){
+            for (int j = 0; j < grid[0].length; j++){
+                if(grid[i][j] == 0){
+                    nrOfEmptySquares++;
+                }
+                else if (grid[i][j] == 1){
+                    xStart = i;
+                    yStart = j;
+                }
+
+            }
+        }
 
 
+        return dfsPath(grid, xStart, yStart, nrOfEmptySquares);
+    }
+    public int dfsPath(int[][] grid, int i, int j, int nrOfEmptySquares) {
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == -1) return 0;
+
+        if (grid[i][j] == 2){
+            return nrOfEmptySquares == -1 ? 1 : 0;
+        }
+
+        int temp = grid[i][j];
+        grid[i][j] = -1;
+
+        nrOfEmptySquares--;
+
+        int total = dfsPath(grid, i+1, j, nrOfEmptySquares)+ dfsPath(grid, i-1, j, nrOfEmptySquares)+
+                    dfsPath(grid, i, j+1, nrOfEmptySquares)+ dfsPath(grid, i, j-1, nrOfEmptySquares);
+
+        grid[i][j] = temp;
+        return total;
+    }
 
 
 
