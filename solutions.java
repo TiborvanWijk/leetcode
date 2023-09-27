@@ -7441,9 +7441,45 @@ public boolean judgeCircle(String moves) {
 //        word.setLength(word.length()-1);
 //
 //    }
+    int max = 0;
+    public int getMaximumGold(int[][] grid) {
+
+        for (int i = 0; i < grid.length; i++){
+            for (int j = 0; j < grid[0].length; j++){
+
+                if (grid[i][j] != 0){
+                    dfs(grid,i,j,0);
+                }
 
 
+            }
+        }
 
+
+        return max;
+    }
+
+    public void dfs(int[][] grid, int i, int j, int curr) {
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == 0){
+            return;
+        }
+
+        int temp = grid[i][j];
+        grid[i][j] = 0;
+
+        curr += temp;
+
+        if (curr > max){
+            max = curr;
+        }
+
+        dfs(grid, i+1, j, curr);
+        dfs(grid, i-1, j, curr);
+        dfs(grid, i, j+1, curr);
+        dfs(grid, i, j-1, curr);
+
+        grid[i][j] = temp;
+    }
 
 
 
