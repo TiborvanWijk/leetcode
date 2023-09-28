@@ -7630,31 +7630,31 @@ public boolean judgeCircle(String moves) {
         int max = 0;
         int[][] memory = new int[matrix.length][matrix[0].length];
 
-        for (int i = 0; i < matrix.length; i++){
-            for (int j = 0; j < matrix[0].length; j++){
-                max = Math.max(max, dfsLongestIncreasingPath(matrix, i, j, 1, Integer.MIN_VALUE, memory));
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                max = Math.max(max, dfsLongestIncreasingPath(matrix, i, j, Integer.MIN_VALUE, memory));
             }
         }
 
         return max;
     }
 
-    public int dfsLongestIncreasingPath(int[][] matrix, int i, int j, int length, int prev, int[][] mem) {
+    public int dfsLongestIncreasingPath(int[][] matrix, int i, int j, int prev, int[][] mem) {
         if (i < 0 || j < 0 || i >= matrix.length || j >= matrix[0].length || matrix[i][j] <= prev) return 0;
 
         if (mem[i][j] != 0) return mem[i][j];
 
-        prev = matrix[i][j];
+        int currMax = 1;
 
+        currMax = Math.max(currMax, 1 + dfsLongestIncreasingPath(matrix, i + 1, j, matrix[i][j], mem));
+        currMax = Math.max(currMax, 1 + dfsLongestIncreasingPath(matrix, i - 1, j, matrix[i][j], mem));
+        currMax = Math.max(currMax, 1 + dfsLongestIncreasingPath(matrix, i, j + 1, matrix[i][j], mem));
+        currMax = Math.max(currMax, 1 + dfsLongestIncreasingPath(matrix, i, j - 1, matrix[i][j], mem));
 
-        mem[i][j] = Math.max(mem[i][j],dfsLongestIncreasingPath(matrix, i+1, j, length+1, prev, mem));
-        mem[i][j] = Math.max(mem[i][j],dfsLongestIncreasingPath(matrix, i-1, j, length+1, prev, mem));
-        mem[i][j] = Math.max(mem[i][j],dfsLongestIncreasingPath(matrix, i, j+1, length+1, prev, mem));
-        mem[i][j] = Math.max(mem[i][j],dfsLongestIncreasingPath(matrix, i, j-1, length+1, prev, mem));
-
-
-        return mem[i][j]++;
+        mem[i][j] = currMax;
+        return mem[i][j];
     }
+
 
 
 
