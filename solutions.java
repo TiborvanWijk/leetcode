@@ -7780,14 +7780,43 @@ public boolean judgeCircle(String moves) {
                 currSum -= nums[left];
                 left++;
             }
-            
+
         }
         return ans == Integer.MAX_VALUE ? 0 : ans;
     }
 
 
+//2771
+    public int maxNonDecreasingLength(int[] nums1, int[] nums2) {
 
+        int max = 0;
+        int currMax = 0;
+        int prev = Integer.MIN_VALUE;
+        for (int i = 0; i < nums1.length; i++){
+            if (nums1[i] >= prev && nums2[i] >= prev){
+                prev = Math.min(nums1[i], nums2[i]);
+                currMax++;
+                max = Math.max(max, currMax);
+            }
+            else if (nums1[i] >= prev){
+                prev = nums1[i];
+                currMax++;
+                max = Math.max(max, currMax);
+            }
+            else if (nums2[i] >= prev){
+                prev = nums2[i];
+                currMax++;
+                max = Math.max(max, currMax);
+            }
+            else {
+                currMax = 0;
+                prev = Integer.MIN_VALUE;
+                i--;
+            }
+        }
 
+        return max;
+    }
 
 
 
