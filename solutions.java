@@ -7708,27 +7708,144 @@ public boolean judgeCircle(String moves) {
 
 
 
-    int ans = Integer.MIN_VALUE;
-    public int maxPathSum(TreeNode root) {
+//    int ans = Integer.MIN_VALUE;
+//    public int maxPathSum(TreeNode root) {
+//
+//        dfsSum(root);
+//
+//        return ans;
+//    }
+//
+//    private int dfsSum(TreeNode root) {
+//        if (root == null) return 0;
+//
+//        int maxLeft = dfsSum(root.left);
+//        int maxRight = dfsSum(root.right);
+//
+//        maxLeft = Math.max(maxLeft, 0);
+//        maxRight = Math.max(maxRight, 0);
+//
+//        ans = Math.max(ans, root.val + maxLeft + maxRight);
+//
+//        return root.val + Math.max(maxLeft, maxRight);
+//    }
 
-        dfsSum(root);
 
+
+
+
+
+    public int candy(int[] ratings) {
+        int[] array = new int[ratings.length];
+        Arrays.fill(array,1);
+
+        for (int i = 1; i < ratings.length; i++){
+            if (ratings[i-1] < ratings[i]){
+                array[i] = array[i-1] + 1;
+            }
+        }
+
+        for (int i = ratings.length-2; i >= 0; i--){
+            if (ratings[i + 1] < ratings[i] && array[i + 1] >= array[i]){
+                array[i] = array[i + 1] + 1;
+            }
+        }
+
+        int ans = 0;
+
+        for (int i = 0; i < array.length; i++){
+            ans += array[i];
+        }
         return ans;
     }
 
-    private int dfsSum(TreeNode root) {
-        if (root == null) return 0;
 
-        int maxLeft = dfsSum(root.left);
-        int maxRight = dfsSum(root.right);
 
-        maxLeft = Math.max(maxLeft, 0);
-        maxRight = Math.max(maxRight, 0);
 
-        ans = Math.max(ans, root.val + maxLeft + maxRight);
 
-        return root.val + Math.max(maxLeft, maxRight);
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
