@@ -5560,33 +5560,33 @@ public boolean judgeCircle(String moves) {
     }
 
 
-    Map<Node, Node> oldtonew = new HashMap<>();
-    public Node cloneGraph(Node node) {
-
-        if (node == null){
-            return null;
-        }
-
-        dps(node);
-
-
-        return dps(node);
-    }
-    private Node dps(Node node) {
-        if (oldtonew.containsKey(node)){
-            return oldtonew.get(node);
-        }
-
-        Node copy = new Node(node.val);
-
-        oldtonew.put(node, copy);
-
-        for (Node neighbour : node.neighbors){
-            copy.neighbors.add(dps(neighbour));
-        }
-
-        return copy;
-    }
+//    Map<Node, Node> oldtonew = new HashMap<>();
+//    public Node cloneGraph(Node node) {
+//
+//        if (node == null){
+//            return null;
+//        }
+//
+//        dps(node);
+//
+//
+//        return dps(node);
+//    }
+//    private Node dps(Node node) {
+//        if (oldtonew.containsKey(node)){
+//            return oldtonew.get(node);
+//        }
+//
+//        Node copy = new Node(node.val);
+//
+//        oldtonew.put(node, copy);
+//
+//        for (Node neighbour : node.neighbors){
+//            copy.neighbors.add(dps(neighbour));
+//        }
+//
+//        return copy;
+//    }
 
 
 
@@ -7708,380 +7708,27 @@ public boolean judgeCircle(String moves) {
 
 
 
+    int ans = Integer.MIN_VALUE;
+    public int maxPathSum(TreeNode root) {
 
+        dfsSum(root);
 
+        return ans;
+    }
 
+    private int dfsSum(TreeNode root) {
+        if (root == null) return 0;
 
+        int maxLeft = dfsSum(root.left);
+        int maxRight = dfsSum(root.right);
 
+        maxLeft = Math.max(maxLeft, 0);
+        maxRight = Math.max(maxRight, 0);
 
+        ans = Math.max(ans, root.val + maxLeft + maxRight);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return root.val + Math.max(maxLeft, maxRight);
+    }
 
 
 }
