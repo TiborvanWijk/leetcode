@@ -7998,8 +7998,25 @@ public boolean judgeCircle(String moves) {
 
 
 
+    Map<Integer, Integer> map = new HashMap<>();
+    public int minDays(int n) {
+        map.put(0,0);
+        map.put(1,1);
 
+        return minDaysDfs(n);
+    }
+    public int minDaysDfs(int n) {
 
+        if(map.containsKey(n)){
+            return map.get(n);
+        }
+
+        int one = 1 + (n % 2) + minDays(n/2);
+        int two = 1 + (n % 3) + minDays(n/3);
+
+        map.put(n, Math.min(one, two));
+        return map.get(n);
+    }
 
 
 
