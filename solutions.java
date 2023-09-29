@@ -3747,9 +3747,6 @@ public class solutions {
 
         }
 
-
-
-
         return list;
     }
 
@@ -7920,7 +7917,43 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public char[][] rotateTheBox(char[][] box) {
+        char[][] ans = new char[box[0].length][box.length];
 
+        for (int i = 0; i < box.length; i++){
+            for (int j = box[0].length -1; j >= 0; j--){
+
+                if (box[i][j] == '#'){
+
+                    int index = j;
+                    while (index + 1 < box[i].length && box[i][index+1] != '*'){
+
+                        char temp = box[i][index + 1];
+                        box[i][index + 1] = box[i][index];
+                        box[i][index] = temp;
+
+                        index+=1;
+                    }
+                }
+            }
+        }
+        int r = 0;
+        int c = ans[0].length-1;
+        for (int i = 0; i < box.length; i++){
+            for (int j = 0; j < box[0].length; j++){
+                if (r / box[0].length == 1){
+                    c--;
+                    r = 0;
+                }
+
+                ans[r][c] = box[i][j];
+
+                r++;
+            }
+        }
+
+        return ans;
+    }
 
 
 
