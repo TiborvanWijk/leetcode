@@ -7854,9 +7854,29 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        return lowestCommonAncestorDfs(root, p, q);
+    }
 
 
+    public TreeNode lowestCommonAncestorDfs(TreeNode root, TreeNode p, TreeNode q) {
+        if (root != null){
 
+            if (root == p || root == q) return root;
+
+            TreeNode node = lowestCommonAncestorDfs(root.left, p, q);
+
+            TreeNode node1 = lowestCommonAncestorDfs(root.right, p, q);
+
+            if (node != null && node1 != null){
+                return root;
+            }
+            else if (node != null) return node;
+            else if (node1 != null) return node1;
+
+        }
+        return null;
+    }
 
 
 
