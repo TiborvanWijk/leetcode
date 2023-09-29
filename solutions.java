@@ -7883,9 +7883,29 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
-
+//    List<Integer> list = new ArrayList<>();
+//    int index = 0;
+//    public BSTIterator(TreeNode root) {
+//        dfs(root);
+//    }
+//    void dfs(TreeNode node){
+//        if (node == null) return;
+//
+//        dfs(node.left);
+//        list.add(node.val);
+//        dfs(node.right);
+//
+//
+//    }
+//    public int next() {
+//        int ans = list.get(index);
+//        index++;
+//        return ans;
+//    }
+//
+//    public boolean hasNext() {
+//        return index +1 < list.size();
+//    }
 
 
 
