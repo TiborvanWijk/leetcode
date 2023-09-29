@@ -7963,8 +7963,32 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int minFallingPathSum(int[][] matrix) {
+        int ans = Integer.MAX_VALUE;
+        int[][] mem = new int[matrix.length][matrix[0].length];
 
+        for (int[] array : mem){
+            Arrays.fill(array, Integer.MAX_VALUE);
+        }
 
+        for (int i = 0; i < matrix[0].length; i++){
+            ans = Math.min(ans, minFallingPathSumDfs(matrix, 0, i, mem));
+        }
+
+        return ans;
+    }
+
+    public int minFallingPathSumDfs(int[][] matrix, int i, int j, int[][] mem) {
+        if (i < 0 || j < 0 || i >= matrix.length || j >= matrix[0].length) return 0;
+
+        if (mem[i][j] != Integer.MAX_VALUE) return mem[i][j];
+
+        mem[i][j] = Math.min(mem[i][j], matrix[i][j] + minFallingPathSumDfs(matrix, i+1, j - 1, mem));
+        mem[i][j] = Math.min(mem[i][j], matrix[i][j] + minFallingPathSumDfs(matrix, i+1, j, mem));
+        mem[i][j] = Math.min(mem[i][j], matrix[i][j] + minFallingPathSumDfs(matrix, i+1, j+1, mem));
+
+        return mem[i][j];
+    }
 
 
 
