@@ -7825,8 +7825,32 @@ public boolean judgeCircle(String moves) {
 
 
 
+//2684. Maximum Number of Moves in a Grid
+    public int maxMoves(int[][] grid) {
+        int max = 0;
+        int[][] mem = new int[grid.length][grid[0].length];
+
+        for (int i = 0; i < grid.length; i++){
+
+            max = Math.max(max, maxMovesDfs(grid, i, 0, Integer.MIN_VALUE, 0, mem));
+
+        }
+        return max-1;
+    }
+
+    public int maxMovesDfs(int[][] grid, int i, int j, int prev, int currMoves, int[][] mem) {
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] <= prev) return 0;
+
+        if (mem[i][j] != 0) return mem[i][j];
 
 
+        mem[i][j] = Math.max(mem[i][j], 1 + maxMovesDfs(grid, i - 1, j + 1, grid[i][j], currMoves + 1, mem));
+        mem[i][j] = Math.max(mem[i][j], 1 + maxMovesDfs(grid, i , j + 1, grid[i][j], currMoves + 1, mem));
+        mem[i][j] = Math.max(mem[i][j], 1 + maxMovesDfs(grid, i + 1, j + 1, grid[i][j], currMoves + 1, mem));
+
+
+        return mem[i][j];
+    }
 
 
 
