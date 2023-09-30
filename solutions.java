@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.nio.file.NotDirectoryException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8253,10 +8254,39 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public ListNode swapNodes(ListNode head, int k) {
 
+        ListNode curr = head;
 
+        ListNode first = new ListNode();
+        int size = 0;
 
+        while (curr != null){
+            size++;
+            if (size == k){
+                first = curr;
+            }
+            curr = curr.next;
+        }
 
+        ListNode second = new ListNode();
+        curr = head;
+        int index = 1;
+        while (curr != null){
+            if (index == (size - (k-1))){
+                second = curr;
+                break;
+            }
+
+            curr = curr.next;
+            index++;
+        }
+        int temp = first.val;
+        first.val = second.val;
+        second.val = temp;
+
+        return head;
+    }
 
 
 
