@@ -8133,7 +8133,30 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public ListNode deleteMiddle(ListNode head) {
+        ListNode curr = head;
+        int length = 0;
 
+        while (curr != null){
+            curr = curr.next;
+            length++;
+        }
+        curr = head;
+        if (length == 1) return null;
+        length = length /2;
+        while (curr.next != null){
+            length--;
+
+            if (length == 0){
+                curr.next = curr.next.next;
+                break;
+            }
+
+            curr = curr.next;
+        }
+
+        return head;
+    }
 
 
 
