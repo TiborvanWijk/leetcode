@@ -4785,28 +4785,28 @@ public boolean judgeCircle(String moves) {
 
 
 // turns a tree into a linkedList
-    TreeNode tree = new TreeNode();
-    TreeNode dummy = tree;
-    public TreeNode increasingBST(TreeNode root) {
-
-        increasingBSTHelper(root);
-
-        return dummy.right;
-    }
-
-
-    public void increasingBSTHelper(TreeNode root) {
-        if (root != null){
-
-            increasingBSTHelper(root.left);
-            tree.right = new TreeNode(root.val);
-            tree = tree.right;
-            increasingBSTHelper(root.right);
+//    TreeNode tree = new TreeNode();
+//    TreeNode dummy = tree;
+//    public TreeNode increasingBST(TreeNode root) {
+//
+//        increasingBSTHelper(root);
+//
+//        return dummy.right;
+//    }
 
 
-
-        }
-    }
+//    public void increasingBSTHelper(TreeNode root) {
+//        if (root != null){
+//
+//            increasingBSTHelper(root.left);
+//            tree.right = new TreeNode(root.val);
+//            tree = tree.right;
+//            increasingBSTHelper(root.right);
+//
+//
+//
+//        }
+//    }
 
     // makes a spiral matrix in order
 //    [1,2,3]
@@ -8168,10 +8168,38 @@ public boolean judgeCircle(String moves) {
 
 
 
+//430. Flatten a Multilevel Doubly Linked List
+    Node newHead;
+    public Node flatten(Node head) {
+
+        if (head == null) return null;
+
+        flattenDfs(head);
+        while (newHead.prev != null){
+            newHead = newHead.prev;
+        }
+
+        return newHead;
+    }
+
+    public void flattenDfs(Node head) {
+        if (head == null) return;
+
+        if (newHead == null){
+            newHead = new Node();
+            newHead.val = head.val;
+        }
+        else {
+            newHead.next = new Node();
+            newHead.next.val = head.val;
+            newHead.next.prev = newHead;
+            newHead = newHead.next;
+        }
 
 
-
-
+        flattenDfs(head.child);
+        flattenDfs(head.next);
+    }
 
 
 
