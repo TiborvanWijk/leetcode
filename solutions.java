@@ -8338,7 +8338,26 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public ListNode mergeNodes(ListNode head) {
 
+        ListNode ans = new ListNode();
+        ListNode dummy = ans;
+        int currSum = 0;
+
+        ListNode curr = head;
+        while (curr != null){
+            currSum += curr.val;
+            if (curr.val == 0){
+                ans.next = new ListNode(currSum);
+                ans = ans.next;
+                currSum = 0;
+
+            }
+
+            curr = curr.next;
+        }
+        return dummy.next.next;
+    }
 
 
 
