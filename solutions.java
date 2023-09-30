@@ -8306,7 +8306,29 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public ListNode insertGreatestCommonDivisors(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode curr = head.next;
+        ListNode prev = head;
 
+
+        while (curr != null){
+
+            BigInteger integer = new BigInteger(String.valueOf(curr.val));
+            BigInteger integer2 = new BigInteger(String.valueOf(prev.val));
+            BigInteger node = integer.gcd(integer2);
+
+
+            prev.next = new ListNode(node.intValue());
+            prev.next.next = curr;
+
+
+
+            prev = curr;
+            curr = curr.next;
+        }
+        return head;
+    }
 
 
 
