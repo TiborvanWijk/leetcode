@@ -8092,9 +8092,37 @@ public boolean judgeCircle(String moves) {
 
 
 
+    int maximumAbDiffrence = Integer.MAX_VALUE;
+    public int minimumEffortPath(int[][] heights) {
 
+        mimumEffortPathDfs(heights, 0, 0, heights[0][0], 0);
 
+        return maximumAbDiffrence;
+    }
 
+    public void mimumEffortPathDfs(int[][] heights, int i, int j, int prev, int currMax) {
+
+        if (i < 0 || j < 0 || i >= heights.length || j >= heights[0].length || heights[i][j] == 0 ) return;
+
+        if (Math.abs(heights[i][j] - prev) > currMax){
+            currMax = Math.abs(prev - heights[i][j]);
+        }
+        if (i == heights.length-1 && j == heights[0].length-1 && currMax < maximumAbDiffrence){
+            maximumAbDiffrence = currMax;
+            return;
+        }
+
+        int temp = heights[i][j];
+        heights[i][j] = 0;
+
+        mimumEffortPathDfs(heights, i+1, j, temp, currMax);
+        mimumEffortPathDfs(heights, i-1, j, temp, currMax);
+        mimumEffortPathDfs(heights, i, j+1, temp, currMax);
+        mimumEffortPathDfs(heights, i, j-1, temp, currMax);
+
+        heights[i][j] = temp;
+
+    }
 
 
 
