@@ -8061,7 +8061,32 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int findDuplicate(int[] nums) {
 
+
+        int slow = 0;
+        int fast = 0;
+
+        while (true){
+
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+
+            if (slow == fast){
+                break;
+            }
+
+        }
+
+        int slow2 = 0;
+
+        while (slow != slow2){
+            slow2 = nums[slow2];
+            slow = nums[slow];
+        }
+
+        return slow;
+    }
 
 
 
