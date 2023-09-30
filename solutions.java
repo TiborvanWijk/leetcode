@@ -8204,7 +8204,42 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int[] nextLargerNodes(ListNode head) {
 
+        ListNode curr = head;
+
+        int size = 0;
+
+        while (curr != null){
+            size++;
+            curr = curr.next;
+        }
+        int[] ans = new int[size];
+        Stack<Integer> val = new Stack<>();
+        Stack<Integer> stackIndex = new Stack<>();
+
+        curr = head;
+        int index = 0;
+        while (curr != null){
+
+            while (!val.isEmpty() && curr.val > val.peek()){
+                val.pop();
+                int currIndex = stackIndex.pop();
+
+                ans[currIndex] = curr.val;
+            }
+
+            val.add(curr.val);
+            stackIndex.add(index);
+
+            index++;
+            curr = curr.next;
+        }
+
+
+
+        return ans;
+    }
 
 
 
