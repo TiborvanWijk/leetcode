@@ -8360,15 +8360,29 @@ public boolean judgeCircle(String moves) {
     }
 
 
+    
+    public ListNode removeNodes(ListNode head) {
+        Deque<Integer> deque = new LinkedList<>();
 
 
+        while (head != null){
 
+            while (!deque.isEmpty() && deque.peekLast() < head.val){
+                deque.pollLast();
+            }
+            deque.addLast(head.val);
+            head = head.next;
+        }
 
+        ListNode ans = new ListNode();
+        ListNode curr = ans;
+        while (!deque.isEmpty()){
 
-
-
-
-
+            curr.next = new ListNode(deque.pollFirst());
+            curr = curr.next;
+        }
+        return ans.next;
+    }
 
 
 
