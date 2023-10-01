@@ -8495,7 +8495,26 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public String removeStars(String s) {
 
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++){
+
+            if (s.charAt(i) == '*'){
+                stringBuilder.setLength(stringBuilder.length()-1);
+            }
+            else {
+                stringBuilder.append(s.charAt(i));
+            }
+
+
+
+
+        }
+
+        return stringBuilder.toString();
+    }
 
 
 
