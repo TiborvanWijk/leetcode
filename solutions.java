@@ -8360,7 +8360,7 @@ public boolean judgeCircle(String moves) {
     }
 
 
-    
+
     public ListNode removeNodes(ListNode head) {
         Deque<Integer> deque = new LinkedList<>();
 
@@ -8397,9 +8397,42 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int[] nextGreaterElements(int[] nums) {
+
+        int[] ans = new int[nums.length];
+        Arrays.fill(ans, -1);
+
+        Stack<Integer> val = new Stack<>();
+        Stack<Integer> indexes = new Stack<>();
 
 
+        for (int i = 0; i < nums.length; i++){
 
+            while (!val.isEmpty() && val.peek() < nums[i]){
+
+                val.pop();
+                int index = indexes.pop();
+                ans[index] = nums[i];
+
+            }
+            val.add(nums[i]);
+            indexes.add(i);
+        }
+
+        for (int i = 0; i < nums.length; i++){
+
+
+            while (!val.isEmpty() && val.peek() < nums[i]){
+
+                val.pop();
+                int index = indexes.pop();
+                ans[index] = nums[i];
+            }
+        }
+
+
+        return ans;
+    }
 
 
 
