@@ -8523,9 +8523,27 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
-
+    public boolean winnerOfGame(String colors) {
+        int a = 0;
+        int b = 0;
+        for (int i = 1; i < colors.length()-1; i++){
+            char left = colors.charAt(i-1);
+            char mid = colors.charAt(i);
+            char right = colors.charAt(i+1);
+            if (mid == 'A'){
+                if (left == mid && mid == right) {
+                    a++;
+                }
+            }
+            else{
+                if (left == mid && mid == right) {
+                    b++;
+                }
+            }
+        }
+        return a > b;
+    }
+    }
 
 
 
