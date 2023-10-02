@@ -8571,7 +8571,46 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int[] asteroidCollision(int[] asteroids) {
 
+        List<Integer> result = new ArrayList<>();
+
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < asteroids.length; i++){
+
+            while (!stack.isEmpty() && asteroids[i] < 0 && Math.abs(asteroids[i]) > stack.peek()){
+
+                stack.pop();
+            }
+            if(stack.isEmpty() && asteroids[i] < 0){
+                result.add(asteroids[i]);
+            }
+            else if (!stack.isEmpty() && stack.peek() == Math.abs(asteroids[i]) && asteroids[i] < 0){
+                stack.pop();
+            }
+            else if (!stack.isEmpty() && stack.peek() > Math.abs(asteroids[i]) && asteroids[i] < 0){
+                continue;
+            }
+            else{
+                stack.add(asteroids[i]);
+            }
+
+        }
+        int size = result.size() + stack.size();
+        int[] ans = new int[size];
+        int index = 0;
+        for (int i = 0; i < result.size(); i++){
+            ans[index] = result.get(i);
+            index++;
+        }
+        for (int i = 0; i < stack.size(); i++){
+            ans[index] = stack.get(i);
+            index++;
+        }
+
+        return ans;
+    }
 
 
 
