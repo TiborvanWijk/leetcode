@@ -7999,25 +7999,25 @@ public boolean judgeCircle(String moves) {
 
 
 
-    Map<Integer, Integer> map = new HashMap<>();
-    public int minDays(int n) {
-        map.put(0,0);
-        map.put(1,1);
-
-        return minDaysDfs(n);
-    }
-    public int minDaysDfs(int n) {
-
-        if(map.containsKey(n)){
-            return map.get(n);
-        }
-
-        int one = 1 + (n % 2) + minDays(n/2);
-        int two = 1 + (n % 3) + minDays(n/3);
-
-        map.put(n, Math.min(one, two));
-        return map.get(n);
-    }
+//    Map<Integer, Integer> map = new HashMap<>();
+//    public int minDays(int n) {
+//        map.put(0,0);
+//        map.put(1,1);
+//
+//        return minDaysDfs(n);
+//    }
+//    public int minDaysDfs(int n) {
+//
+//        if(map.containsKey(n)){
+//            return map.get(n);
+//        }
+//
+//        int one = 1 + (n % 2) + minDays(n/2);
+//        int two = 1 + (n % 3) + minDays(n/3);
+//
+//        map.put(n, Math.min(one, two));
+//        return map.get(n);
+//    }
 
 
 
@@ -8170,37 +8170,37 @@ public boolean judgeCircle(String moves) {
 
 
 //430. Flatten a Multilevel Doubly Linked List
-    Node newHead;
-    public Node flatten(Node head) {
-
-        if (head == null) return null;
-
-        flattenDfs(head);
-        while (newHead.prev != null){
-            newHead = newHead.prev;
-        }
-
-        return newHead;
-    }
-
-    public void flattenDfs(Node head) {
-        if (head == null) return;
-
-        if (newHead == null){
-            newHead = new Node();
-            newHead.val = head.val;
-        }
-        else {
-            newHead.next = new Node();
-            newHead.next.val = head.val;
-            newHead.next.prev = newHead;
-            newHead = newHead.next;
-        }
-
-
-        flattenDfs(head.child);
-        flattenDfs(head.next);
-    }
+//    Node newHead;
+//    public Node flatten(Node head) {
+//
+//        if (head == null) return null;
+//
+//        flattenDfs(head);
+//        while (newHead.prev != null){
+//            newHead = newHead.prev;
+//        }
+//
+//        return newHead;
+//    }
+//
+//    public void flattenDfs(Node head) {
+//        if (head == null) return;
+//
+//        if (newHead == null){
+//            newHead = new Node();
+//            newHead.val = head.val;
+//        }
+//        else {
+//            newHead.next = new Node();
+//            newHead.next.val = head.val;
+//            newHead.next.prev = newHead;
+//            newHead = newHead.next;
+//        }
+//
+//
+//        flattenDfs(head.child);
+//        flattenDfs(head.next);
+//    }
 
 
 
@@ -8682,19 +8682,34 @@ public boolean judgeCircle(String moves) {
                 }
             }
 
-
         }
-
-
-
         sumEvenGrandparentDfs(root.right);
-
     }
 
 
 
 
+    public int numIdenticalPairs(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
 
+        int pairs = 0;
+
+        for (int i = 0; i < nums.length; i++){
+
+            if (!map.containsKey(nums[i])){
+                map.put(nums[i], 1);
+            }
+            else {
+                int count = map.get(nums[i]);
+                pairs += count;
+
+                map.put(nums[i], count + 1);
+            }
+
+
+        }
+        return pairs;
+    }
 
 
 
