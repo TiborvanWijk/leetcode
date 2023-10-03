@@ -8772,10 +8772,52 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int numEnclaves(int[][] grid) {
+        int row = grid.length;
+        int column = grid[0].length;
+        for (int i = 0; i < row; i++){
+            if (grid[i][0] == 1){
+                numEnclavesDfs(grid, i, 0);
+            }
+            if(grid[i][column-1] == 1){
+                numEnclavesDfs(grid, i, column-1);
+            }
+        }
+
+        for (int i = 0; i < column; i++){
+            if (grid[0][i] == 1){
+                numEnclavesDfs(grid, 0, i);
+            }
+            if(grid[row-1][i] == 1){
+                numEnclavesDfs(grid, row-1, i);
+            }
+        }
+
+        int numberOfEnclaves = 0;
+
+        for (int i = 0; i < row; i++){
+            for (int j = 0; j < column; j++){
+                if(grid[i][j] == 1){
+                    numberOfEnclaves++;
+                }
+            }
+        }
 
 
+        return numberOfEnclaves;
+    }
+
+    public void numEnclavesDfs(int[][] grid, int i, int j) {
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == 0) return;
 
 
+        grid[i][j] = 0;
+
+        numEnclavesDfs(grid, i+1, j);
+        numEnclavesDfs(grid, i-1, j);
+        numEnclavesDfs(grid, i, j+1);
+        numEnclavesDfs(grid, i, j-1);
+    }
 
 
 
