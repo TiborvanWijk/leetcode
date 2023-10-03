@@ -8719,8 +8719,30 @@ public boolean judgeCircle(String moves) {
 
 
 
+    int ans = 0;
+    public int maxAncestorDiff(TreeNode root) {
 
+        maxAncestorDiffDfs(root, -1, Integer.MAX_VALUE);
 
+        return ans;
+    }
+    public void maxAncestorDiffDfs(TreeNode root, int max, int min) {
+        if (root == null) return;
+
+        if (max != -1){
+            ans = Math.max(ans, max - root.val);
+        }
+        if (min != Integer.MAX_VALUE){
+            ans = Math.max(ans, Math.abs(min - root.val));
+        }
+
+        max = Math.max(max, root.val);
+        min = Math.min(min, root.val);
+
+        maxAncestorDiffDfs(root.left, max, min);
+        maxAncestorDiffDfs(root.right, max, min);
+
+    }
 
 
 
