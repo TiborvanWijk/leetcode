@@ -8947,8 +8947,33 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+
+        boolean[] visited = new boolean[rooms.size()];
+
+        canVisitAllRoomsDfs(rooms, 0, visited);
+
+        for (int i = 0; i < visited.length; i++){
+            if (!visited[i]) return false;
+        }
+        return true;
+    }
+
+    public void canVisitAllRoomsDfs(List<List<Integer>> rooms, int index, boolean[] visited) {
+        if (visited[index]) return;
+
+        visited[index] = true;
 
 
+        for (int i = 0; i < rooms.get(index).size(); i++){
+
+            int keyOfRoom = rooms.get(index).get(i);
+
+            canVisitAllRoomsDfs(rooms, keyOfRoom, visited);
+
+        }
+
+    }
 
 
 
