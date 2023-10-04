@@ -8981,6 +8981,28 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
+
+        int[] prices = new int[n];
+        Arrays.fill(prices, Integer.MAX_VALUE);
+        prices[src] = 0;
+
+        for (int i = 0; i < k + 1; i++){
+            int[] temp = prices.clone();
+
+            for (int j = 0; j < flights.length; j++){
+                if (prices[flights[j][0]] == Integer.MAX_VALUE){
+                    continue;
+                }
+                if (prices[flights[j][0]] + flights[j][2] < temp[flights[j][1]]){
+                    temp[flights[j][1]] = prices[flights[j][0]] + flights[j][2];
+                }
+            }
+            prices = temp;
+        }
+        if (prices[dst] == Integer.MAX_VALUE) return -1;
+        return prices[dst];
+    }
 
 
 
