@@ -8719,30 +8719,30 @@ public boolean judgeCircle(String moves) {
 
 
 
-    int ans = 0;
-    public int maxAncestorDiff(TreeNode root) {
-
-        maxAncestorDiffDfs(root, -1, Integer.MAX_VALUE);
-
-        return ans;
-    }
-    public void maxAncestorDiffDfs(TreeNode root, int max, int min) {
-        if (root == null) return;
-
-        if (max != -1){
-            ans = Math.max(ans, max - root.val);
-        }
-        if (min != Integer.MAX_VALUE){
-            ans = Math.max(ans, Math.abs(min - root.val));
-        }
-
-        max = Math.max(max, root.val);
-        min = Math.min(min, root.val);
-
-        maxAncestorDiffDfs(root.left, max, min);
-        maxAncestorDiffDfs(root.right, max, min);
-
-    }
+//    int ans = 0;
+//    public int maxAncestorDiff(TreeNode root) {
+//
+//        maxAncestorDiffDfs(root, -1, Integer.MAX_VALUE);
+//
+//        return ans;
+//    }
+//    public void maxAncestorDiffDfs(TreeNode root, int max, int min) {
+//        if (root == null) return;
+//
+//        if (max != -1){
+//            ans = Math.max(ans, max - root.val);
+//        }
+//        if (min != Integer.MAX_VALUE){
+//            ans = Math.max(ans, Math.abs(min - root.val));
+//        }
+//
+//        max = Math.max(max, root.val);
+//        min = Math.min(min, root.val);
+//
+//        maxAncestorDiffDfs(root.left, max, min);
+//        maxAncestorDiffDfs(root.right, max, min);
+//
+//    }
 
 
 
@@ -8824,8 +8824,25 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
+//    int[] list;
+//    public MyHashMap() {
+//        list = new int[1000001];
+//        Arrays.fill(list, -1);
+//    }
+//
+//    public void put(int key, int value) {
+//
+//        list[key] = value;
+//
+//    }
+//
+//    public int get(int key) {
+//        return list[key];
+//    }
+//
+//    public void remove(int key) {
+//        list[key] = -1;
+//    }
 
 
 
