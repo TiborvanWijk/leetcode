@@ -8885,8 +8885,21 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int findCenter(int[][] edges) {
 
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < edges.length; i++){
+            int count = map.containsKey(edges[i][0]) ? map.get(edges[i][0])+1 : 1;
+            int count2 = map.containsKey(edges[i][1]) ? map.get(edges[i][1])+1 : 1;
 
+            if (count > 1) return edges[i][0];
+            if (count2 > 1) return edges[i][1];
+
+            map.put(edges[i][0], count);
+            map.put(edges[i][1], count2);
+        }
+        return -1;
+    }
 
 
 
