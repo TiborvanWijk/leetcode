@@ -8910,9 +8910,34 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> path = new ArrayList<>();
+
+        allPathsSourceTargetDfs(graph, 0, path, ans);
+
+        return ans;
+    }
 
 
+    public void allPathsSourceTargetDfs(int[][] graph, int index, List<Integer> path, List<List<Integer>> ans) {
+        if (index >= graph.length) return;
 
+        if (index == graph.length-1){
+            path.add(index);
+            ans.add(new ArrayList<>(path));
+            path.remove(path.size()-1);
+            return;
+        }
+
+        for (int j = 0; j < graph[index].length; j++){
+            if (graph[index][j] == 0) return;
+            path.add(index);
+            allPathsSourceTargetDfs(graph, graph[index][j], path, ans);
+            path.remove(path.size()-1);
+
+        }
+    }
 
 
 
