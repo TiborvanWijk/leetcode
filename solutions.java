@@ -8849,8 +8849,31 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public TreeNode reverseOddLevels(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int lvl = 1;
+        while (!queue.isEmpty()){
 
+            int size = queue.size();
 
+            for (int i = 0; i < size; i++){
+                TreeNode curr = queue.poll();
+
+                if (lvl % 2 == 1 && curr.left != null && curr.right != null){
+                    int temp = curr.right.val;
+                    curr.right.val = curr.left.val;
+                    curr.left.val = temp;
+                }
+
+                if (curr.left != null) queue.offer(curr.left);
+                if (curr.right != null) queue.offer(curr.right);
+            }
+            lvl++;
+        }
+
+        return root;
+    }
 
 
 
