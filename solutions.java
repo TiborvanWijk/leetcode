@@ -8849,41 +8849,6 @@ public boolean judgeCircle(String moves) {
 
 
 
-    public TreeNode reverseOddLevels(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        int lvl = 1;
-        while (!queue.isEmpty()){
-
-            int size = queue.size();
-
-            for (int i = 0; i < size; i++){
-                TreeNode curr = queue.poll();
-
-                if (lvl % 2 == 1 && curr.left != null && curr.right != null){
-                    int temp = curr.right.val;
-                    curr.right.val = curr.left.val;
-                    curr.left.val = temp;
-                }
-
-                if (curr.left != null) queue.offer(curr.left);
-                if (curr.right != null) queue.offer(curr.right);
-            }
-            lvl++;
-        }
-
-        return root;
-    }
-
-
-
-
-
-
-
-
-
-
 
     public int findCenter(int[][] edges) {
 
@@ -9191,10 +9156,34 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public TreeNode removeLeafNodes(TreeNode root, int target) {
+
+        removeLeafNodesDfs(root,target);
+
+        if (root.val == target && root.left == null && root.right == null){
+            return null;
+        }
+        return root;
+    }
 
 
 
+    public void removeLeafNodesDfs(TreeNode root, int target) {
+        if (root == null)
+            return;
 
+        removeLeafNodesDfs(root.left, target);
+        removeLeafNodesDfs(root.right, target);
+
+        if (root.left != null && root.left.val == target && root.left.left == null && root.left.right == null){
+            root.left = null;
+        }
+        if (root.right != null && root.right.val == target && root.right.left == null && root.right.right == null){
+            root.right = null;
+        }
+
+
+    }
 
 
 
