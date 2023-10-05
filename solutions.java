@@ -9094,10 +9094,38 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int pairSum(ListNode head) {
+        int size = getLength(head);
+
+        int[] list = new int[size/2];
+
+        for (int i = 0; i < size/2; i++){
+
+            list[i] = head.val;
+
+            head = head.next;
+
+        }
+        int maxTwinSum = Integer.MIN_VALUE;
+        for (int i = 0; i < size/2; i++){
+            maxTwinSum = Math.max(maxTwinSum, list[list.length-1-i] + head.val);
+            head = head.next;
+        }
+
+        System.out.println(list);
+
+        return maxTwinSum;
+    }
 
 
-
-
+    public int getLength(ListNode head) {
+        int ans = 0;
+        while (head != null){
+            ans++;
+            head = head.next;
+        }
+        return ans;
+    }
 
 
 
