@@ -9004,6 +9004,7 @@ public boolean judgeCircle(String moves) {
         return prices[dst];
     }
 
+//    calculates the majority element. Element > n / 3;
     public List<Integer> majorityElement(int[] nums) {
 
         int count1 = 0;
