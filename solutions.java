@@ -9140,6 +9140,24 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public ListNode oddEvenList(ListNode head) {
+        ListNode prev = head;
+        ListNode curr = head;
+
+        boolean isOdd = true;
+        while (curr != null){
+            if (!isOdd){
+
+                prev.next =
+
+
+
+            }
+            curr = curr.next;
+            isOdd = !isOdd;
+        }
+
+    }
 
 
 
@@ -9147,10 +9165,24 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public TreeNode reverseOddLevels(TreeNode root) {
+        reverseOddLevelsDfs(root.left, root.right, true);
+        return root;
+    }
 
+    public void reverseOddLevelsDfs(TreeNode node1, TreeNode node2, boolean odLvl) {
+        if (node1 == null || node2 == null)
+            return;
 
+        if (odLvl){
+            int temp = node1.val;
+            node1.val = node2.val;
+            node2.val = temp;
+        }
 
-
+        reverseOddLevelsDfs(node1.left, node2.right, !odLvl);
+        reverseOddLevelsDfs(node1.right, node2.left, !odLvl);
+    }
 
 
 
