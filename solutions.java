@@ -1233,7 +1233,7 @@ public class solutions {
         return left;
     }
     // check if a certain number is the majority of the array in this case its more than half of all the elements
-    public int majorityElement(int[] nums) {
+    public int majorityElement1(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++){
@@ -9010,7 +9010,51 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public List<Integer> majorityElement(int[] nums) {
 
+        List<Integer> list = new ArrayList<>();
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++){
+
+            int count = map.containsKey(nums[i]) ? map.get(nums[i]) + 1 : 1;
+
+            map.put(nums[i], count);
+
+            if (map.size() > 2){
+                for (int key : map.keySet()){
+                    map.put(key, map.get(key) -1);
+
+                    if (map.get(key) <= 0){
+                        map.remove(key);
+                    }
+                }
+            }
+        }
+        list.addAll(map.keySet());
+
+        int count1 = 0;
+        int count2 = 0;
+        int nr1 = list.get(0);
+        int nr2 = list.get(1);
+        for (int i = 0; i < nums.length; i++){
+            if(nums[i] == nr1){
+                count1++;
+            }
+            else if (nums[i] == nr2){
+                count2++;
+            }
+        }
+
+        if (count1 <= nums.length/3){
+            list.remove(nr1);
+        }
+        if (count2 <= nums.length/3){
+            list.remove(nr2);
+        }
+
+        return list;
+    }
 
 
 
