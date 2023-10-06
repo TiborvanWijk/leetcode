@@ -9307,7 +9307,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// finds the maximum amount of ice cream a person can buy with only buying each ice cream ones with the cost of costs[i]
     public int maxIceCream(int[] costs, int coins) {
         Arrays.sort(costs);
 
@@ -9331,7 +9331,12 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// finds out if a which balls can fall down
+// example visual
+//    [\/\\]
+//    [////]
+//    [\\\\]
+//    balls starting in column 0, 1 and 3 get stuck, but 2 makes it to the bottom.
     public int[] findBall(int[][] grid) {
         int[] ans = new int[grid[0].length];
 
@@ -9366,7 +9371,9 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// finds the first missing positive by using the input array as memory to store which numbers
+// have been found. It uses the value to go to that index and turn in negative. at the end the first positive number in
+// the array is the first positive missing
     public int firstMissingPositive(int[] nums) {
         for (int i = 0; i < nums.length; i++){
             if (nums[i] <= 0 || nums[i] > nums.length) {
@@ -9379,9 +9386,6 @@ public boolean judgeCircle(String moves) {
             int index = Math.abs(nums[i]);
             if (index > 0 && index <= nums.length){
 
-                if (nums[index-1] == 0){
-                    nums[index-1] = -1 * nums.length+1;
-                }
                 if (nums[index-1] > 0){
                     nums[index-1] = -Math.abs(nums[index-1]);
                 }
@@ -9396,7 +9400,6 @@ public boolean judgeCircle(String moves) {
 
         return nums.length+1;
     }
-
 
 
 
