@@ -9267,10 +9267,35 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int numOfPairs(String[] nums, String target) {
+
+        Map<String, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < nums.length; i++)
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+
+        int count = 0;
+
+        for(String firstHalf : nums) {
+            if (target.startsWith(firstHalf)){
+
+                String secondHalf = target.substring(firstHalf.length());
+                if (map.containsKey(secondHalf)){
+
+                    count += map.get(secondHalf);
+                    if (firstHalf.equals(secondHalf))
+                        count--;
+
+                }
 
 
+            }
+        }
+
+        return count;
 
 
+    }
 
 
 
