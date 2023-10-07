@@ -9533,7 +9533,23 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+    public int numberOfBeams(String[] bank) {
+        int allBeams = 0;
+        int prevAmountOfBeams = 0;
+        for (String laser : bank) {
+            int currAmountOfBeams = 0;
+            for (char t : laser.toCharArray()) {
+                if (t == '1') {
+                    currAmountOfBeams++;
+                }
+            }
+            allBeams += prevAmountOfBeams * currAmountOfBeams;
+            if (currAmountOfBeams > 0) {
+                prevAmountOfBeams = currAmountOfBeams;
+            }
+        }
+        return allBeams;
+    }
 
 
 
