@@ -9561,8 +9561,27 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int minAddToMakeValid(String s) {
 
 
+        int open = 0;
+        int closed = 0;
+        for (char l : s.toCharArray()){
+            if (l == '('){
+                open++;
+            }
+            else {
+                if (open <= 0){
+                    closed++;
+                }
+                else {
+                    open--;
+                }
+            }
+        }
+
+        return open + closed;
+    }
 
 
 
