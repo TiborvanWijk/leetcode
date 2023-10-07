@@ -9229,29 +9229,29 @@ public boolean judgeCircle(String moves) {
 
 
 
-    int ans = 0;
-    public int averageOfSubtree(TreeNode root) {
-
-        averageOfSubtreeDfs(root);
-        return ans;
-    }
-    public int[] averageOfSubtreeDfs(TreeNode node) {
-        if (node == null)
-            return new int[] {0,0};
-
-        int[] left = averageOfSubtreeDfs(node.left);
-        int[] right = averageOfSubtreeDfs(node.right);
-
-
-        int total = left[0] + right[0] + node.val;
-        int count = left[1] + right[1] + 1;
-
-        if (total / count == node.val){
-            ans++;
-        }
-
-        return new int[] {total, count};
-    }
+//    int ans = 0;
+//    public int averageOfSubtree(TreeNode root) {
+//
+//        averageOfSubtreeDfs(root);
+//        return ans;
+//    }
+//    public int[] averageOfSubtreeDfs(TreeNode node) {
+//        if (node == null)
+//            return new int[] {0,0};
+//
+//        int[] left = averageOfSubtreeDfs(node.left);
+//        int[] right = averageOfSubtreeDfs(node.right);
+//
+//
+//        int total = left[0] + right[0] + node.val;
+//        int count = left[1] + right[1] + 1;
+//
+//        if (total / count == node.val){
+//            ans++;
+//        }
+//
+//        return new int[] {total, count};
+//    }
 
 
 
@@ -9410,7 +9410,27 @@ public boolean judgeCircle(String moves) {
 
 
 
+    int ans = 0;
+    public int numWays(int steps, int arrLen) {
 
+        numWaysBackTrack(0, arrLen, steps);
+
+        return ans;
+    }
+    public void numWaysBackTrack(int currIndex, int arrLen, int stepsLeft) {
+        if (stepsLeft == 0 && currIndex == 0)
+            ans++;
+        if (stepsLeft < 0 || currIndex >= arrLen || currIndex < 0)
+            return;
+
+        stepsLeft--;
+        numWaysBackTrack(currIndex, arrLen, stepsLeft);
+        numWaysBackTrack(currIndex+1, arrLen, stepsLeft);
+        numWaysBackTrack(currIndex-1, arrLen, stepsLeft);
+
+
+
+    }
 
 
 
