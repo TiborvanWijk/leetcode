@@ -9437,7 +9437,44 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public TreeNode addOneRow(TreeNode root, int val, int depth) {
+        if (depth == 1){
+            TreeNode node = new TreeNode(val);
+            node.left = root;
+            return node;
+        }
 
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int currDept = 2;
+
+        while (!queue.isEmpty()){
+
+            int size = queue.size();
+            for (int i = 0; i < size; i++){
+                TreeNode curr = queue.poll();
+                if (currDept == depth){
+                    TreeNode left = new TreeNode(val);
+                    left.left = curr.left;
+
+                    TreeNode right = new TreeNode(val);
+                    right.right = curr.right;
+
+                    curr.left = left;
+                    curr.right = right;
+                }
+
+                if (curr.left != null) queue.offer(curr.left);
+                if (curr.right != null) queue.offer(curr.right);
+            }
+
+
+            currDept++;
+            if (currDept > depth)
+                break;
+        }
+        return root;
+    }
 
 
 
