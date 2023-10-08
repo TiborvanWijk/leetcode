@@ -9410,27 +9410,27 @@ public boolean judgeCircle(String moves) {
 
 
 
-    int ans = 0;
-    public int numWays(int steps, int arrLen) {
-
-        numWaysBackTrack(0, arrLen, steps);
-
-        return ans;
-    }
-    public void numWaysBackTrack(int currIndex, int arrLen, int stepsLeft) {
-        if (stepsLeft == 0 && currIndex == 0)
-            ans++;
-        if (stepsLeft < 0 || currIndex >= arrLen || currIndex < 0)
-            return;
-
-        stepsLeft--;
-        numWaysBackTrack(currIndex, arrLen, stepsLeft);
-        numWaysBackTrack(currIndex+1, arrLen, stepsLeft);
-        numWaysBackTrack(currIndex-1, arrLen, stepsLeft);
-
-
-
-    }
+//    int ans = 0;
+//    public int numWays(int steps, int arrLen) {
+//
+//        numWaysBackTrack(0, arrLen, steps);
+//
+//        return ans;
+//    }
+//    public void numWaysBackTrack(int currIndex, int arrLen, int stepsLeft) {
+//        if (stepsLeft == 0 && currIndex == 0)
+//            ans++;
+//        if (stepsLeft < 0 || currIndex >= arrLen || currIndex < 0)
+//            return;
+//
+//        stepsLeft--;
+//        numWaysBackTrack(currIndex, arrLen, stepsLeft);
+//        numWaysBackTrack(currIndex+1, arrLen, stepsLeft);
+//        numWaysBackTrack(currIndex-1, arrLen, stepsLeft);
+//
+//
+//
+//    }
 
 
 
@@ -9484,8 +9484,39 @@ public boolean judgeCircle(String moves) {
 
 
 
+    int ans = 0;
+    public int countSubIslands(int[][] grid1, int[][] grid2) {
+
+        int amount = 0;
+
+        for (int i = 0; i < grid1.length; i++){
+            for (int j = 0; j < grid1[0].length; j++){
+
+                if (grid2[i][j] == 1){
+                    ans = 1;
+                    countSubIslandsDfs(grid1, grid2, i, j);
+                    if (ans == 1) amount++;
+                }
+            }
+        }
 
 
+        return amount;
+    }
+    public void countSubIslandsDfs(int[][] grid, int[][] island, int i, int j) {
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || island[i][j] == 0) return;
+
+        if (grid[i][j] == 0) ans = 0;
+
+        grid[i][j] = 0;
+        island[i][j] = 0;
+
+        countSubIslandsDfs(grid, island, i+1, j);
+        countSubIslandsDfs(grid, island, i-1, j);
+        countSubIslandsDfs(grid, island, i, j+1);
+        countSubIslandsDfs(grid, island, i, j-1);
+
+    }
 
 
 
