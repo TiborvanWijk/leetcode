@@ -9738,7 +9738,39 @@ public boolean judgeCircle(String moves) {
 
 
 
+    boolean ans = false;
+    public boolean containsCycle(char[][] grid) {
 
+        for (int i = 0; i < grid.length; i++){
+            for (int j = 0; j < grid[0].length; j++){
+                if (grid[i][j] != '0'){
+                    containsCycle(grid, i, j, i,j, 0, grid[i][j]);
+                }
+            }
+        }
+
+        return ans;
+    }
+
+    public void containsCycle(char[][] grid, int i, int j, int iStart, int jStart, int stepsSinceStart, char currChar) {
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] != currChar) return;
+
+
+        char temp = grid[i][j];
+        grid[i][j] = '0';
+        if (stepsSinceStart > 1){
+            if (i == iStart-1 && j == jStart || i == iStart+1 && j == jStart || i == iStart && j == jStart-1 || i == iStart && j == jStart+1){
+                ans = true;
+                return;
+            }
+        }
+
+        containsCycle(grid, i+1, j, iStart, jStart, stepsSinceStart+1, currChar);
+        containsCycle(grid, i-1, j, iStart, jStart, stepsSinceStart+1, currChar);
+        containsCycle(grid, i, j+1, iStart, jStart, stepsSinceStart+1, currChar);
+        containsCycle(grid, i, j-1, iStart, jStart, stepsSinceStart+1, currChar);
+        grid[i][j] = temp;
+    }
 
 
 
