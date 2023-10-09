@@ -9484,39 +9484,39 @@ public boolean judgeCircle(String moves) {
 
 
 
-    int ans = 0;
-    public int countSubIslands(int[][] grid1, int[][] grid2) {
-
-        int amount = 0;
-
-        for (int i = 0; i < grid1.length; i++){
-            for (int j = 0; j < grid1[0].length; j++){
-
-                if (grid2[i][j] == 1){
-                    ans = 1;
-                    countSubIslandsDfs(grid1, grid2, i, j);
-                    if (ans == 1) amount++;
-                }
-            }
-        }
-
-
-        return amount;
-    }
-    public void countSubIslandsDfs(int[][] grid, int[][] island, int i, int j) {
-        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || island[i][j] == 0) return;
-
-        if (grid[i][j] == 0) ans = 0;
-
-        grid[i][j] = 0;
-        island[i][j] = 0;
-
-        countSubIslandsDfs(grid, island, i+1, j);
-        countSubIslandsDfs(grid, island, i-1, j);
-        countSubIslandsDfs(grid, island, i, j+1);
-        countSubIslandsDfs(grid, island, i, j-1);
-
-    }
+//    int ans = 0;
+//    public int countSubIslands(int[][] grid1, int[][] grid2) {
+//
+//        int amount = 0;
+//
+//        for (int i = 0; i < grid1.length; i++){
+//            for (int j = 0; j < grid1[0].length; j++){
+//
+//                if (grid2[i][j] == 1){
+//                    ans = 1;
+//                    countSubIslandsDfs(grid1, grid2, i, j);
+//                    if (ans == 1) amount++;
+//                }
+//            }
+//        }
+//
+//
+//        return amount;
+//    }
+//    public void countSubIslandsDfs(int[][] grid, int[][] island, int i, int j) {
+//        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || island[i][j] == 0) return;
+//
+//        if (grid[i][j] == 0) ans = 0;
+//
+//        grid[i][j] = 0;
+//        island[i][j] = 0;
+//
+//        countSubIslandsDfs(grid, island, i+1, j);
+//        countSubIslandsDfs(grid, island, i-1, j);
+//        countSubIslandsDfs(grid, island, i, j+1);
+//        countSubIslandsDfs(grid, island, i, j-1);
+//
+//    }
 
 
 
@@ -9655,11 +9655,36 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
-
-
-
+//    Map<Integer, Integer> map;
+//    Map<Integer, Stack<Integer>> freq;
+//    int maxFreq;
+//    public FreqStack() {
+//        map = new HashMap<>();
+//        freq = new HashMap<>();
+//        maxFreq = 0;
+//    }
+//
+//    public void push(int val) {
+//        int currFreq = map.getOrDefault(val, 0) + 1;
+//        map.put(val, currFreq);
+//        if (currFreq > maxFreq){
+//            maxFreq = currFreq;
+//        }
+//        if (!freq.containsKey(currFreq)){
+//            freq.put(currFreq, new Stack<>());
+//        }
+//        freq.get(currFreq).add(val);
+//    }
+//
+//    public int pop() {
+//        Stack<Integer> curr = freq.get(maxFreq);
+//        int ans = curr.pop();
+//        map.put(ans, map.get(ans)-1);
+//        if (curr.isEmpty()){
+//            maxFreq--;
+//        }
+//        return ans;
+//    }
 
 
 
