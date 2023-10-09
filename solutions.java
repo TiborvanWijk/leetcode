@@ -9524,26 +9524,6 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public int maxSatisfaction(int[] satisfaction) {
         Arrays.sort(satisfaction);
         int ans = 0;
@@ -9558,58 +9538,6 @@ public boolean judgeCircle(String moves) {
         }
         return ans;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -9631,10 +9559,6 @@ public boolean judgeCircle(String moves) {
         }
         return allBeams;
     }
-
-
-
-
 
 
 
@@ -9676,6 +9600,41 @@ public boolean judgeCircle(String moves) {
 
 
 
+
+    public int swimInWater(int[][] grid) {
+        int[][] adj = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
+        boolean[][] visited = new boolean[grid.length][grid[0].length];
+
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        minHeap.add(new  int[] {grid[0][0], 0, 0});
+        visited[0][0] = true;
+
+        int ans = 0;
+
+        while (!minHeap.isEmpty()){
+            int[] curr = minHeap.poll();
+
+            ans = Math.max(ans, curr[0]);
+
+            if (curr[1] == grid.length-1 && curr[2] == grid[0].length-1){
+                break;
+            }
+
+            for (int i = 0; i < 4; i++){
+                int x = curr[1] + adj[i][0];
+                int y = curr[2] + adj[i][1];
+
+                if (x >= 0 && y >= 0 && x < grid.length && y < grid[0].length && !visited[x][y]){
+                    minHeap.add(new int[] {grid[x][y], x, y});
+                    visited[x][y] = true;
+                }
+            }
+
+        }
+
+
+        return ans;
+    }
 
 
 
