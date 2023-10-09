@@ -9544,7 +9544,20 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int maxSatisfaction(int[] satisfaction) {
+        Arrays.sort(satisfaction);
+        int ans = 0;
+        int curr = 0;
 
+        int index = satisfaction.length-1;
+
+        while (index >= 0 && satisfaction[index] + curr > 0){
+            curr += satisfaction[index];
+            ans += curr;
+            index--;
+        }
+        return ans;
+    }
 
 
 
