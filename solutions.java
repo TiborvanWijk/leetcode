@@ -9523,7 +9523,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// sorts it then adds all the numbers added to curr and every time we move one place we add curr to ans
     public int maxSatisfaction(int[] satisfaction) {
         Arrays.sort(satisfaction);
         int ans = 0;
@@ -9541,7 +9541,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// calculates the number of ones connections from rows
     public int numberOfBeams(String[] bank) {
         int allBeams = 0;
         int prevAmountOfBeams = 0;
@@ -9565,7 +9565,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// detects how many parenthesis we need to make them correctly
     public int minAddToMakeValid(String s) {
 
 
@@ -9654,7 +9654,8 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// makes a stack like datastructure, but it removes the most frequent type first
+//    if there are multiple with the same amount of frequenter it acts as a normal stack
 //    Map<Integer, Integer> map;
 //    Map<Integer, Stack<Integer>> freq;
 //    int maxFreq;
