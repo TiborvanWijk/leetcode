@@ -9691,46 +9691,46 @@ public boolean judgeCircle(String moves) {
 
 
 
-    int max = 0;
-    int currmax;
-    public int findMaxFish(int[][] grid) {
-
-        for (int i = 0; i < grid.length; i++){
-            for (int j = 0; j < grid[0].length; j++){
-
-                if (grid[i][j] != 0){
-                    currmax = 0;
-                    dfs(grid,i,j);
-                    if (currmax > max){
-                        max = currmax;
-                    }
-                }
-
-
-            }
-        }
-
-
-        return max;
-    }
-
-    public void dfs(int[][] grid, int i, int j) {
-        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == 0){
-            return;
-        }
-
-        int temp = grid[i][j];
-        grid[i][j] = 0;
-
-        currmax += temp;
-
-
-        dfs(grid, i+1, j);
-        dfs(grid, i-1, j);
-        dfs(grid, i, j+1);
-        dfs(grid, i, j-1);
-
-    }
+//    int max = 0;
+//    int currmax;
+//    public int findMaxFish(int[][] grid) {
+//
+//        for (int i = 0; i < grid.length; i++){
+//            for (int j = 0; j < grid[0].length; j++){
+//
+//                if (grid[i][j] != 0){
+//                    currmax = 0;
+//                    dfs(grid,i,j);
+//                    if (currmax > max){
+//                        max = currmax;
+//                    }
+//                }
+//
+//
+//            }
+//        }
+//
+//
+//        return max;
+//    }
+//
+//    public void dfs(int[][] grid, int i, int j) {
+//        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == 0){
+//            return;
+//        }
+//
+//        int temp = grid[i][j];
+//        grid[i][j] = 0;
+//
+//        currmax += temp;
+//
+//
+//        dfs(grid, i+1, j);
+//        dfs(grid, i-1, j);
+//        dfs(grid, i, j+1);
+//        dfs(grid, i, j-1);
+//
+//    }
 
 
 
@@ -9952,7 +9952,50 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public void setZeroes(int[][] matrix) {
 
+        boolean firstrow = false;
+
+        for (int i = 0; i < matrix.length; i++){
+            for (int j = 0; j < matrix[0].length; j++){
+                if (matrix[i][j] == 0){
+
+                    matrix[0][j] = 0;
+
+                    if (i > 0){
+                        matrix[i][0] = 0;
+                    }
+                    else {
+                        firstrow = true;
+                    }
+                }
+            }
+        }
+
+
+
+        for (int i = 1; i < matrix.length; i++){
+            for (int j = 1; j < matrix[0].length; j++){
+                if (matrix[i][0] == 0 || matrix[0][j] == 0){
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+
+        if (matrix[0][0] == 0){
+            for (int i = 0; i < matrix.length; i++){
+                matrix[i][0] = 0;
+            }
+        }
+
+        if (firstrow){
+            for (int i = 0; i < matrix[0].length; i++){
+                matrix[0][i] = 0;
+            }
+        }
+
+    }
 
 
 
