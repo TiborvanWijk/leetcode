@@ -10010,8 +10010,60 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int longestValidParentheses(String s) {
 
+        int max = 0;
 
+        int left = 0;
+        int right = 0;
+
+        int index = 0;
+
+        while (index < s.length()){
+            if (s.charAt(index) == '('){
+                left++;
+            }
+            else {
+                right++;
+            }
+
+            if (left == right){
+                max = Math.max(max, left + right);
+            }
+            else if (left < right){
+                left = 0;
+                right = 0;
+            }
+
+            index++;
+        }
+        index = s.length()-1;
+
+        left = 0;
+        right = 0;
+
+        while (index >= 0){
+
+            if (s.charAt(index) == ')'){
+                right++;
+            }
+            else {
+                left++;
+            }
+
+            if (left == right){
+                max = Math.max(max, left + right);
+            }
+            else if (left > right){
+                left = 0;
+                right = 0;
+            }
+
+            index--;
+        }
+
+        return max;
+    }
 
 
 
