@@ -9739,60 +9739,104 @@ public boolean judgeCircle(String moves) {
 
 
 
-    boolean ans = false;
-    public boolean containsCycle(char[][] grid) {
+//    boolean ans = false;
+//    public boolean containsCycle(char[][] grid) {
+//
+//        for (int i = 0; i < grid.length; i++){
+//            for (int j = 0; j < grid[0].length; j++){
+//                if (grid[i][j] != '0'){
+//                    containsCycle(grid, i, j, i,j, 0, grid[i][j]);
+//                }
+//            }
+//        }
+//
+//        return ans;
+//    }
+//
+//    public void containsCycle(char[][] grid, int i, int j, int iStart, int jStart, int stepsSinceStart, char currChar) {
+//        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] != currChar) return;
+//
+//
+//        char temp = grid[i][j];
+//        grid[i][j] = '0';
+//        if (stepsSinceStart > 1){
+//            if (i == iStart-1 && j == jStart || i == iStart+1 && j == jStart || i == iStart && j == jStart-1 || i == iStart && j == jStart+1){
+//                ans = true;
+//                return;
+//            }
+//        }
+//
+//        containsCycle(grid, i+1, j, iStart, jStart, stepsSinceStart+1, currChar);
+//        containsCycle(grid, i-1, j, iStart, jStart, stepsSinceStart+1, currChar);
+//        containsCycle(grid, i, j+1, iStart, jStart, stepsSinceStart+1, currChar);
+//        containsCycle(grid, i, j-1, iStart, jStart, stepsSinceStart+1, currChar);
+//        grid[i][j] = temp;
+//    }
 
-        for (int i = 0; i < grid.length; i++){
-            for (int j = 0; j < grid[0].length; j++){
-                if (grid[i][j] != '0'){
-                    containsCycle(grid, i, j, i,j, 0, grid[i][j]);
-                }
-            }
+
+
+
+
+
+
+
+
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if(headA == null || headB == null) return null;
+
+        ListNode a = headA;
+        ListNode b = headB;
+
+        while( a != b){
+            a = a == null? headB : a.next;
+            b = b == null? headA : b.next;
         }
+
+        return a;
+    }
+
+
+
+
+
+
+
+
+
+    List<String> ans = new ArrayList<>();
+    HashMap<Character, char[]> phoneMap = new HashMap<>();
+
+    String pDigits;
+    public List<String> letterCombinations(String digits) {
+        if (digits.length() == 0) return ans;
+        phoneMap.put('2',new char[]{'a','b','c'});
+        phoneMap.put('3',new char[]{'d','e','f'});
+        phoneMap.put('4',new char[]{'g','h','i'});
+        phoneMap.put('5',new char[]{'j','k','l'});
+        phoneMap.put('6',new char[]{'m','n','o'});
+        phoneMap.put('7',new char[]{'p','q','r','s'});
+        phoneMap.put('8',new char[]{'t','u','v'});
+        phoneMap.put('9',new char[]{'w','x','y','z'});
+        pDigits = digits;
+        letterCombinationsBackTrack(0, new StringBuilder());
 
         return ans;
     }
-
-    public void containsCycle(char[][] grid, int i, int j, int iStart, int jStart, int stepsSinceStart, char currChar) {
-        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] != currChar) return;
-
-
-        char temp = grid[i][j];
-        grid[i][j] = '0';
-        if (stepsSinceStart > 1){
-            if (i == iStart-1 && j == jStart || i == iStart+1 && j == jStart || i == iStart && j == jStart-1 || i == iStart && j == jStart+1){
-                ans = true;
-                return;
-            }
+    public void letterCombinationsBackTrack(int index, StringBuilder com) {
+        if (com.length() == pDigits.length()){
+            ans.add(com.toString());
+            return;
         }
 
-        containsCycle(grid, i+1, j, iStart, jStart, stepsSinceStart+1, currChar);
-        containsCycle(grid, i-1, j, iStart, jStart, stepsSinceStart+1, currChar);
-        containsCycle(grid, i, j+1, iStart, jStart, stepsSinceStart+1, currChar);
-        containsCycle(grid, i, j-1, iStart, jStart, stepsSinceStart+1, currChar);
-        grid[i][j] = temp;
+
+        char[] numbersToAdd = phoneMap.get(pDigits.charAt(index));
+        for (int i = 0; i < numbersToAdd.length; i++){
+            com.append(numbersToAdd[i]);
+            letterCombinationsBackTrack(index + 1, com);
+            com.setLength(com.length()-1);
+        }
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
