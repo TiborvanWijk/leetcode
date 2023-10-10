@@ -9876,7 +9876,40 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public ListNode reverseKGroup(ListNode head, int k) {
+        int length = 0;
+        ListNode temp = head;
+        while (temp != null){
+            length++;
+            temp = temp.next;
+        }
 
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode prev = dummy;
+        ListNode curr;
+        ListNode next;
+
+        while (length >= k){
+
+            curr = prev.next;
+            next = curr.next;
+
+            for (int i = 1; i < k; i++){
+
+                curr.next = next.next;
+                next.next = prev.next;
+                prev.next = next;
+                next = curr.next;
+            }
+
+            prev = curr;
+            length -= k;
+
+
+        }
+        return dummy.next;
+    }
 
 
 
