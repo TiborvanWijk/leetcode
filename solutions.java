@@ -9842,6 +9842,116 @@ public boolean judgeCircle(String moves) {
 
 
 
+// 118. Pascal's Triangle
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> ans = new ArrayList<>();
+
+        ans.add(new ArrayList<>(Arrays.asList(1)));
+        if (numRows == 1){
+            return ans;
+        }
+        ans.add(new ArrayList<>(Arrays.asList(1,1)));
+        if (numRows == 2){
+            return ans;
+        }
+
+
+        for (int i = 0; i < numRows-2; i++){
+            List<Integer> row = new ArrayList<>();
+            row.add(1);
+            var prevList = ans.get(ans.size()-1);
+            for (int j = 1; j < prevList.size(); j++){
+                row.add(prevList.get(j-1) + prevList.get(j));
+            }
+            row.add(1);
+
+            ans.add(row);
+        }
+        return ans;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
