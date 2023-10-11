@@ -10206,7 +10206,75 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+//    public int[] fullBloomFlowers(int[][] flowers, int[] people) {
+//
+//        Arrays.sort(people);
+//
+//
+//        PriorityQueue<Integer> minHeapBegin = new PriorityQueue<>();
+//        PriorityQueue<Integer> minHeapEnd = new PriorityQueue<>();
+//
+//        for (int[] i : flowers){
+//            minHeapBegin.add(i[0]);
+//            minHeapEnd.add(i[1]);
+//        }
+//
+//
+//        int[] ans = new int[people.length];
+//        int count = 0;
+//
+//        for (int i = 0; i < people.length; i++){
+//            while (!minHeapBegin.isEmpty() && minHeapBegin.peek() <= people[i]){
+//                System.out.println(minHeapBegin.poll());
+//                count++;
+//            }
+//
+//            while (!minHeapEnd.isEmpty() && minHeapEnd.peek() < people[i]){
+//                minHeapEnd.poll();
+//                count--;
+//            }
+//            ans[i] = count;
+//        }
+//
+//        return ans;
+//    }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//    public int[] fullBloomFlowers(int[][] flowers, int[] people) {
+//        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+//        HashMap<Integer,Integer> map = new HashMap<>();
+//
+//        int[] people1 = Arrays.copyOf(people, people.length);
+//        Arrays.sort(people1);
+//
+//        Arrays.sort(flowers, Comparator.comparingDouble(o -> o[0]));
+//
+//        int j = 0;
+//        for(int p : people1){
+//            while(j < flowers.length && p >= flowers[j][0]){
+//                minHeap.add(flowers[j][1]);
+//                j++;
+//            }
+//
+//            while(!minHeap.isEmpty() && minHeap.peek() < p) minHeap.poll();
+//
+//            map.put(p, minHeap.size());
+//        }
+//
+//        for(int i = 0; i < people.length; i++){
+//            int n = map.get(people[i]);
+//            people[i] = n;
+//        }
+//
+//        return people;
+//    }
 
 
 
