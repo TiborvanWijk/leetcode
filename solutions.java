@@ -10171,7 +10171,30 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public List<Integer> partitionLabels(String s) {
 
+        List<Integer> list = new ArrayList<>();
+        int min = 0;
+        int max = 0;
+
+        for (int i = 0; i < s.length(); i++){
+
+            int firstInstance = s.indexOf(s.charAt(i));
+            int lastInstance = s.lastIndexOf(s.charAt(i));
+            if (lastInstance <= max) continue;
+            min = Math.min(min, firstInstance);
+
+            if (firstInstance > max) {
+                list.add((max - min) + 1);
+
+                min = firstInstance;
+            }
+            max = lastInstance;
+
+        }
+        list.add((max - min) + 1);
+        return list;
+    }
 
 
 
