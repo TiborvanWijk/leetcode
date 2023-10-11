@@ -10139,7 +10139,30 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> list = new ArrayList<>();
 
+        permute(nums, new ArrayList<>(), list);
+        return list;
+    }
+    public void permute(int[] nums, List<Integer> list, List<List<Integer>> ans) {
+
+        if (list.size() == nums.length){
+            ans.add(new ArrayList<>(list));
+            return;
+        }
+        else {
+            for (int i = 0; i < nums.length; i++){
+                if (list.contains(nums[i]))
+                    continue;
+
+                list.add(nums[i]);
+                permute(nums, list, ans);
+                list.remove(list.size()-1);
+            }
+        }
+
+    }
 
 
 
