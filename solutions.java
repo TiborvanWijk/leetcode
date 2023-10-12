@@ -10337,6 +10337,46 @@ public boolean judgeCircle(String moves) {
 
 
 
+    Queue<Integer> queue;
+    Map<Integer, Integer> map;
+    int cap;
+    public LRUCache(int capacity) {
+        cap = capacity;
+        map = new HashMap<>();
+        queue = new ArrayDeque<>();
+    }
+
+    public int get(int key) {
+        queue.remove(key);
+        queue.offer(key);
+        return map.getOrDefault(key, -1);
+    }
+
+    public void put(int key, int value) {
+
+        queue.remove(key);
+        queue.offer(key);
+
+        map.put(key, value);
+        if (map.size() > cap){
+            map.remove(queue.poll());
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
