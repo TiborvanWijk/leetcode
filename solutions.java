@@ -10332,7 +10332,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+// implements a LinkedList to remove last used key.
 //    LinkedHashMap<Integer, Integer> map;
 //    int capacity;
 //    public LRUCache(int capacity) {
