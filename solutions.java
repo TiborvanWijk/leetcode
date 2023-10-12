@@ -1,7 +1,4 @@
 import java.math.BigInteger;
-import java.nio.file.NotDirectoryException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -10336,41 +10333,80 @@ public boolean judgeCircle(String moves) {
 
 
 
-
-    Queue<Integer> queue;
-    Map<Integer, Integer> map;
-    int cap;
-    public LRUCache(int capacity) {
-        cap = capacity;
-        map = new HashMap<>();
-        queue = new ArrayDeque<>();
-    }
-
-    public int get(int key) {
-        queue.remove(key);
-        queue.offer(key);
-        return map.getOrDefault(key, -1);
-    }
-
-    public void put(int key, int value) {
-
-        queue.remove(key);
-        queue.offer(key);
-
-        map.put(key, value);
-        if (map.size() > cap){
-            map.remove(queue.poll());
-        }
-    }
+//    LinkedHashMap<Integer, Integer> map;
+//    int capacity;
+//    public LRUCache(int capacity) {
+//        this.capacity = capacity;
+//        map = new LinkedHashMap<Integer, Integer>(capacity, 0.75f, true){
+//            protected boolean removeEldestEntry(Map.Entry eldest) {
+//                return size() > LRUCache.this.capacity;
+//            }
+//        };
+//    }
+//    public int get(int key) {
+//        return map.getOrDefault(key, -1);
+//    }
+//    public void put(int key, int value) {
+//        map.put(key, value);
+//    }
 
 
 
 
 
-
-
-
-
+//    interface MountainArray { public int get(int index) {}public int length() {}}
+//
+//    public int findInMountainArray(int target, MountainArray mountainArr) {
+//        int left = 0;
+//        int right = mountainArr.length() - 1;
+//        int peakIndex = -1;
+//
+//        while (left < right) {
+//            int mid = (left + right) / 2;
+//            int midValue = mountainArr.get(mid);
+//            int midValuePlus = (mid + 1 < mountainArr.length()) ? mountainArr.get(mid + 1) : Integer.MAX_VALUE;
+//
+//            if (midValue < midValuePlus) {
+//                left = mid + 1;
+//            } else {
+//                right = mid;
+//            }
+//        }
+//
+//        peakIndex = left;
+//
+//        left = 0;
+//        right = peakIndex;
+//        while (left <= right) {
+//            int mid = (left + right) / 2;
+//            int midValue = mountainArr.get(mid);
+//
+//            if (midValue == target) {
+//                return mid;
+//            } else if (midValue > target) {
+//                right = mid - 1;
+//            } else {
+//                left = mid + 1;
+//            }
+//        }
+//
+//        left = peakIndex;
+//        right = mountainArr.length() - 1;
+//        while (left <= right) {
+//            int mid = (left + right) / 2;
+//            int midValue = mountainArr.get(mid);
+//
+//            if (midValue == target) {
+//                return mid;
+//            } else if (midValue > target) {
+//                left = mid + 1;
+//            } else {
+//                right = mid - 1;
+//            }
+//        }
+//
+//        return -1;
+//    }
 
 
 
