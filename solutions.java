@@ -8650,41 +8650,41 @@ public boolean judgeCircle(String moves) {
 
 
 
-    int sum = 0;
-    public int sumEvenGrandparent(TreeNode root) {
-
-        sumEvenGrandparentDfs(root);
-
-        return sum;
-    }
-
-    public void sumEvenGrandparentDfs(TreeNode root) {
-        if (root == null) return;
-
-        sumEvenGrandparentDfs(root.left);
-
-        if (root.val % 2 == 0){
-
-            if (root.left != null){
-                if (root.left.left != null){
-                    sum += root.left.left.val;
-                }
-                if (root.left.right != null){
-                    sum += root.left.right.val;
-                }
-            }
-            if (root.right != null){
-                if (root.right.left != null){
-                    sum += root.right.left.val;
-                }
-                if (root.right.right != null){
-                    sum += root.right.right.val;
-                }
-            }
-
-        }
-        sumEvenGrandparentDfs(root.right);
-    }
+//    int sum = 0;
+//    public int sumEvenGrandparent(TreeNode root) {
+//
+//        sumEvenGrandparentDfs(root);
+//
+//        return sum;
+//    }
+//
+//    public void sumEvenGrandparentDfs(TreeNode root) {
+//        if (root == null) return;
+//
+//        sumEvenGrandparentDfs(root.left);
+//
+//        if (root.val % 2 == 0){
+//
+//            if (root.left != null){
+//                if (root.left.left != null){
+//                    sum += root.left.left.val;
+//                }
+//                if (root.left.right != null){
+//                    sum += root.left.right.val;
+//                }
+//            }
+//            if (root.right != null){
+//                if (root.right.left != null){
+//                    sum += root.right.left.val;
+//                }
+//                if (root.right.right != null){
+//                    sum += root.right.right.val;
+//                }
+//            }
+//
+//        }
+//        sumEvenGrandparentDfs(root.right);
+//    }
 
 
 
@@ -10208,9 +10208,11 @@ public boolean judgeCircle(String moves) {
 
 //    public int[] fullBloomFlowers(int[][] flowers, int[] people) {
 //
+//        int[] peopleOg = Arrays.copyOf(people, people.length);
 //        Arrays.sort(people);
 //
 //
+//        Map<Integer, Integer> map = new HashMap<>();
 //        PriorityQueue<Integer> minHeapBegin = new PriorityQueue<>();
 //        PriorityQueue<Integer> minHeapEnd = new PriorityQueue<>();
 //
@@ -10220,7 +10222,7 @@ public boolean judgeCircle(String moves) {
 //        }
 //
 //
-//        int[] ans = new int[people.length];
+//
 //        int count = 0;
 //
 //        for (int i = 0; i < people.length; i++){
@@ -10233,7 +10235,13 @@ public boolean judgeCircle(String moves) {
 //                minHeapEnd.poll();
 //                count--;
 //            }
-//            ans[i] = count;
+//            map.put(people[i], count);
+//        }
+//        int[] ans = new int[people.length];
+//
+//
+//        for (int i = 0; i < peopleOg.length; i++){
+//            ans[i] = map.get(peopleOg[i]);
 //        }
 //
 //        return ans;
@@ -10254,7 +10262,7 @@ public boolean judgeCircle(String moves) {
 //        int[] people1 = Arrays.copyOf(people, people.length);
 //        Arrays.sort(people1);
 //
-//        Arrays.sort(flowers, Comparator.comparingDouble(o -> o[0]));
+//        Arrays.sort(flowers, Comparator.comparingDouble(a -> a[0]));
 //
 //        int j = 0;
 //        for(int p : people1){
@@ -10290,6 +10298,33 @@ public boolean judgeCircle(String moves) {
 
 
 
+    int amountOfSums = 0;
+    public int pathSum(TreeNode root, int targetSum) {
+        dfs(root, targetSum);
+
+        return amountOfSums;
+    }
+    public void dfs(TreeNode root, int target) {
+        if (root == null)
+            return;
+
+        count(root, target, 0);
+
+        dfs(root.left, target);
+        dfs(root.right, target);
+    }
+
+    public void count(TreeNode root, int target, long currSum) {
+        if (root == null){
+            return;
+        }
+        currSum += root.val;
+        if (currSum == target){
+            amountOfSums++;
+        }
+        count(root.left, target, currSum);
+        count(root.right, target, currSum);
+    }
 
 
 
