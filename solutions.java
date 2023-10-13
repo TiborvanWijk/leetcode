@@ -10600,7 +10600,30 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int findMinArrowShots(int[][] points) {
+        if (points.length == 1)
+            return 1;
 
+        Arrays.sort(points, (a, b) -> Long.compare(a[0], b[0]));
+        int amountOfArrows = 0;
+
+        long right = points[0][1];
+        for (int i = 1; i < points.length; i++){
+
+            if (points[i][0] > right) {
+                amountOfArrows++;
+                right = points[i][1];
+            } else {
+                right = Math.min(right, points[i][1]);
+            }
+
+            if (i == points.length-1){
+                amountOfArrows++;
+            }
+        }
+
+        return amountOfArrows;
+    }
 
 
 
