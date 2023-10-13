@@ -10538,4 +10538,127 @@ public boolean judgeCircle(String moves) {
     }
 
 
+
+
+
+
+
+
+    public int[][] merge(int[][] intervals) {
+        List<int[]> list = new ArrayList<>();
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+
+
+        int first = intervals[0][0];
+        int maxRight = intervals[0][1];
+        for (int i = 1; i < intervals.length; i++){
+
+
+            if (maxRight < intervals[i][0]){
+                list.add(new int[] {first, maxRight});
+                first = intervals[i][0];
+                maxRight = intervals[i][1];
+            }
+            else{
+                maxRight = Math.max(maxRight, intervals[i][1]);
+            }
+        }
+        if (list.size() == 0 || list.get(list.size()-1)[0] != first || list.get(list.size()-1)[1] != maxRight){
+            list.add(new int[] {first, maxRight});
+        }
+
+
+        int[][] ans = new int[list.size()][2];
+
+        for (int i = 0; i < ans.length; i++){
+            ans[i] = list.get(i);
+        }
+
+        return ans;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
