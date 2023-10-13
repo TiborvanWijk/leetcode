@@ -10640,7 +10640,45 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        int[][] intervalNew = new int[intervals.length+1][2];
 
+        for (int i = 0; i < intervals.length; i++){
+            intervalNew[i] = intervals[i];
+        }
+        intervalNew[intervalNew.length-1] = newInterval;
+
+        List<int[]> list = new ArrayList<>();
+        Arrays.sort(intervalNew, (a, b) -> a[0] - b[0]);
+
+
+        int first = intervalNew[0][0];
+        int maxRight = intervalNew[0][1];
+        for (int i = 1; i < intervalNew.length; i++){
+
+
+            if (maxRight < intervalNew[i][0]){
+                list.add(new int[] {first, maxRight});
+                first = intervalNew[i][0];
+                maxRight = intervalNew[i][1];
+            }
+            else{
+                maxRight = Math.max(maxRight, intervalNew[i][1]);
+            }
+        }
+        if (list.size() == 0 || list.get(list.size()-1)[0] != first || list.get(list.size()-1)[1] != maxRight){
+            list.add(new int[] {first, maxRight});
+        }
+
+
+        int[][] ans = new int[list.size()][2];
+
+        for (int i = 0; i < ans.length; i++){
+            ans[i] = list.get(i);
+        }
+
+        return ans;
+    }
 
 
 
