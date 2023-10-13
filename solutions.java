@@ -10431,4 +10431,59 @@ public boolean judgeCircle(String moves) {
 
 
 
+
+
+
+
+    public void gameOfLife(int[][] board) {
+
+        for (int i = 0; i < board.length; i++){
+            for (int j = 0; j < board[0].length; j++){
+                updateVal(board, i , j);
+            }
+        }
+
+        for (int i = 0; i < board.length; i++){
+            for (int j = 0; j < board[0].length; j++){
+                if (board[i][j] == 2){
+                    board[i][j] = 0;
+                }
+                else if (board[i][j] == 3){
+                    board[i][j] = 1;
+                }
+            }
+        }
+
+
+    }
+    private void updateVal(int[][] board, int i, int j) {
+
+
+        int[][] neigbours =  {{1,0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {-1, -1}, {-1, 1}, {1, -1}};
+
+        int amountOfNeighbours = 0;
+
+        for (int index = 0; index < neigbours.length; index++){
+            amountOfNeighbours += checkNeighbour(board, i + neigbours[index][0],j + neigbours[index][1]);
+        }
+
+
+        if (board[i][j] == 1 && amountOfNeighbours < 2 || board[i][j] == 1 && amountOfNeighbours > 3){
+            board[i][j] = 2;
+        }
+        else if (board[i][j] == 0 && amountOfNeighbours == 3){
+            board[i][j] = 3;
+        }
+
+
+    }
+
+    private int checkNeighbour(int[][] board, int i, int j) {
+        if (i < 0 || j < 0 || i >= board.length || j >= board[0].length)
+            return 0;
+
+        return board[i][j] == 1 || board[i][j] == 2 ? 1 : 0;
+    }
+
+
 }
