@@ -10699,7 +10699,45 @@ public boolean judgeCircle(String moves) {
 
 
 
-
+//    public String decodeString(String s) {
+//
+//        Stack<String> stack = new Stack<>();
+//
+//        for (int i = 0; i < s.length(); i++){
+//
+//            if (!String.valueOf(s.charAt(i)).equals("]")){
+//                stack.add(String.valueOf(s.charAt(i)));
+//            }
+//            else {
+//
+//                StringBuilder stringBuilder = new StringBuilder();
+//
+//               while (!stack.peek().equals("[")){
+//                   stringBuilder.insert(0, stack.pop());
+//               }
+//               stack.pop();
+//
+//
+//               StringBuilder nr = new StringBuilder();
+//
+//               while (!stack.isEmpty() && Character.isDigit(Integer.parseInt(stack.peek()))){
+//
+//                   nr.insert(0, stack.pop());
+//               }
+//
+//               int number = Integer.parseInt(nr.toString());
+//
+//               for (int j = 0; j < number; j++){
+//                   stack.add(nr.toString());
+//               }
+//
+//            }
+//
+//
+//        }
+//
+//        return stack.toString();
+//    }
 
 
 
