@@ -10746,7 +10746,54 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public ListNode partition(ListNode head, int x) {
+        if (head == null)
+            return null;
+        ListNode beginning = new ListNode();
+        beginning.next = head;
 
+        ListNode dummy = beginning;
+
+        ListNode prev = beginning;
+        ListNode curr = head;
+        ListNode nxt = curr.next;
+
+        while (curr != null && curr.val < x){
+            beginning = curr;
+            prev = curr;
+            curr = nxt;
+            if (nxt != null){
+                nxt = nxt.next;
+            }
+        }
+
+
+        while (curr != null){
+
+            if (curr.val < x){
+                curr.next = beginning.next;
+                prev.next = nxt;
+                beginning.next = curr;
+                beginning = beginning.next;
+
+                curr = nxt;
+                if (nxt != null){
+                    nxt = nxt.next;
+                }
+            }
+            else {
+
+                prev = curr;
+                curr = nxt;
+                if (nxt != null){
+                    nxt = nxt.next;
+                }
+            }
+        }
+
+
+        return dummy.next;
+    }
 
 
 
