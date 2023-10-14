@@ -10807,4 +10807,86 @@ public boolean judgeCircle(String moves) {
 
 
 
+
+//77. Combinations
+    public List<List<Integer>> combine(int n, int k) {
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+
+        backTrack(n, k, 1, list, ans);
+
+        return ans;
+    }
+
+    public void backTrack(int n, int k, int start, List<Integer> list, List<List<Integer>> ans) {
+
+        if (list.size() == k){
+            ans.add(new ArrayList<>(list));
+            return;
+        }
+
+        if (start > n)
+            return;
+
+
+        for (int i = start; i<= n; i++){
+            list.add(i);
+            backTrack(n, k, i+1, list, ans);
+            list.remove(list.size()-1);
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
