@@ -8092,7 +8092,7 @@ public boolean judgeCircle(String moves) {
 
 //    int maximumAbDiffrence = Integer.MAX_VALUE;
 //    public int minimumEffortPath(int[][] heights) {
-//
+//        int[][] dp = new int[heights.length][heights[0].length];
 //        mimumEffortPathDfs(heights, 0, 0, heights[0][0], 0);
 //
 //        return maximumAbDiffrence;
@@ -10942,7 +10942,30 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public List<List<Integer>> findMatrix(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++){
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+        }
+        while (true){
+            List<Integer> list = new ArrayList<>();
+            for (int nr : map.keySet()){
+                int count = map.get(nr);
+                if (count < 1) {
+                    continue;
+                }
+                list.add(nr);
+                map.put(nr, count-1);
+            }
+            if (list.size() == 0){
+                break;
+            }
+            ans.add(list);
 
+        }
+        return ans;
+    }
 
 
 
