@@ -10986,7 +10986,37 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public ListNode oddEvenList(ListNode head) {
 
+        ListNode odd = new ListNode();
+        ListNode oddHead = odd;
+        ListNode even = new ListNode();
+        ListNode evenHead = even;
+
+        int index = 1;
+
+        while (head != null){
+
+            if (index % 2 == 0){
+                even.next = head;
+                even = even.next;
+            }
+            else {
+                odd.next = head;
+                odd = odd.next;
+            }
+
+            index++;
+            head = head.next;
+        }
+        odd.next = evenHead.next;
+        even.next = null;
+
+
+
+
+        return oddHead.next;
+    }
 
 
 
