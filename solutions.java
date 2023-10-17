@@ -11022,9 +11022,33 @@ public boolean judgeCircle(String moves) {
 
 
 
+//1372. Longest ZigZag Path in a Binary Tree
+    int ans = 0;
+    public int longestZigZag(TreeNode root) {
 
+        dfs(root.left, false, 0);
+        dfs(root.right, true, 0);
 
+        return ans;
+    }
+    public void dfs(TreeNode root, boolean fromLeft, int currZigZag) {
+        if (currZigZag > ans){
+            ans = currZigZag;
+        }
+        if (root == null) {
+            return;
+        }
 
+        if (fromLeft){
+            dfs(root.left, false, currZigZag + 1);
+            dfs(root.right, true, 0);
+        }
+        else {
+            dfs(root.right, true, currZigZag+1);
+            dfs(root.left, false, 0);
+        }
+
+    }
 
 
 
