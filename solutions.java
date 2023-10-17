@@ -11181,7 +11181,57 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public void reorderList(ListNode head) {
 
+
+        int size = 0;
+
+        ListNode curr = head;
+
+        while (curr != null){
+            size++;
+            curr = curr.next;
+        }
+        if (size == 0 || size == 1)
+            return;
+
+
+        Stack<ListNode> stack = new Stack<>();
+        Queue<ListNode> queue = new LinkedList<>();
+
+        curr = head;
+        int index = 0;
+        while (curr != null){
+
+            if (index < size/2){
+                queue.offer(curr);
+            }
+            else {
+                stack.add(curr);
+            }
+            index++;
+            curr = curr.next;
+        }
+        queue.poll();
+        boolean fromEnd = true;
+        while (!stack.isEmpty() || !queue.isEmpty()){
+
+            if (fromEnd){
+                if (!stack.isEmpty()){
+                    head.next = stack.pop();
+                    head = head.next;
+                }
+                fromEnd = false;
+            }
+            else {
+                if (!queue.isEmpty()){
+                    head.next = queue.poll();
+                    head = head.next;
+                }
+                fromEnd = true;
+            }
+        }
+    }
 
 
 
