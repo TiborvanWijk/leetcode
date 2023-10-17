@@ -11052,9 +11052,80 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public boolean checkTree(int root, int[] leftChild, int[] rightChild) {
+
+
+        boolean[] visited = new boolean[leftChild.length];
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(root);
+        visited[root] = true;
+
+
+        while (!queue.isEmpty()){
+
+            int curr = queue.poll();
+
+            if (leftChild[curr] != -1){
+                if (visited[leftChild[curr]])
+                    return false;
+                visited[leftChild[curr]] = true;
+                queue.offer(leftChild[curr]);
+            }
+
+            if (rightChild[curr] != -1){
+                if (visited[rightChild[curr]])
+                    return false;
+                visited[rightChild[curr]] = true;
+                queue.offer(rightChild[curr]);
+            }
+
+        }
+
+        for (int i = 0; i < visited.length; i++){
+            if (!visited[i])
+                return false;
+        }
+
+
+        return true;
+    }
 
 
 
+    public boolean validateBinaryTreeNodes(int n, int[] leftChild, int[] rightChild) {
+        boolean[] children = new boolean[n];
+
+        for (int child : leftChild) {
+            if (child != -1)
+                children[child] = true;
+        }
+
+        for (int child : rightChild) {
+            if (child != -1) {
+                if (children[child])
+                    return false;
+
+                children[child] = true;
+            }
+        }
+
+        int root = -1;
+        for (int i = 0; i < n; i++) {
+            if (!children[i]) {
+                if (root == -1){
+                    root = i;
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+
+        if (root == -1)
+            return false;
+
+        return checkTree(root, leftChild, rightChild);
+    }
 
 
 
