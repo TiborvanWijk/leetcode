@@ -11023,48 +11023,79 @@ public boolean judgeCircle(String moves) {
 
 
 //1372. Longest ZigZag Path in a Binary Tree
-    int ans = 0;
-    public int longestZigZag(TreeNode root) {
+//    int ans = 0;
+//    public int longestZigZag(TreeNode root) {
+//
+//        dfs(root.left, false, 0);
+//        dfs(root.right, true, 0);
+//
+//        return ans;
+//    }
+//    public void dfs(TreeNode root, boolean fromLeft, int currZigZag) {
+//        if (currZigZag > ans){
+//            ans = currZigZag;
+//        }
+//        if (root == null) {
+//            return;
+//        }
+//
+//        if (fromLeft){
+//            dfs(root.left, false, currZigZag + 1);
+//            dfs(root.right, true, 0);
+//        }
+//        else {
+//            dfs(root.right, true, currZigZag+1);
+//            dfs(root.left, false, 0);
+//        }
+//
+//    }
 
-        dfs(root.left, false, 0);
-        dfs(root.right, true, 0);
+
+
+
+
+
+
+
+
+
+
+
+//1367. Linked List in Binary Tree
+    boolean ans = false;
+    public boolean isSubPath(ListNode head, TreeNode root) {
+        if (head == null)
+            return true;
+        isSubPathDfs(head, root);
 
         return ans;
     }
-    public void dfs(TreeNode root, boolean fromLeft, int currZigZag) {
-        if (currZigZag > ans){
-            ans = currZigZag;
-        }
-        if (root == null) {
+    public void isSubPathDfs(ListNode head, TreeNode root) {
+        if (ans || root == null){
             return;
         }
 
-        if (fromLeft){
-            dfs(root.left, false, currZigZag + 1);
-            dfs(root.right, true, 0);
+        if (root.val == head.val){
+            boolean matches = checkMatch(head, root);
+            if (matches)
+                ans = true;
         }
-        else {
-            dfs(root.right, true, currZigZag+1);
-            dfs(root.left, false, 0);
-        }
-
+            isSubPathDfs(head, root.left);
+        isSubPathDfs(head, root.right);
     }
 
+    public boolean checkMatch(ListNode head, TreeNode node) {
+        if (head == null)
+            return true;
+        if (node == null)
+            return false;
 
+        if (head.val != node.val)
+            return false;
 
+        return checkMatch(head.next, node.left) || checkMatch(head.next, node.right);
 
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 
