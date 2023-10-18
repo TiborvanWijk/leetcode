@@ -3498,7 +3498,7 @@ public class solutions {
     }
 
 
-// uses the values in an array to reach to end of the array if it is possible then it return the amount on jumps.
+    // uses the values in an array to reach to end of the array if it is possible then it return the amount on jumps.
     public int jump(int[] nums) {
         int ans = 0;
         int end = 0;
@@ -3521,7 +3521,7 @@ public class solutions {
     }
 
 
-//Given an integer array nums, returns an array answer such that answer[i]
+    //Given an integer array nums, returns an array answer such that answer[i]
 // is equal to the product of all the elements of nums except nums[i].
     public int[] productExceptSelf(int[] nums) {
         int n = nums.length;
@@ -3546,7 +3546,7 @@ public class solutions {
 
 
 
-// checks if the car with the given gas can make a complete circle and returns the index
+    // checks if the car with the given gas can make a complete circle and returns the index
     public int canCompleteCircuit(int[] gas, int[] cost) {
 
         int gas2 = 0;
@@ -3585,7 +3585,7 @@ public class solutions {
 
 
 
-// simplifies the path by splitting it up in sections and removing the necessary parts
+    // simplifies the path by splitting it up in sections and removing the necessary parts
     public String simplifyPath(String path) {
         Stack<String> stack = new Stack<>();
         String[] segments = path.split("/");
@@ -3709,7 +3709,7 @@ public class solutions {
 
 
 
-// given an m x n matrix, returns all elements of the matrix in a spiral order.
+    // given an m x n matrix, returns all elements of the matrix in a spiral order.
     public List<Integer> spiralOrder(int[][] matrix) throws InterruptedException {
 
         List<Integer> list = new ArrayList<>();
@@ -3754,7 +3754,7 @@ public class solutions {
 
 
 
-//    Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
+    //    Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
 //
 //
 //
@@ -3786,7 +3786,7 @@ public class solutions {
 
 
 
-// rotates a matrix 90 degrees clockwise
+    // rotates a matrix 90 degrees clockwise
     public void rotate(int[][] matrix) {
 
         int left = 0;
@@ -4294,7 +4294,7 @@ public class solutions {
 
 
 
-//
+    //
     public int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         for (int i = 0; i < k; i++) {
@@ -4472,7 +4472,7 @@ public class solutions {
 
 
     public int accountBalanceAfterPurchase(int purchaseAmount) {
-                return purchaseAmount % 10 >= 5 ? 100 - (purchaseAmount + (10 - (purchaseAmount % 10))) : 100 - (purchaseAmount - (purchaseAmount % 10));
+        return purchaseAmount % 10 >= 5 ? 100 - (purchaseAmount + (10 - (purchaseAmount % 10))) : 100 - (purchaseAmount - (purchaseAmount % 10));
     }
 
 
@@ -4539,42 +4539,42 @@ public class solutions {
 
 
 
-//Example 1:
+    //Example 1:
 //
 //Input: moves = "UD"
 //Explanation: The robot moves up once, and then down once. All moves have the same magnitude, so it ended up at the origin where it started. Therefore, we return true.
-public boolean judgeCircle(String moves) {
+    public boolean judgeCircle(String moves) {
 
-    int vertical = 0;
-    int horizontal = 0;
+        int vertical = 0;
+        int horizontal = 0;
 
-    for (int i = 0; i < moves.length(); i++){
+        for (int i = 0; i < moves.length(); i++){
 
-        switch (moves.charAt(i)){
-            case 'U':
-                vertical++;
-                break;
-            case 'D':
-                vertical--;
-                break;
-            case 'R':
-                horizontal++;
-                break;
-            case 'L':
-                horizontal--;
-                break;
+            switch (moves.charAt(i)){
+                case 'U':
+                    vertical++;
+                    break;
+                case 'D':
+                    vertical--;
+                    break;
+                case 'R':
+                    horizontal++;
+                    break;
+                case 'L':
+                    horizontal--;
+                    break;
+            }
         }
+
+
+        return vertical == 0 && horizontal == 0;
     }
-
-
-    return vertical == 0 && horizontal == 0;
-}
 
 //Output: true
 
 
 
-//    The student is eligible for an attendance award if they meet both of the following criteria:
+    //    The student is eligible for an attendance award if they meet both of the following criteria:
 //
 //    The student was absent ('A') for strictly fewer than 2 days total.
 //    The student was never late ('L') for 3 or more consecutive days.
@@ -4608,7 +4608,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-//    575. Distribute Candies
+    //    575. Distribute Candies
     public int distributeCandies(int[] candyType) {
 
         int ans = 0;
@@ -4630,7 +4630,7 @@ public boolean judgeCircle(String moves) {
     }
 
 
-//2656. Maximum Sum With Exactly K Elements
+    //2656. Maximum Sum With Exactly K Elements
     public int maximizeSum(int[] nums, int k) {
 
         int ans = 0;
@@ -4748,7 +4748,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// looks if a target is in a 1D array.
+    // looks if a target is in a 1D array.
     public boolean search2(int[] nums, int target) {
 
         if (nums.length == 1 && nums[0] == target) return true;
@@ -4928,7 +4928,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-//  12
+    //  12
 //    +(1) - (2)
 //    alternates between plus and minus
     public int alternateDigitSum(int n) {
@@ -5004,7 +5004,7 @@ public boolean judgeCircle(String moves) {
                     root.right.val = temp;
                 }
                 else if (root.val < rootval)
-                recoverTreeHelper(root.right, rootval);
+                    recoverTreeHelper(root.right, rootval);
             }
 
 
@@ -5095,7 +5095,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// removes duplicate letters and returns the string in alphabetical order
+    // removes duplicate letters and returns the string in alphabetical order
     public String removeDuplicateLetters(String s) {
 
         List<Character> list = new ArrayList<>();
@@ -5221,7 +5221,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// finds the most K frequent numbers in nums
+    // finds the most K frequent numbers in nums
     public int[] topKFrequent(int[] nums, int k) {
 
         Map<Integer, Integer> counts = new HashMap<>();
@@ -5278,7 +5278,7 @@ public boolean judgeCircle(String moves) {
     }
 
 
-// finds the missing number in the range of n
+    // finds the missing number in the range of n
     public int missingNumber(int[] nums) {
 
         int lenght = nums.length;
@@ -5290,7 +5290,7 @@ public boolean judgeCircle(String moves) {
         return sum;
     }
 
-//    finds all the duplicates by using the nums[i] as a index
+    //    finds all the duplicates by using the nums[i] as a index
     public List<Integer> findDuplicates(int[] nums) {
 
         List<Integer> ans = new ArrayList<>();
@@ -5945,7 +5945,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// finds all the battleships in a matrix
+    // finds all the battleships in a matrix
     public int countBattleships(char[][] board) {
 
         int ans = 0;
@@ -5982,7 +5982,7 @@ public boolean judgeCircle(String moves) {
 
 //Return the maximum number of matchings between players and trainers that satisfy these conditions:
 
-//    The ith player can match with the jth trainer if the player's ability is less than or equal to
+    //    The ith player can match with the jth trainer if the player's ability is less than or equal to
 //    the trainer's training capacity. Additionally, the ith player can be matched with at most one trainer,
 //    and the jth trainer can be matched with at most one player.
     public int matchPlayersAndTrainers(int[] players, int[] trainers) {
@@ -6015,7 +6015,7 @@ public boolean judgeCircle(String moves) {
 // example: [1,2,3,4]
 //          [5,1,2,3] is true
 
-//          [1,2,3,4]
+    //          [1,2,3,4]
 //          [5,1,2,7] is false
     public boolean isToeplitzMatrix(int[][] matrix) {
 
@@ -6094,7 +6094,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-//you have n jobs and m workers. You are given three arrays: difficulty, profit, and worker where:
+    //you have n jobs and m workers. You are given three arrays: difficulty, profit, and worker where:
 //
 //difficulty[i] and profit[i] are the difficulty and the profit of the ith job, and
 //worker[j] is the ability of jth worker (i.e., the jth worker can only complete a job with difficulty at most worker[j]).
@@ -6133,7 +6133,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// checks if tile coordinates of a chess board is white
+    // checks if tile coordinates of a chess board is white
     public boolean squareIsWhite(String coordinates) {
         Map<Character, Integer> map = new HashMap<>();
 
@@ -6195,7 +6195,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// adds spaces in s with the given places in spaces
+    // adds spaces in s with the given places in spaces
     public String addSpaces(String s, int[] spaces) {
 
         StringBuilder ans = new StringBuilder();
@@ -6266,7 +6266,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// gets all numbers from linked list and doubles them:
+    // gets all numbers from linked list and doubles them:
 //    (5) -> (2) -> (3) ->
 //    turns into:
 //    (1) -> (0) -> (4) -> (6) ->
@@ -6365,7 +6365,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// checks wich indexes are not sorted/
+    // checks wich indexes are not sorted/
     public int heightChecker(int[] heights) {
 
         int ans = 0;
@@ -6390,7 +6390,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-//    Returns the number of students doing their homework at time queryTime.
+    //    Returns the number of students doing their homework at time queryTime.
 //    More formally, returns the number of students where queryTime lays in the
 //    interval [startTime[i], endTime[i]] inclusive.
     public int busyStudent(int[] startTime, int[] endTime, int queryTime) {
@@ -6415,7 +6415,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// keeps checking if adding the next number is benifical otherwise it wil start counting for the next subarray.
+    // keeps checking if adding the next number is benifical otherwise it wil start counting for the next subarray.
     public int maxSubArray(int[] nums) {
         int max = Integer.MIN_VALUE;
         int localmax = 0;
@@ -6436,7 +6436,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-//1944
+    //1944
     public int[] canSeePersonsCount(int[] heights) {
 
         int[] ans = new int[heights.length];
@@ -6534,7 +6534,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// it adds all the elements in the two arrays to a single string then compares them to see if the elements together form the same string
+    // it adds all the elements in the two arrays to a single string then compares them to see if the elements together form the same string
 //1662
     public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
 
@@ -6564,7 +6564,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// 84
+    // 84
     public int largestRectangleArea(int[] heights) {
         Stack<Integer> indexes = new Stack<>();
         Stack<Integer> height = new Stack<>();
@@ -6639,27 +6639,27 @@ public boolean judgeCircle(String moves) {
 
     public int numOfSubarrays(int[] arr, int k, int threshold) {
 
-            if (arr.length < k) return 0;
-            int ans = 0;
-            int currSum = 0;
+        if (arr.length < k) return 0;
+        int ans = 0;
+        int currSum = 0;
 
-            for (int i = 0; i < k-1; i++){
-                currSum += arr[i];
+        for (int i = 0; i < k-1; i++){
+            currSum += arr[i];
+        }
+
+        for (int i = 0; i < arr.length - k + 1; i++){
+            currSum += arr[i + k -1];
+            if (currSum / k >= threshold){
+                ans++;
             }
+            currSum -= arr[i];
+        }
 
-            for (int i = 0; i < arr.length - k + 1; i++){
-                currSum += arr[i + k -1];
-                if (currSum / k >= threshold){
-                    ans++;
-                }
-                currSum -= arr[i];
-            }
-
-            return ans;
+        return ans;
 
     }
 
-//    show jasper
+    //    show jasper
 //--------------------------------------------------------\\
 //    239
     public int[] maxSlidingWindow(int[] nums, int k) {
@@ -6755,7 +6755,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// O(N^2)
+    // O(N^2)
     public int[] treeQueries(TreeNode root, int[] queries) {
 
         int[] ans = new int[queries.length];
@@ -7312,7 +7312,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-//79. Word Search
+    //79. Word Search
     public boolean exist(char[][] board, String word) {
         boolean[][] seen = new boolean[board.length][board[0].length];
         for (int i = 0; i < board.length; i++){
@@ -7577,7 +7577,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-//980. Unique Paths III
+    //980. Unique Paths III
     public int uniquePathsIII(int[][] grid) {
         int nrOfEmptySquares = 0;
         int xStart = 0;
@@ -7611,7 +7611,7 @@ public boolean judgeCircle(String moves) {
         nrOfEmptySquares--;
 
         int total = dfsPath(grid, i+1, j, nrOfEmptySquares)+ dfsPath(grid, i-1, j, nrOfEmptySquares)+
-                    dfsPath(grid, i, j+1, nrOfEmptySquares)+ dfsPath(grid, i, j-1, nrOfEmptySquares);
+                dfsPath(grid, i, j+1, nrOfEmptySquares)+ dfsPath(grid, i, j-1, nrOfEmptySquares);
 
         grid[i][j] = temp;
         return total;
@@ -7781,7 +7781,7 @@ public boolean judgeCircle(String moves) {
     }
 
 
-//2771
+    //2771
     public int maxNonDecreasingLength(int[] nums1, int[] nums2) {
 
         int max = 0;
@@ -7820,7 +7820,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-//2684. Maximum Number of Moves in a Grid
+    //2684. Maximum Number of Moves in a Grid
     public int maxMoves(int[][] grid) {
         int max = 0;
         int[][] mem = new int[grid.length][grid[0].length];
@@ -8966,7 +8966,7 @@ public boolean judgeCircle(String moves) {
         return prices[dst];
     }
 
-//    calculates the majority element. Element > n / 3;
+    //    calculates the majority element. Element > n / 3;
     public List<Integer> majorityElement(int[] nums) {
 
         int count1 = 0;
@@ -9304,7 +9304,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// finds the maximum amount of ice cream a person can buy with only buying each ice cream ones with the cost of costs[i]
+    // finds the maximum amount of ice cream a person can buy with only buying each ice cream ones with the cost of costs[i]
     public int maxIceCream(int[] costs, int coins) {
         Arrays.sort(costs);
 
@@ -9328,7 +9328,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// finds out if a which balls can fall down
+    // finds out if a which balls can fall down
 // example visual
 //    [\/\\]
 //    [////]
@@ -9352,7 +9352,7 @@ public boolean judgeCircle(String moves) {
                 return -1;
             }
             else {
-               return findBallHelp(grid, row+1, col+1);
+                return findBallHelp(grid, row+1, col+1);
             }
         }
         else {
@@ -9368,7 +9368,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// finds the first missing positive by using the input array as memory to store which numbers
+    // finds the first missing positive by using the input array as memory to store which numbers
 // have been found. It uses the value to go to that index and turn in negative. at the end the first positive number in
 // the array is the first positive missing
     public int firstMissingPositive(int[] nums) {
@@ -9520,7 +9520,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// sorts it then adds all the numbers added to curr and every time we move one place we add curr to ans
+    // sorts it then adds all the numbers added to curr and every time we move one place we add curr to ans
     public int maxSatisfaction(int[] satisfaction) {
         Arrays.sort(satisfaction);
         int ans = 0;
@@ -9538,7 +9538,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// calculates the number of ones connections from rows
+    // calculates the number of ones connections from rows
     public int numberOfBeams(String[] bank) {
         int allBeams = 0;
         int prevAmountOfBeams = 0;
@@ -9562,7 +9562,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// detects how many parenthesis we need to make them correctly
+    // detects how many parenthesis we need to make them correctly
     public int minAddToMakeValid(String s) {
 
 
@@ -9839,7 +9839,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-// 118. Pascal's Triangle
+    // 118. Pascal's Triangle
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> ans = new ArrayList<>();
 
@@ -10808,7 +10808,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-//77. Combinations
+    //77. Combinations
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
@@ -11132,7 +11132,7 @@ public boolean judgeCircle(String moves) {
 
 
 
-//1367. Linked List in Binary Tree
+    //1367. Linked List in Binary Tree
     boolean ans = false;
     public boolean isSubPath(ListNode head, TreeNode root) {
         if (head == null)
@@ -11151,7 +11151,7 @@ public boolean judgeCircle(String moves) {
             if (matches)
                 ans = true;
         }
-            isSubPathDfs(head, root.left);
+        isSubPathDfs(head, root.left);
         isSubPathDfs(head, root.right);
     }
 
@@ -11242,10 +11242,70 @@ public boolean judgeCircle(String moves) {
 
 
 
+    public class TrieNode{
 
+        Map<Character, TrieNode> children;
+        boolean isWord;
 
+        TrieNode(){
+            children = new HashMap<>();
+            isWord = false;
+        }
+    }
 
+    TrieNode root;
+    public Trie() {
+        root = new TrieNode();
+    }
 
+    public void insert(String word) {
+        int index = 0;
+
+        TrieNode curr = root;
+
+        while (index < word.length()){
+
+            if (!curr.children.containsKey(word.charAt(index))){
+                curr.children.put(word.charAt(index), new TrieNode());
+            }
+
+            curr = curr.children.get(word.charAt(index));
+            if (index == word.length()-1){
+                curr.isWord = true;
+            }
+            index++;
+        }
+    }
+
+    public boolean search(String word) {
+        int index = 0;
+        TrieNode curr = root;
+
+        while (index < word.length()){
+
+            if (!curr.children.containsKey(word.charAt(index))){
+                return false;
+            }
+            curr = curr.children.get(word.charAt(index));
+            index++;
+        }
+        return curr.isWord;
+    }
+
+    public boolean startsWith(String prefix) {
+        int index = 0;
+        TrieNode curr = root;
+
+        while (index < prefix.length()){
+
+            if (!curr.children.containsKey(prefix.charAt(index))){
+                return false;
+            }
+            curr = curr.children.get(prefix.charAt(index));
+            index++;
+        }
+        return true;
+    }
 
 
 
