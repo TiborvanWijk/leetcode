@@ -11312,8 +11312,36 @@ public class solutions {
 
 
 
+//844. Backspace String Compare
+    public boolean backspaceCompare(String s, String t) {
+        StringBuilder stringBuilderS = new StringBuilder();
+        StringBuilder stringBuilderT = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++){
+            if (s.charAt(i) == '#'){
+                if (stringBuilderS.length() > 0){
+                    stringBuilderS.setLength(stringBuilderS.length()-1);
+                }
+            }
+            else {
+                stringBuilderS.append(s.charAt(i));
+            }
+        }
+
+        for (int i = 0; i < t.length(); i++){
+            if (t.charAt(i) == '#'){
+                if (stringBuilderT.length() > 0) {
+                    stringBuilderT.setLength(stringBuilderT.length()-1);
+                }
+            }
+            else {
+                stringBuilderT.append(t.charAt(i));
+            }
+        }
 
 
+        return stringBuilderS.toString().equals(stringBuilderT.toString());
+    }
 
 
 
