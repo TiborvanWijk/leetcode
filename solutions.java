@@ -11455,7 +11455,39 @@ public class solutions {
 
 
 
+    public boolean isCompleteTree(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
 
+        queue.offer(root);
+        boolean foundNull = false;
+        while (!queue.isEmpty()){
+
+            int size = queue.size();
+
+            for (int i = 0; i < size; i++){
+
+                TreeNode curr = queue.poll();
+                if (curr.left == null){
+                    foundNull = true;
+                }
+                else if (foundNull){
+                    return false;
+                }
+                if (curr.right == null){
+                    foundNull = true;
+                }
+                else if (foundNull){
+                    return false;
+                }
+
+                if (curr.left != null) queue.offer(curr.left);
+                if (curr.right != null) queue.offer(curr.right);
+            }
+
+
+        }
+        return true;
+    }
 
 
 
