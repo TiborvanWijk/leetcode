@@ -11349,12 +11349,26 @@ public class solutions {
 
 
 
+//747. Largest Number At Least Twice of Others
+    public int dominantIndex(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        int max2 = Integer.MIN_VALUE;
+        int index = -1;
 
+        for (int i = 0; i < nums.length; i++){
 
+            if (nums[i] > max){
+                max2 = max;
+                max = nums[i];
+                index = i;
+            }
+            else if (nums[i] > max2){
+                max2 = nums[i];
+            }
+        }
 
-
-
-
+        return max2*2 <= max ? index : -1;
+    }
 
 
 
