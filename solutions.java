@@ -11499,49 +11499,75 @@ public class solutions {
 
 
 //1222. Queens That Can Attack the King
-    public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
-        int[][] board = new int[8][8];
+public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
+    int[][] board = new int[8][8];
 
-        List<List<Integer>> ans = new ArrayList<>();
+    List<List<Integer>> ans = new ArrayList<>();
 
+    for (int i = 0; i < queens.length; i++){
+        int row = queens[i][0];
+        int col = queens[i][1];
+        board[row][col] = 1;
 
-        for (int i = 0; i < queens.length; i++){
-
-            board[queens[i][0]][board[i][1]] = 1;
-
-
-
-        }
-
-
-        for (int i = king[0]; i < board.length; i++){
-            if (board[i][king[1]] == 1){
-                ans.add(new ArrayList<>(Arrays.asList(i,king[1])));
-                break;
-            }
-        }
-        for (int i = king[0]; i >= 0; i--){
-            if (board[i][king[1]] == 1){
-                ans.add(new ArrayList<>(Arrays.asList(i,king[1])));
-                break;
-            }
-        }
-        for (int j = king[0]; j < board[0].length; j++){
-            if (board[king[0]][j] == 1){
-                ans.add(new ArrayList<>(Arrays.asList(king[0],j)));
-                break;
-            }
-        }
-        for (int j = king[0]; j >= 0; j--){
-            if (board[king[0]][j] == 1){
-                ans.add(new ArrayList<>(Arrays.asList(king[0],j)));
-                break;
-            }
-        }
-
-
-        return ans;
     }
+
+    for (int i = king[0]; i < board.length; i++){
+        if (board[i][king[1]] == 1){
+            ans.add(new ArrayList<>(Arrays.asList(i,king[1])));
+            break;
+        }
+    }
+    for (int i = king[0]; i >= 0; i--){
+        if (board[i][king[1]] == 1){
+            ans.add(new ArrayList<>(Arrays.asList(i,king[1])));
+            break;
+        }
+    }
+    for (int j = king[1]; j < board[0].length; j++){
+        if (board[king[0]][j] == 1){
+            ans.add(new ArrayList<>(Arrays.asList(king[0],j)));
+            break;
+        }
+    }
+    for (int j = king[1]; j >= 0; j--){
+        if (board[king[0]][j] == 1){
+            ans.add(new ArrayList<>(Arrays.asList(king[0],j)));
+            break;
+        }
+    }
+    for (int i = king[0], j = king[1]; i < board.length && j < board[0].length; i++){
+
+        if (board[i][j] == 1){
+            ans.add(new ArrayList<>(Arrays.asList(i,j)));
+            break;
+        }
+        j++;
+    }
+    for (int i = king[0], j = king[1]; i < board.length && j >= 0; i++){
+
+        if (board[i][j] == 1){
+            ans.add(new ArrayList<>(Arrays.asList(i,j)));
+            break;
+        }
+        j--;
+    }
+    for (int i = king[0], j = king[1]; i >= 0 && j < board[0].length; i--){
+        if (board[i][j] == 1){
+            ans.add(new ArrayList<>(Arrays.asList(i,j)));
+            break;
+        }
+        j++;
+    }
+    for (int i = king[0], j = king[1]; i >= 0 && j >= 0; i--){
+        if (board[i][j] == 1){
+            ans.add(new ArrayList<>(Arrays.asList(i,j)));
+            break;
+        }
+        j--;
+    }
+
+    return ans;
+}
 
 
 
