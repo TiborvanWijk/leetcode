@@ -11133,6 +11133,7 @@ public class solutions {
 
 
     //1367. Linked List in Binary Tree
+//    looks if there is a linked list in a binary tree
     boolean ans = false;
     public boolean isSubPath(ListNode head, TreeNode root) {
         if (head == null)
@@ -11276,7 +11277,7 @@ public class solutions {
             index++;
         }
     }
-
+// search in a trie tree
     public boolean search(String word) {
         int index = 0;
         TrieNode curr = root;
@@ -11313,6 +11314,7 @@ public class solutions {
 
 
 //844. Backspace String Compare
+//    compares the two strings if they are the same with the backspaces = '#'
     public boolean backspaceCompare(String s, String t) {
         StringBuilder stringBuilderS = new StringBuilder();
         StringBuilder stringBuilderT = new StringBuilder();
@@ -11378,7 +11380,7 @@ public class solutions {
 
 
 
-
+// implements a queue where you can add/pop from the front middle and back
 //    List<Integer> list;
 //    public FrontMiddleBackQueue() {
 //        list = new ArrayList<>();
@@ -11437,7 +11439,6 @@ public class solutions {
 
 
 
-
     public int[] getConcatenation(int[] nums) {
         int[] ans = new int[nums.length*2];
         int index = 0;
@@ -11454,7 +11455,7 @@ public class solutions {
 
 
 
-
+// a complete tree is a tree where every node is added from left to right so the max lvl distance is 1
     public boolean isCompleteTree(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
 
@@ -11499,6 +11500,9 @@ public class solutions {
 
 
 //1222. Queens That Can Attack the King
+//    2d matrix of all the quens on the board
+//    and a king
+//    it finds all of the queens that can attack the king at that moment
 public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     int[][] board = new int[8][8];
 
