@@ -10969,7 +10969,7 @@ public class solutions {
 
 
 
-
+// gets the given row of pascals triangle
     public List<Integer> getRow(int rowIndex) {
         List<Integer> row = new ArrayList<>();
         long ans = 1;
@@ -10985,7 +10985,7 @@ public class solutions {
 
 
 
-
+// reorders list into the odd ones first then the even numbered node's
     public ListNode oddEvenList(ListNode head) {
 
         ListNode odd = new ListNode();
@@ -11181,7 +11181,7 @@ public class solutions {
 
 
 
-
+// reorders a linked list by taking the first element then the last then the second then the first to last and repeat
     public void reorderList(ListNode head) {
 
 
