@@ -11783,10 +11783,83 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
-
-
-
-
+//707. Design Linked List
+//    ListNode head;
+//
+//    public MyLinkedList() {
+//
+//    }
+//
+//    public int get(int index) {
+//
+//        ListNode curr = head;
+//        while (index > 0 && curr != null){
+//            curr = curr.next;
+//            index--;
+//        }
+//        return curr == null || index != 0 ? -1 : curr.val;
+//    }
+//
+//    public void addAtHead(int val) {
+//        ListNode newHead = new ListNode(val);
+//        newHead.next = head;
+//        head = newHead;
+//    }
+//
+//    public void addAtTail(int val) {
+//        if (head == null){
+//            head = new ListNode(val);
+//            return;
+//        }
+//        ListNode curr = head;
+//        while (curr.next != null){
+//            curr = curr.next;
+//        }
+//        curr.next = new ListNode(val);
+//    }
+//
+//    public void addAtIndex(int index, int val) {
+//        if (index == 0){
+//            addAtHead(val);
+//            return;
+//        }
+//
+//        ListNode prev = new ListNode();
+//        ListNode curr = head;
+//
+//        while (index > 0 && curr != null){
+//
+//            prev = curr;
+//            curr = curr.next;
+//            index--;
+//        }
+//        if (index == 0){
+//            prev.next = new ListNode(val);
+//            prev.next.next = curr;
+//        }
+//
+//    }
+//
+//    public void deleteAtIndex(int index) {
+//
+//        if (index == 0){
+//            head = head == null ? head : head.next;
+//            return;
+//        }
+//
+//        ListNode prev = new ListNode();
+//        ListNode curr = head;
+//
+//        while (index > 0 && curr != null && curr.next != null){
+//
+//            prev = curr;
+//            curr = curr.next;
+//            index--;
+//        }
+//        if (index == 0){
+//            prev.next = curr.next;
+//        }
+//    }
 
 
 
