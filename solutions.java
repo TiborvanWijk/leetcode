@@ -11638,51 +11638,66 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1472. Design Browser History
-    Stack<String> prev;
-    Stack<String> next;
-    String curr;
+//    Stack<String> prev;
+//    Stack<String> next;
+//    String curr;
+//
+//    public BrowserHistory(String homepage) {
+//        curr = homepage;
+//        prev = new Stack<>();
+//        next = new Stack<>();
+//    }
+//
+//    public void visit(String url) {
+//        prev.add(curr);
+//        curr = url;
+//        next = new Stack<>();
+//    }
+//
+//    public String back(int steps) {
+//        while (steps > 0 && !prev.isEmpty()){
+//            next.add(curr);
+//            curr = prev.pop();
+//            steps--;
+//        }
+//        return curr;
+//    }
+//
+//    public String forward(int steps) {
+//        while (steps > 0 && !next.isEmpty()){
+//            prev.add(curr);
+//            curr = next.pop();
+//            steps--;
+//        }
+//        return curr;
+//    }
 
-    public BrowserHistory(String homepage) {
-        curr = homepage;
-        prev = new Stack<>();
-        next = new Stack<>();
+
+
+
+
+
+
+
+
+    PriorityQueue<Integer> minHeap;
+    int current;
+
+    public SeatManager(int n) {
+        minHeap = new PriorityQueue<>((a,b) -> a-b);
+        current = 1;
     }
 
-    public void visit(String url) {
-        prev.add(curr);
-        curr = url;
-        next = new Stack<>();
-    }
-
-    public String back(int steps) {
-        while (steps > 0 && !prev.isEmpty()){
-            next.add(curr);
-            curr = prev.pop();
-            steps--;
+    public int reserve() {
+        if (!minHeap.isEmpty()){
+            return minHeap.poll();
         }
-        return curr;
+        return current++;
     }
 
-    public String forward(int steps) {
-        while (steps > 0 && !next.isEmpty()){
-            prev.add(curr);
-            curr = next.pop();
-            steps--;
-        }
-        return curr;
+    public void unreserve(int seatNumber) {
+        minHeap.add(seatNumber);
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
