@@ -11878,51 +11878,51 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //2296. Design a Text Editor
-//    StringBuilder file;
-//    int currPosition;
-//    public TextEditor() {
-//        file = new StringBuilder();
-//        currPosition = 0;
-//    }
-//
-//    public void addText(String text) {
-//        file.insert(currPosition, text);
-//        currPosition += text.length();
-//        System.out.println(file.toString());
-//    }
-//
-//    public int deleteText(int k) {
-//        if (currPosition - k < 0){
-//            file.delete(0, k);
-//            currPosition = 0;
-//            return k - currPosition;
-//        }
-//        else {
-//            file.delete(currPosition-k, k);
-//            currPosition -= k;
-//            return k;
-//        }
-//    }
-//
-//    public String cursorLeft(int k) {
-//        if (currPosition - k > file.length()){
-//            currPosition = file.length();
-//            return file.substring(currPosition - Math.min(10, k), currPosition);
-//        }
-//        currPosition -= k;
-//
-//        return file.substring(currPosition - Math.min(10,k), currPosition);
-//    }
-//
-//    public String cursorRight(int k) {
-//        if (currPosition + k > file.length()){
-//            currPosition = file.length();
-//            return file.substring(currPosition - Math.min(10, k), currPosition);
-//        }
-//        currPosition += k;
-//
-//        return file.substring(currPosition - Math.min(10,k), currPosition);
-//    }
+    StringBuilder file;
+    int currPosition;
+    public TextEditor() {
+        file = new StringBuilder();
+        currPosition = 0;
+    }
+    public void addText(String text) {
+        file.insert(currPosition, text);
+        currPosition += text.length();
+
+    }
+
+    //leet|
+    public int deleteText(int k) {
+        int startIndex = Math.max(0, currPosition-k);
+        int endIndex = currPosition;
+
+        file.delete(startIndex, endIndex);
+
+        currPosition = startIndex;
+        return endIndex-startIndex;
+    }
+
+    public String cursorLeft(int k) {
+        if (currPosition - k <= 0){
+            currPosition = 0;
+            return "";
+        }
+        currPosition -= k;
+        int min = Math.min(10, currPosition);
+
+        return file.substring(currPosition - min, currPosition);
+    }
+
+    public String cursorRight(int k) {
+        if (currPosition + k >= file.length()){
+            currPosition = file.length();
+        }
+        else {
+            currPosition += k;
+        }
+
+        int min = Math.min(10, currPosition);
+        return file.substring(currPosition-min, currPosition);
+    }
 
 
 
