@@ -11680,31 +11680,90 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
-    PriorityQueue<Integer> minHeap;
-    int current;
-
-    public SeatManager(int n) {
-        minHeap = new PriorityQueue<>((a,b) -> a-b);
-        current = 1;
-    }
-
-    public int reserve() {
-        if (!minHeap.isEmpty()){
-            return minHeap.poll();
-        }
-        return current++;
-    }
-
-    public void unreserve(int seatNumber) {
-        minHeap.add(seatNumber);
-    }
-
-
+//    PriorityQueue<Integer> minHeap;
+//    int current;
+//
+//    public SeatManager(int n) {
+//        minHeap = new PriorityQueue<>((a,b) -> a-b);
+//        current = 1;
+//    }
+//
+//    public int reserve() {
+//        if (!minHeap.isEmpty()){
+//            return minHeap.poll();
+//        }
+//        return current++;
+//    }
+//
+//    public void unreserve(int seatNumber) {
+//        minHeap.add(seatNumber);
+//    }
 
 
 
 
-
+//641. Design Circular Deque
+//    Deque<Integer> deque;
+//    int max;
+//    public MyCircularDeque(int k) {
+//        deque = new LinkedList<>();
+//        max = k;
+//
+//    }
+//
+//    public boolean insertFront(int value) {
+//        if (deque.size() < max){
+//            deque.addFirst(value);
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public boolean insertLast(int value) {
+//        if (deque.size() < max){
+//            deque.addLast(value);
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public boolean deleteFront() {
+//        if (deque.size() > 0){
+//            deque.pollFirst();
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public boolean deleteLast() {
+//        if (deque.size() > 0){
+//            deque.pollLast();
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public int getFront() {
+//        if (deque.size() > 0){
+//            return deque.getFirst();
+//        }
+//        return -1;
+//    }
+//
+//    public int getRear() {
+//        if (deque.size() > 0){
+//            return deque.getLast();
+//        }
+//        return -1;
+//    }
+//
+//    public boolean isEmpty() {
+//        return deque.isEmpty();
+//    }
+//
+//    public boolean isFull() {
+//        return deque.size() == max;
+//    }
 
 
 
