@@ -12072,8 +12072,33 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//807. Max Increase to Keep City Skyline
+    public int maxIncreaseKeepingSkyline(int[][] grid) {
+        int[] maxCol = new int[grid.length];
+        int[] maxRow = new int[grid[0].length];
 
-
+        for (int i = 0; i < grid.length; i++){
+            int currMax = 0;
+            for (int j = 0; j < grid[0].length; j++){
+                currMax = Math.max(currMax, grid[i][j]);
+            }
+            maxCol[i] = currMax;
+        }
+        for (int i = 0; i < grid[0].length; i++){
+            int currMax = 0;
+            for (int j = 0; j < grid.length; j++){
+                currMax = Math.max(currMax, grid[j][i]);
+            }
+            maxRow[i] = currMax;
+        }
+        int ans = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                ans += Math.min(maxRow[i], maxCol[j]) - grid[i][j];
+            }
+        }
+        return ans;
+    }
 
 
 
