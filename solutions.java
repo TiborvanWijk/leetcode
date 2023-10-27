@@ -11961,6 +11961,281 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+//1329. Sort the Matrix Diagonally
+    public int[][] diagonalSort(int[][] mat) {
+
+        for (int i = 0; i < mat.length; i++){
+
+            int index = i;
+            List<Integer> list = new ArrayList<>();
+            for (int j = 0; j < mat[0].length && index < mat.length; j++){
+
+                list.add(mat[index++][j]);
+
+            }
+
+            Collections.sort(list);
+
+            index = i;
+            for (int j = 0; j < mat[0].length && j < list.size(); j++){
+                mat[index][j] = list.get(j);
+                index++;
+            }
+
+        }
+
+        for (int i = 1; i < mat[0].length; i++){
+
+
+            int index = i;
+            List<Integer> list = new ArrayList<>();
+            for (int j = 0; j < mat.length && index < mat[0].length; j++){
+
+                list.add(mat[j][index++]);
+
+            }
+
+            Collections.sort(list);
+
+            index = i;
+            for (int j = 0; j < mat.length && j < list.size(); j++){
+                mat[j][index] = list.get(j);
+                index++;
+            }
+
+        }
+
+
+
+        return mat;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
