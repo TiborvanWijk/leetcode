@@ -12041,8 +12041,17 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1910. Remove All Occurrences of a Substring
+    public String removeOccurrences(String s, String part) {
+        String old = s;
+        String newS = s.replaceFirst(part, "");
+        while (!old.equals(newS)){
+            old = newS;
+            newS = newS.replaceFirst(part, "");
+        }
 
-
+        return newS;
+    }
 
 
 
