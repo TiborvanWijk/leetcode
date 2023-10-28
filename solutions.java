@@ -11134,40 +11134,40 @@ public class solutions {
 
     //1367. Linked List in Binary Tree
 //    looks if there is a linked list in a binary tree
-    boolean ans = false;
-    public boolean isSubPath(ListNode head, TreeNode root) {
-        if (head == null)
-            return true;
-        isSubPathDfs(head, root);
-
-        return ans;
-    }
-    public void isSubPathDfs(ListNode head, TreeNode root) {
-        if (ans || root == null){
-            return;
-        }
-
-        if (root.val == head.val){
-            boolean matches = checkMatch(head, root);
-            if (matches)
-                ans = true;
-        }
-        isSubPathDfs(head, root.left);
-        isSubPathDfs(head, root.right);
-    }
-
-    public boolean checkMatch(ListNode head, TreeNode node) {
-        if (head == null)
-            return true;
-        if (node == null)
-            return false;
-
-        if (head.val != node.val)
-            return false;
-
-        return checkMatch(head.next, node.left) || checkMatch(head.next, node.right);
-
-    }
+//    boolean ans = false;
+//    public boolean isSubPath(ListNode head, TreeNode root) {
+//        if (head == null)
+//            return true;
+//        isSubPathDfs(head, root);
+//
+//        return ans;
+//    }
+//    public void isSubPathDfs(ListNode head, TreeNode root) {
+//        if (ans || root == null){
+//            return;
+//        }
+//
+//        if (root.val == head.val){
+//            boolean matches = checkMatch(head, root);
+//            if (matches)
+//                ans = true;
+//        }
+//        isSubPathDfs(head, root.left);
+//        isSubPathDfs(head, root.right);
+//    }
+//
+//    public boolean checkMatch(ListNode head, TreeNode node) {
+//        if (head == null)
+//            return true;
+//        if (node == null)
+//            return false;
+//
+//        if (head.val != node.val)
+//            return false;
+//
+//        return checkMatch(head.next, node.left) || checkMatch(head.next, node.right);
+//
+//    }
 
 
 
@@ -12115,9 +12115,46 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1091. Shortest Path in Binary Matrix
+    public int shortestPathBinaryMatrix(int[][] grid) {
+        int[][] dirs = {{1, 0}, {1, -1}, {0, -1}, {-1, -1}, {-1, 0}, {-1, 1}, {0, 1}, {1, 1}};
 
+        if (grid[0][0] == 1 || grid[grid.length-1][grid[0].length-1] == 1)
+            return -1;
 
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[] {0,0});
 
+        int steps = 0;
+        while (!queue.isEmpty()){
+
+            int size = queue.size();
+            steps++;
+
+            for (int i = 0; i < size; i++){
+
+                int[] coords = queue.poll();
+
+                if (coords[0] == grid.length-1 && coords[1] == grid[0].length-1){
+                    return steps;
+                }
+
+                for (int[] dir : dirs) {
+                    int x = coords[0] + dir[0];
+                    int y = coords[1] + dir[1];
+
+                    if (x >= 0 && y >= 0 && x < grid.length && y < grid[0].length && grid[x][y] == 0){
+                        queue.offer(new int[] {x, y});
+                        grid[x][y] = 1;
+                    }
+
+                }
+            }
+
+        }
+
+        return -1;
+    }
 
 
 
