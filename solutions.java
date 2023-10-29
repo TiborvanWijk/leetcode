@@ -12160,7 +12160,35 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
-
+//2149. Rearrange Array Elements by Sign
+    public int[] rearrangeArray(int[] nums) {
+        int[] neg = new int[nums.length/2];
+        int[] pos = new int[nums.length/2];
+        int indexNeg = 0;
+        int indexPos = 0;
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] < 0){
+                neg[indexNeg++] = nums[i];
+            }
+            else {
+                pos[indexPos++] = nums[i];
+            }
+        }
+        boolean needPos = true;
+        indexNeg = 0;
+        indexPos = 0;
+        for (int i = 0; i < nums.length; i++){
+            if (needPos){
+                nums[i] = pos[indexPos++];
+                needPos = false;
+            }
+            else {
+                nums[i] = neg[indexNeg++];
+                needPos = true;
+            }
+        }
+        return nums;
+    }
 
 
 
