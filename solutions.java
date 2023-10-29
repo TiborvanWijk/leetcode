@@ -12202,10 +12202,13 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
-
-
-
-
+//1523. Count Odd Numbers in an Interval Range
+    public int countOdds(int low, int high) {
+        if (low % 2 == 0 && high % 2 == 0){
+            return (int) Math.ceil(0 +(high-low) / 2);
+        }
+        return (int) Math.ceil(1+ (high-low) / 2);
+    }
 
 
 
