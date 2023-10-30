@@ -12220,8 +12220,19 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
-
-
+//1887. Reduction Operations to Make the Array Elements Equal
+    public int reductionOperations(int[] nums) {
+        Arrays.sort(nums);
+        int currMax = Integer.MAX_VALUE;
+        int ans = 0;
+        for (int i = nums.length-1; i >= 0; i--){
+            if (nums[i] < currMax){
+                ans += (nums.length-1) - i;
+                currMax = nums[i];
+            }
+        }
+        return ans;
+    }
 
 
 
