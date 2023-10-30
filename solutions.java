@@ -12277,10 +12277,20 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1732. Find the Highest Altitude
+    public int largestAltitude(int[] gain) {
+        int max = 0;
+        int currHeight = 0;
 
+        for (int i = 0; i < gain.length; i++){
 
+            currHeight += gain[i];
+            max = Math.max(max, currHeight);
 
+        }
 
+        return max;
+    }
 
 
 
