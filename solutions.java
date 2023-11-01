@@ -11254,59 +11254,59 @@ public class solutions {
         }
     }
 
-    TrieNode root;
-    public Trie() {
-        root = new TrieNode();
-    }
-
-    public void insert(String word) {
-        int index = 0;
-
-        TrieNode curr = root;
-
-        while (index < word.length()){
-
-            if (!curr.children.containsKey(word.charAt(index))){
-                curr.children.put(word.charAt(index), new TrieNode());
-            }
-
-            curr = curr.children.get(word.charAt(index));
-            if (index == word.length()-1){
-                curr.isWord = true;
-            }
-            index++;
-        }
-    }
-// search in a trie tree
-    public boolean search(String word) {
-        int index = 0;
-        TrieNode curr = root;
-
-        while (index < word.length()){
-
-            if (!curr.children.containsKey(word.charAt(index))){
-                return false;
-            }
-            curr = curr.children.get(word.charAt(index));
-            index++;
-        }
-        return curr.isWord;
-    }
-
-    public boolean startsWith(String prefix) {
-        int index = 0;
-        TrieNode curr = root;
-
-        while (index < prefix.length()){
-
-            if (!curr.children.containsKey(prefix.charAt(index))){
-                return false;
-            }
-            curr = curr.children.get(prefix.charAt(index));
-            index++;
-        }
-        return true;
-    }
+//    TrieNode root;
+//    public Trie() {
+//        root = new TrieNode();
+//    }
+//
+//    public void insert(String word) {
+//        int index = 0;
+//
+//        TrieNode curr = root;
+//
+//        while (index < word.length()){
+//
+//            if (!curr.children.containsKey(word.charAt(index))){
+//                curr.children.put(word.charAt(index), new TrieNode());
+//            }
+//
+//            curr = curr.children.get(word.charAt(index));
+//            if (index == word.length()-1){
+//                curr.isWord = true;
+//            }
+//            index++;
+//        }
+//    }
+//// search in a trie tree
+//    public boolean search(String word) {
+//        int index = 0;
+//        TrieNode curr = root;
+//
+//        while (index < word.length()){
+//
+//            if (!curr.children.containsKey(word.charAt(index))){
+//                return false;
+//            }
+//            curr = curr.children.get(word.charAt(index));
+//            index++;
+//        }
+//        return curr.isWord;
+//    }
+//
+//    public boolean startsWith(String prefix) {
+//        int index = 0;
+//        TrieNode curr = root;
+//
+//        while (index < prefix.length()){
+//
+//            if (!curr.children.containsKey(prefix.charAt(index))){
+//                return false;
+//            }
+//            curr = curr.children.get(prefix.charAt(index));
+//            index++;
+//        }
+//        return true;
+//    }
 
 
 
@@ -12315,38 +12315,50 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+//501. Find Mode in Binary Search Tree
+    List<Integer> mostSeen;
+    int most = 0;
+    int prev = -1;
+    int count = 0;
+    public int[] findMode(TreeNode root) {
+        mostSeen = new ArrayList<>();
 
+        findModeHelper(root);
 
+        int[] ans = new int[mostSeen.size()];
+        for (int i = 0; i < mostSeen.size(); i++){
+            ans[i] = mostSeen.get(i);
+        }
+        return ans;
+    }
 
+    private void findModeHelper(TreeNode node) {
+        if (node == null)
+            return;
 
+        findModeHelper(node.left);
+        if (prev == -1){
+            prev = node.val;
+            count = 1;
+        }
+        else if (prev != node.val){
+            count = 1;
+            prev = node.val;
+        }
+        else {
+            count++;
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        if (count > most){
+            mostSeen = new ArrayList<>();
+            mostSeen.add(node.val);
+            most = count;
+        }
+        else if (count == most){
+            mostSeen.add(node.val);
+        }
+        findModeHelper(node.right);
+    }
 
 
 
