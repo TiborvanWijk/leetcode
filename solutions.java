@@ -12405,10 +12405,26 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//563. Binary Tree Tilt
+    int total = 0;
+    public int findTilt(TreeNode root) {
+        findTiltHelper(root);
 
+        return total;
+    }
 
+    public int findTiltHelper(TreeNode root) {
+        if (root == null){
+            return 0;
+        }
 
+        int left = findTiltHelper(root.left);
+        int right = findTiltHelper(root.right);
 
+        total += Math.abs(left - right);
+
+        return left + right + root.val;
+    }
 
 
 
