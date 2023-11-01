@@ -12363,11 +12363,40 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//993. Cousins in Binary Tree
+    int parentX;
+    int deptX;
+    int parentY;
+    int deptY;
+    public boolean isCousins(TreeNode root, int x, int y) {
+
+        isCousinsHelper(root, x, y, 0, 0);
+
+        if (deptX == deptY && parentX != parentY){
+            return true;
+        }
+        return false;
+    }
 
 
+    public void isCousinsHelper(TreeNode root, int x, int y, int parentVal, int dept) {
+        if (root == null)
+            return;
 
+        isCousinsHelper(root.left, x, y, root.val, dept+1);
 
+        if (root.val == x){
+            deptX = dept;
+            parentX = parentVal;
+        }
+        else if (root.val == y){
+            deptY = dept;
+            parentY = parentVal;
+        }
 
+        isCousinsHelper(root.right, x, y, root.val, dept+1);
+
+    }
 
 
 
