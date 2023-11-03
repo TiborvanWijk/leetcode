@@ -12235,9 +12235,33 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+//getMaxLenbacktracking brute force
+    int maxSize = 0;
+    public int getMaxLen(int[] nums) {
+        int[] visited = new int[nums.length];
+        getMaxLenbacktracking(nums, 1l, 0, 1, visited);
+        return maxSize;
+    }
 
+    public void getMaxLenbacktracking(int[] nums, Long product, int index, int size, int[] visited) {
+        if (index >= nums.length)
+            return;
 
+        if (visited[index] == size){
+            return;
+        }
+        visited[index] = size;
 
+        product *= nums[index];
+
+        if (product > 0 && size > maxSize){
+            maxSize = size;
+        }
+
+        getMaxLenbacktracking(nums, product, index+1, size+1, visited);
+        getMaxLenbacktracking(nums, 1l, index+1, 1, visited);
+
+    }
 
 
 
