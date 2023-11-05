@@ -12274,8 +12274,24 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
-
-
+//1535. Find the Winner of an Array Game
+    public int getWinner(int[] arr, int k) {
+        int currNr = arr[0];
+        int currStreak = 0;
+        for (int i = 0; i < arr.length-1; i++){
+            if (currNr > arr[i+1]){
+                currStreak++;
+            }
+            else {
+                currNr = arr[i+1];
+                currStreak = 1;
+            }
+            if (currStreak >= k){
+                return currNr;
+            }
+        }
+        return currNr;
+    }
 
 
 
