@@ -11878,51 +11878,51 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //2296. Design a Text Editor
-    StringBuilder file;
-    int currPosition;
-    public TextEditor() {
-        file = new StringBuilder();
-        currPosition = 0;
-    }
-    public void addText(String text) {
-        file.insert(currPosition, text);
-        currPosition += text.length();
-
-    }
-
-    //leet|
-    public int deleteText(int k) {
-        int startIndex = Math.max(0, currPosition-k);
-        int endIndex = currPosition;
-
-        file.delete(startIndex, endIndex);
-
-        currPosition = startIndex;
-        return endIndex-startIndex;
-    }
-
-    public String cursorLeft(int k) {
-        if (currPosition - k <= 0){
-            currPosition = 0;
-            return "";
-        }
-        currPosition -= k;
-        int min = Math.min(10, currPosition);
-
-        return file.substring(currPosition - min, currPosition);
-    }
-
-    public String cursorRight(int k) {
-        if (currPosition + k >= file.length()){
-            currPosition = file.length();
-        }
-        else {
-            currPosition += k;
-        }
-
-        int min = Math.min(10, currPosition);
-        return file.substring(currPosition-min, currPosition);
-    }
+//    StringBuilder file;
+//    int currPosition;
+//    public TextEditor() {
+//        file = new StringBuilder();
+//        currPosition = 0;
+//    }
+//    public void addText(String text) {
+//        file.insert(currPosition, text);
+//        currPosition += text.length();
+//
+//    }
+//
+//    //leet|
+//    public int deleteText(int k) {
+//        int startIndex = Math.max(0, currPosition-k);
+//        int endIndex = currPosition;
+//
+//        file.delete(startIndex, endIndex);
+//
+//        currPosition = startIndex;
+//        return endIndex-startIndex;
+//    }
+//
+//    public String cursorLeft(int k) {
+//        if (currPosition - k <= 0){
+//            currPosition = 0;
+//            return "";
+//        }
+//        currPosition -= k;
+//        int min = Math.min(10, currPosition);
+//
+//        return file.substring(currPosition - min, currPosition);
+//    }
+//
+//    public String cursorRight(int k) {
+//        if (currPosition + k >= file.length()){
+//            currPosition = file.length();
+//        }
+//        else {
+//            currPosition += k;
+//        }
+//
+//        int min = Math.min(10, currPosition);
+//        return file.substring(currPosition-min, currPosition);
+//    }
 
 
 
@@ -12490,18 +12490,60 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1162. As Far from Land as Possible brute force
+    int max;
+    public int maxDistance(int[][] grid) {
+        max = Integer.MIN_VALUE;
+        for (int i = 0; i < grid.length; i++){
+            for (int j = 0; j < grid[0].length; j++){
+                maxDistanceFinder(grid, i, j);
+            }
+        }
+        return max == 0 || max == Integer.MIN_VALUE ? -1 : max;
+    }
+    int[][] dir = {{1,0}, {0,1}, {-1,0}, {0,-1}};
+    private void maxDistanceFinder(int[][] grid, int r, int c) {
 
+        boolean found = false;
 
+        int steps = 0;
+        boolean[][] visited = new boolean[grid.length][grid[0].length];
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[] {r, c});
 
+        while (!queue.isEmpty()){
 
+            int size = queue.size();
 
+            for (int i = 0; i < size; i++){
 
+                int[] curr = queue.poll();
+                int currRow = curr[0];
+                int currCol = curr[1];
+                if (visited[curr[0]][currCol]){
+                    continue;
+                }
+                visited[currRow][currCol] = true;
+                if (grid[currRow][currCol] == 1){
+                    max = Math.max(max, steps);
+                    found = true;
+                }
+                if (found)
+                    return;
 
+                for (int j = 0; j < dir.length; j++){
 
+                    int x = dir[j][0] + currRow;
+                    int y = dir[j][1] + currCol;
 
-
-
-
+                    if (x >= 0 && y >= 0 && x < grid.length && y < grid[0].length){
+                        queue.offer(new int[] {x, y});
+                    }
+                }
+            }
+            steps++;
+        }
+    }
 
 
 }
