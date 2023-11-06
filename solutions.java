@@ -12546,4 +12546,241 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+//429. N-ary Tree Level Order Traversal
+    public List<List<Integer>> levelOrder(Node root) {
+        List<List<Integer>> list = new ArrayList<>();
+
+        if (root == null)
+            return list;
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()){
+
+            List<Integer> currList = new ArrayList<>();
+            int size = queue.size();
+
+            for (int i = 0; i < size; i++){
+
+                Node curr = queue.poll();
+                currList.add(curr.val);
+
+                for (Node node : curr.children){
+                    queue.offer(node);
+                }
+
+            }
+
+            list.add(currList);
+        }
+        return list;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
