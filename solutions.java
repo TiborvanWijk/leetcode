@@ -12470,7 +12470,22 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+    //2139. Minimum Moves to Reach Target Score
+    public int minMoves(int target, int maxDoubles) {
+        int moves = 0;
 
+        while (target > 1 && maxDoubles > 0){
+            if (target % 2 == 0){
+                target /= 2;
+                maxDoubles--;
+            }
+            else {
+                target--;
+            }
+            moves++;
+        }
+        return target == 1 ? moves : moves + target-1;
+    }
 
 
 
