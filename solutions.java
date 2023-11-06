@@ -12491,59 +12491,59 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1162. As Far from Land as Possible brute force
-    int max;
-    public int maxDistance(int[][] grid) {
-        max = Integer.MIN_VALUE;
-        for (int i = 0; i < grid.length; i++){
-            for (int j = 0; j < grid[0].length; j++){
-                maxDistanceFinder(grid, i, j);
-            }
-        }
-        return max == 0 || max == Integer.MIN_VALUE ? -1 : max;
-    }
-    int[][] dir = {{1,0}, {0,1}, {-1,0}, {0,-1}};
-    private void maxDistanceFinder(int[][] grid, int r, int c) {
-
-        boolean found = false;
-
-        int steps = 0;
-        boolean[][] visited = new boolean[grid.length][grid[0].length];
-        Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[] {r, c});
-
-        while (!queue.isEmpty()){
-
-            int size = queue.size();
-
-            for (int i = 0; i < size; i++){
-
-                int[] curr = queue.poll();
-                int currRow = curr[0];
-                int currCol = curr[1];
-                if (visited[curr[0]][currCol]){
-                    continue;
-                }
-                visited[currRow][currCol] = true;
-                if (grid[currRow][currCol] == 1){
-                    max = Math.max(max, steps);
-                    found = true;
-                }
-                if (found)
-                    return;
-
-                for (int j = 0; j < dir.length; j++){
-
-                    int x = dir[j][0] + currRow;
-                    int y = dir[j][1] + currCol;
-
-                    if (x >= 0 && y >= 0 && x < grid.length && y < grid[0].length){
-                        queue.offer(new int[] {x, y});
-                    }
-                }
-            }
-            steps++;
-        }
-    }
+//    int max;
+//    public int maxDistance(int[][] grid) {
+//        max = Integer.MIN_VALUE;
+//        for (int i = 0; i < grid.length; i++){
+//            for (int j = 0; j < grid[0].length; j++){
+//                maxDistanceFinder(grid, i, j);
+//            }
+//        }
+//        return max == 0 || max == Integer.MIN_VALUE ? -1 : max;
+//    }
+//    int[][] dir = {{1,0}, {0,1}, {-1,0}, {0,-1}};
+//    private void maxDistanceFinder(int[][] grid, int r, int c) {
+//
+//        boolean found = false;
+//
+//        int steps = 0;
+//        boolean[][] visited = new boolean[grid.length][grid[0].length];
+//        Queue<int[]> queue = new LinkedList<>();
+//        queue.offer(new int[] {r, c});
+//
+//        while (!queue.isEmpty()){
+//
+//            int size = queue.size();
+//
+//            for (int i = 0; i < size; i++){
+//
+//                int[] curr = queue.poll();
+//                int currRow = curr[0];
+//                int currCol = curr[1];
+//                if (visited[curr[0]][currCol]){
+//                    continue;
+//                }
+//                visited[currRow][currCol] = true;
+//                if (grid[currRow][currCol] == 1){
+//                    max = Math.max(max, steps);
+//                    found = true;
+//                }
+//                if (found)
+//                    return;
+//
+//                for (int j = 0; j < dir.length; j++){
+//
+//                    int x = dir[j][0] + currRow;
+//                    int y = dir[j][1] + currCol;
+//
+//                    if (x >= 0 && y >= 0 && x < grid.length && y < grid[0].length){
+//                        queue.offer(new int[] {x, y});
+//                    }
+//                }
+//            }
+//            steps++;
+//        }
+//    }
 
 
 
@@ -12636,24 +12636,43 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//221. Maximal Square
+    int max = 0;
+    public int maximalSquare(char[][] matrix) {
+        for (int i = 0; i < matrix.length; i++){
+            for (int j = 0; j < matrix[0].length; j++){
+                if (matrix[i][j] == '1'){
+                    getMaxSquare(matrix, 1,1, i, j);
+                }
+            }
+        }
+        return max;
+    }
 
+    private void getMaxSquare(char[][] matrix, int currMax, int ofset, int i, int j) {
 
+        max = Math.max(max, currMax);
+        if (i+ofset >= matrix.length || j +ofset >= matrix[0].length) {
+            return;
+        }
 
+        int sum = 0;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        for (int r = i; r <= i+ofset; r++){
+            if (matrix[r][j+ofset] != '1'){
+                return;
+            }
+            sum++;
+        }
+        for (int c = j; c <= j+ofset; c++){
+            if (matrix[i+ofset][c] != '1'){
+                return;
+            }
+            sum++;
+        }
+        sum--;
+        getMaxSquare(matrix, currMax+sum, ofset+1, i, j);
+    }
 
 
 }
