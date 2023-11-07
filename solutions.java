@@ -12675,4 +12675,53 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+//1921. Eliminate Maximum Number of Monsters
+    public int eliminateMaximum(int[] dist, int[] speed) {
+
+        double[] timeUntilArival = new double[dist.length];
+
+        for (int i = 0; i < dist.length; i++){
+
+            timeUntilArival[i] = (double) dist[i] / speed[i];
+
+        }
+        Arrays.sort(timeUntilArival);
+
+        for (int i = 0; i < dist.length; i++){
+            if (timeUntilArival[i] <= i){
+                return i;
+            }
+        }
+        return dist.length;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
