@@ -12749,4 +12749,166 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+
+//2536. Increment Submatrices by One
+    public int[][] rangeAddQueries(int n, int[][] queries) {
+        int[][] ans = new int[n][n];
+
+        for (int i = 0; i < queries.length; i++){
+            int[] curr = queries[i];
+            for (int r = curr[0]; r <= curr[2]; r++){
+                for (int c = curr[1]; c <= curr[3]; c++){
+                    ans[r][c]++;
+                }
+            }
+
+        }
+
+        return ans;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
