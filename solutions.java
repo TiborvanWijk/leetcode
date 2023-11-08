@@ -12768,147 +12768,54 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//794. Valid Tic-Tac-Toe State <---------start--------->
+    public boolean validTicTacToe(String[] board) {
+
+        int o = 0;
+        int x = 0;
+        for (int i = 0; i < board.length; i++){
+            for (char c : board[i].toCharArray()){
+                if (c == 'O'){
+                    o++;
+                }
+                else if (c == 'X'){
+                    x++;
+                }
+            }
+        }
+        if (o > x || x > o+1){
+            return false;
+        }
+
+        return !checkWins(board);
+    }
+
+    private boolean checkWins(String[] board) {
+        boolean topWin = false;
+        boolean botWin = false;
+        int amountOfWins = 0;
+        int n = board.length;
+        for (int i = 0; i < n; i++){
+            char input = board[i].charAt(0);
+            if (input != ' ' && board[i].charAt(1) == input && board[i].charAt(2) == input){
+                amountOfWins++;
+            }
+        }
+        for (int i = 0; i < n; i++){
+            char input = board[0].charAt(i);
+            if (input != ' ' && board[1].charAt(i) == input && board[2].charAt(i) == input){
+                amountOfWins++;
+            }
+        }
+
+        if (board[0].charAt(0) != ' ' && board[0].charAt(0) == board[1].charAt(1) && board[0].charAt(0) == board[2].charAt(2) ||
+            board[2].charAt(0) != ' ' && board[2].charAt(0) == board[1].charAt(1) && board[2].charAt(0) == board[0].charAt(2)
+        ){
+            amountOfWins++;
+        }
+        System.out.println(amountOfWins);
+        return amountOfWins > 1;
+    }
 
 
 }
