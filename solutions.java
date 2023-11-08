@@ -12705,8 +12705,13 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
         return dist.length;
     }
 
-
-
+//2849. Determine if a Cell Is Reachable at a Given Time
+    public boolean isReachableAtTime(int sx, int sy, int fx, int fy, int t) {
+        if (sx == fx && sy == fy){
+            return t != 1;
+        }
+        return Math.max(Math.abs(sx-fx), Math.abs(sy-fy)) <= t;
+    }
 
 
 
