@@ -12715,38 +12715,38 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //508. Most Frequent Subtree Sum
-    Map<Integer, Integer> map = new HashMap<>();
-    int maxFreq = 0;
-    public int[] findFrequentTreeSum(TreeNode root) {
-        getFrequentsy(root);
-
-        List<Integer> list = new ArrayList<>();
-
-        for (int key : map.keySet()){
-            if (map.get(key) == maxFreq){
-                list.add(key);
-            }
-        }
-        int[] ans = new int[list.size()];
-        for (int i = 0; i < list.size(); i++){
-            ans[i] = list.get(i);
-        }
-        return ans;
-    }
-
-    private int getFrequentsy(TreeNode root) {
-        if (root == null)
-            return 0;
-
-        int leftSum = getFrequentsy(root.left);
-        int rightSum = getFrequentsy(root.right);
-
-        int sum = root.val + leftSum + rightSum;
-        int count = map.getOrDefault(sum, 0) +1;
-        maxFreq = Math.max(maxFreq,count);
-        map.put(sum, count);
-        return sum;
-    }
+//    Map<Integer, Integer> map = new HashMap<>();
+//    int maxFreq = 0;
+//    public int[] findFrequentTreeSum(TreeNode root) {
+//        getFrequentsy(root);
+//
+//        List<Integer> list = new ArrayList<>();
+//
+//        for (int key : map.keySet()){
+//            if (map.get(key) == maxFreq){
+//                list.add(key);
+//            }
+//        }
+//        int[] ans = new int[list.size()];
+//        for (int i = 0; i < list.size(); i++){
+//            ans[i] = list.get(i);
+//        }
+//        return ans;
+//    }
+//
+//    private int getFrequentsy(TreeNode root) {
+//        if (root == null)
+//            return 0;
+//
+//        int leftSum = getFrequentsy(root.left);
+//        int rightSum = getFrequentsy(root.right);
+//
+//        int sum = root.val + leftSum + rightSum;
+//        int count = map.getOrDefault(sum, 0) +1;
+//        maxFreq = Math.max(maxFreq,count);
+//        map.put(sum, count);
+//        return sum;
+//    }
 
 
 
@@ -12865,6 +12865,106 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
         return up || left;
     }
+
+
+
+
+//2196. Create Binary Tree From Descriptions
+    public TreeNode createBinaryTree(int[][] descriptions) {
+
+        Map<Integer, TreeNode> map = new HashMap<>();
+        Set<Integer> children = new HashSet<>();
+
+        for (int[] info : descriptions){
+            int parent = info[0], child = info[1], left = info[2];
+            TreeNode curr = map.getOrDefault(parent, new TreeNode(parent));
+            if (left == 1){
+                curr.left = map.getOrDefault(child, new TreeNode(child));
+                children.add(child);
+                map.put(child, curr.left);
+            }
+            else {
+                curr.right = map.getOrDefault(child, new TreeNode(child));
+                children.add(child);
+                map.put(child, curr.right);
+            }
+            map.put(parent, curr);
+
+        }
+
+        int rootVal = -1;
+        for (int[] info : descriptions){
+            if (!children.contains(info[0])){
+                rootVal = info[0];
+                break;
+            }
+        }
+
+        return map.get(rootVal);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
