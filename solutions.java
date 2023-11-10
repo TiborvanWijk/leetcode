@@ -12911,8 +12911,41 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1926. Nearest Exit from Entrance in Maze
+    public int nearestExit(char[][] maze, int[] entrance) {
+        int entranceR = entrance[0];
+        int entranceC = entrance[1];
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[] {entranceR, entranceC, 0});
+        maze[entranceR][entranceC] = '+';
+        int[][] dir = new int[][] {{0,1},{1,0},{0,-1},{-1,0}};
 
+        while (!queue.isEmpty()){
 
+            int size = queue.size();
+
+            for (int i = 0; i < size; i++){
+
+                int[] curr = queue.poll();
+
+                for (int[] j : dir){
+                    int rx = curr[0] + j[0];
+                    int cx = curr[1] + j[1];
+                    if (rx >=0 && cx >= 0 && rx < maze.length && cx < maze[0].length && maze[rx][cx] != '+'){
+                        if (rx == 0 || cx == 0 || rx == maze.length-1 || cx == maze[0].length-1){
+                            return curr[2]+1;
+                        }
+                        maze[rx][cx] = '+';
+                        queue.add(new int[] {rx, cx, curr[2] +1});
+                    }
+
+                }
+
+            }
+        }
+
+        return -1;
+    }
 
 
 
