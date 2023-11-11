@@ -12974,6 +12974,31 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+//    1894. Find the Student that Will Replace the Chalk optimised for bigger k input
+//    public int chalkReplacer(int[] chalk, int k) {
+//        long sum = 0;
+//
+//        for (int nr : chalk){
+//            sum += nr;
+//        }
+//
+//        long target = k % sum;
+//
+//        for (int i = 0; i < chalk.length; i++){
+//
+//            if (target >= chalk[i]){
+//                target -= chalk[i];
+//            }
+//            else {
+//                return i;
+//            }
+//
+//
+//
+//        }
+//        return -1;
+//    }
+
 
 
 
