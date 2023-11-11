@@ -12957,8 +12957,21 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
-
-
+//1894. Find the Student that Will Replace the Chalk
+    public int chalkReplacer(int[] chalk, int k) {
+        int index = 0;
+        while(k > 0){
+            if (index == chalk.length){
+                index = 0;
+            }
+            k -= chalk[index];
+            if (k < 0){
+                return index;
+            }
+            index++;
+        }
+        return index == chalk.length ? 0 : index;
+    }
 
 
 
