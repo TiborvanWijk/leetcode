@@ -13001,9 +13001,62 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//2642. Design Graph With Shortest Path Calculator
+    List<List<int[]>> roads;
+    int n;
+    public Graph(int n, int[][] edges) {
+        this.n = n;
+        roads = new ArrayList<>(n);
+        for (int i = 0; i < n; i++){
+            roads.add(new ArrayList<>());
+        }
+        for (int[] edge : edges){
+            addEdge(edge);
+        }
+    }
+
+    public void addEdge(int[] edge) {
+        roads.get(edge[0]).add(new int[] {edge[1], edge[2]});
+    }
+
+    public int shortestPath(int node1, int node2) {
+
+        int[] cost = new int[roads.size()];
+        Arrays.fill(cost, Integer.MAX_VALUE);
+        cost[node1] = 0;
+
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        minHeap.offer(new int[] {0, node1});
 
 
+        while (!minHeap.isEmpty()){
+            int[] current = minHeap.poll();
+            int currentNode = current[1];
+            int currentCost = current[0];
 
+            if (cost[currentNode] < currentCost){
+                continue;
+            }
+
+            if (currentNode == node2)
+                return currentCost;
+
+            for (int[] edge : roads.get(currentNode)){
+                int neighbour = edge[0];
+                int neighbourCost = edge[1] + cost[currentNode];
+
+                if (cost[neighbour] > neighbourCost){
+                    cost[neighbour] = neighbourCost;
+                    minHeap.offer(new int[] {neighbourCost, neighbour});
+                }
+
+            }
+
+
+        }
+
+        return cost[node2] == Integer.MAX_VALUE ? -1 : cost[node2];
+    }
 
 
 
