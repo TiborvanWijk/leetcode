@@ -13106,10 +13106,28 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+//2336. Smallest Number in Infinite Set
+    int startNr;
+    Set<Integer> set;
+    public SmallestInfiniteSet() {
+        set = new HashSet<>();
+        startNr = 1;
+    }
 
+    public int popSmallest() {
+        if (!set.isEmpty()){
+            int min = Collections.min(set);
+            set.remove(min);
+            return min;
+        }
+        return startNr++;
+    }
 
-
-
+    public void addBack(int num) {
+        if (num < startNr){
+            set.add(num);
+        }
+    }
 
 
 
