@@ -12356,49 +12356,49 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //501. Find Mode in Binary Search Tree
-    List<Integer> mostSeen;
-    int most = 0;
-    int prev = -1;
-    int count = 0;
-    public int[] findMode(TreeNode root) {
-        mostSeen = new ArrayList<>();
-
-        findModeHelper(root);
-
-        int[] ans = new int[mostSeen.size()];
-        for (int i = 0; i < mostSeen.size(); i++){
-            ans[i] = mostSeen.get(i);
-        }
-        return ans;
-    }
-
-    private void findModeHelper(TreeNode node) {
-        if (node == null)
-            return;
-
-        findModeHelper(node.left);
-        if (prev == -1){
-            prev = node.val;
-            count = 1;
-        }
-        else if (prev != node.val){
-            count = 1;
-            prev = node.val;
-        }
-        else {
-            count++;
-        }
-
-        if (count > most){
-            mostSeen = new ArrayList<>();
-            mostSeen.add(node.val);
-            most = count;
-        }
-        else if (count == most){
-            mostSeen.add(node.val);
-        }
-        findModeHelper(node.right);
-    }
+//    List<Integer> mostSeen;
+//    int most = 0;
+//    int prev = -1;
+//    int count = 0;
+//    public int[] findMode(TreeNode root) {
+//        mostSeen = new ArrayList<>();
+//
+//        findModeHelper(root);
+//
+//        int[] ans = new int[mostSeen.size()];
+//        for (int i = 0; i < mostSeen.size(); i++){
+//            ans[i] = mostSeen.get(i);
+//        }
+//        return ans;
+//    }
+//
+//    private void findModeHelper(TreeNode node) {
+//        if (node == null)
+//            return;
+//
+//        findModeHelper(node.left);
+//        if (prev == -1){
+//            prev = node.val;
+//            count = 1;
+//        }
+//        else if (prev != node.val){
+//            count = 1;
+//            prev = node.val;
+//        }
+//        else {
+//            count++;
+//        }
+//
+//        if (count > most){
+//            mostSeen = new ArrayList<>();
+//            mostSeen.add(node.val);
+//            most = count;
+//        }
+//        else if (count == most){
+//            mostSeen.add(node.val);
+//        }
+//        findModeHelper(node.right);
+//    }
 
 
 
@@ -13130,9 +13130,30 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+//1352. Product of the Last K Numbers
+    List<Integer> list;
+    int prev;
+    public ProductOfNumbers() {
+        list = new ArrayList<>();
+        prev = 1;
+        list.add(1);
+    }
 
+    public void add(int num) {
+        if (num == 0){
+            list = new ArrayList<>();
+            list.add(1);
+            prev = 1;
+        }
+        else {
+            prev *= num;
+            list.add(prev);
+        }
+    }
 
-
+    public int getProduct(int k) {
+        return list.size() > k ? prev / list.get(list.size()-1-k) : 0;
+    }
 
 
 
