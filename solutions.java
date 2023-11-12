@@ -13107,27 +13107,27 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //2336. Smallest Number in Infinite Set
-    int startNr;
-    Set<Integer> set;
-    public SmallestInfiniteSet() {
-        set = new HashSet<>();
-        startNr = 1;
-    }
-
-    public int popSmallest() {
-        if (!set.isEmpty()){
-            int min = Collections.min(set);
-            set.remove(min);
-            return min;
-        }
-        return startNr++;
-    }
-
-    public void addBack(int num) {
-        if (num < startNr){
-            set.add(num);
-        }
-    }
+//    int startNr;
+//    Set<Integer> set;
+//    public SmallestInfiniteSet() {
+//        set = new HashSet<>();
+//        startNr = 1;
+//    }
+//
+//    public int popSmallest() {
+//        if (!set.isEmpty()){
+//            int min = Collections.min(set);
+//            set.remove(min);
+//            return min;
+//        }
+//        return startNr++;
+//    }
+//
+//    public void addBack(int num) {
+//        if (num < startNr){
+//            set.add(num);
+//        }
+//    }
 
 
 //1352. Product of the Last K Numbers
@@ -13156,7 +13156,27 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+//1261. Find Elements in a Contaminated Binary Tree
+    TreeNode root;
+    Set<Integer> set;
+    public FindElements(TreeNode root) {
+        this.root = root;
+        set = new HashSet<>();
+        setValues(root, 0);
+    }
+    private void setValues(TreeNode treeNode, int val){
+        if (treeNode == null)
+            return;
 
+        setValues(treeNode.left, 2*val+1);
+        treeNode.val = val;
+        set.add(val);
+        setValues(treeNode.right, 2*val+2);
+    }
+
+    public boolean find(int target) {
+        return set.contains(target);
+    }
 
 
 
