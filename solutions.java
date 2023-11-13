@@ -13188,26 +13188,21 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 //2785. Sort Vowels in a String
     public String sortVowels(String s) {
         List<Character> list = new ArrayList<>();
-        Set<Character> set = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o','u', 'A', 'E', 'I', 'O', 'U'));
-        char[] chars = s.toLowerCase().toCharArray();
 
-
-        for (int i = 0; i < chars.length; i++){
-            if (set.contains(chars[i])){
-                list.add(chars[i]);
+        for (char a : s.toCharArray()){
+            if ("aeiouAEIOU".indexOf(a) != -1){
+                list.add(a);
             }
         }
-        Collections.sort(list);
+        Collections.sort(list, Collections.reverseOrder());
 
         StringBuilder ans = new StringBuilder();
-        int index = 0;
-        for (int i = 0; i < chars.length; i++){
-            if (!set.contains(chars[i])){
-                ans.append(chars[i]);
+        for (char a : s.toCharArray()){
+            if ("aeiouAEIOU".indexOf(a) != -1){
+                ans.append(list.remove(list.size()-1));
             }
             else {
-                ans.append(list.get(index++));
-
+                ans.append(a);
             }
         }
         return ans.toString();
