@@ -13131,52 +13131,111 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1352. Product of the Last K Numbers
-    List<Integer> list;
-    int prev;
-    public ProductOfNumbers() {
-        list = new ArrayList<>();
-        prev = 1;
-        list.add(1);
-    }
-
-    public void add(int num) {
-        if (num == 0){
-            list = new ArrayList<>();
-            list.add(1);
-            prev = 1;
-        }
-        else {
-            prev *= num;
-            list.add(prev);
-        }
-    }
-
-    public int getProduct(int k) {
-        return list.size() > k ? prev / list.get(list.size()-1-k) : 0;
-    }
+//    List<Integer> list;
+//    int prev;
+//    public ProductOfNumbers() {
+//        list = new ArrayList<>();
+//        prev = 1;
+//        list.add(1);
+//    }
+//
+//    public void add(int num) {
+//        if (num == 0){
+//            list = new ArrayList<>();
+//            list.add(1);
+//            prev = 1;
+//        }
+//        else {
+//            prev *= num;
+//            list.add(prev);
+//        }
+//    }
+//
+//    public int getProduct(int k) {
+//        return list.size() > k ? prev / list.get(list.size()-1-k) : 0;
+//    }
 
 
 //1261. Find Elements in a Contaminated Binary Tree
-    TreeNode root;
-    Set<Integer> set;
-    public FindElements(TreeNode root) {
-        this.root = root;
-        set = new HashSet<>();
-        setValues(root, 0);
-    }
-    private void setValues(TreeNode treeNode, int val){
-        if (treeNode == null)
-            return;
+//    TreeNode root;
+//    Set<Integer> set;
+//    public FindElements(TreeNode root) {
+//        this.root = root;
+//        set = new HashSet<>();
+//        setValues(root, 0);
+//    }
+//    private void setValues(TreeNode treeNode, int val){
+//        if (treeNode == null)
+//            return;
+//
+//        setValues(treeNode.left, 2*val+1);
+//        treeNode.val = val;
+//        set.add(val);
+//        setValues(treeNode.right, 2*val+2);
+//    }
+//
+//    public boolean find(int target) {
+//        return set.contains(target);
+//    }
 
-        setValues(treeNode.left, 2*val+1);
-        treeNode.val = val;
-        set.add(val);
-        setValues(treeNode.right, 2*val+2);
+
+
+
+
+
+
+
+//2785. Sort Vowels in a String
+    public String sortVowels(String s) {
+        List<Character> list = new ArrayList<>();
+        Set<Character> set = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o','u', 'A', 'E', 'I', 'O', 'U'));
+        char[] chars = s.toLowerCase().toCharArray();
+
+
+        for (int i = 0; i < chars.length; i++){
+            if (set.contains(chars[i])){
+                list.add(chars[i]);
+            }
+        }
+        Collections.sort(list);
+
+        StringBuilder ans = new StringBuilder();
+        int index = 0;
+        for (int i = 0; i < chars.length; i++){
+            if (!set.contains(chars[i])){
+                ans.append(chars[i]);
+            }
+            else {
+                ans.append(list.get(index++));
+
+            }
+        }
+        return ans.toString();
     }
 
-    public boolean find(int target) {
-        return set.contains(target);
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
