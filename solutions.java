@@ -13216,23 +13216,31 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1930. Unique Length-3 Palindromic Subsequences brute force
+    Set<String> set = new HashSet<>();
+    int ans = 0;
+    public int countPalindromicSubsequence(String s) {
+        countPalindromicSubsequenceHelper(s, 0, new StringBuilder());
+        return ans;
+    }
 
+    private void countPalindromicSubsequenceHelper(String s, int index, StringBuilder curr) {
+        if (curr.length() == 3){
+            if (!set.contains(curr.toString()) && curr.charAt(0) == curr.charAt(2)){
+                ans++;
+                set.add(curr.toString());
+            }
+            return;
+        }
+        if (index >= s.length()){
+            return;
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        curr.append(s.charAt(index));
+        countPalindromicSubsequenceHelper(s, index+1, curr);
+        curr.setLength(curr.length()-1);
+        countPalindromicSubsequenceHelper(s, index+1, curr);
+    }
 
 
 }
