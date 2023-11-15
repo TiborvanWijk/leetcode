@@ -13318,25 +13318,26 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
-//1695. Maximum Erasure Value semi fast
+//1695. Maximum Erasure Value optimised
     public int maximumUniqueSubarray(int[] nums) {
 
+        boolean[] seen = new boolean[10001];
         int maxSum = 0;
         int currSum = 0;
 
         int startIndex = 0;
 
-        Set<Integer> set = new HashSet<>();
+
 
         for (int i : nums){
 
-            while (set.contains(i)){
-                set.remove(nums[startIndex]);
+            while (seen[i]){
+                seen[nums[startIndex]] = false;
                 currSum -= nums[startIndex++];
             }
 
             currSum += i;
-            set.add(i);
+            seen[i] = true;
             maxSum = Math.max(maxSum, currSum);
         }
         return maxSum;
