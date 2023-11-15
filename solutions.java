@@ -13349,7 +13349,6 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
         int left = 0;
         int right = nums.length-1;
 
-
         while (left <= right){
 
             int mid = (left + right) / 2;
@@ -13375,6 +13374,44 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
         return nums[left];
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//1526. Minimum Number of Increments on Subarrays to Form a Target Array
+    public int minNumberOperations(int[] target) {
+        int ans = 0;
+        int currentHeight = 0;
+
+        for (int i = 0; i < target.length; i++){
+
+            if (target[i] > currentHeight){
+                ans += target[i] - currentHeight;
+                currentHeight = target[i];
+            }
+            else {
+                currentHeight = target[i];
+            }
+
+        }
+
+        return ans;
+    }
+
+
+
 
 
 
