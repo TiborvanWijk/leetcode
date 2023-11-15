@@ -13278,8 +13278,43 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1493. Longest Subarray of 1's After Deleting One Element
+    public int longestSubarray(int[] nums) {
+
+        int ans = 0;
+        int beforeDelete = 0;
+        int afterDelete = 0;
+        boolean deleted = false;
+
+        for (int i = 0; i < nums.length; i++){
+
+            if (nums[i] == 0){
+
+                if (deleted){
+                    ans = Math.max(ans, afterDelete + beforeDelete);
+                    beforeDelete = afterDelete;
+                    afterDelete = 0;
+
+                }
+                else if (beforeDelete != 0){
+                    deleted = true;
+                }
+            }
+            else {
+                if (deleted){
+                    afterDelete++;
+                }
+                else {
+                    beforeDelete++;
+                }
+            }
 
 
+        }
+        ans = Math.max(ans, beforeDelete + afterDelete);
+
+        return ans == nums.length ? nums.length-1 : ans;
+    }
 
 
 
