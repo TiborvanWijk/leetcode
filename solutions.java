@@ -13411,6 +13411,39 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+//1980. Find Unique Binary String
+    Set<String> set = new HashSet<>();
+    String ans;
+    boolean found = false;
+    public String findDifferentBinaryString(String[] nums) {
+        set.addAll(Arrays.asList(nums));
+
+        findDifferentBinaryStringHelper(nums.length, new StringBuilder());
+        return ans;
+    }
+    public void findDifferentBinaryStringHelper(int size, StringBuilder currWord){
+        if (found)
+            return;
+
+        if (currWord.length() == size){
+            if (!set.contains(currWord.toString())){
+                ans = currWord.toString();
+                found = true;
+            }
+            return;
+        }
+        currWord.append("1");
+        findDifferentBinaryStringHelper(size, currWord);
+        currWord.setLength(currWord.length()-1);
+        currWord.append("0");
+        findDifferentBinaryStringHelper(size, currWord);
+        currWord.setLength(currWord.length()-1);
+    }
+
+
+
+
+
 
 
 
