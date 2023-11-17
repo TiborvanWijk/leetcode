@@ -13319,6 +13319,9 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1695. Maximum Erasure Value optimised
+//    You are given an array of positive integers nums and want to erase a subarray containing unique elements.
+//    The score you get by erasing the subarray is equal to the sum of its elements.
+//Returns the maximum score you can get by erasing exactly one subarray.
     public int maximumUniqueSubarray(int[] nums) {
 
         boolean[] seen = new boolean[10001];
@@ -13399,11 +13402,9 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
             if (target[i] > currentHeight){
                 ans += target[i] - currentHeight;
-                currentHeight = target[i];
             }
-            else {
-                currentHeight = target[i];
-            }
+
+            currentHeight = target[i];
 
         }
 
