@@ -13447,8 +13447,18 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//2177. Find Three Consecutive Integers That Sum to a Given Number
+    public long[] sumOfThree(long num) {
+        long curr = num/3;
 
-
+        while ((curr*3)+3 > num){
+            curr--;
+        }
+        if (curr*3+3 == num){
+            return new long[] {curr, curr+1, curr+2};
+        }
+        return new long[] {};
+    }
 
 
 
