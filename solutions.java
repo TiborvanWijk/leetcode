@@ -13522,4 +13522,80 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+
+
+
+
+//2352. Equal Row and Column Pairs
+    public int equalPairs(int[][] grid) {
+        int ans = 0;
+        for (int i = 0; i < grid.length; i++){
+            for (int j = 0; j < grid[0].length; j++){
+
+                boolean isSame = true;
+                for (int x = 0; x < grid.length; x++){
+                    if (grid[x][j] != grid[i][x]){
+                        isSame = false;
+                        break;
+                    }
+                }
+                if (isSame)
+                    ans++;
+            }
+        }
+        return ans;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
