@@ -13491,33 +13491,35 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//2120. Execution of All Suffix Instructions Staying in a Grid
+    public int[] executeInstructions(int n, int[] startPos, String s) {
 
+        int[] ans = new int[s.length()];
+        for (int i = 0; i < s.length(); i++){
+            ans[i] = amountOfMoves(n, startPos[0], startPos[1], i, s);
+        }
+        return ans;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private int amountOfMoves(int n, int i, int j, int index, String directions) {
+        if (index >= directions.length() || i < 0 || i >= n || j < 0 || j >= n){
+            return 0;
+        }
+        char direction = directions.charAt(index);
+        if (direction == 'L' && j - 1 >= 0){
+            return 1 + amountOfMoves(n, i, j-1, index+1, directions);
+        }
+        else if (direction == 'R' && j + 1 < n){
+            return 1 + amountOfMoves(n, i, j+1, index+1, directions);
+        }
+        else if (direction == 'D' && i + 1 < n){
+            return 1 + amountOfMoves(n, i+1, j, index+1, directions);
+        }
+        else if (direction == 'U' && i - 1 >= 0){
+            return 1 + amountOfMoves(n, i-1, j, index+1, directions);
+        }
+        return 0;
+    }
 
 
 }
