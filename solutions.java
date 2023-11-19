@@ -12637,42 +12637,42 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //221. Maximal Square
-    int max = 0;
-    public int maximalSquare(char[][] matrix) {
-        for (int i = 0; i < matrix.length; i++){
-            for (int j = 0; j < matrix[0].length; j++){
-                if (matrix[i][j] == '1'){
-                    getMaxSquare(matrix, 1,1, i, j);
-                }
-            }
-        }
-        return max;
-    }
-
-    private void getMaxSquare(char[][] matrix, int currMax, int ofset, int i, int j) {
-
-        max = Math.max(max, currMax);
-        if (i+ofset >= matrix.length || j +ofset >= matrix[0].length) {
-            return;
-        }
-
-        int sum = 0;
-
-        for (int r = i; r <= i+ofset; r++){
-            if (matrix[r][j+ofset] != '1'){
-                return;
-            }
-            sum++;
-        }
-        for (int c = j; c <= j+ofset; c++){
-            if (matrix[i+ofset][c] != '1'){
-                return;
-            }
-            sum++;
-        }
-        sum--;
-        getMaxSquare(matrix, currMax+sum, ofset+1, i, j);
-    }
+//    int max = 0;
+//    public int maximalSquare(char[][] matrix) {
+//        for (int i = 0; i < matrix.length; i++){
+//            for (int j = 0; j < matrix[0].length; j++){
+//                if (matrix[i][j] == '1'){
+//                    getMaxSquare(matrix, 1,1, i, j);
+//                }
+//            }
+//        }
+//        return max;
+//    }
+//
+//    private void getMaxSquare(char[][] matrix, int currMax, int ofset, int i, int j) {
+//
+//        max = Math.max(max, currMax);
+//        if (i+ofset >= matrix.length || j +ofset >= matrix[0].length) {
+//            return;
+//        }
+//
+//        int sum = 0;
+//
+//        for (int r = i; r <= i+ofset; r++){
+//            if (matrix[r][j+ofset] != '1'){
+//                return;
+//            }
+//            sum++;
+//        }
+//        for (int c = j; c <= j+ofset; c++){
+//            if (matrix[i+ofset][c] != '1'){
+//                return;
+//            }
+//            sum++;
+//        }
+//        sum--;
+//        getMaxSquare(matrix, currMax+sum, ofset+1, i, j);
+//    }
 
 
 
@@ -13459,6 +13459,59 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
         }
         return new long[] {};
     }
+
+
+
+
+//152. Maximum Product Subarray
+    public int maxProduct(int[] nums) {
+        int biggest = Integer.MIN_VALUE;
+        int max = 1;
+        int min = 1;
+
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] == 0){
+                max = 1;
+                min = 1;
+                biggest = Math.max(biggest, 0);
+                continue;
+            }
+            int temp = max;
+
+            max = Math.max(Math.max(min * nums[i], max * nums[i]), nums[i]);
+            min = Math.min(Math.min(temp * nums[i], min * nums[i]), nums[i]);
+            biggest = Math.max(max, biggest);
+        }
+        return biggest;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
