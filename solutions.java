@@ -13603,8 +13603,24 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//899. Orderly Queue
+    public String orderlyQueue(String s, int k) {
 
+        if (k > 1){
+            char[] chars = s.toCharArray();
+            Arrays.sort(chars);
+            return new String(chars);
+        }
+        String s1 = s;
+        for (int i = 1; i < s.length(); i++){
 
+            String temp = s.substring(i) + s.substring(0,i);
+            if (s1.compareTo(temp) > 0){
+                s1 = temp;
+            }
+        }
+        return s1;
+    }
 
 
 
