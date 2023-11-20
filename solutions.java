@@ -13552,8 +13552,41 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//2391. Minimum Amount of Time to Collect Garbage
+    public int garbageCollection(String[] garbage, int[] travel) {
+        int metal = 0;
+        int indexMetal = 0;
+        int paper = 0;
+        int indexPaper = 0;
+        int glass = 0;
+        int indexGlass = 0;
 
+        int distance = 0;
+        for (int i = 0; i < garbage.length; i++){
 
+            for (char a : garbage[i].toCharArray()){
+                if (a == 'G'){
+                    glass++;
+                    indexGlass = distance;
+
+                }
+                else if (a == 'P'){
+                    paper++;
+                    indexPaper = distance;
+                }
+                else if (a == 'M'){
+                    metal++;
+                    indexMetal = distance;
+                }
+
+            }
+            if (i < travel.length){
+                distance += travel[i];
+            }
+
+        }
+        return metal + indexMetal + paper + indexPaper + glass + indexGlass;
+    }
 
 
 
