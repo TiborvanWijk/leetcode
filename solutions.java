@@ -13626,6 +13626,52 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1424. Diagonal Traverse II brute force
+    public int[] findDiagonalOrder(List<List<Integer>> nums) {
+        int max = 0;
+        List<Integer> ans = new ArrayList<>();
+
+        for (int i = 0; i < nums.size(); i++){
+
+            int index = i;
+            int j = 0;
+            while (index >= 0){
+
+                List<Integer> list = nums.get(index);
+
+                if (list.size() > j){
+                    ans.add(list.get(j));
+                    max = Math.max(max, list.size());
+                }
+
+                index--;
+                j++;
+            }
+        }
+
+        int row = nums.size()-1;
+        for (int i = 1; i < max; i++){
+
+            int r = row;
+            int c = i;
+            while (r >= 0 && c < max){
+
+                List<Integer> list = nums.get(r);
+                if (list.size() > c){
+                    ans.add(list.get(c));
+                }
+
+                r--;
+                c++;
+            }
+
+        }
+
+        int[] result = new int[ans.size()];
+        return result;
+    }
+
+
 
 
 
