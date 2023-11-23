@@ -13673,24 +13673,57 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1630. Arithmetic Subarrays
+    public List<Boolean> checkArithmeticSubarrays(int[] nums, int[] l, int[] r) {
+
+        List<Boolean> list = new ArrayList<>();
+
+        for (int i = 0; i < l.length; i++){
+            list.add(isArithmetic(nums, l[i], r[i]));
+        }
+
+        return list;
+    }
+
+    private Boolean isArithmetic(int[] nums, int l, int r) {
+
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+
+        for (int i = l; i <= r; i++){
+            min = Math.min(min, nums[i]);
+            max = Math.max(max, nums[i]);
+        }
+
+        int length = (r-l+1);
+
+        if ((max-min) % length-1 != 0)
+            return false;
 
 
+        int diff = (max-min) / length-1;
+
+        if (diff == 0)
+            return true;
 
 
+        boolean[] mem = new boolean[length];
 
+        for (int i = l; i <= r; i++){
 
+            int curr = nums[i];
+            if ((curr-min) % diff != 0)
+                return false;
+            else {
+                int index = (curr-min) / diff;
+                if (mem[index])
+                    return false;
+                mem[index] = true;
+            }
 
-
-
-
-
-
-
-
-
-
-
-
+        }
+        return true;
+    }
 
 
 }
