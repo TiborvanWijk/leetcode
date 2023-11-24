@@ -13726,4 +13726,44 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+
+//1561. Maximum Number of Coins You Can Get
+    public int maxCoins(int[] piles) {
+        Arrays.sort(piles);
+        int ans = 0;
+        int low = 0;
+        for (int i = piles.length-2; i >= low; i-=2){
+
+            ans += piles[i];
+            low++;
+        }
+        return ans;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
