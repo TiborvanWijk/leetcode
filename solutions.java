@@ -13766,8 +13766,56 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//849. Maximize Distance to Closest Person
+    public int maxDistToClosest(int[] seats) {
+        int[] distance = new int[seats.length];
+        int[] distance2 = new int[seats.length];
 
+        boolean foundPerson = false;
+        int count = 0;
+        for (int i = 0; i < seats.length; i++){
+            if (seats[i] == 0){
+                count++;
+            }
+            else {
+                count = 0;
+                foundPerson = true;
+            }
+            if (foundPerson){
+                distance[i] = count;
+            }
+            else {
+                distance[i] = Integer.MAX_VALUE;
+            }
+        }
 
+        foundPerson = false;
+        count = 0;
+        for (int i = seats.length-1; i >= 0; i--){
+            if (seats[i] == 0){
+                count++;
+            }
+            else {
+                count = 0;
+                foundPerson = true;
+            }
+            if (foundPerson){
+                distance2[i] = count;
+            }
+            else {
+                distance2[i] = distance[i];
+            }
+        }
+        int ans = Integer.MIN_VALUE;
+
+        for (int i = 0; i < seats.length; i++){
+            int min = Math.min(distance[i], distance2[i]);
+            if (min != 0){
+                ans = Math.max(ans, min);
+            }
+        }
+        return ans;
+    }
 
 
 
