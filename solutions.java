@@ -13754,16 +13754,10 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
             ans[0] += nums[i] - start;
         }
 
-        int prev = ans[0];
         for (int i = 1; i < nums.length; i++){
             int diff = nums[i] - nums[i-1];
 
-            prev -= diff * (nums.length-1-i);
-
-            if (i > 1){
-                prev += diff * (i-1);
-            }
-            ans[i] = prev;
+            ans[i] = ans[i-1] + diff * (i-1) - diff * (nums.length-1-i);
         }
         return ans;
     }
