@@ -13832,6 +13832,24 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//2079. Watering Plants
+    public int wateringPlants(int[] plants, int capacity) {
+
+        int ans = 0;
+        int bucket = capacity;
+        for (int i = 0; i < plants.length; i++){
+
+            if (bucket < plants[i]){
+                ans += i+i;
+                bucket = capacity;
+            }
+
+            bucket -= plants[i];
+            ans++;
+        }
+        return ans;
+
+    }
 
 
 
