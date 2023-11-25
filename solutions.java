@@ -13745,8 +13745,28 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1685. Sum of Absolute Differences in a Sorted Array
+    public int[] getSumAbsoluteDifferences(int[] nums) {
 
+        int[] ans = new int[nums.length];
+        int start = nums[0];
+        for (int i = 1; i < nums.length; i++){
+            ans[0] += nums[i] - start;
+        }
 
+        int prev = ans[0];
+        for (int i = 1; i < nums.length; i++){
+            int diff = nums[i] - nums[i-1];
+
+            prev -= diff * (nums.length-1-i);
+
+            if (i > 1){
+                prev += diff * (i-1);
+            }
+            ans[i] = prev;
+        }
+        return ans;
+    }
 
 
 
