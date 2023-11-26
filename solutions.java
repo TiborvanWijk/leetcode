@@ -13851,7 +13851,55 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
     }
 
+//    885. Spiral Matrix III
+    public int[][] spiralMatrixIII(int rows, int cols, int rStart, int cStart) {
+        int[][] ans = new int[rows*cols][2];
+        ans[0] = new int[] {rStart, cStart};
+        int index = 1;
 
+        int x = 1;
+        int y = 1;
+        boolean right = true;
+        boolean down = true;
+        while (index <= ans.length-1){
+
+            for (int i = 0; i < x; i++){
+                if (right){
+                    cStart++;
+                }
+                else {
+                    cStart--;
+                }
+                if (cStart >= 0 && cStart < cols && rStart >= 0 && rStart < rows){
+                    ans[index++] = new int[] {rStart, cStart};
+                }
+            }
+            right = !right;
+
+
+
+
+            for (int i = 0; i < y; i++){
+                if (down){
+                    rStart++;
+                }
+                else {
+                    rStart--;
+                }
+
+                if (rStart >= 0 && rStart < rows && cStart >= 0 && cStart < cols){
+                    ans[index++] = new int[] {rStart, cStart};
+                }
+            }
+            down = !down;
+
+
+            x++;
+            y++;
+        }
+
+        return ans;
+    }
 
 
 
