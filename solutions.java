@@ -13943,10 +13943,29 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//2443. Sum of Number and Its Reverse
+    private int reverseInt(int num){
 
+        int sum=0;
+        while(num!=0){
+            int last=num%10;
+            sum*=10;
+            sum+=last;
+            num/=10;
+        }
+        return sum;
+    }
 
+    public boolean sumOfNumberAndReverse(int num) {
 
+        for (int i = num/2; i <= num; i++){
+            if ((i + reverseInt(i)) == num){
+                return true;
+            }
+        }
 
+        return false;
+    }
 
 
 
