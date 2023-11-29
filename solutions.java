@@ -13917,8 +13917,28 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+    //1971. Find if Path Exists in Graph
+    public boolean validPath_(int n, int[][] edges, int source, int destination) {
+        boolean[] visited = new boolean[n];
+        visited[source] = true;
+        for (int i = 0; i < n; i++){
+
+            for (int j = 0; j < edges.length; j++){
+                if(visited[destination]){
+                    return true;
+                }
+                if (visited[edges[j][0]] || visited[edges[j][1]]){
+                    visited[edges[j][1]] = true;
+                    visited[edges[j][0]] = true;
+                }
+            }
+
+        }
 
 
+
+        return visited[destination];
+    }
 
 
 
