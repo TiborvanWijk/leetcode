@@ -13902,7 +13902,18 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+    //191. Number of 1 Bits
+    public int hammingWeight(int n) {
+        String bits = Integer.toBinaryString(n);
+        int ans = 0;
 
+        for (char bit : bits.toCharArray()){
+            if (bit == '1'){
+                ans++;
+            }
+        }
+        return ans;
+    }
 
 
 
