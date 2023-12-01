@@ -13833,6 +13833,11 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //2079. Watering Plants
+//    finds the number of steps needed to water all the plants
+//    plants[i] == amount of water needed capacity is max amount of water the bucket can hold
+//    bucket water amount must be equal or more to water the plant
+//     if there isnt enough water in the bucket then you have to walk to the beginning
+//    and back
     public int wateringPlants(int[] plants, int capacity) {
 
         int ans = 0;
@@ -13852,6 +13857,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 //    885. Spiral Matrix III
+
     public int[][] spiralMatrixIII(int rows, int cols, int rStart, int cStart) {
         int[][] ans = new int[rows*cols][2];
         ans[0] = new int[] {rStart, cStart};
@@ -13956,6 +13962,8 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
         return sum;
     }
 
+//    checks if there is a number that sums up to num when taking a nr and adding the reverse of it
+// example 102 + 201 = 303 so this would be true
     public boolean sumOfNumberAndReverse(int num) {
 
         for (int i = num/2; i <= num; i++){
