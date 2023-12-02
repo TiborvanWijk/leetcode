@@ -13977,8 +13977,31 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1160. Find Words That Can Be Formed by Characters
+    public int countCharacters(String[] words, String chars) {
 
+        Map<Character, Integer> countOfMain = new HashMap<>();
 
+        for (int i = 0; i < chars.length(); i++){
+            countOfMain.put(chars.charAt(i), countOfMain.getOrDefault(chars.charAt(i), 0) +1);
+        }
+        int total = 0;
+        for (String word : words){
+            Map<Character, Integer> currCounts = new HashMap<>();
+
+            for (int i = 0; i < word.length(); i++){
+                currCounts.put(word.charAt(i), currCounts.getOrDefault(word.charAt(i), 0) +1);
+            }
+            boolean valid = true;
+            for (char key : currCounts.keySet()){
+                if (countOfMain.getOrDefault(key, 0) < currCounts.get(key)){
+                    valid = false;
+                }
+            }
+            total += valid ? word.length() : 0;
+        }
+        return total;
+    }
 
 
 
