@@ -14011,8 +14011,20 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//2110. Number of Smooth Descent Periods of a Stock
+    public long getDescentPeriods(int[] prices) {
+        long ans = 1;
 
+        int prev = prices[0];
+        int length = 1;
+        for (int i = 1; i < prices.length; i++){
+            length = prev == prices[i] +1 ? length+1 : 1;
+            prev = prices[i];
+            ans += length;
 
+        }
+        return ans;
+    }
 
 
 
