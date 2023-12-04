@@ -14026,8 +14026,31 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
         return ans;
     }
 
+//2264. Largest 3-Same-Digit Number in String
+    public String largestGoodInteger(String num) {
 
+        char biggest = '0';
+        int currLength = 0;
+        char currNr = 'a';
+        int endIndex = 0;
+        for (int i = 0; i < num.length(); i++){
+            if (num.charAt(i) == currNr){
+                currLength++;
+            }
+            else {
+                currNr = num.charAt(i);
+                currLength = 1;
+            }
 
+            if (currLength == 3 && biggest <= currNr){
+                biggest = currNr;
+                endIndex = i;
+            }
+        }
+        if (endIndex == 0)
+            return "";
+        return num.substring(endIndex-2, endIndex+1);
+    }
 
 
 
