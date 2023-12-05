@@ -14142,10 +14142,22 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//2526. Find Consecutive Integers from a Data Stream
+    int value;
+    int k;
+    int lastBadValue = 0;
+    public DataStream(int value, int k) {
+        this.value = value;
+        this.k = k;
+    }
 
+    public boolean consec(int num) {
+        if (num == value)
+            lastBadValue++;
+        else lastBadValue = 0;
 
-
-
+        return lastBadValue >= k;
+    }
 
 
 
