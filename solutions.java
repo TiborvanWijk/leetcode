@@ -14084,4 +14084,111 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//1288. Remove Covered Intervals
+    public int removeCoveredIntervals(int[][] intervals) {
+        PriorityQueue<int[]> heap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+
+        for (int[] a : intervals)
+            heap.offer(a);
+
+        int[] curr = {-1,-1};
+        int ans = 0;
+        for (int i = 0; i < intervals.length; i++){
+            int[] interval = heap.poll();
+            if (curr[0] == -1){
+                curr = interval;
+            }
+            else {
+                if (curr[1] >= interval[1]){
+                    ans++;
+                }
+                else if (curr[0] == interval[0]){
+                    curr = interval;
+                    ans++;
+                }
+                else {
+                    curr = interval;
+                }
+            }
+
+        }
+        return intervals.length - ans;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
