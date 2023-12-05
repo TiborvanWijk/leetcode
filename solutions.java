@@ -14055,21 +14055,32 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //2246. Longest Path With Different Adjacent Characters
+//    one way version
+    int maxLength = 0;
     public int longestPath(int[] parent, String s) {
-        int maxLength = 0;
-        for (int i = parent.length-1; i >= 0; i++){
-            maxLength = Math.max(maxLength, logestPathCalc(parent, s, '1', i, 1));
+
+        for (int i = s.length()-1; i >= 0; i--){
+            longestPathCalc(parent, s, '1', i, 1);
         }
+
+        return maxLength;
     }
 
-    private int logestPathCalc(int[] parents, String s, char prev, int index, int length) {
-        if (s.charAt(index) == prev)
-            return length;
+    private void longestPathCalc(int[] parents, String s, char prev, int index, int length) {
+        if (index == -1){
+            return;
+        }
+
+        maxLength = Math.max(maxLength, length);
+
+        if (prev == s.charAt(index)){
+            length = 0;
+        }
 
         prev = s.charAt(index);
         index = parents[index];
 
-        return
+        longestPathCalc(parents, s, prev, index, length+1);
     }
 
 
