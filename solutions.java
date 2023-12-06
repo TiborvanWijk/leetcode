@@ -14159,8 +14159,23 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
         return lastBadValue >= k;
     }
 
+//1716. Calculate Money in Leetcode Bank
+    public int totalMoney(int n) {
+        int total = 0;
+        int amount = 0;
+        int extra = 0;
+        for (int i = 0; i < n; i++){
+            if (i % 7 == 0){
+                ++amount;
+                extra = 0;
+            }
+            total += amount + extra;
 
+            extra++;
+        }
 
+        return total;
+    }
 
 
 
