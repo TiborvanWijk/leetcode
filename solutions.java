@@ -14184,8 +14184,16 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1903. Largest Odd Number in String
+    public String largestOddNumber(String num) {
+        for (int i = num.length()-1; i >= 0; --i){
+            if ((int)num.charAt(i) % 2 == 1){
+                return num.substring(0, i+1);
+            }
+        }
 
-
+        return "";
+    }
 
 
 
