@@ -14207,7 +14207,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     public boolean increasingTriplet(int[] nums) {
         int num1 = Integer.MAX_VALUE;
         int num2 = Integer.MAX_VALUE;
-        
+
         for (int num : nums){
             if (num <= num1)
                 num1 = num;
@@ -14219,8 +14219,23 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
-
-
+//2414. Length of the Longest Alphabetical Continuous Substring
+    public int longestContinuousSubstring(String s) {
+        int maxStreak = 0;
+        int currStreak = 1;
+        char prev = s.charAt(0);
+        for (int i = 1; i < s.length(); ++i){
+            if (s.charAt(i) - prev == 1){
+                currStreak++;
+            }
+            else {
+                currStreak = 1;
+            }
+            prev = s.charAt(i);
+            maxStreak = Math.max(maxStreak, currStreak);
+        }
+        return Math.max(maxStreak, currStreak);
+    }
 
 
 
