@@ -14240,6 +14240,40 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//2766. Relocate Marbles
+    public List<Integer> relocateMarbles(int[] nums, int[] moveFrom, int[] moveTo) {
+
+        Set<Integer> positions = new HashSet<>();
+
+        for (int i = 0; i < nums.length; ++i)
+            positions.add(nums[i]);
+
+
+        for (int i = 0; i < moveFrom.length; ++i){
+            positions.remove(moveFrom[i]);
+            positions.add(moveTo[i]);
+        }
+        List<Integer> list = new ArrayList<>(positions);
+        Collections.sort(list);
+        return list;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
