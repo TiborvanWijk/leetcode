@@ -14261,6 +14261,46 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//606. Construct String from Binary Tree
+    StringBuilder preorderString = new StringBuilder();
+    public String tree2str(TreeNode root) {
+
+
+
+        preorderPath(root);
+
+
+        return preorderString.toString();
+    }
+
+    private void preorderPath(TreeNode root) {
+        preorderString.append(root.val);
+
+
+        if (root.left != null){
+            preorderString.append("(");
+            preorderPath(root.left);
+            preorderString.append(")");
+        }
+
+        if (root.right != null){
+
+            if (root.left == null){
+                preorderString.append("(");
+                preorderString.append(")");
+            }
+
+            preorderString.append("(");
+            preorderPath(root.right);
+            preorderString.append(")");
+        }
+
+    }
+
+
+
+
+
 
 
 
