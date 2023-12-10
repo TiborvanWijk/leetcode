@@ -14301,8 +14301,25 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//867. Transpose Matrix
+    public int[][] transpose(int[][] matrix) {
+        int[][] ans = new int[matrix[0].length][matrix.length];
+        int row = 0;
+        int col = 0;
 
+        for (int i = 0; i < matrix.length; ++i){
+            row = 0;
 
+            for (int j = 0; j < matrix[0].length; ++j){
+
+                ans[row++][col] = matrix[i][j];
+
+            }
+
+            ++col;
+        }
+        return ans;
+    }
 
 
 
