@@ -14328,8 +14328,15 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
-
-
+//1287. Element Appearing More Than 25% In Sorted Array
+    public int findSpecialInteger(int[] arr) {
+        int length = arr.length/4;
+        for (int i = 0; i < arr.length; ++i){
+            if (arr[i] == arr[i+length])
+                return arr[i];
+        }
+        return -1;
+    }
 
 
 
