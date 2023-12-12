@@ -14342,6 +14342,23 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//    1464. Maximum Product of Two Elements in an Array
+    public int maxProduct(int[] nums) {
+        int max = 0;
+        int max2 = 0;
+
+        for (int i : nums){
+
+            if (i > max){
+                max2 = max;
+                max = i;
+            }
+            else if (i > max2){
+                max2 = i;
+            }
+        }
+        return (max-1) * (max2-1);
+    }
 
 
 
