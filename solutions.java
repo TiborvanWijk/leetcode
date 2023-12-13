@@ -14362,6 +14362,33 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1582. Special Positions in a Binary Matrix
+    public int numSpecial(int[][] mat) {
+
+        int ans = 0;
+        for (int i = 0; i < mat.length; ++i){
+            for (int j = 0; j < mat[0].length; ++j){
+                if (mat[i][j] == 1 && isOnlyOne(mat, i, j)){
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+
+    private boolean isOnlyOne(int[][] mat, int i, int j) {
+        for (int r = 0; r < mat.length; ++r){
+            if(mat[r][j] == 1 && r != i){
+                return false;
+            }
+        }
+        for (int c = 0; c < mat[0].length; ++c){
+            if(mat[i][c] == 1 && c != j){
+                return false;
+            }
+        }
+        return true;
+    }
 
 
 }
