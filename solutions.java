@@ -14398,13 +14398,10 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
         int index = 0;
         while (index < nums.length-1){
             int extra = 1;
-            if (nums[index] == nums[index+1]){
-                while (index + extra < nums.length && nums[index] == nums[index+extra]){
-                    ++deleted;
-                    ++extra;
-                }
+            while (index + extra < nums.length && nums[index] == nums[index+extra]){
+                ++deleted;
+                ++extra;
             }
-
             index += 2 + extra-1;
         }
         return (nums.length-deleted) % 2 == 0 ? deleted : deleted+1;
