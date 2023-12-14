@@ -14416,7 +14416,44 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+    public int maxBuilding(int n, int[][] restrictions) {
+        PriorityQueue<int[]> heap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
 
+        for (int[] a : restrictions)
+            heap.offer(a);
+
+
+        int max = 0;
+        int curr = 0;
+        int index = 1;
+        while (index < 10){
+
+            if (!heap.isEmpty()) {
+
+                int[] restriction = heap.poll();
+
+                int location = restriction[0];
+                int allowedHeight = restriction[1];
+
+                while ((curr + 1) - (location-index) <= allowedHeight) {
+                    ++index;
+                    ++curr;
+                }
+
+
+                max = Math.max(max, curr);
+
+                if (curr > allowedHeight)
+                    curr = allowedHeight;
+                index = location;
+            }
+            else {
+                break;
+            }
+
+        }
+        return Math.max(curr + (n-index), max);
+    }
 
 
 
