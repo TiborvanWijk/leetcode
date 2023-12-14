@@ -14462,8 +14462,24 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1637. Widest Vertical Area Between Two Points Containing No Points
+    public int maxWidthOfVerticalArea(int[][] points) {
+
+        int[] x = new int[points.length];
 
 
+        for (int i = 0; i < points.length; ++i){
+            x[i] = points[i][0];
+        }
+
+        Arrays.sort(x);
+        int max = 0;
+
+        for (int i = 1; i < points.length; ++i){
+            max = Math.max(max, x[i]-x[i-1]);
+        }
+        return max;
+    }
 
 
 
