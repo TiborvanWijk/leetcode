@@ -13071,39 +13071,39 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1381. Design a Stack With Increment Operation
-    int[] stack;
-    int pointer = -1;
-    public CustomStack(int maxSize) {
-        stack = new int[maxSize];
-    }
-
-    public void push(int x) {
-        if (pointer == stack.length-1)
-            return;
-        pointer++;
-        stack[pointer] = x;
-    }
-
-    public int pop() {
-        if (pointer == -1)
-            return -1;
-
-        int ans = stack[pointer];
-        stack[pointer--] = 0;
-
-        return ans;
-    }
-
-    public void increment(int k, int val) {
-        if (k > stack.length){
-            k = stack.length;
-        }
-        for (int i = 0; i < k; i++){
-            if (stack[i] == 0)
-                break;
-            stack[i] += val;
-        }
-    }
+//    int[] stack;
+//    int pointer = -1;
+//    public CustomStack(int maxSize) {
+//        stack = new int[maxSize];
+//    }
+//
+//    public void push(int x) {
+//        if (pointer == stack.length-1)
+//            return;
+//        pointer++;
+//        stack[pointer] = x;
+//    }
+//
+//    public int pop() {
+//        if (pointer == -1)
+//            return -1;
+//
+//        int ans = stack[pointer];
+//        stack[pointer--] = 0;
+//
+//        return ans;
+//    }
+//
+//    public void increment(int k, int val) {
+//        if (k > stack.length){
+//            k = stack.length;
+//        }
+//        for (int i = 0; i < k; i++){
+//            if (stack[i] == 0)
+//                break;
+//            stack[i] += val;
+//        }
+//    }
 
 
 //2336. Smallest Number in Infinite Set
@@ -13413,33 +13413,33 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1980. Find Unique Binary String
-    Set<String> set = new HashSet<>();
-    String ans;
-    boolean found = false;
-    public String findDifferentBinaryString(String[] nums) {
-        set.addAll(Arrays.asList(nums));
-
-        findDifferentBinaryStringHelper(nums.length, new StringBuilder());
-        return ans;
-    }
-    public void findDifferentBinaryStringHelper(int size, StringBuilder currWord){
-        if (found)
-            return;
-
-        if (currWord.length() == size){
-            if (!set.contains(currWord.toString())){
-                ans = currWord.toString();
-                found = true;
-            }
-            return;
-        }
-        currWord.append("1");
-        findDifferentBinaryStringHelper(size, currWord);
-        currWord.setLength(currWord.length()-1);
-        currWord.append("0");
-        findDifferentBinaryStringHelper(size, currWord);
-        currWord.setLength(currWord.length()-1);
-    }
+//    Set<String> set = new HashSet<>();
+//    String ans;
+//    boolean found = false;
+//    public String findDifferentBinaryString(String[] nums) {
+//        set.addAll(Arrays.asList(nums));
+//
+//        findDifferentBinaryStringHelper(nums.length, new StringBuilder());
+//        return ans;
+//    }
+//    public void findDifferentBinaryStringHelper(int size, StringBuilder currWord){
+//        if (found)
+//            return;
+//
+//        if (currWord.length() == size){
+//            if (!set.contains(currWord.toString())){
+//                ans = currWord.toString();
+//                found = true;
+//            }
+//            return;
+//        }
+//        currWord.append("1");
+//        findDifferentBinaryStringHelper(size, currWord);
+//        currWord.setLength(currWord.length()-1);
+//        currWord.append("0");
+//        findDifferentBinaryStringHelper(size, currWord);
+//        currWord.setLength(currWord.length()-1);
+//    }
 
 
 
@@ -14486,8 +14486,21 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1436. Destination City
+    public String destCity(List<List<String>> paths) {
+        Set<String> set = new HashSet<>();
+
+        for (List<String> path : paths){
+            set.add(path.get(1));
+        }
+
+        for (List<String> path : paths){
+            set.remove(path.get(0));
+        }
 
 
+        return Collections.min(set);
+    }
 
 
 
