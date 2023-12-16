@@ -14503,6 +14503,42 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+//2374. Node With Highest Edge Score
+    public int edgeScore(int[] edges) {
+        long[] ans = new long[edges.length];
+
+        for (int i = 0; i < edges.length; ++i){
+            ans[edges[i]] += i;
+        }
+
+        long max = ans[0];
+        int index = 0;
+        for (int i = 1; i < ans.length; ++i){
+            if (ans[i] > max){
+                max = ans[i];
+                index = i;
+            }
+        }
+        return index;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
