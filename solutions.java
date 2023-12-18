@@ -14524,6 +14524,39 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1913. Maximum Product Difference Between Two Pairs
+    public int maxProductDifference(int[] nums) {
+        int min = Integer.MAX_VALUE;
+        int min2 = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        int max2 = Integer.MIN_VALUE;
+
+
+        for (int n : nums){
+
+            if (n > max){
+                max2 = max;
+                max = n;
+            }
+            else if (n > max2){
+                max2 = n;
+            }
+
+            if (min > n){
+                min2 = min;
+                min = n;
+            }
+            else if (min2 > n){
+                min2 = n;
+            }
+
+
+        }
+
+        return (max * max2) - (min * min2);
+
+    }
+
 
 
 
