@@ -14563,7 +14563,42 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+    //661. Image Smoother
+    public int[][] imageSmoother(int[][] img) {
 
+        int[][] ans = new int[img.length][img[0].length];
+
+
+        for (int i = 0; i < img.length; ++i){
+
+            for (int j = 0; j < img[0].length; ++j){
+
+                ans[i][j] = getAverage(img, i, j);
+
+            }
+
+        }
+
+        return ans;
+    }
+    private int[][] dir = {{-1,0}, {-1,1}, {0,1}, {1,1}, {1,0}, {1,-1}, {0,-1}, {-1,-1}};
+    private int getAverage(int[][] img, int i, int j) {
+
+        int total = img[i][j];
+        int added = 1;
+        for (int[] d : dir){
+
+            int r = i + d[0];
+            int c = j + d[1];
+
+            if (r >=0 && r < img.length && c >= 0 && c < img[0].length){
+                ++added;
+                total += img[r][c];
+            }
+        }
+
+        return total/added;
+    }
 
 
 
