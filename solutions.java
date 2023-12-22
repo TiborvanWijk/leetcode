@@ -14581,6 +14581,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
         return ans;
     }
+//    has all of the cordinates for its neighbours
     private int[][] dir = {{-1,0}, {-1,1}, {0,1}, {1,1}, {1,0}, {1,-1}, {0,-1}, {-1,-1}};
     private int getAverage(int[][] img, int i, int j) {
 
