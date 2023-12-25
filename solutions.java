@@ -14630,20 +14630,24 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//1038. Binary Search Tree to Greater Sum Tree
+    int sum = 0;
+    public TreeNode bstToGst(TreeNode root) {
 
+        changeValues(root);
+        return root;
+    }
 
+    private void changeValues(TreeNode root) {
+        if (root == null)
+            return;
 
+        changeValues(root.right);
+        sum += root.val;
+        root.val = sum;
 
-
-
-
-
-
-
-
-
-
-
+        changeValues(root.left);
+    }
 
 
 
