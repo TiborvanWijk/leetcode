@@ -14463,6 +14463,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1637. Widest Vertical Area Between Two Points Containing No Points
+//    TC -> O(N * 2) == O(N)
     public int maxWidthOfVerticalArea(int[][] points) {
 
         int[] x = new int[points.length];
@@ -14525,6 +14526,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1913. Maximum Product Difference Between Two Pairs
+//    TC -> O(N)
     public int maxProductDifference(int[] nums) {
         int min = Integer.MAX_VALUE;
         int min2 = Integer.MAX_VALUE;
@@ -14564,6 +14566,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
     //661. Image Smoother
+//    TC -> O(N * 9) == O(N)
     public int[][] imageSmoother(int[][] img) {
 
         int[][] ans = new int[img.length][img[0].length];
@@ -14602,12 +14605,14 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 //2706. Buy Two Chocolates
+//    shortest code for 2706 TC -> O(LOG N) average
     public int buyChoco(int[] prices, int money) {
         Arrays.sort(prices);
         return money >= (prices[0]+prices[1]) ? money-(prices[0]+prices[1]) : money;
     }
 
 //2706. Buy Two Chocolates optimised
+//    fastest code for 2706 TC -> O(N)
     public int buyChoco(int[] prices, int money) {
 
         int min1 = Integer.MAX_VALUE;
