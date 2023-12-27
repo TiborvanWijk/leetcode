@@ -14220,6 +14220,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //2414. Length of the Longest Alphabetical Continuous Substring
+//     TC -> O(N)
     public int longestContinuousSubstring(String s) {
         int maxStreak = 0;
         int currStreak = 1;
@@ -14241,6 +14242,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //2766. Relocate Marbles
+//    TC -> O(N*2)
     public List<Integer> relocateMarbles(int[] nums, int[] moveFrom, int[] moveTo) {
 
         Set<Integer> positions = new HashSet<>();
@@ -14262,6 +14264,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //606. Construct String from Binary Tree
+//    tc -> O(N)
     StringBuilder preorderString = new StringBuilder();
     public String tree2str(TreeNode root) {
 
