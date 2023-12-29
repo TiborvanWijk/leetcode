@@ -14491,6 +14491,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1436. Destination City
+//    TC -> O(N)
     public String destCity(List<List<String>> paths) {
         Set<String> set = new HashSet<>();
 
@@ -14508,6 +14509,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //2374. Node With Highest Edge Score
+//     TC -> O(N)
     public int edgeScore(int[] edges) {
         long[] ans = new long[edges.length];
 
@@ -14569,7 +14571,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
     //661. Image Smoother
-//    TC -> O(N * 9) == O(N)
+//    TC -> O(N * M * 9) == O(N)
     public int[][] imageSmoother(int[][] img) {
 
         int[][] ans = new int[img.length][img[0].length];
@@ -14639,6 +14641,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1038. Binary Search Tree to Greater Sum Tree
+//     TC -> O(N)
     int sum = 0;
     public TreeNode bstToGst(TreeNode root) {
 
@@ -14656,6 +14659,25 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
         changeValues(root.left);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
