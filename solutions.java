@@ -14665,7 +14665,20 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
-
+//1897. Redistribute Characters to Make All Strings Equal
+    public boolean makeEqual(String[] words) {
+        int[] a = new int[26];
+        for(String s : words){
+            for (char l : s.toCharArray())
+                ++a[l-'a'];
+        }
+        int length = words.length;
+        for (int nr : a){
+            if (nr % length != 0)
+                return false;
+        }
+        return true;
+    }
 
 
 
