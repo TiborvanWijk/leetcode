@@ -14681,8 +14681,27 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+//1624. Largest Substring Between Two Equal Characters
+    public int maxLengthBetweenEqualCharacters(String s) {
 
 
+        int[] minimums = new int[26];
+        Arrays.fill(minimums, Integer.MAX_VALUE);
+
+        int max = -1;
+        for (int i = 0; i < s.length(); ++i){
+            char l = s.charAt(i);
+
+            if (minimums[l-'a'] == Integer.MAX_VALUE){
+                minimums[l-'a'] = i;
+            }
+            else {
+                max = Math.max(max, i-(minimums[l-'a']+1));
+            }
+        }
+
+        return max;
+    }
 
 
 
