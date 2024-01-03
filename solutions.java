@@ -14666,6 +14666,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1897. Redistribute Characters to Make All Strings Equal
+//    TC -> O(N)
     public boolean makeEqual(String[] words) {
         int[] a = new int[26];
         for(String s : words){
@@ -14682,6 +14683,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1624. Largest Substring Between Two Equal Characters
+//    TC -> O(N)
     public int maxLengthBetweenEqualCharacters(String s) {
 
 
@@ -14707,6 +14709,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //455. Assign Cookies
+//    average TC -> O(LOG N) worst case -> O(N^2)
     public int findContentChildren(int[] g, int[] s) {
         Arrays.sort(g);
         Arrays.sort(s);
