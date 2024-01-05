@@ -12558,6 +12558,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //429. N-ary Tree Level Order Traversal
+//    TC -> O(N)
     public List<List<Integer>> levelOrder(Node root) {
         List<List<Integer>> list = new ArrayList<>();
 
@@ -12597,6 +12598,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //2428. Maximum Sum of an Hourglass
+//    TC -> O(N*M*&) == O(N*M)
     public int maxSum(int[][] grid) {
         int max = 0;
         for (int i = 0; i < grid.length-2; i++){
