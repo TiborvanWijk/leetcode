@@ -14732,8 +14732,30 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 
+//10035. Maximum Area of Longest Diagonal Rectangle
+    public int areaOfMaxDiagonal(int[][] dimensions) {
+
+        int max = 0;
+        double maxDiagonal = 0;
 
 
+        for (int[] a : dimensions){
+
+            double currDiagonal =  Math.sqrt(a[0]*a[0]+a[1]*a[1]);
+            if (maxDiagonal < currDiagonal){
+                max = a[0] * a[1];
+                maxDiagonal = currDiagonal;
+            }
+            else if (maxDiagonal == currDiagonal){
+                max = Math.max(max, a[0] * a[1]);
+                maxDiagonal = currDiagonal;
+
+            }
+        }
+
+
+        return max;
+    }
 
 
 
