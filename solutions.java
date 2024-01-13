@@ -14758,8 +14758,33 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+//1347. Minimum Number of Steps to Make Two Strings Anagram
+    public int minSteps(String s, String t) {
+
+        Map<Character, Integer> main = new HashMap<>();
+        Map<Character, Integer> second = new HashMap<>();
 
 
+        for (char c : t.toCharArray())
+            main.put(c, main.getOrDefault(c, 0)+1);
+
+        for (char c : s.toCharArray())
+            second.put(c, second.getOrDefault(c, 0)+1);
+
+        int ans = 0;
+        for (char c : second.keySet()){
+
+            int num1 = main.getOrDefault(c,0);
+            int num2 = second.getOrDefault(c,0);
+
+            if (num1 < num2){
+                ans += num2-num1;
+            }
+
+        }
+
+        return ans;
+    }
 
 
 
