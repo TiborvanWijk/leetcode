@@ -14787,7 +14787,48 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 
+    //2225. Find Players With Zero or One Losses
+    public List<List<Integer>> findWinners(int[][] matches) {
 
+        int[] counter = new int[100001];
+
+        List<List<Integer>> ans = new ArrayList<>();
+
+
+        for (int[] a : matches){
+
+            int win = a[0];
+            int loss = a[1];
+
+            int winStateIndex = counter[win];
+            int lossStateIndex = counter[loss];
+            counter[win] = winStateIndex == -1 || winStateIndex == -2 ? winStateIndex : 1;
+
+            counter[loss] = lossStateIndex == -1 || lossStateIndex == -2 ? -2 : -1;
+        }
+
+        List<Integer> wins = new ArrayList<>();
+        List<Integer> losses = new ArrayList<>();
+
+        for (int i = 0; i < counter.length; ++i){
+
+            int nr = counter[i];
+
+            if (nr == -1){
+                losses.add(i);
+            }
+            else if (nr == 1){
+                wins.add(i);
+            }
+
+
+        }
+
+
+        ans.add(wins);
+        ans.add(losses);
+        return ans;
+    }
 
 
 
