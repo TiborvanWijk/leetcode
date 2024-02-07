@@ -14029,6 +14029,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
     }
 
 //2264. Largest 3-Same-Digit Number in String
+//    TC -> O(N)
     public String largestGoodInteger(String num) {
 
         char biggest = '0';
@@ -14058,6 +14059,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 //2246. Longest Path With Different Adjacent Characters
 //    one way version
+//   O(N^2)
     int maxLength = 0;
     public int longestPath(int[] parent, String s) {
 
@@ -14106,6 +14108,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1288. Remove Covered Intervals
+// O(N + LOG N)
     public int removeCoveredIntervals(int[][] intervals) {
         PriorityQueue<int[]> heap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
 
@@ -14145,6 +14148,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //2526. Find Consecutive Integers from a Data Stream
+// O(1)
     int value;
     int k;
     int lastBadValue = 0;
@@ -14187,6 +14191,7 @@ public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
 
 
 //1903. Largest Odd Number in String
+// TC -> O(N)
     public String largestOddNumber(String num) {
         for (int i = num.length()-1; i >= 0; --i){
             if ((int)num.charAt(i) % 2 == 1){
